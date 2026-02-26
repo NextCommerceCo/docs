@@ -1,0 +1,25 @@
+---
+description: Share Storefront links with coupon codes pre-attached
+---
+
+# Shareable Coupon Links
+
+Make remarketing and discounting easy with Shareable Coupon Links.  Using these links with coupon codes pre-attached will automatically add the coupon code to a customer's cart during their shopping session.
+
+## Create a Shareable Link
+
+Follow these simple steps to create your Shareable Coupon Link:
+
+* From the **Offers** menu, select **Coupons**.&#x20;
+* Find the Coupon that you would like to share, and click on **View**
+* On the Coupon detail view, click the **Share** button&#x20;
+* Copy the generated link and share it with your customers
+
+{% hint style="info" %}
+To point the Shareable link to a specific Page on your Storefront add the following to the end of the link:\
+\
+&#xNAN;**?next=/page/** where /page/ is the target page on your Storefront.\
+\
+**Example**: https://\[yourstore].com/discount/COUPON\_CODE/?next=/contact\_us/
+{% endhint %}
+

@@ -1,0 +1,36 @@
+---
+description: Integrate and extend to third party platforms with webhooks
+---
+
+# Configure Webhooks
+
+## Webhooks
+
+Next Commerce stores feature a full suite of Webhook Events to subscribe to and receive updates as JSON data. Combining Webhook Events and the **Admin API** allows you to build two-way integrations, automations, and custom business logic for your store.
+
+Webhooks can be created via the Dashboard or via the [**Admin API**](https://developers.29next.com/docs/api/admin/).  Webhook event logs can also be viewed in the Dashboard to analyze, diagnose or troubleshoot receiving endpoints.
+
+### Creating a new Webhook
+
+Choose **Create Webhook** to set up a new webhook.  Input the full target URL to receive the data. The URL endpoint must accept JSON data and respond with a 200 status code.&#x20;
+
+Choose from the following **Event Triggers:**
+
+* cart.abandoned
+* customer.created
+* customer.updated
+* customer.deleted
+* order.created
+* order.updated
+* transaction.created
+* ticket.created
+* ticket.updated
+* subscription.created
+* subscription.updated
+* dispute.created
+* dispute.updated
+
+### How to View Webhook Logs in the Dashboard
+
+Navigate to **Settings > Webhooks** to view the list of all configured Webhooks.  View the detail and logs of each Webhook by choosing **Actions > Detail.**  Update the configuration of a webhook by choosing **Actions > Update.**
+

@@ -1,0 +1,18 @@
+---
+description: Create an XML data feed for Google Merchant Center
+---
+
+# Google Merchant XML Feed
+
+Your store has a built in [Google Merchant Feed ](https://support.google.com/merchants/answer/7439882)that allows you to easily import products to your Google Merchant Center and other integrations, and keep them in sync.&#x20;
+
+For your store's main domain, you can access the XML feed using the below URL paths:
+
+* **Base Feed Path** - `https://[your store domain.com]/catalogue/google.xml`
+
+### Country Specific Feeds
+
+Google Merchant Center allows you to setup [product feeds for specific countries](https://support.google.com/merchants/answer/7448571?hl=en). Your store's Google Merchant Feed fully supports through existing language localization prefix and a currency querystring, see examples below. &#x20;
+
+* **Specify Feed Currency** - `/catalogue/google.xml?currency=gbp`
+* **Specify Feed Language & Currency** - `/fr/catalogue/google.xml?currency=eur`

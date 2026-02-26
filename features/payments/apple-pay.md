@@ -1,0 +1,42 @@
+---
+description: Offer Apple Pay on your storefront checkout and over the API
+icon: apple
+---
+
+# Apple Pay
+
+Apple Pay is supported as a payment method on the Next Commerce Storefront Checkout and over the [**Admin API**](https://developers.29next.com/docs/api/admin/guides/apple-pay/).  Apple Pay allows customers using iOS, iPad, or Mac devices to securely and conveniently complete payments with a single tap.&#x20;
+
+Apple Pay is supported on the following gateways:
+
+* NEXT Payments
+* Adyen
+* Airwallex\*\*
+* Authorize.Net\*\*
+* Braintree
+* Checkout.com
+* NMI\*\*
+* Paysafe\*\*
+* Stripe Payment Intents
+* Test Gateway
+
+{% hint style="warning" %}
+\*\* Recurring transactions may not be supported on certain gateways.  Please contact support to confirm suport for Apple Pay recurring billing.
+{% endhint %}
+
+## Add Apple Pay to a Gateway
+
+When you've added a supported payment gateway, enabling Apple Pay is simple:
+
+* From the **Settings > Payments** view, choose a gateway ID
+* On the Gateway Detail view, under **Apple Pay,** click **Enable**
+
+{% hint style="info" %}
+Apple Pay registers your store's [**primary domain**](https://docs.nextcommerce.com/start-here/get-started/link-domains#domains) for authenticating payments.
+{% endhint %}
+
+### Use Apple Pay on External Funnels (API)
+
+{% hint style="info" %}
+See our [**Developer Documentation**](https://developers.nextcommerce.com/docs/admin-api/guides/apple-pay/) for instructions on implementing Apple Pay on the Admin API or Campaigns API.
+{% endhint %}

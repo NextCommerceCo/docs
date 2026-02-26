@@ -1,0 +1,37 @@
+---
+description: Manage individual subscriptions in your store
+---
+
+# Managing Subscriptions
+
+## Managing Subscriptions
+
+From the **Subscriptions** menu you can view and access all subscriptions, and perform certain management [**Actions**](./#subscriptions-list-actions) on one, or multiple subscriptions in bulk.
+
+## Subscription Details View
+
+Click **View** to see the Subscription Details view, which displays an overview of the Subscription, the items contained in it, the orders history, any events that have taken place during its lifecycle on the Timeline, with available actions to manage it.
+
+From the subscription detail view, there are several actions available to manage the subscription:
+
+* **Change Next Renewal Date** \
+  Manually specify the next renewal date to expedite or delay the next recurring order.<br>
+* **Change Schedule** \
+  Change the billing frequency to better match the customer’s needs for recurring intervals.<br>
+* **Process Renewal Now**\
+  Process the next recurring order immediately.<br>
+* **Change Payment Gateway**\
+  Change the gateway that will automatically bill the customer's next subscription order.<br>
+* **Cancel**\
+  Cancel the subscription and specify a **cancellation reason.**
+
+### Modify Subscriptions
+
+The **Items** table shows the Products, Price, and Quantity included in the subscription
+
+* Choose **Add Products** to add additional products to the subscription.<br>
+* Choose **Actions > Update** to modify the existing product's quantity or price.&#x20;
+
+All subscription renewal orders can be viewed on the **Timeline**, offering easy access to view and manage each order.
+
+Every update to a subscription is logged, with the **Timeline** providing a full log of details for a subscription’s history, changes, and orders. View and track all user initiated changes to a subscription, whether initiated by the customer or a Dashboard user.

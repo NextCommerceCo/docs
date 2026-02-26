@@ -1,0 +1,55 @@
+---
+description: Create Test Orders with Test Order Cards
+---
+
+# Test Orders
+
+Creating test orders is a very common exercise when testing new order confirmation designs, APIs, integrations, and other cases where you need to test your implementations.&#x20;
+
+{% hint style="info" %}
+Developers - see the [**Testing Guide**](https://developers.29next.com/docs/api/admin/guides/testing-guide/) to learn more about Test Orders, using the Test Gateway to simulate card Transactions, and associated concepts related to testing and validating your implementation.
+{% endhint %}
+
+## Create Test Orders
+
+To create a Test Order, use the following bankcard credentials to complete a checkout on your store.  These test credentials also work when creating test orders over the Admin API.
+
+| **Test Order Card**                                       | **Test Order Use Case** |
+| --------------------------------------------------------- | ----------------------- |
+| <mark style="color:blue;">**6011 1111 1111 1117**</mark>  | Standard Payment Flow   |
+| <mark style="color:green;">**6011 0009 9013 9424**</mark> | 3DS Payment Flow        |
+
+### **Deleting Test Orders**
+
+You can periodically delete all of the test orders from your store. From the [**Orders List**](./#orders-list-view) view select:
+
+* &#x20;**Actions > Delete Test Orders**
+
+Test Subscriptions can be deleted from the [**Subscriptions List**](../subscriptions-guide/#managing-subscriptions) view by selecting:
+
+* **Actions > Delete Test Subscriptions**
+
+{% hint style="info" %}
+Test Subscriptions will continue to automatically recur while in Active status, resulting in the creation of Test Orders.
+{% endhint %}
+
+
+
+## **Test Order Concepts**
+
+Test orders differ from real orders in a variety of ways:
+
+* Test orders are not included in orders, customers, and transactions reporting
+* Test orders are not automatically sent to [**fulfillment locations**](../../start-here/get-started/fulfillment-settings.md#fulfillment-locations) for shipping.  However, manually [**Requesting Fulfillment**](order-management.md#force-fulfillment) on a test order _will_ post the order to the fulfillment location.&#x20;
+* Test orders do not affect Inventory allocation counts
+* Test orders are excluded from Order List View exports
+* Test orders do not perform gateway transactions and are always successful
+
+{% hint style="info" %}
+For stores that have the [**Klaviyo**](../../apps/klaviyo.md) or [ **Everflow** ](../../apps/everflow.md)Apps enabled, note that Test Orders _do not_ trigger server to server (S2S) postbacks by default.  \
+\
+Choose the "Enable S2S postback for test orders" option in the Everflow App settings to fire postbacks on test orders.\
+\
+Choose the "Enable Sending Test Data to Klaviyo" option in the Klaviyo App settings to send test order data through to Klaviyo.
+{% endhint %}
+

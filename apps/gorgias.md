@@ -1,0 +1,35 @@
+---
+description: >-
+  Deliver exceptional customer service in a unified view of customer
+  interactions
+---
+
+# Gorgias
+
+Gorgias is an ecommerce helpdesk that that offers a holistic view of your customer, helping your customer service team deliver exceptional service.
+
+### Setup Gorgias Integration
+
+To setup Gorgias from within your Next Commerce store, navigate to **Apps > Gorgias** and choose **Install**. This will prompt you to authorize the integration. Once the integration permissions are accepted, head to the App Settings to input your Gorgias account subdomain.&#x20;
+
+Follow the prompts to give NEXT access to your Gorgias account, and you're setup and ready to go.&#x20;
+
+### NEXT Widgets in Gorgias
+
+There are 2 widgets displayed in the customer and ticket sidebar in Gorgias.&#x20;
+
+* **Customer** - displays an overview of the customer, with links directly to their customer profile inside your Next Commerce store.
+* **Orders** - displays order information for the customer's most recent 10 orders, with links to the orders inside your store, address details, and more.&#x20;
+
+{% hint style="info" %}
+NEXT widget data is pulled from your store when customers create new tickets or messages within Gorgias.&#x20;
+{% endhint %}
+
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+
+### Multiple Store Support
+
+The Next Commerce integration with Gorgias supports connecting multiple stores to a single Gorgias account to help merchants unify customer support across their various brands. &#x20;
+
+This means that for merchants with multiple NEXT stores connected by platform single sign on (SSO), you can re-use the same Gorgias account credentials across multiple stores.&#x20;
+

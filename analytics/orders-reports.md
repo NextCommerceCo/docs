@@ -1,0 +1,88 @@
+---
+description: View combined order metrics, with product and marketing source performance
+---
+
+# Orders Reports
+
+Orders reports allow you to view reporting based on Orders, aggregated by a variety of dimensions.  Choose **Filters** to narrow down the results by other metrics, and export the results by choosing **Download CSV**.
+
+{% hint style="info" %}
+Note: **Orders** differ from **Transactions**.  Transactions are unique payment events, while Orders result only from a completed purchase by a Customer, and may comprise multiple payment transactions. &#x20;
+{% endhint %}
+
+Drill-down on the report results to view a list of the unique orders, where you can further filter the results to isolate specific transactions by a variety of metrics.
+
+Orders Reports display the below aggregated data points for orders placed within the chosen date range.  Revenue, upsell, and refunds totals would be reflected only with respect to orders placed within the chosen date range.
+
+* Orders    &#x20;
+* Items
+* Customers
+* Upsell Items    &#x20;
+* Revenue    &#x20;
+* Upsell Revenue
+* Shipping Revenue&#x20;
+* Returns (Refunds)    &#x20;
+* Net Revenue&#x20;
+* Avg Order Value (AOV)
+
+Hover over the **Upsell Revenue, Shipping Revenue, Returns,** and **Net Revenue** values to view as percentages (%).
+
+{% hint style="info" %}
+On Orders Reports, the **Customers** column displays the unique count of customers with orders.  Since customers can have multiple orders each, this data point helps quickly identify the number of unique shoppers in the aggregate orders totals. &#x20;
+
+
+
+This count is helpful for performance marketers that pay commissions for acquiring new unique customers (CPA).&#x20;
+{% endhint %}
+
+#### Orders Overview
+
+View a breakdown of Orders performance across your entire store for the date range specified, along with a list of those.  Drill down on the results by a multitude of **Filters** or choose to **Download CSV** to export the data for custom analysis.&#x20;
+
+#### Orders by UTM
+
+View a breakdown of Orders by UTM\_Campaign, Source, Medium, Term, and Content values, based on the **`utm`** parameters that can optionally be passed into order **source attribution** fields.  Click on the Orders totals to drill down and view a list of individual transactions.
+
+#### Orders by Affiliate
+
+View a breakdown of Orders by Affiliate values, totalled based on the **`affiliate`** and **`subaffiliate`** values that can optionally be passed on order source attribution. Click on the Total Orders for each row to drill down and view a list of individual orders, or click on the Affiliate name to drill-down to display Sub-Affiliate, Sub-Affiliate1, 2, data.
+
+#### Orders by Product
+
+View a breakdown of orders by Product.
+
+Products with multiple Variants are grouped in this report view according to the parent product. &#x20;
+
+Note that the **Avg Value** displays the average revenue _per item_ within an order.  This differs from the Avg Order Value of other Orders reports, which display the average total order value (rather than per item).
+
+#### Orders by SKU
+
+View a breakdown of orders by SKU.
+
+A SKU is the code for the physical item that exists at your [**fulfillment location**](../start-here/get-started/fulfillment-settings.md#fulfillment-locations). &#x20;
+
+Note that the **Avg Value** displays the average revenue _per item_ within an order.  This differs from the Avg Order Value of other Orders reports, which display the average total order value (rather than per item).
+
+#### Orders by Tag
+
+View a breakdown of orders by the Tags that are associated to them.
+
+Tags can be applied to orders created over the API, or applied manually via the [**Order Details View**](../manage/orders/#tags).  Tags can be used to segment orders from various sources, channels, or to keep track of custom business logic for use downstream in reporting.&#x20;
+
+Orders can carry multiple Tags.  Orders with multiple Tags are displayed in the totals for each of those Tags.
+
+#### Orders by Funnel
+
+View a breakdown of Orders by Funnel, based on the **`funnel`** ID, which is automatically passed for orders created via internal [**Funnels**](../build-a-store/storefront/funnels.md)**,** or the funnel value that can optionally be passed into order **source attribution** for orders created on the Admin API.  Clicking on the values under the Orders column for each row, allows you to drill down and view a list of individual orders attributed to each funnel.
+
+#### Orders by Offer
+
+View a breakdown of Orders by Offer, based on the **`offers`** or **`vouchers`** parameter passed for orders created via the storefront or on the Admin API.  [**Offers**](../features/offers/#understanding-offers) are equivalent to a custom discount, incentive, or coupon logic that is applied to a cart or an order.  Clicking on the values under the Orders column for each row allows a drill-down view of a list of individual orders attributed to each Offer.
+
+#### Orders by Coupon
+
+View a breakdown of Orders by Coupon, based on the coupon code, also referred to as the **`vouchers`** parameter passed for orders created via the storefront or on the Admin API.  [**Coupons** ](../features/offers/coupons.md)are codes you create for your customers to apply to trigger straightforward discounts, or a variety of conditional promotional incentives.  Clicking on the values under the Orders column for each row allows a drill-down view of a list of individual orders attributed to each Coupon code.
+
+#### Orders by Country
+
+View a breakdown of Orders by Country, based on the shipping address of the customer on the associated order. Clicking on the values under the Orders column for each row allows a drill-down view of a list of individual orders attributed to each Offer.

@@ -1,0 +1,47 @@
+---
+description: Create, View, and Manage Customer Carts from the Dashboard
+---
+
+# Customer Carts
+
+## Customer Carts
+
+**Dashboard Users** such as Administrators, Customer Service or Sales Agents have the ability to open new carts for customers, or update a customer's existing cart to assist in the sales process.  Customers shopping on the storefront will see any changes made to their cart contents in real-time.
+
+From the Cart view, Dashboard users can also create a [**Check Out Link**](customer-carts.md#create-check-out-link-for-a-cart) to send to the customer to complete their own checkout from any device. Agent-order attribution is preserved for any Order Complete Link.
+
+#### Accessing Customer Carts
+
+From the [**Customer Details**](customer-carts.md#customer-details-view) view, choose **View Cart**.
+
+* Add/Update/Remove Products to update quantities
+* Set Schedule for a one-time sale or a recurring subscription
+* Add/Remove a Voucher or a Coupon Code to apply discounts to the cart
+* Under **Cart Actions,** choose [**Create Check Out Link**](customer-carts.md#create-order-complete-link-for-a-cart) to generate a unique checkout link for the cart, exactly as configured.  Use the Check Out Now button to complete the order using the persona of the customer.
+* Update and view **Source Attribution** and custom [**Metadata**](../../build-a-store/technical-settings/metadata-fields-and-tags.md) on the cart to manually add values to the cart, which carry through to the order.
+
+#### Adding Products to the Cart
+
+Users can search products by name or SKU to add them to the open cart. This is useful in assisting customers to build an order that meets conditional criteria of a Dynamic [**Offer**](../../features/offers/), for example to apply incentive-based discounts based on product quantities or price thresholds.
+
+### Create Check Out Link for a Cart
+
+When managing Open Carts, it may be useful to populate the cart with products, quantities, promo codes, and so on, then send the customer a checkout link where they can easily complete their order unassisted. Choose the **Create Check Out Link** to generate a unique Check Out Link, which can be automatically emailed to the customer, or copied and provided directly to the customer via chat or SMS.
+
+The customer simply has to follow the link to the secure checkout and complete their order.  When following the link, the customer will automatically be logged into their store account, and any previously saved customer details, such as name, email, and billing and shipping addresses, will be pre-populated along with the contents of the cart.
+
+#### Check Out Now
+
+Choosing **Check Out Now** opens a new tab to the checkout, allowing agent-assisted order placement, for example in a phone or chat-based order entry process.  This unique checkout session carries the persona of the end customer (not the agent), so it will appear that any order was placed by the customer themselves. &#x20;
+
+{% hint style="info" %}
+**Note:** On manually generated Check Out links, the customer's original IP address is preserved.  Orders placed by sales/support agents will carry the original customer's IP address on transactions.
+
+
+
+It's important to note that payment methods requiring the customer's direct input via a redirect flow, such as Paypal or Klarna, will not be possible for an agent to use to complete a purchase on the customer's behalf.  In these cases, agents should send the customers the unique Check Out Link to let them complete the order on their own.
+{% endhint %}
+
+#### Updating Cart Source Attribution
+
+Users can update Cart Source Attribution data that will carry over onto the Order when the customer completes their order. This is useful for tracking sales agent commissions, affiliate or sub-affiliate source performance, or other marketing channel attribution and reporting.  Source Attribution will automatically carry the Agent attribution field for any orders generated from an Open Cart view.

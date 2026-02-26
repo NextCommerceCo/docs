@@ -1,0 +1,45 @@
+---
+description: Create new orders from the Dashboard
+---
+
+# Create Orders
+
+To manually create a new order for a new or existing customer, from the **Orders** menu choose **Create Order.**
+
+### **Create Order Items**
+
+Start by selecting **Add Products** to add one or more items to the new order.  As you add products to the order, the **Payment** summary will automatically update the order's pricing.
+
+Once an item is added to the order, the following options will be available:
+
+* **Edit Price** - Enter a custom price for the item(s)
+* **Edit Quantity\*** - Adjust the quantity of the item(s)
+* **Edit Schedule** - For products allowed to be sold in subscriptions, adjust the billing interval
+* **Remove** - delete the line item
+
+{% hint style="info" %}
+\*The **Edit Quantity** amount is limited to the value of the [**Cart Max Item**](../../start-here/get-started/checkout-settings-and-policies.md#cart-max-item-quantity) limit, defined in the store's [**Checkout Settings**](../../start-here/get-started/checkout-settings-and-policies.md#checkout-settings).
+{% endhint %}
+
+### Customer
+
+From the **Customer** card, assign an existing customer to the order using the search field, or **Create New Customer** to open a form to create a new customer account. &#x20;
+
+{% hint style="info" %}
+The **Language** field defines the language of store [**notifications**](../../start-here/get-started/support-and-notifications.md#notifications) that will be sent to the customer when their order is created.
+{% endhint %}
+
+Once a **Customer** is selected, the Shipping Address and Billing Address fields will be displayed.  To add or modify the default addresses, select **Edit** on each card. &#x20;
+
+### **Payment**
+
+The Payment summary automatically calculates the order total, including discounts, shipping costs, and tax amounts.
+
+* **Edit Shippping** - change the shipping method or define a custom shipping price
+* **Add Discounts** - apply a promo code or a [**gift card**](../../build-a-store/catalogue/gift-cards.md), or select [**Site Offers**](../../features/offers/#understanding-offers) that apply dynamic discounts to the order
+
+When you're ready to process the order, select **Collect Payment**
+
+* **Enter Credit Card** - add the payment card credentials to bill for the order
+* **Mark as Paid** - mark the order as already paid by an **External** payment method
+

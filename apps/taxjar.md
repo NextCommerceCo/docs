@@ -1,0 +1,68 @@
+---
+description: Use TaxJar to manage the collection and reporting of sales tax
+---
+
+# TaxJar
+
+## Overview
+
+The **TaxJar** App seamlessly integrates your order data with TaxJar's tax management service.  TaxJar automatically calculates and applies the appropriate tax rates for your sales based on the origin of the sale, and the customer's location.&#x20;
+
+TaxJar allows you to collect appropriate sales tax on your orders, and track and manage the collected tax amounts in your TaxJar account.  In addition, the NEXT [**Tax Reports**](../analytics/tax-reports.md) will continue to show accurate sales tax data even when you use TaxJar.
+
+{% hint style="info" %}
+Enabling the **TaxJar App** will override the standard NEXT [**Tax Settings**](../build-a-store/catalogue/tax-settings.md)**.**  A TaxJar account is required to use the TaxJar App.
+{% endhint %}
+
+## Setting Up TaxJar
+
+Navigate to **Apps**, and choose to Install TaxJar.
+
+Once installed, select **TaxJar** and choose **Settings** from the Actions menu.
+
+Enable TaxJar to calculate taxes for your store. Enabling TaxJar will override any existing tax rates configured for your store, and only use TaxJar.&#x20;
+
+Input your account credentials in the TaxJar Settings:
+
+* **API Token**\
+  Your TaxJar API Token - this must be obtained from within your TaxJar account <br>
+* **Enable Logging** \
+  Enable logging to maintain and access logs for debugging purposes.  It is recommended to leave this disabled, and only enable it if you are having technical issues with TaxJar in your store.<br>
+* **Default Product Tax Code** \
+  The default TaxJar Product Tax code to use for your products. This code will be assigned to orders if a more specific Tax Code is not set.&#x20;
+
+### Setting Up Tax Codes
+
+To assign tax codes to your products, first navigate to your [**Catalogue**](../build-a-store/catalogue/#products) and choose a Product.  If you don't assign a [**Tax Code**](../build-a-store/catalogue/tax-settings.md) to a product, the "Default Product Tax Code" configured above will be applied.
+
+#### Assigning Tax Codes to Products
+
+On the Product Details tab, enter the Tax Code corresponding to the product.  To determine the appropriate Tax Code for a given product, consult TaxJar's [tax codes reference](https://support.taxjar.com/article/1054-product-category-library).  A Tax Code applied to a Product will also apply to any of its Variants.
+
+![Example Tax Code field on Product or Category Edit View](<../.gitbook/assets/image (57).png>)
+
+#### Assigning Tax Codes to Categories
+
+From the **Catalogue > Categories** view you can choose a Category and assign a Tax Code to cover all the Products within it. &#x20;
+
+In the case where a Product has a different Tax Code than the Category that is associated to it, the Product's Tax Code will take precedence.
+
+{% hint style="info" %}
+Note: if the TaxJar App is configured, the Tax Class on individual Products is overridden.  TaxJar will manage all tax calculation and reporting throughout your store.
+{% endhint %}
+
+### Handling Refunded Orders
+
+Next Commerce automatically syncs refunds applied against orders back to TaxJar.  Upon a refund being processed on an order for which tax was collected, the collected tax amounts will be reversed and synced to TaxJar.
+
+### Tax Reports
+
+To view a summary in the Dashboard of sales tax collected, use [**Tax Reports**](../analytics/tax-reports.md).  These reports will display the sales taxes collected on your store's orders whether you are using Next Commerce's built in Tax features, or the TaxJar App.
+
+{% content-ref url="../build-a-store/catalogue/tax-settings.md" %}
+[tax-settings.md](../build-a-store/catalogue/tax-settings.md)
+{% endcontent-ref %}
+
+{% content-ref url="../analytics/tax-reports.md" %}
+[tax-reports.md](../analytics/tax-reports.md)
+{% endcontent-ref %}
