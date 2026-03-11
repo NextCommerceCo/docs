@@ -12,6 +12,8 @@ Each Package carries a unique ID that will be referenced on the Campaigns API.
 The [**Campaigns API**](https://developers.nextcommerce.com/docs/api/campaigns/) reference guide is a useful resource for developers.
 {% endhint %}
 
+Package data — including names, prices, and images — is loaded dynamically on every page visit via the [`campaignRetrieve`](https://developers.nextcommerce.com/docs/api/campaigns/) API call (exposed as `getCampaignData()` in the Campaign Cart JS SDK). This means changes made in Campaigns App take effect immediately across the live funnel, with no code deploy required.
+
 Packages can be configured as one-time purchases, or subscriptions.
 
 ## Add Campaign Packages
@@ -24,7 +26,7 @@ Hint - you can pin your most important campaigns to the top of this list view.
 
 Next, select **Packages -** then **Add Package** and configure the following values:
 
-* **Package Name** - create a reference name for the package
+* **Package Name** - the name of this package. **This is a customer-facing value** — when using the Campaign Cart JS SDK or core templates, the Package Name is pulled from the API at page load and displayed directly on the live site. Use a clean, customer-ready name rather than an internal code or shorthand.
 * **Product** - select the product to assign to the package.  For products with multiple variants you can automatically create packages for every variant at this step, or opt to add them individually.
 * **Quantity** - define the quantity of the product the package will sell&#x20;
 * **Package Price** - enter the price that will be charged to the customer for the package.  For multi-quantity packages the per unit price is shown here.  The package per unit price must be divisible to two digits (.00)
@@ -38,7 +40,7 @@ For Campaigns using multiple currencies, your Package will automatically be assi
   * **Interval -** choose the billing interval (days, weeks, months) to use for each recurring billing cycle
   * **Interval Count -** enter the number of days / weeks / months for each recurring cycle (e.g. 30 days)
   * **Recurring Price** - enter the price for subscription renewals.  This can be the same price as the Package Price (initial price) or a different price. &#x20;
-* **Image** - by default the product's image from the [**store catalogue**](../../build-a-store/catalogue/) will be assigned to the package, but additional images can be uploaded and added to the package.&#x20;
+* **Image** - by default the product's image from the [**store catalogue**](../../build-a-store/catalogue/) will be assigned to the package. You can upload a different or custom image for this package. **Package images are displayed to customers on the live funnel** — they are served by the SDK and rendered on your checkout and landing pages. Use a high-quality, campaign-appropriate image if the creative requires it.
 
 When all fields are configured - **Save.**
 
