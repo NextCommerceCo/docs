@@ -14,9 +14,9 @@ Once you're ready to build out your new store, follow the links below:
 [get-started](start-here/get-started/)
 {% endcontent-ref %}
 
-To integrate custom web sites, campaigns, and marketing funnels to Next Commerce APIs, and learn more about storefront themes, apps, and developer tools:
-
-{% embed url="https://developers.nextcommerce.com" %}
+{% hint style="danger" icon="circle-bolt" %}
+To integrate custom web sites, campaigns, and marketing funnels to Next Commerce APIs, and learn more about storefront themes, apps, and developer tools, check out our [**Developers Portal**](https://developers.nextcommerce.com/)
+{% endhint %}
 
 {% hint style="info" %}
 Keep up to date on platform changes and feature updates on the [**Next Commerce Changelog**](https://changelog.nextcommerce.com/blog/)
