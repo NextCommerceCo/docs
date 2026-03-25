@@ -5,6 +5,10 @@ icon: '3'
 
 # Link Domains
 
+{% hint style="warning" %}
+**Using Campaigns?** Storefront domains and Campaign domains are configured in different places. This page covers **storefront domains** — used for checkout links, PayPal, Apple Pay, and your store's public-facing pages. To add or change a domain for a Campaign funnel, go to **Apps > Campaigns App > Settings > Add Domain**. See [**Campaigns App Domain Allowlist**](../../apps/campaigns-app/#configure-campaigns-app) for details.
+{% endhint %}
+
 ## Domains
 
 Next Commerce supports the use of vanity domain name(s) for your store.  Go to **Settings > Domains** to get your domain linked to your store.
@@ -12,9 +16,7 @@ Next Commerce supports the use of vanity domain name(s) for your store.  Go to *
 Add, Delete, and designate a domain as your store's Primary domain from this view.
 
 {% hint style="danger" %}
-Every store requires a Primary Domain to be set up for live commerce to be enabled.&#x20;
-
-If you use custom [**Campaigns**](https://developers.nextcommerce.com/docs/campaign-cart/) hosted on external web sites, you must whitelist the separate domain name(s) in [**Campaigns App Settings.**](../../apps/campaigns-app/#configure-campaigns-app)&#x20;
+Every store requires a Primary Domain to be set up for live commerce to be enabled.
 {% endhint %}
 
 The Primary Domain is used for [**Checkout Links**](../../manage/customers/checkout-links.md) created from customer carts via the Dashboard, as well as other links to your storefront, including express and redirect payment methods such as [**PayPal**](../../features/payments/paypal.md) and [**Apple Pay**](../../features/payments/apple-pay.md).
