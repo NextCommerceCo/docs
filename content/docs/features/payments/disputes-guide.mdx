@@ -1,0 +1,86 @@
+---
+title: "Disputes Guide"
+description: "Identify, manage, and resolve payment disputes"
+---
+## Disputes
+
+Payment disputes may arise when your customers challenge a payment transaction via their card or account issuer, if they feel they were illegitimate or unauthorized. Card or account-issuing institutions may also initiate disputes on the cardholder's behalf in certain circumstances.  Alternative payment methods like PayPal and Klarna also allow customers to dispute charges.  In all cases - given the financial impact and potential risk to payment processing accounts that disputes create - they should be avoided whenever possible, and should always be resolved with high priority.
+
+Next Commerce differentiates between Alerts, which are disputes that may be resolved by the merchant, typically by refunding the transaction; and Chargebacks, which bypass the merchant entirely to resolve in favor of the cardholder, pending a challenge by the merchant to the cardholder's issuing institution.
+
+<Callout type="info">
+
+Next Commerce is integrated to several third party Dispute Service Apps service that help prevent, fight, and analyze chargebacks.  Install your provider's app from the **Apps** menu.
+
+</Callout>
+
+## Disputes List View
+
+Find a list of your Disputes under the **Payments > Disputes** menu.
+
+From the Disputes List View, you can view a list of all the disputes in your store, which can be sorted and refined by clicking **Advanced** and applying filters.  You can also select a dispute to view the events associated to that dispute, including events performed by third party apps.
+
+<Callout type="info">
+
+Use [**Disputes Reports**](/docs/analytics/disputes-reports) to view and filter disputes aggregated by a variety of metrics
+
+</Callout>
+
+### Mark a Transaction as a Dispute
+
+There are several ways to associate a dispute to a payment transaction.
+
+From the [**Payments**](/docs/features/payments#transactions-detail-view) menu, select an individual Transaction, then choose **Actions > Create Dispute.**
+
+Alternatively, from the Disputes List View, create a dispute record by clicking **New Dispute.** In either case, you will be prompted to provide the following data points:
+
+* **Dispute Type:** specify whether the dispute is an Alert or a Chargeback
+* **ARN:** input the ARN, a reference number for a chargeback (optional)
+* **Case Number:** chargeback or alert reference number (optional)
+* **Dispute Amount:** the disputed amount
+* **Currency:** the currency of the disputed transaction
+* **Transaction:** match the dispute to a specific transaction
+* **Resolution:** choose from a list of resolutions (optional)
+
+### **Alerts**
+
+Prevention Alerts are notifications that merchants receive from card brands, indicating that a transaction is disputed.  A normal response to an Alert is to refund the identified transaction, with the aim of preventing a chargeback from being filed.  There are several types of alerts, such as Visa "TC40" and Mastercard "SAFE" alerts, as well as platforms like [**Mastercard Ethoca**](https://www.ethoca.com/), and [**Visa Rapid Dispute Resolution**](https://www.verifi.com/solutions-sellers/resolve-disputes/) that provide extended services related to pre-chargeback notifications.
+
+Next Commerce allows for Alerts to be marked as resolved and assigned outcomes.  These events may occur automatically if your store is using a third party disputes service app.
+
+| **Alert Resolution**       | **Description / Action**                           |
+| -------------------------- | -------------------------------------------------- |
+| Transaction Not Found      | Transaction not found                              |
+| Nothing To Do              | No action taken                                    |
+| Issued Full Refund         | Full Refund issued after the alert was created     |
+| Refunded Remaining Amount  | Refunded remaining balance on previous charge      |
+| Transaction 3DS Authorized | 3D-Secure transaction, do not refund               |
+| Previously Refunded        | Transaction was previously fully refunded          |
+| Unable to Refund           | Unable to create the refund due to a gateway error |
+| Other                      | Unknown / Other outcome                            |
+
+### **Chargebacks**
+
+Unlike a refund, which is issued by the merchant to the consumer, a chargeback immediately deducts a charged amount from the merchant - often without notice.  Chargebacks can cause merchants to incur fees, loss of merchandise, fines, and potential closure of payment processing accounts.  Chargebacks should be avoided whenever possible, and resolved with urgency in all cases.
+
+When a chargeback occurs, a merchant is allowed to respond (or "represent" the charge) with evidence showing that the consumer's dispute was incorrect or invalid.  An example is when a consumer files a chargeback for goods not received, and the merchant is able to prove delivery of the goods.
+
+In cases where the consumer's issuing institution reviews the evidence and agrees with the merchant's claim, the chargeback is reversed, and the merchant recovers the charged amount.  If the merchant does not respond to a chargeback, or represents the charge with insufficient evidence, the chargeback will be upheld and "lost".
+
+Chargeback Resolutions available in Next Commerce:
+
+| **Chargeback Resolution** | **Description**                 |
+| ------------------------- | ------------------------------- |
+| Won                       | Chargeback Represented and Won  |
+| Lost                      | Chargeback Represented and Lost |
+| Other                     | Unknown / Other outcome         |
+
+## Disputes API
+
+Using the NEXT Admin API, developers can create and manage disputes programmatically from any third party application.
+
+<Callout type="info">
+
+Developers and App providers, see [**Disputes Service Apps API Guide**](https://developers.nextcommerce.com/docs/apps/guides/dispute-service).
+
+</Callout>

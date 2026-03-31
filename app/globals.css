@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/black.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@source "../lib/source.ts";
+
+:root {
+  --color-fd-primary: #3c7dff;
+  --color-fd-primary-foreground: #ffffff;
+  --font-sans: var(--font-inter);
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+}
+
+a,
+button {
+  outline-color: var(--color-fd-primary);
+}
+
+@media (min-width: 1024px) {
+  #nd-docs-layout {
+    --fd-layout-width: 1600px !important;
+    --fd-sidebar-width: 320px !important;
+    --fd-toc-width: 300px !important;
+  }
+}
+
+div[style*="--callout-color"] {
+  background-color: color-mix(in oklch, var(--callout-color) 12%, transparent) !important;
+  border-color: color-mix(in oklch, var(--callout-color) 40%, transparent) !important;
+  box-shadow: none !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+}
+
+div[style*="--callout-color"] > svg {
+  fill: transparent !important;
+  color: var(--callout-color) !important;
+  flex-shrink: 0;
+}
+
+div[style*="--callout-color"] > div[role="none"] {
+  display: none !important;
+}
+
+div[style*="--callout-color"] {
+  --color-fd-muted-foreground: var(--color-fd-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

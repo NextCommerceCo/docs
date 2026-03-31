@@ -1,0 +1,9 @@
+{
+  "title": "Fulfillment Guide",
+  "pages": [
+    "index",
+    "fulfillment-statuses",
+    "location-based-routing",
+    "advanced-settings"
+  ]
+}

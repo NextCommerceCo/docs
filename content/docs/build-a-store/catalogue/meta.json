@@ -1,0 +1,14 @@
+{
+  "title": "Products Catalogue",
+  "pages": [
+    "index",
+    "add-products",
+    "inventory",
+    "product-variants",
+    "gift-cards",
+    "upsells-and-seo-settings",
+    "create-categories",
+    "google-merchant-xml-feed",
+    "tax-settings"
+  ]
+}

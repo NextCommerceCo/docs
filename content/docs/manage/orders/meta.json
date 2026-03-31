@@ -1,0 +1,14 @@
+{
+  "title": "Orders",
+  "pages": [
+    "index",
+    "create-orders",
+    "order-management",
+    "edit-orders",
+    "refund-items-and-orders",
+    "create-and-manage-returns",
+    "order-statuses",
+    "open-carts",
+    "test-orders"
+  ]
+}

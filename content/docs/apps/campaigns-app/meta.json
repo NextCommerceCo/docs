@@ -1,0 +1,9 @@
+{
+  "title": "Campaigns App",
+  "pages": [
+    "index",
+    "build-campaign-packages",
+    "campaigns-offers-and-discounts",
+    "campaign-analytics"
+  ]
+}

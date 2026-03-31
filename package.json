@@ -1,0 +1,38 @@
+{
+  "name": "nextcommerce-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "prebuild": "npm run import-gitbook && npm run audit-developer-links && npm run validate-links",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "next lint",
+    "import-gitbook": "node scripts/import-gitbook.mjs",
+    "validate-links": "node scripts/validate-links.mjs",
+    "audit-developer-links": "node scripts/audit-developer-links.mjs"
+  },
+  "dependencies": {
+    "fumadocs-core": "^16.6.14",
+    "fumadocs-mdx": "^14.2.9",
+    "fumadocs-ui": "^16.6.14",
+    "lucide-react": "^0.575.0",
+    "next": "^16",
+    "react": "^19.1",
+    "react-dom": "^19.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/mdx": "^2",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "next-validate-link": "^1.6.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

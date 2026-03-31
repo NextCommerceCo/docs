@@ -1,0 +1,9 @@
+{
+  "title": "Manage",
+  "pages": [
+    "customers",
+    "orders",
+    "subscriptions-guide",
+    "support"
+  ]
+}

@@ -1,0 +1,80 @@
+---
+title: "Custom Pages"
+description: "Create and manage storefront pages with customizable templates"
+---
+## External Marketing Funnels
+
+Next Commerce supports fully customized marketing funnels, landing pages, checkouts, and upsell paths.  These externally-hosted sites or apps can be integrated for order processing via the server-side [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), or the client-side [**Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api).
+
+For ease of integration, third-party campaign frameworks such as [Unify CMS](https://www.codeclouds.com/unify-cms/) and [CTR Wow](https://www.ctrwow.com/) are  supported.
+
+For best practices related to custom marketing funnels, see the [**Campaign Integration Guide**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout).
+
+<Callout type="info">
+
+For externally hosted funnels, it is recommended to pass [**Source Attribution**](/docs/features/offers/marketing-attribution) values including the **`funnel`** ID with the order data in your API post.  This data is useful to evaluate the performance of various marketing sources with [**reports**](/docs/analytics/orders-reports), as well as to trigger postbacks to third party tracking tools like [**Everflow**](/docs/apps/everflow).
+
+</Callout>
+
+### Creating Custom Pages
+
+There are two paths to developing and managing custom storefront pages and templates - either via the Dashboard, or by using NEXT [**Theme Kit**](https://developers.nextcommerce.com/docs/campaigns).
+
+To create a new page from the Dashboard, navigate to the **Storefront** menu and select **Pages.**
+
+Choose **New Page** and define your content:
+
+* Title
+* Content (includes HTML editor)
+* URL Path
+* (SEO) Meta Title
+* (SEO) Meta Description
+* Theme Template
+
+<Callout type="info">
+
+Learn more about custom [**Theme Templates**](https://developers.nextcommerce.com/docs/storefront/themes/guides/custom-page-templates) and storefront content at the Developers portal.
+
+</Callout>
+
+### Custom Page Content
+
+Once a Page has been created, the **Content** tab will appear.  From this Content tab add and edit the HTML content of the page directly.
+
+<Callout type="info">
+
+Use [**Checkout Links**](/docs/manage/customers/checkout-links) to create and place custom buttons or links directly to checkout, with the cart pre-loaded with items, and inclusive of marketing source attribution variables.
+
+</Callout>
+
+### Adding CSS & Assets
+
+Assets for your funnel page designs can be uploaded through the Dashboard's drag and drop uploader.
+
+Navigate to **Storefront > Assets** and choose **Upload Assets.**
+
+Once uploaded, all assets are automatically available on AWS CloudFront CDN for optimal load time performance globally.
+
+## Managing Funnels with Theme Kit
+
+Using [**Theme Kit**](https://developers.nextcommerce.com/docs/storefront/themes/theme-kit) offers much greater control over the development of Storefront themes and hosted funnels.
+
+<Callout type="info">
+
+Get started with [**Theme Kit**](https://developers.nextcommerce.com/docs/storefront/themes/theme-kit), OAuth tokens, and more.  When you're ready to develop funnels as a Theme Developer, refer to [**the Funnels guide.**](https://developers.nextcommerce.com/docs/campaigns)
+
+</Callout>
+
+Using **Theme Kit** allows local development using your favorite IDE. Running the **`ntk watch`** command will sync changes made locally to automatically update on the store.
+
+Create new templates directly in your IDE and make them available as page templates for new funnel creation.
+
+For example, creating a new template in the funnels directory with the naming convention _**`page.<template name>.html`**_ would make a template available as a [**Theme Template.**](/docs/build-a-store/storefront/funnels#creating-custom-pages)  Assets and directory structures can be created and managed locally.
+
+## ⚠️ Funnels App
+
+<Callout type="warn">
+
+The legacy **Funnels** section functionality has been deprecated in favor of the [**Campaigns App**](/docs/apps/campaigns-app).
+
+</Callout>

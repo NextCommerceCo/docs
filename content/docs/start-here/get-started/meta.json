@@ -1,0 +1,15 @@
+{
+  "title": "Get Started",
+  "pages": [
+    "index",
+    "general-settings-and-branding",
+    "invite-team-members",
+    "link-domains",
+    "add-locations-and-languages",
+    "checkout-settings-and-policies",
+    "customer-storefront-accounts",
+    "fulfillment-settings",
+    "support-and-notifications",
+    "add-payment-providers"
+  ]
+}

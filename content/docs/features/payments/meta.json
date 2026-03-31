@@ -1,0 +1,16 @@
+{
+  "title": "Payments Guide",
+  "pages": [
+    "index",
+    "3ds2-payments",
+    "paypal",
+    "apple-pay",
+    "google-pay",
+    "stripe-apms",
+    "authorize-and-capture-payments",
+    "disputes-guide",
+    "block-lists",
+    "payment-failure-cascading",
+    "transaction-response-codes"
+  ]
+}

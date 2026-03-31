@@ -1,0 +1,16 @@
+{
+  "title": "Analytics",
+  "pages": [
+    "customers-reports",
+    "dashboards",
+    "disputes-reports",
+    "fulfillment-reports",
+    "gift-card-reports",
+    "orders-reports",
+    "partner-marketing-reports",
+    "subscription-performance",
+    "support-ticket-reports",
+    "tax-reports",
+    "transactions-reports"
+  ]
+}

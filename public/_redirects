@@ -1,0 +1,7 @@
+/about-next /docs/about-next 301
+/analytics/* /docs/analytics/:splat 301
+/apps/* /docs/apps/:splat 301
+/build-a-store/* /docs/build-a-store/:splat 301
+/features/* /docs/features/:splat 301
+/manage/* /docs/manage/:splat 301
+/start-here/* /docs/start-here/:splat 301

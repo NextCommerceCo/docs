@@ -1,0 +1,9 @@
+{
+  "title": "Technical Settings",
+  "pages": [
+    "index",
+    "metadata-fields-and-tags",
+    "configure-webhooks",
+    "cart-js-api"
+  ]
+}

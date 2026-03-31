@@ -1,0 +1,72 @@
+---
+title: "Avalara AvaTax"
+description: "Simplify the collection and reporting of sales tax"
+---
+## Overview
+
+The Avalara AvaTax App seamlessly integrates your order data with Avalara's tax management service.  AvaTax automatically calculates and applies the appropriate tax rates for your sales based on the origin of the sale, and the customer's location.
+
+Avalara allows you to collect appropriate sales tax on your orders, and track and manage the collected tax amounts in your Avalara account.  In addition, the NEXT [**Tax Reports**](/docs/analytics/tax-reports) will continue to show accurate sales tax data even when you use Avalara.
+
+<Callout type="info">
+
+Enabling the Avalara App will override the standard Next Commerce [**Tax Settings**](/docs/build-a-store/catalogue/tax-settings).  An Avalara account is required to use the Avalara App.
+
+</Callout>
+
+## Setting Up AvaTax
+
+Navigate to **Apps > Avalara** and choose **Manage** from the Actions menu.
+
+Enable Enable AvaTax to calculate taxes for your store. Enabling AvaTax will override any existing tax rates configured for your store, and only use AvaTax.
+
+Input your account credentials in the AvaTax Settings:
+
+* **Account/Username**\
+  Your AvaTax account number <br />
+* **Key/Password** \
+  Your AvaTax license key. <br />
+* **Environment**\
+  Select your AvaTax environment, Sandbox (for testing purposes) or Production (for Live mode).  Be sure to use the appropriate account credentials for the selected environment. <br />
+* **Enable Logging** \
+  Enable logging to maintain and access logs for debugging purposes.  It is recommended to leave this disabled, and only enable it if you are having technical issues with AvaTax in your store.<br />
+* **Commit Transaction** \
+  Submitting transactions as “Committed” at the time an order will send them to AvaTax and they will not be editable later. Disable this setting to leave transactions as “Uncommitted” in AvaTax, requiring manual review and commitment in your AvaTax account. <br />
+* **Company Code** \
+  The company or organization from your AvaTax account to which you want to connect your store. <br />
+* **Default Product Tax Code** \
+  The default AvaTax Product Tax code to use for your products. This code will be assigned to orders if a more specific Tax Code is not set. <br />
+* **Default Shipping Tax Code** \
+  Your default shipping tax code, to be applied to all shipping methods in your store. <br />
+* **Default Currency**\
+  Your AvaTax account's default currency.
+
+### Setting Up Tax Codes
+
+To assign tax codes to your products, first navigate to your [**Catalogue**](/docs/build-a-store/catalogue#create-products) and choose a Product.  If you don't assign a Tax Code to a product, the "Default Product Tax Code" configured above will be applied.
+
+#### Assigning Tax Codes to Products
+
+On the Product Details tab, enter the Tax Code corresponding to the product.  To determine the appropriate Tax Code for a given product, consult AvaTax's [tax codes reference](https://taxcode.avatax.avalara.com/).  A Tax Code applied to a Product will also apply to any of its Variants.
+
+![Example Tax Code field on Product or Category Edit View](</docs-assets/image%20(57).png>)
+
+#### Assigning Tax Codes to Categories
+
+From the **Catalogue > Categories** view you can choose a Category and assign a Tax Code to cover all the Products within it.
+
+In the case where a Product has a different Tax Code than the Category that is associated to it, the Product's Tax Code will take precedence.
+
+<Callout type="info">
+
+Note: if the Avalara AvaTax App is configured, the Tax Class on individual Products is overridden.  AvaTax will manage all tax calculation and reporting throughout your store.
+
+</Callout>
+
+### Handling Refunded Orders
+
+Next Commerce automatically syncs refunds applied against orders back to AvaTax.  Upon a refund being processed on an order for which tax was collected, there will be a Return Invoice created for reversing the collected tax amounts in AvaTax.
+
+### Tax Reports
+
+To view a summary in the Dashboard of sales tax collected, use [**Tax Reports**](/docs/analytics/tax-reports).  These reports will display the sales taxes collected on your store's orders whether you are using NEXT's built in Tax features, or the Avalara AvaTax Extension.

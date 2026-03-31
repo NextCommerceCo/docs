@@ -1,0 +1,53 @@
+---
+title: "Authorize & Capture Payments"
+description: ">-"
+---
+By default, bankcard payment transactions charge the customer immediately.  In other words, the full amount of the payment is "captured" at the time of the transaction.  As an alternative payment flow, Next Commerce allows merchants to pre-authorize a customer's payment card,  then capture the funds later -  either automatically, at the time the order ships, or manually.
+
+## Understanding Credit Card Authorization
+
+Credit card issuers allow for a payment to be first authorized, which checks that the card is valid and has sufficient available funds to cover the payment amount, and reserves those funds for a later capture.  After the authorization, the merchant has a specific time period in which to capture the funds.  Once this authorization period elapses, the authorization expires and funds can no longer be captured.
+
+<Callout type="info">
+
+Next Commerce allows for an authorization period up to 7 days.
+
+</Callout>
+
+### Advantages of Authorizing Customer Cards
+
+Standard bankcard transactions charge the customer's card the full amount of the purchase, and require a refund transaction to be processed to reverse the payment.  By contrast, an authorization is not a final settlement, and can be voided at any time during the authorization period - usually without incurring a separate transaction fee.
+
+Merchants may find it advantageous to first authorize payments, and then simply void any subsequent order cancellations, before capturing the balance.
+
+In this way, merchants can mitigate  transaction fees related to refunds, and reduce the risk of chargebacks or disputes stemming from billing inquiries.  This also provides a window where merchants can review orders for potential fraud, or otherwise assist in meeting regulatory requirements for specific case-uses related to order fulfillment.
+
+<Callout type="info">
+
+Merchants who rely on post-checkout upsell flows may find it useful to _authorize_ a set amount of funds at the time of checkout, then _capture_ a sum equal to the order total including all selected upsells.\
+\
+On the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api), when creating an order or a payment, pass an **`authorize_value`** greater than the initial order value to allow for _capturing_ additional funds when upsells are added to an order.
+
+</Callout>
+
+## Set Auth/Capture Payment Flow
+
+Next Commerce sets the payment flow at the Gateway level.  To configure a Gateway for an Auth / Capture flow, navigate first to **Settings > Payments > Gateways** and select a Payment Account or External Gateway.  Choose **Actions > Update** to open the gateway configuration view for your selected Gateway.
+
+<Callout type="info">
+
+To set up a new gateway or payment account visit this [useful guide](/docs/features/payments#payment-gateways)
+
+</Callout>
+
+From this view, under **Payment Flow** choose **Auth/Capture.**
+
+**Auto Capture on Fulfillment** should be selected if you wish to Capture payments only when an order has been confirmed as shipped.  See [**Fulfillment Statuses**](/docs/manage/orders/order-statuses#fulfillment-statuses) for more details on order shipping events.
+
+Specify a value for **Delayed Capture Days** up to a maximum of 7 days.  If an authorized payment is not manually captured, it will be automatically captured at the end of this window.
+
+### Manually Capture or Void Payments
+
+If you wish to manually capture an authorized payment within the authorization period, navigate to the [**Order Details View**](/docs/manage/orders/order-management#order-details-view) and select **Actions > Capture Payments**.
+
+Alternatively, capture an authorized transaction on the [**Transactions Detail View**](/docs/features/payments#transactions-detail-view) by choosing **Actions > Capture Payment**.  To Void an authorization, choose **Actions > Void.**

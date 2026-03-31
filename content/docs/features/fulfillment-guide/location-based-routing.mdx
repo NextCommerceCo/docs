@@ -1,0 +1,89 @@
+---
+title: "Location-Based Routing"
+description: "Set up one or multiple fulfillment locations to orchestrate order fulfillment"
+---
+## Multi-**Location Fulfillment**
+
+Next Commerce supports fulfilling your products from multiple unique locations.  Further, a single order having items fulfilled from multiple locations (split fulfillments) is also supported.
+
+<Callout type="info">
+
+For more about setting up and managing fulfillment locations, check out the [**Fulfillment Settings**](/docs/start-here/get-started/fulfillment-settings#fulfillment-locations) set up documentation.
+
+</Callout>
+
+## Order Routing Rules
+
+When orders contain products that can be shipped from more than one location, the following rule set applies to select the fulfillment location.
+
+#### 1. Allowed Destination Country
+
+If [**Allowed Destination Countries**](/docs/start-here/get-started/fulfillment-settings#fulfillment-locations) are configured on a fulfillment location, then orders from the specified country will be priority routed to that location.
+
+> _Example_\
+> \
+> Three Fulfillment Locations are set up on the store:\
+> \
+> US Warehouse Fulfillment Location
+>
+> * Allowed Destination - United States
+>
+> Canada Warehouse Fulfillment Location
+>
+> * Allowed Destination - Canada
+>
+> China Warehouse Fulfillment Location
+>
+> * Allowed Destinations - All<br />
+>
+> For orders with shipping address = Mexico
+>
+> * Automatically ships from China because only China can ship to Mexico<br />
+>
+> For orders with shipping address = Canada
+>
+> * Can ship from Canada _or_ China.  Move to next rule - Available Inventory - to determine the fulfillment location to choose.
+
+#### **2. Available Inventory**
+
+Fulfillment locations are chosen first based on having available inventory (unless backorders are set as enabled at the product level).
+
+This primary logic allows for a smooth transition path when merchants wish to change fulfillment locations. They simply add their new Location for given products, and adjust inventory available as needed to transition order routing.
+
+#### 3. Minimize Split Fulfillments
+
+Products are grouped together when possible to ship from the same fulfillment location with an aim to reducing fulfillment costs.
+
+> _Example_
+>
+> Order has Product A and Product B. Product A has inventory at Fulfillment Locations X and Y, Product B has inventory at Fulfillment Location X only.
+>
+> Location X is chosen because both are available and the ordered items can ship together.
+
+#### 4. Minimize Cross Border Shipments
+
+Fulfillment locations within the same country as the customer's shipping address are preferred to reduce cross-border shipments.
+
+> _Example_
+>
+> Fulfillment locations are in Los Angeles and London, and the customer's shipping address is in New York.
+>
+> Los Angeles location is chosen because it's within the same country (the shipment wouldn't have to cross a border).
+
+#### 5. Nearest Location
+
+If multiple (or zero) fulfillment locations are available within the shipping country, the closest geographic location is selected to ship orders the shortest distance.
+
+> _Example_
+>
+> Order products are available in both Los Angeles and New York fulfillment locations, and the customer's shipping address is in Chicago.
+>
+> The New York fulfillment location would be chosen because it's geographically closer to Chicago.
+
+<Callout type="info">
+
+**Tip** for merchants drop-shipping from overseas providers:
+
+It's often useful to set the [**Fulfillment Location**](/docs/start-here/get-started/fulfillment-settings#fulfillment-locations) address to your physical Returns handling address, or a local address in the region of sales.
+
+</Callout>

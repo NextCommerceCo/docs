@@ -1,0 +1,11 @@
+{
+  "title": "Storefront",
+  "pages": [
+    "index",
+    "customer-accounts",
+    "support-content",
+    "funnels",
+    "blogs",
+    "storefront-redirects"
+  ]
+}
