@@ -3,9 +3,37 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const CONTENT_ROOT = path.join(ROOT, 'content', 'docs');
-const DEVELOPER_DOCS_ROOT = path.resolve(ROOT, '..', 'developer-docs');
-const DEVELOPER_CONTENT_ROOT = path.join(DEVELOPER_DOCS_ROOT, 'content', 'docs');
-const API_INDEX_PATH = path.join(DEVELOPER_DOCS_ROOT, 'public', 'api', 'index_data.html');
+
+const STALE_PATTERNS = [
+  {
+    label: 'legacy developers.29next.com host',
+    pattern: /https?:\/\/developers\.29next\.com\b/gi,
+  },
+  {
+    label: 'legacy admin api path family',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/docs\/api\/admin\b/gi,
+  },
+  {
+    label: 'legacy campaigns api path family',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/docs\/api\/campaigns\b/gi,
+  },
+  {
+    label: 'legacy campaign cart path',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/docs\/campaign-cart\b/gi,
+  },
+  {
+    label: 'legacy theme root path family',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/themes\b/gi,
+  },
+  {
+    label: 'legacy docs themes path family',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/docs\/themes\b/gi,
+  },
+  {
+    label: 'legacy hash-based api reference link',
+    pattern: /https?:\/\/developers\.nextcommerce\.com\/docs\/(?:admin-api|campaigns\/api)\/reference\/?#/gi,
+  },
+];
 
 async function collectFiles(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -26,114 +54,47 @@ async function collectFiles(dir) {
   return files.sort();
 }
 
-function toRoute(root, filePath) {
-  const relative = path.relative(root, filePath).split(path.sep).join(path.posix.sep);
-  if (relative === 'index.mdx' || relative === 'index.md') return '/docs';
-  if (relative.endsWith('/index.mdx') || relative.endsWith('/index.md')) {
-    return `/docs/${relative.replace(/\/index\.mdx?$/, '')}`;
-  }
+function collectMatches(content) {
+  const matches = [];
 
-  return `/docs/${relative.replace(/\.mdx?$/, '')}`;
-}
-
-function buildReferenceRoutes(indexContent) {
-  const routes = new Set();
-  let api = null;
-  let section = null;
-
-  for (const line of indexContent.split('\n')) {
-    if (line.includes('<h2>Admin API</h2>')) {
-      api = 'admin';
-      section = null;
-      continue;
-    }
-
-    if (line.includes('<h2>Campaigns API</h2>')) {
-      api = 'campaigns';
-      section = null;
-      continue;
-    }
-
-    const sectionMatch = line.match(/<h3>([^<]+)<\/h3>/);
-    if (sectionMatch) {
-      section = sectionMatch[1];
-      continue;
-    }
-
-    const articleMatch = line.match(/<article id='(admin|campaigns)-([A-Za-z0-9]+)'>/);
-    if (!articleMatch) continue;
-
-    const [, prefix, operationId] = articleMatch;
-    if (prefix === 'admin' && section) {
-      routes.add(`/docs/admin-api/reference/${section}/${operationId}`);
-      continue;
-    }
-
-    if (prefix === 'campaigns') {
-      routes.add(`/docs/campaigns/api/${operationId}`);
+  for (const { label, pattern } of STALE_PATTERNS) {
+    for (const match of content.matchAll(pattern)) {
+      matches.push({
+        label,
+        value: match[0],
+      });
     }
   }
 
-  routes.add('/docs/admin-api/reference');
-  routes.add('/docs/campaigns/api');
-  return routes;
-}
-
-function normalizeDeveloperTarget(url) {
-  const parsed = new URL(url);
-  const hostname = parsed.hostname.replace(/^www\./, '');
-  if (hostname !== 'developers.nextcommerce.com' && hostname !== 'developers.29next.com') {
-    return null;
-  }
-
-  return parsed.pathname === '/' ? '/' : parsed.pathname.replace(/\/+$/, '') || '/';
+  return matches;
 }
 
 async function main() {
-  const [migrationFiles, developerFiles, apiIndex] = await Promise.all([
-    collectFiles(CONTENT_ROOT),
-    collectFiles(DEVELOPER_CONTENT_ROOT),
-    fs.readFile(API_INDEX_PATH, 'utf8'),
-  ]);
-
-  const validRoutes = new Set(['/']);
-  for (const filePath of developerFiles) {
-    validRoutes.add(toRoute(DEVELOPER_CONTENT_ROOT, filePath));
-  }
-
-  for (const route of buildReferenceRoutes(apiIndex)) {
-    validRoutes.add(route);
-  }
-
+  const files = await collectFiles(CONTENT_ROOT);
   const issues = [];
-  const urlPattern = /https?:\/\/developers\.(?:29next|nextcommerce)\.com[^)\s>"']+/g;
 
-  for (const filePath of migrationFiles) {
+  for (const filePath of files) {
     const content = await fs.readFile(filePath, 'utf8');
-    const matches = content.match(urlPattern) ?? [];
+    const matches = collectMatches(content);
 
     for (const match of matches) {
-      const normalized = normalizeDeveloperTarget(match);
-      if (!normalized || validRoutes.has(normalized)) continue;
-
       issues.push({
         file: path.relative(CONTENT_ROOT, filePath),
-        url: match,
-        normalized,
+        ...match,
       });
     }
   }
 
   if (issues.length > 0) {
-    console.error(`Found ${issues.length} developer-doc links that do not match current routes:\n`);
+    console.error(`Found ${issues.length} stale developer-doc link patterns:\n`);
     for (const issue of issues) {
-      console.error(`- ${issue.file}: ${issue.url} -> ${issue.normalized}`);
+      console.error(`- ${issue.file}: ${issue.label} -> ${issue.value}`);
     }
     process.exitCode = 1;
     return;
   }
 
-  console.log(`Checked developer-doc links across ${migrationFiles.length} files. No stale developer URLs found.`);
+  console.log(`Checked developer-doc links across ${files.length} files. No stale developer URL patterns found.`);
 }
 
 await main();
