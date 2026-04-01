@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "prebuild": "npm run import-gitbook && npm run audit-developer-links && npm run validate-links",
     "build": "next build --webpack",
+    "smoke:cutover": "node scripts/smoke-cutover.mjs",
     "start": "next start",
     "lint": "next lint",
     "import-gitbook": "node scripts/import-gitbook.mjs",
