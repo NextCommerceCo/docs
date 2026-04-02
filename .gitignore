@@ -1,5 +1,6 @@
 .next
 .source
 .wrangler
+.gstack/
 node_modules
 out
