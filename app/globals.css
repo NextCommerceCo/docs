@@ -4,14 +4,18 @@
 
 @source "../lib/source.ts";
 
+/* Canonical token source: design-system/tokens/ + fumadocs-bridge.css */
+
 :root {
   --color-fd-primary: #3c7dff;
   --color-fd-primary-foreground: #ffffff;
+  --color-fd-idea: oklch(65% 0.2 145);
   --font-sans: var(--font-inter);
 }
 
 @theme inline {
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 body {
@@ -27,7 +31,7 @@ button {
   #nd-docs-layout {
     --fd-layout-width: 1600px !important;
     --fd-sidebar-width: 320px !important;
-    --fd-toc-width: 300px !important;
+    --fd-toc-width: 320px !important;
   }
 }
 
