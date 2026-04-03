@@ -5,6 +5,7 @@
     "subscription-settings",
     "managing-subscriptions",
     "pause-subscriptions",
+    "subscription-schedules",
     "cancellation-paths",
     "account-updater",
     "decline-salvage",
