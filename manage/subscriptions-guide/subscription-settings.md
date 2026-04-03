@@ -14,7 +14,7 @@ Subscriptions are visible to customers in their storefront **Customer Accounts**
 
 ### Cancel Reasons
 
-Set custom subscription [**Cancel Reasons**](./#subscription-cancellation-paths), which can be set to public or non-public.  These reasons are aggregated in [**Subscription Reports**](../../analytics/subscription-performance.md) and on the [**Subscriptions Dashboard**](../../analytics/dashboards.md#subscriptions-dashboard).  Set a Display Order to determine the order in which the (Public) reasons should appear to the customer in their storefront Customer Accounts, if they have access to self-service cancellation.
+Subscription cancellation reasons are standardized platform-wide. See [**Cancellation Paths**](cancellation-paths.md) for the full list.
 
 ### Failed Payments Handling
 

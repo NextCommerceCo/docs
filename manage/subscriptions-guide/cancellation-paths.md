@@ -1,23 +1,22 @@
 ---
-description: Capture subscription cancel reasons for use in reporting and analytics
-hidden: true
-noIndex: true
+description: Standardized subscription cancellation reasons used across the platform
 ---
 
 # Cancellation Paths
 
-## Subscription Cancellation Paths
+## Subscription Cancellation Reasons
 
-To customize subscription cancellation reasons, navigate to **Settings > Subscriptions**
+When a subscription is canceled — either by the customer via Customer Accounts or by a dashboard user — a cancellation reason is recorded. These reasons are standardized platform-wide.
 
-Add, Edit, or Remove custom Cancel Reasons to track the reasons why subscribers choose to cancel their subscriptions. &#x20;
+| Reason | Display Label |
+|---|---|
+| `not_satisfied_with_product` | Not satisfied with product quality |
+| `product_too_expensive` | Product is too expensive |
+| `cancel_recurring` | Changed my mind, cancel recurring |
+| `unwanted_subscription` | Didn't intend to sign up for a subscription |
+| `recurring_payment_declined` | Recurring payment declined |
+| `disputed_cancel_recurring` | Disputed cancel recurring |
+| `schedule_ended` | Subscription schedule ended |
+| `other` | Other |
 
-{% hint style="info" %}
-Note that only cancel reasons set to **“Public”** will be available for selection by customers when canceling subscriptions within their storefront [**Customer Accounts**](../../build-a-store/storefront/customer-accounts.md). &#x20;
-
-For Dashboard users, when manually canceling a customer’s subscription, all cancel reasons will be viewable and available for selection.
-{% endhint %}
-
-The Subscription Cancellation by Cancel Reason report can be viewed on the [**Subscribers Dashboard**](../../analytics/dashboards.md#subscriptions-dashboard) for easy reference and tracking.
-
-Customers may access their subscriptions to edit or cancel them from their storefront [**Customer Accounts**](../../build-a-store/storefront/customer-accounts.md).  Customers have the option of changing the next billing date, the billing frequency, and the quantity and items contained in their subscriptions.  (Note, this is optional depending on your storefront theme).
+Cancellation reason data is aggregated in [**Subscription Reports**](../../analytics/subscription-performance.md) and on the [**Subscriptions Dashboard**](../../analytics/dashboards.md#subscriptions-dashboard).
