@@ -1,0 +1,30 @@
+---
+title: "Pausing Subscriptions"
+description: "Pause and resume active subscriptions on behalf of customers or allow customers to pause themselves"
+---
+
+## Subscription Pause
+
+Subscriptions with a status of **Active** or **Retrying** can be paused. Pausing a subscription stops recurring billing only — all other subscription functionality continues to operate as normal.
+
+When a subscription is paused, its status changes to **Paused** and any retry data (retry date and retry count) is cleared, so the subscription resumes as a fresh **Active** subscription when unpaused.
+
+## Pause Types
+
+When pausing a subscription, choose one of two pause types:
+
+| Type | Behavior |
+|---|---|
+| **Indefinite** | Subscription remains paused until manually resumed. If not resumed within 6 months, the subscription is automatically canceled. |
+| **Pause Until** | Subscription automatically resumes on a selected date. The date must be within 6 months of the pause start date. |
+
+## Resuming a Subscription
+
+Resuming a subscription does not change the next renewal date. If the next renewal date is in the past at the time of resuming, the subscription will be renewed immediately on the day it is resumed.
+
+## How to Pause a Subscription
+
+Subscriptions can be paused from two places:
+
+- **Dashboard** — From the [**Subscription Detail**](/docs/manage/subscriptions-guide/managing-subscriptions#subscription-details-view) view, select **Pause** from the available actions.
+- **Customer Accounts** — Customers can pause their own subscriptions from their storefront [**Customer Accounts**](/docs/build-a-store/storefront/customer-accounts).
