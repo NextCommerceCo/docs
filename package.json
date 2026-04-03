@@ -4,12 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "npm run import-gitbook && npm run audit-developer-links && npm run validate-links",
-    "build": "rm -rf .next/cache && next build --webpack",
-    "smoke:cutover": "node scripts/smoke-cutover.mjs",
+    "prebuild": "npm run audit-developer-links && npm run validate-links",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
-    "import-gitbook": "node scripts/import-gitbook.mjs",
     "validate-links": "node scripts/validate-links.mjs",
     "audit-developer-links": "node scripts/audit-developer-links.mjs"
   },
