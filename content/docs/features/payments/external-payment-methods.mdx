@@ -1,0 +1,39 @@
+---
+title: "External Payment Methods"
+description: "Accept offline or custom payments and mark orders as paid via external methods"
+---
+
+External Payment Methods allow store administrators to define custom payment options for scenarios where payment is collected outside of the standard online checkout flow. This is useful for accepting bank transfers, cash on delivery, invoiced payments, or any other offline or external payment arrangement.
+
+When enabled, external payment methods appear as selectable options at the storefront checkout, alongside standard card and wallet payment methods.
+
+## Creating an External Payment Method
+
+To create an External Payment Method, navigate to **Settings > Payments** and find the **External Payment Methods** card. Choose **Add External Payment Method**.
+
+Configure the following fields:
+
+| Field | Description |
+|-------|-------------|
+| **Name** | The name of the payment method, displayed to customers at checkout (e.g. "Bank Transfer", "Pay by Invoice"). Supports localization — set per language with the **[en]** selector. |
+| **Code** | An internal identifier for the method. If left empty, a code is auto-generated from the name. Useful for API integrations that reference the method programmatically. |
+| **Additional Details** | Instructions or information displayed to customers when they select this payment method at checkout. Use this to explain how the payment works (e.g. bank account details, invoice terms). Supports localization. |
+| **Payment Instructions** | Instructions displayed to customers after they place an order with this payment method. Use this for post-order guidance such as where to send payment, reference numbers, or next steps. Supports localization. |
+
+## How It Works
+
+1. A customer selects the external payment method at checkout and places their order.
+2. The order is created with a **pending payment** status.
+3. The customer sees the **Payment Instructions** on the order confirmation page.
+4. Once payment is received outside the platform (e.g. via bank transfer), a store administrator manually marks the order as paid from the order detail view.
+
+## Use Cases
+
+- **Bank transfers** — display account details in the Additional Details field; confirm payment manually when funds arrive.
+- **Cash on delivery** — mark as paid once delivery is confirmed.
+- **Invoiced payments** — for B2B or wholesale orders where payment terms apply.
+- **Custom external flows** — any scenario where payment is handled by a system outside of the standard gateway integration.
+
+## API Support
+
+External Payment Methods are also available via the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout) for programmatic order creation. This allows integrations to create orders with external payment methods and manage payment status via the API — useful for custom checkout flows, POS integrations, or third-party order management systems.
