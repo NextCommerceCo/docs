@@ -1,23 +1,87 @@
 ---
-title: "Stripe APMs"
-description: "Offer Alternative Payment Methods via your Stripe account"
+title: "Alternative Payment Methods"
+description: "Offer Buy Now Pay Later, bank payments, and wallet methods alongside card payments"
 ---
-Next Commerce supports several regional alternative payment methods both in the storefront checkout and on custom checkouts on the Admin API:
 
-* Stripe Link
-* Klarna Payments
-* iDEAL
-* Bancontact
-* Sofort Banking
-* Giropay
-* SEPA Debit
+Next Commerce supports a range of alternative payment methods (APMs) beyond traditional bankcards, including Buy Now Pay Later (BNPL), bank transfers, and digital wallets. These methods are available on both the storefront checkout and for custom checkouts via the Admin API.
 
-These methods, along with [**Apple Pay**](/docs/features/payments/apple-pay) and [**Google Pay**](/docs/features/payments/google-pay) are available to enable as sub-methods under **Stripe** gateways, from the **Alternative Payment Methods** card.
+## Buy Now, Pay Later
 
-Note - these methods may be available in specific regions only.  Consult Stripe's documentation to determine which methods are available in each market.
+BNPL methods let customers split purchases into installments at checkout, increasing conversion rates and average order values.
+
+### Affirm
+
+**Affirm** enables customers to pay over time with transparent, simple financing — no hidden fees or compounding interest. Affirm is available to merchants processing via **NEXT Payments** or **Stripe**.
+
+- Available in the **United States** and **Canada**
+- Supports one-time purchases (not recurring subscriptions)
+- Customers choose from pay-in-4 (bi-weekly), monthly installments (3-36 months), or pay-in-full
+- Merchant receives full payment upfront — Affirm handles collections and risk
+- Minimum and maximum order amounts apply — consult Affirm's merchant documentation for current limits
+
+To enable Affirm, navigate to **Settings > Payments**, select your gateway, and enable **Affirm** from the **Alternative Payment Methods** card.
+
+### Klarna
+
+**Klarna** offers flexible payment options including Pay in 4, financing, and Pay Now (direct bank payment). Klarna is available to merchants processing via **NEXT Payments** or **Stripe**.
+
+- Available in **19+ markets** across North America, Europe, and Oceania
+- Supports Pay in 4 (interest-free installments), financing (6-36 months), and Pay Now
+- Supports **recurring subscriptions** — Klarna tokenizes the payment method for future charges
+- Merchant receives full payment upfront — Klarna handles collections and risk
+
+To enable Klarna, navigate to **Settings > Payments**, select your gateway, and enable **Klarna** from the **Alternative Payment Methods** card.
 
 <Callout type="info">
 
-For implementation details on custom checkouts via the Admin API, start with the [**External Checkout Flow**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), then use the payment-method guides for [**Link**](https://developers.nextcommerce.com/docs/admin-api/guides/link), [**Klarna**](https://developers.nextcommerce.com/docs/admin-api/guides/klarna), [**iDEAL**](https://developers.nextcommerce.com/docs/admin-api/guides/ideal), [**Bancontact**](https://developers.nextcommerce.com/docs/admin-api/guides/bancontact), and [**SEPA Direct Debit**](https://developers.nextcommerce.com/docs/admin-api/guides/sepa-debit).
+Klarna availability and payment options vary by market. Consult [**Klarna's country availability**](https://www.klarna.com/international/) for details on which options are available in each region.
 
 </Callout>
+
+## Digital Wallets
+
+### Stripe Link
+
+**Stripe Link** saves and autofills customer payment and shipping details across Stripe-powered checkouts, reducing friction and accelerating checkout.
+
+- Available to merchants using **Stripe** as their gateway
+- Customers save payment details once, then check out with one click on any Link-enabled site
+- Supports card payments saved to the customer's Link account
+- Available in all Stripe-supported markets
+
+To enable Link, navigate to **Settings > Payments**, select your Stripe gateway, and enable **Link** from the **Alternative Payment Methods** card.
+
+For [**Apple Pay**](/docs/features/payments/apple-pay) and [**Google Pay**](/docs/features/payments/google-pay), see their dedicated setup guides.
+
+## European Bank Payments
+
+The following bank payment methods are available for merchants using **Stripe** as their gateway. These are especially useful for merchants selling in European markets.
+
+| Method | Markets | Type |
+|--------|---------|------|
+| **iDEAL** | Netherlands | Bank redirect |
+| **Bancontact** | Belgium | Bank redirect |
+| **Sofort** | Germany, Austria, Belgium, Netherlands, Spain | Bank redirect |
+| **Giropay** | Germany | Bank redirect |
+| **SEPA Direct Debit** | Eurozone (36 countries) | Bank debit |
+
+To enable any of these methods, navigate to **Settings > Payments**, select your Stripe gateway, and enable the method from the **Alternative Payment Methods** card.
+
+<Callout type="info">
+
+These methods may be available in specific regions only. Consult Stripe's documentation for current availability and requirements per market.
+
+</Callout>
+
+## Custom Checkout (Admin API)
+
+All alternative payment methods listed above are available on the Admin API for custom campaign checkouts, not just the storefront.
+
+For implementation details, start with the [**External Checkout Flow**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), then use the payment-method guides:
+
+- [**Affirm**](https://developers.nextcommerce.com/docs/admin-api/guides/affirm)
+- [**Klarna**](https://developers.nextcommerce.com/docs/admin-api/guides/klarna)
+- [**Link**](https://developers.nextcommerce.com/docs/admin-api/guides/link)
+- [**iDEAL**](https://developers.nextcommerce.com/docs/admin-api/guides/ideal)
+- [**Bancontact**](https://developers.nextcommerce.com/docs/admin-api/guides/bancontact)
+- [**SEPA Direct Debit**](https://developers.nextcommerce.com/docs/admin-api/guides/sepa-debit)
