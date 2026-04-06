@@ -1,9 +1,45 @@
 ---
-title: "Storefront Redirects"
-description: "Implement custom URL redirects on your storefront"
+title: "Redirects"
+description: "Set up URL redirects with static paths or regular expressions"
 ---
-## Redirects
+URL redirects let you send visitors and search engines from one URL to another.  This is useful when you rename a page, move content to a new location, or need to point storefront paths to external resources.  Manage redirects from **Settings > Redirects**.
 
-URL Redirects can be created and managed via the dashboard **Settings > Redirects** to redirect traffic from one page in the storefront to another.
+## Creating a Redirect
 
-Redirects also support the usage of regular expressions (regex) to cover broad cases of redirects from one URL location to another.
+Choose **Add Redirect** to open the redirect form:
+
+* **Redirect From** — the source path on your storefront.  This must be an absolute path without the domain name (e.g. `/events/search/`).
+* **Redirect To** — the destination.  This can be an absolute path on your storefront (e.g. `/new-events/`) or a full URL including the domain (e.g. `https://cdn.29next.store/media/example/file.pdf`).
+
+### Regular Expressions
+
+Check the **Match using regular expressions** option to use regex patterns in both the From and To fields.  This lets you create flexible redirects that match multiple URLs with a single rule.
+
+Regex redirects support capture groups, so you can reference matched segments in the destination path using `$1`, `$2`, etc.
+
+**Examples:**
+
+| From | To | Effect |
+|------|----|--------|
+| `/blog/(.*)` | `/articles/$1` | `/blog/my-post` → `/articles/my-post` |
+| `/products/old-(.*)` | `/shop/$1` | `/products/old-widget` → `/shop/widget` |
+| `/support/(.*)-manual.pdf` | `https://cdn.29next.store/media/uploads/$1-manual-v2.pdf` | Redirect storefront document links to updated CDN files |
+
+<Callout type="warn">
+
+Invalid regular expressions are silently ignored.  Test your regex patterns before relying on them in production.
+
+</Callout>
+
+## Common Use Cases
+
+* **Page renames** — redirect the old slug to the new one so bookmarks and search engine links continue to work
+* **Domain migration** — redirect legacy paths from a previous storefront to their new locations
+* **Document hosting** — point short storefront paths (e.g. `/support/manual.pdf`) to files hosted on your [**CDN assets**](/docs/build-a-store/storefront/pages-and-assets#assets)
+* **SEO preservation** — when restructuring your site, redirects prevent broken links and preserve search engine ranking
+
+<Callout type="info">
+
+Redirects are evaluated on every storefront request that does not match an existing page.  Keep your redirect list focused on paths that are actually in use to avoid unnecessary processing.
+
+</Callout>

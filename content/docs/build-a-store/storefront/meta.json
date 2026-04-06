@@ -2,10 +2,13 @@
   "title": "Storefront",
   "pages": [
     "index",
+    "themes",
+    "pages-and-assets",
+    "blogs",
+    "reviews",
+    "seo",
     "customer-accounts",
     "support-content",
-    "funnels",
-    "blogs",
     "storefront-redirects"
   ]
 }

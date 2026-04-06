@@ -1,31 +1,70 @@
 ---
-title: "Blogs"
-description: "Create Blog articles on your storefront"
+title: "Blog"
+description: "Publish articles, manage categories, and create multi-language blog content"
 ---
-### Storefront **Blog**
+The built-in blog lets you publish articles on your storefront to drive traffic, engage customers, and support SEO.  Manage your blog from the **Storefront > Blog** menu, which has two tabs: **Posts** and **Categories**.
 
-Next Commerce supports a full-featured storefront Blog, where you can create, view, and edit Blog articles from the **Storefront > Blog** menu.
+## Categories
 
-First create **Categories** to organize your blogs into groups, which you can later assign to your Blog Posts.
+Start by creating categories to organize your blog posts.  From the **Categories** tab, choose **New Category** to add a category.
+
+The categories list shows each category's **Name**, **Date Created**, **Updated At**, **Number of Posts**, and actions to **View On Site**, **Edit**, or delete.
+
+Categories are used to group related posts and can appear as navigation filters on your storefront's blog section, depending on your theme.
+
+## Blog Posts
+
+### Posts List
+
+The **Posts** tab lists all blog posts with the following columns:
+
+* **Title** — the post headline (linked to the editor)
+* **Author** — the author's email or name
+* **Is Public** — whether the post is visible on the storefront
+* **Post Date** — the published date
+* **Actions** — View On Site, Edit, or delete
+
+Use the search bar to filter posts by title, and **Filters** for advanced filtering.
+
+### Creating a Post
+
+Choose **New Post** to open the post editor.  The editor has two main sections:
+
+**Post Content** (left panel):
+
+* **Title** — the post headline
+* **Content** — a rich text editor with formatting options (bold, italic, underline, lists, links, images, video embeds) and a **Code** view for direct HTML editing
+
+If your store supports [**multiple languages**](/docs/start-here/get-started/add-locations-and-languages#additional-languages), language tabs appear on the content editor and you can write translated versions of each post.
+
+**Detail** (right panel):
+
+* **Slug** — a custom URL path for the post (auto-generated from the title if left blank)
+* **Author** — select the post author from a dropdown
+* **Post Date** — the published date and time (can be set in the future for scheduled publishing)
+* **Is Public** — toggle to control whether the post is visible on the storefront
+* **Theme Template** — override the default blog template with a custom template from your theme, if available
+* **Categories** — assign one or more categories to the post
+* **Featured Image** — upload an image to display as the post's thumbnail and header image
+
+### Metadata
+
+Each blog post has an optional **Metadata** section where you can attach custom key-value data.  Metadata supports per-language values via language tabs.
+
+### SEO
+
+Each post has per-language **Meta title** and **Meta description** fields in the SEO section.  These control how the post appears in search engine results, separate from the post's visible title and content.  See the [**SEO guide**](/docs/build-a-store/storefront/seo) for best practices.
+
+### Revisions
+
+Under the **More Actions** menu, choose **View Revisions** to see a history of changes to the post.  Each revision is listed by user and timestamp, and you can roll back to any previous version.
+
+## Blog and Themes
+
+Blog posts published to your storefront carry the styles of your active [**Store Theme**](/docs/build-a-store/storefront/themes).  If your theme includes custom blog templates, you can select them from the **Theme Template** dropdown in the post editor.
 
 <Callout type="info">
 
-For more on Storefront Themes, visit Next Commerce [**Theme Developers**](https://developers.nextcommerce.com/docs/storefront/themes) docs.
+For more on creating custom blog templates, visit the [**Theme Developers**](https://developers.nextcommerce.com/docs/storefront/themes/guides/custom-page-templates) documentation.
 
 </Callout>
-
-### Creating Blog Posts
-
-From the **Storefront > Blog** menu, on the Posts tab, choose **New Post** to create a new blog article, or choose **Actions > Edit** on an existing post to edit the blog.  Choose from the following options:
-
-* Slug (a custom short-form URL)
-* Author
-* Feature Image
-* Post Date
-* Publish as Public / Non-Public
-* Assign Categories
-* SEO & SEO Meta Settings
-
-Write your Blog in the **Content** section, and switch to the Code view to view and edit custom HTML.  If your store supports [multiple languages](/docs/start-here/get-started/add-locations-and-languages#additional-languages), you may input translated content via the language tabs.
-
-Blog posts published to your storefront carry the default **Store Theme** styles, unless you've created custom [Page Templates](https://developers.nextcommerce.com/docs/storefront/themes/guides/custom-page-templates) in your theme. Apply custom templates from the Theme Template selector, if available.

@@ -1,0 +1,71 @@
+---
+title: "Pages & Assets"
+description: "Create custom content pages and manage storefront media assets"
+---
+## Custom Pages
+
+Create custom content pages on your storefront for policies, landing pages, about pages, and any other content your store needs.  Navigate to **Storefront > Pages** to view and manage your pages.
+
+The pages list shows each page's **Title**, **Slug** (the URL path), and actions to **View On Site**, **Edit**, or delete the page.  Use the search bar to filter pages by title.
+
+### Creating a Page
+
+Choose **New Page** to create a new page.  The page editor has two sections:
+
+**Page Content** (left panel):
+
+* **Title** — the page title displayed to customers and used as a fallback for the SEO meta title
+* **Content** — a rich text editor with formatting options (bold, italic, underline, lists, links, images, video embeds) and a **Code** view for direct HTML editing
+
+**Detail** (right panel):
+
+* **Slug** — the URL path for the page (e.g. `about-contact` makes the page available at `yourstore.com/pages/about-contact/`)
+* **Theme Template** — override the default page template with a custom template from your theme, if available
+
+<Callout type="info">
+
+If your store supports [**multiple languages**](/docs/start-here/get-started/add-locations-and-languages#additional-languages), language tabs appear on the content editor so you can create translated versions of each page.
+
+</Callout>
+
+### Template Tags
+
+Page content supports template tags that pull values from your store settings.  For example, a Privacy Policy page can use `{{ privacy_policy }}` to automatically render the policy text defined in **Settings > Policies**, keeping the storefront page in sync with your store configuration without manual updates.
+
+### Metadata
+
+Each page has an optional **Metadata** section where you can attach custom key-value data.  Choose **Add metadata definition** to create custom metadata fields for the page.  Metadata supports per-language values.
+
+### Revisions
+
+Under the **More Actions** menu, choose **View Revisions** to see a history of changes to the page.  Each revision is listed by user and timestamp, and you can roll back to any previous version.
+
+## Assets
+
+Upload and manage images, documents, and media files via the **Storefront > Assets** menu.
+
+### Uploading Assets
+
+Choose **Upload Assets** and drag files into the upload area, or select files from your device.  Supported file types include images (PNG, JPG, WebP), PDFs, and video files (MP4, WebM).
+
+All uploaded assets are automatically deployed to a high-performance CDN, accessible at a unique `cdn.29next.store` URL for your store.  This ensures fast load times for customers across all regions.
+
+<Callout type="info">
+
+CDN asset URLs are not limited to your storefront.  You can reference them in email templates, external landing pages, marketing materials, or anywhere else you need hosted media.
+
+</Callout>
+
+### Managing Assets
+
+The assets list shows each file's name, thumbnail preview (for images), upload date, and actions to **View** or delete the file.  Use the search bar to find assets by name.
+
+Choosing **View** opens the asset and displays its CDN URL, which you can copy and use in page content, theme templates, or external properties.
+
+## Custom Checkout Pages
+
+It is technically possible to build custom storefront pages that serve as checkout paths using the built-in page editor and theme templates.  However, the modern approach to custom funnels and marketing landing pages is the [**Campaigns App**](/docs/apps/campaigns-app) ecosystem, which provides purpose-built tools for external checkout integration via the [**Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api) or server-side [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout).
+
+<Cards>
+  <Card title="Campaigns App" description="Purpose-built tools for marketing funnels, landing pages, and external checkout" href="/docs/apps/campaigns-app" />
+</Cards>

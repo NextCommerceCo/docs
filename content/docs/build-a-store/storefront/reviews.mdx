@@ -1,0 +1,60 @@
+---
+title: "Reviews"
+description: "Manage product reviews, moderation workflows, and customer feedback"
+---
+Product reviews let your customers share feedback on purchases, building trust and driving conversions on your storefront.  Manage reviews from the **Storefront > Reviews** menu.
+
+## Reviews List
+
+The reviews list displays all reviews with the following columns:
+
+* **Title** — the review headline
+* **Product** — the product the review is for (linked to the product page)
+* **User** — the reviewer's name
+* **Score** — rating out of 5.0
+* **Votes** — helpfulness votes from other customers
+* **Status** — moderation status (e.g. "Requires moderation", "Approved", "Rejected")
+* **Date Created**
+
+Use the **search bar** to find reviews by keyword, and **Filters** to narrow by date, status, product, score, or other criteria.
+
+### Bulk Actions
+
+Select one or more reviews using the checkboxes, then use the **Actions** dropdown to approve or reject them in bulk.  This is the fastest way to moderate a queue of incoming reviews.
+
+## Review Detail
+
+Click on a review title to open the detail view.  The left panel shows editable fields:
+
+* **Title** — the review headline (editable for moderation)
+* **Body** — the full review text
+* **Score** — rating dropdown (adjustable)
+* **Status** — set to Approved, Requires moderation, or Rejected
+
+The right **Review Detail** panel shows read-only information: **Customer** name, **Product** link, **Date**, and current **Status**.
+
+## Moderation
+
+By default, new reviews are submitted with a "Requires moderation" status and will not appear on the storefront until approved.
+
+To configure moderation behavior, go to **Settings > General Settings** and look for the **Moderate Reviews** option.  When enabled, all reviews must be approved by an administrator before they are published on the storefront.
+
+<Callout type="info">
+
+You can edit the title, body, and score of a review before approving it.  This is useful for correcting formatting issues or removing inappropriate content while preserving the customer's feedback.
+
+</Callout>
+
+## Who Can Leave Reviews
+
+Reviews include built-in validation to prevent spam and ensure quality feedback:
+
+**Allowed:**
+* Logged-in registered users
+* Non-logged-in customers who have placed at least one order (identified by email)
+
+**Not allowed:**
+* Users who do not exist in the system
+* Leads who have never completed an order (e.g. abandoned checkout with email only)
+
+This order-based validation ensures that only real customers can leave reviews, without requiring every reviewer to create an account.
