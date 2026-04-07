@@ -1,13 +1,13 @@
 ---
 title: "Pausing Subscriptions"
-description: "Pause and resume active subscriptions on behalf of customers or allow customers to pause themselves"
+description: "Pause and resume active subscriptions, including scheduled resume dates"
 ---
 
 ## Subscription Pause
 
-Subscriptions with a status of **Active** or **Retrying** can be paused. Pausing a subscription stops recurring billing only — all other subscription functionality continues to operate as normal.
+Subscriptions with a status of **Active** or **Retrying** can be paused. Pausing a subscription stops recurring billing only. All other subscription functionality continues to operate as normal.
 
-When a subscription is paused, its status changes to **Paused** and any retry data (retry date and retry count) is cleared, so the subscription resumes as a fresh **Active** subscription when unpaused.
+When a subscription is paused, its status changes to **Paused** and any retry data (retry date and retry count) is cleared.
 
 ## Pause Types
 
@@ -15,12 +15,31 @@ When pausing a subscription, choose one of two pause types:
 
 | Type | Behavior |
 |---|---|
-| **Indefinite** | Subscription remains paused until manually resumed. If not resumed within 6 months, the subscription is automatically canceled. |
-| **Pause Until** | Subscription automatically resumes on a selected date. The date must be within 6 months of the pause start date. |
+| **Indefinite** | Subscription remains paused until manually resumed. When you resume it, you choose the next renewal date. If not resumed within 6 months, the subscription is automatically canceled. |
+| **Pause Until** | Subscription automatically resumes on the selected date. The date must be within 6 months of the pause start date. |
+
+### Pause Until
+
+Use **Pause Until** when you already know the day the subscription should come back.
+
+The date you choose becomes the resume date, and the subscription automatically returns to **Active** on that date.
+
+![Pause Subscription dialog with a custom resume date](</docs-assets/subscription-pause-until.png>)
+
+### Pause Indefinitely
+
+Use **Indefinitely** when you want to stop billing without picking a resume date yet.
+
+The subscription stays paused until someone clicks **Resume**. If it is not resumed within 6 months, it is automatically canceled.
+
+![Resume Subscription dialog with a future renewal date](</docs-assets/subscription-resume-date.png>)
 
 ## Resuming a Subscription
 
-Resuming a subscription does not change the next renewal date. If the next renewal date is in the past at the time of resuming, the subscription will be renewed immediately on the day it is resumed.
+Resuming works differently depending on how the subscription was paused:
+
+- If the subscription was paused with a resume date, it will automatically resume on that date.
+- If the subscription was paused indefinitely, click **Resume** and choose the future **Next Renewal Date** that should reactivate the subscription.
 
 ## How to Pause a Subscription
 
