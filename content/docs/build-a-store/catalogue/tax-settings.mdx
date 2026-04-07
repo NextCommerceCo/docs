@@ -1,40 +1,55 @@
 ---
 title: "Tax Settings"
-description: "Calculate, collect, and report on sales tax"
+description: "Configure storewide tax services, regions, and built-in tax rates"
 ---
 ## Sales Tax
 
-As a merchant, you may need to calculate and charge sales taxes on your orders.  Configuring your store to automatically handle most common sales tax calculations will provide you with the reports needed for accounting and tax remittance.
+As a merchant, you may need to calculate and charge sales taxes on your orders. Configuring your store to handle tax by region gives you the flexibility to use different tax services in different markets, while still keeping reporting centralized.
 
-Head to **Settings > Taxes** to set up Tax for your store.
+Head to **Settings > Taxes** to set up taxes for your store.
 
 <Callout type="info">
 
-In addition to the built-in sales tax features, Next Commerce supports [**Avalara AvaTax**](/docs/apps/avalara-avatax) and [**TaxJar**](/docs/apps/taxjar) as installable Apps for automated tax calculation and reporting.  When a supported Tax App is installed, all calculation and configuration is handled by the App, with no need for manual Taxes Settings configuration.
+Tax services are configured from **Settings > Taxes**. You can mix services by region, for example using built-in NEXT Tax for the EU and TaxJar for the US.
 
 </Callout>
 
-There are two core concepts in NEXT related to Tax - **Tax Regions** and **Tax Rates.**
+There are three core concepts in NEXT related to Tax:
+
+* **Tax Services** - the calculation engine used for a region, such as built-in NEXT Tax, TaxJar, or Avalara AvaTax.
+* **Tax Regions** - the country or region where a tax service applies.
+* **Tax Rates** - the rates used by built-in NEXT Tax regions.
+
+### Tax Services
+
+The Tax Services list shows which services are available in your store and whether each one is enabled for a region.
+
+* **Next Tax** - built-in tax calculation with no external service required.
+* **TaxJar** - external tax calculation for the United States.
+* **Avalara AvaTax** - external tax calculation and reporting for stores using Avalara.
+
+Choose **Settings** on a service to configure its connection details and defaults.
 
 ### Tax Regions
 
-NEXT supports regional tax settings, where each region can be assigned the following:
+Tax regions let you assign one tax service to a specific country or region. A store can use more than one tax service at the same time, as long as each region is assigned the service you want to use there.
 
-* Federal Tax Rate
-* State Tax Rate
-* Override Product Tax Rate
+For example:
 
-Tax rates will be automatically applied to all order line items with shippable products.
+* Use **Next Tax** for EU regions where you want to manage tax rates directly in NEXT.
+* Use **TaxJar** for the US region where you want TaxJar to calculate tax.
+* Use **Avalara AvaTax** for a region that should use Avalara's tax engine.
 
 ### Tax Rates
 
-Tax Rates are simply the percentage rates used to calculate tax on orders based on the customer’s shipping address (or billing address for digital products) in your taxable regions.
+Tax Rates are the percentage rates used by regions that rely on built-in NEXT Tax. Tax is calculated based on the customer’s shipping address, or the billing address for digital products.
+Regions assigned to TaxJar or Avalara AvaTax use the settings from those services instead of manual NEXT tax rates.
 
 <Callout type="info">
 
 #### How Tax is Determined
 
-The apportioned tax is calculated by the relationship between:
+For built-in NEXT Tax, the apportioned tax is calculated by the relationship between:
 
 1. **Product Category (if override is applied)**
 2. **Order Shipping Address (or Billing Address for digital products)**
@@ -46,16 +61,16 @@ The apportioned tax is calculated by the relationship between:
 
 Access the sales tax configuration for your store from **Settings >** **Taxes**.
 
-To start, set up a **Tax Region** by selecting **Add Tax Region**.  Then select the Tax Region from the listed options - these correspond to the available regions configured via [**Settings > Localization**](/docs/start-here/get-started/add-locations-and-languages).
+To start, set up a **Tax Region** by selecting **Add Tax Region**. Then choose the tax service that should apply to that region. The listed regions correspond to the available regions configured via [**Settings > Localization**](/docs/start-here/get-started/add-locations-and-languages).
 
-Now that your tax region is created, the following options are available:
+If the region uses built-in NEXT Tax, the following options are available:
 
 * Add Tax Rate
 * Add Tax Rate Override
 
 #### Add Tax Rate
 
-Choose Add Tax Rate and define the following values:
+Choose **Add Tax Rate** and define the following values:
 
 * **State/Province** - defaults to "\*" (all) which applies the rate federally.
 * **Rate** (%) - the rate of tax to charge
@@ -63,7 +78,7 @@ Choose Add Tax Rate and define the following values:
 * **Shipping** - choose whether to apply tax to shipping fees
 * **Compound** - choose whether to combine this tax rate with other tax rates
 
-To add an additional tax rate to the region, such as a tax rate conditional to certain states or provinces, repeat the above steps and define a list in the State/Province field separated by "|"
+To add an additional tax rate to the region, such as a rate conditional to certain states or provinces, repeat the above steps and define a list in the State/Province field separated by "|"
 
 #### **Add Tax Rate Override**
 
@@ -79,9 +94,9 @@ Tax is calculated **after applying discounts**. For example, if a product price 
 
 </Callout>
 
-### Tax Settings
+### Built-in Tax Settings
 
-Global settings define how tax is calculated and appears to your store's customers.
+Global settings define how built-in NEXT Tax is calculated and appears to your store's customers.
 
 #### Tax Calculation
 

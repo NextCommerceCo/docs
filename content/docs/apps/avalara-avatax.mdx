@@ -1,26 +1,27 @@
 ---
-title: "Avalara AvaTax"
-description: "Simplify the collection and reporting of sales tax"
+title: "Avalara AvaTax Settings"
+description: "Configure Avalara AvaTax as a tax service from Settings > Taxes"
 ---
 ## Overview
 
-The Avalara AvaTax App seamlessly integrates your order data with Avalara's tax management service.  AvaTax automatically calculates and applies the appropriate tax rates for your sales based on the origin of the sale, and the customer's location.
+Avalara AvaTax can be used as a tax service for regions in your store that should rely on Avalara's calculation engine. It is configured from **Settings > Taxes**, not from an app installer.
+Any tax region assigned to AvaTax will use the settings on this page.
 
-Avalara allows you to collect appropriate sales tax on your orders, and track and manage the collected tax amounts in your Avalara account.  In addition, the NEXT [**Tax Reports**](/docs/analytics/tax-reports) will continue to show accurate sales tax data even when you use Avalara.
+Avalara allows you to collect sales tax on your orders and track the collected tax amounts in your Avalara account. NEXT [**Tax Reports**](/docs/analytics/tax-reports) continue to show the sales tax data for your store.
 
 <Callout type="info">
 
-Enabling the Avalara App will override the standard Next Commerce [**Tax Settings**](/docs/build-a-store/catalogue/tax-settings).  An Avalara account is required to use the Avalara App.
+An Avalara account is required to use AvaTax.
 
 </Callout>
 
 ## Setting Up AvaTax
 
-Navigate to **Apps > Avalara** and choose **Manage** from the Actions menu.
+Navigate to **Settings > Taxes**, choose **Avalara** in the Tax Services list, and select **Settings**.
 
-Enable Enable AvaTax to calculate taxes for your store. Enabling AvaTax will override any existing tax rates configured for your store, and only use AvaTax.
+Enable AvaTax to calculate taxes for the regions you assign to it.
 
-Input your account credentials in the AvaTax Settings:
+Input your account credentials in the AvaTax settings:
 
 * **Account/Username**\
   Your AvaTax account number <br />
@@ -35,7 +36,7 @@ Input your account credentials in the AvaTax Settings:
 * **Company Code** \
   The company or organization from your AvaTax account to which you want to connect your store. <br />
 * **Default Product Tax Code** \
-  The default AvaTax Product Tax code to use for your products. This code will be assigned to orders if a more specific Tax Code is not set. <br />
+  The default AvaTax Product Tax code to use for your products. This code will be assigned when a more specific Tax Code is not set. <br />
 * **Default Shipping Tax Code** \
   Your default shipping tax code, to be applied to all shipping methods in your store. <br />
 * **Default Currency**\
@@ -43,28 +44,22 @@ Input your account credentials in the AvaTax Settings:
 
 ### Setting Up Tax Codes
 
-To assign tax codes to your products, first navigate to your [**Catalogue**](/docs/build-a-store/catalogue#create-products) and choose a Product.  If you don't assign a Tax Code to a product, the "Default Product Tax Code" configured above will be applied.
+To assign tax codes to your products, first navigate to your [**Catalogue**](/docs/build-a-store/catalogue#create-products) and choose a Product. If you don't assign a Tax Code to a product, the **Default Product Tax Code** configured above will be applied.
 
 #### Assigning Tax Codes to Products
 
-On the Product Details tab, enter the Tax Code corresponding to the product.  To determine the appropriate Tax Code for a given product, consult AvaTax's [tax codes reference](https://taxcode.avatax.avalara.com/).  A Tax Code applied to a Product will also apply to any of its Variants.
+On the Product Details tab, enter the Tax Code corresponding to the product. To determine the appropriate Tax Code for a given product, consult AvaTax's [tax codes reference](https://taxcode.avatax.avalara.com/). A Tax Code applied to a Product will also apply to any of its Variants.
 
 #### Assigning Tax Codes to Categories
 
 From the **Catalogue > Categories** view you can choose a Category and assign a Tax Code to cover all the Products within it.
 
-In the case where a Product has a different Tax Code than the Category that is associated to it, the Product's Tax Code will take precedence.
-
-<Callout type="info">
-
-Note: if the Avalara AvaTax App is configured, the Tax Class on individual Products is overridden.  AvaTax will manage all tax calculation and reporting throughout your store.
-
-</Callout>
+If a Product has a different Tax Code than the Category that is associated to it, the Product's Tax Code will take precedence.
 
 ### Handling Refunded Orders
 
-Next Commerce automatically syncs refunds applied against orders back to AvaTax.  Upon a refund being processed on an order for which tax was collected, there will be a Return Invoice created for reversing the collected tax amounts in AvaTax.
+Next Commerce automatically syncs refunds applied against orders back to AvaTax. When a refund is processed on an order for which tax was collected, a Return Invoice is created to reverse the collected tax amounts in AvaTax.
 
 ### Tax Reports
 
-To view a summary in the Dashboard of sales tax collected, use [**Tax Reports**](/docs/analytics/tax-reports).  These reports will display the sales taxes collected on your store's orders whether you are using NEXT's built in Tax features, or the Avalara AvaTax Extension.
+To view a summary in the Dashboard of sales tax collected, use [**Tax Reports**](/docs/analytics/tax-reports). These reports display the sales taxes collected on your store's orders whether you are using built-in NEXT Tax, AvaTax, or another supported tax service.
