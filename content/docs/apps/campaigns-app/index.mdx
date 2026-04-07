@@ -6,40 +6,40 @@ Campaigns App simplifies and accelerates the deployment of custom marketing funn
 
 <Callout type="info">
 
-**Campaigns** is an installable **App** in your Next Commerce store.  Head to the **Apps** menu on the NEXT dashboard to install it.
+**Campaigns** is an installable **App** in your Next Commerce store. Head to the **Apps** menu on the NEXT dashboard to install it.
 
 </Callout>
 
 ## Custom Funnels with Campaigns API
 
-Next Commerce supports fully custom marketing funnels, including checkouts, and post-purchase upsells.  The server side API method for creating fully custom flows is to use the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout) with a server to server connection.
+Next Commerce supports fully custom marketing funnels, including checkouts and post-purchase upsells. The server-side API method for creating fully custom flows is to use the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout) with a server-to-server connection.
 
-Now, with **Campaigns App**, there is no need for server to server backend API integration.  The Campaigns App leverages a frontend CORS-enabled API to allow for custom funnels without a backend integration.
+With **Campaigns App**, there is no need for server-to-server backend API integration. The Campaigns App uses a frontend CORS-enabled API to allow custom funnels without a backend integration.
 
 <Callout type="info">
 
-Developers can leverage a robust pre-built framework [**NEXT Campaigns Cart JS SDK**](https://developers.nextcommerce.com/docs/campaigns/cart-system) to accelerate custom marketing funnel development on Campaigns App.
+Developers can use the pre-built [**NEXT Campaigns Cart JS SDK**](https://developers.nextcommerce.com/docs/campaigns/cart-system) to accelerate custom marketing funnel development in Campaigns App.
 
 </Callout>
 
-Learn more about the [**NEXT Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api) and the best practices for creating and deploying fully-custom customer experiences.
+Learn more about the [**NEXT Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api) and the best practices for creating and deploying fully custom customer experiences.
 
 ## Configure Campaigns App
 
-Once installed, from the **Apps** menu select Campaigns App - Actions - Settings to open the Campaign App workspace.
+Once installed, open **Campaigns App > Actions > Settings** from the **Apps** menu to access the Campaign App workspace.
 
 <Callout type="info">
 
-**Hint** -  Pin the Campaigns App to the dashboard side bar for quick access.
+**Hint** - Pin the Campaigns App to the dashboard sidebar for quick access.
 
 </Callout>
 
-From the side bar, under **Campaigns App**, select the **Settings** menu.
+From the sidebar, under **Campaigns App**, select **Settings**.
 
 * Select **Add Domain** to whitelist a domain for your custom marketing funnel.
-* Specify the domain's **Environment** - whether it should be a domain used for **Development** purposes, or a **Production** domain.
+* Specify the domain's **Environment** - whether it should be used for **Development** or **Production**.
 
-Both types of domain environments accept live orders, but analytics tracking events are not recorded on Development domains.
+Both domain types accept live orders, but analytics tracking events are not recorded on Development domains.
 
 <Callout type="warn">
 
@@ -47,7 +47,7 @@ Campaigns API requires that all API calls are made from a whitelisted domain for
 
 </Callout>
 
-Next, from the **Campaigns App** main work space, select **New Campaign** to configure your campaign.  Input the following:
+Next, from the **Campaigns App** main workspace, select **New Campaign** to configure your campaign. Enter the following:
 
 * **Name** - the internal reference name for your campaign.
 * **Default Currency** - choose the base currency for the campaign.
@@ -55,15 +55,15 @@ Next, from the **Campaigns App** main work space, select **New Campaign** to con
 * **Language** - select from a list of the languages supported by the store.
 * **Payment Gateway Group** - assign a [**gateway group**](/docs/features/payments#gateway-groups) to the campaign, or leave blank to use the store's default gateway group.
 * **Available Payment Methods** - define the payment methods to be accepted on your campaign's checkout.
-* **Available Express Payment Methods** - define the express payment methods (PayPal, ApplePay, etc) to use on your campaign's checkout.
+* **Available Express Payment Methods** - define the express payment methods (PayPal, Apple Pay, etc.) to use on your campaign's checkout.
 * **PayPal Account ID** - assign a PayPal account to the campaign, or leave blank to use the store's [**default PayPal account.**](/docs/features/payments/paypal#configure-paypal)
 * **Statement Descriptor** - define a custom descriptor to appear on your customer's card statement for your campaign (for payment gateways supporting dynamic descriptors only).
 
 ### Campaigns App Logs
 
-From the side bar menu under **Campaigns App**, select the **Logs** menu. The Activity Logs show
+From the sidebar menu under **Campaigns App**, select **Logs**. The activity logs show
 
-Logs are filterable by the following factors to assist in debugging and analyzing performance:
+Logs are filterable by the following factors to help with debugging and performance analysis:
 
 * API Method
 * Campaign
