@@ -8,6 +8,8 @@ Next Commerce stores feature a full suite of Webhook Events to subscribe to and 
 
 Webhooks can be created via the Dashboard or via the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api).  Webhook event logs can also be viewed in the Dashboard to analyze, diagnose or troubleshoot receiving endpoints.
 
+Webhook deliveries should complete within about 20 seconds; unresponsive endpoints can cause retries and delayed processing.
+
 ### Creating a new Webhook
 
 Choose **Create Webhook** to set up a new webhook.  Input the full target URL to receive the data. The URL endpoint must accept JSON data and respond with a 200 status code.
@@ -21,6 +23,7 @@ Choose from the following **Event Triggers:**
 * order.created
 * order.updated
 * transaction.created
+* transaction.updated
 * ticket.created
 * ticket.updated
 * subscription.created

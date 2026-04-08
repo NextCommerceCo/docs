@@ -76,7 +76,7 @@ Transactions pointed at a gateway group will select from the available gateways 
 * availability of currency
 * the weighting assigned to the eligible gateways
 
-This rule set prevents a gateway that does not support a given card type or currency from being selected to process a transaction.
+This rule set prevents a gateway that does not support a given card type or currency from being selected to process a transaction. Each gateway in a group must have a weighting of at least `1`; remove a gateway from the group if you no longer want it to receive traffic.
 
 <Callout type="info">
 
@@ -106,6 +106,7 @@ Transactions can be searched by using the Advanced Search feature. Choose **Filt
 * Amount of Transaction (From / To)
 * Currency
 * Response Code
+* Auth Code
 * Status
 * Is Disputed (Yes / No)
 * Is External
