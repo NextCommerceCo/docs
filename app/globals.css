@@ -57,6 +57,46 @@ div[style*="--callout-color"] {
   --color-fd-muted-foreground: var(--color-fd-foreground);
 }
 
+.prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background: color-mix(in oklch, var(--color-fd-muted) 70%, transparent);
+  border-inline-start-width: 2px;
+  color: color-mix(in oklch, var(--color-fd-foreground) 86%, transparent);
+  font-style: normal;
+  font-weight: 400;
+  padding: 1rem 1.125rem;
+}
+
+.prose
+  :where(blockquote > p:first-child > em:first-child):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  color: var(--color-fd-muted-foreground);
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.prose
+  :where(blockquote > p:first-child > em:first-child):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: ":";
+}
+
+.prose
+  :where(blockquote p:first-of-type):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  :where(blockquote p:last-of-type):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
