@@ -292,6 +292,12 @@ export default function HomePage() {
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
+                  href="/changelog"
+                  className="inline-flex items-center gap-1.5 text-fd-muted-foreground transition-colors duration-150 hover:text-fd-foreground"
+                >
+                  Changelog
+                </Link>
+                <Link
                   href="https://developers.nextcommerce.com"
                   className="inline-flex items-center gap-1.5 text-fd-muted-foreground transition-colors duration-150 hover:text-fd-foreground"
                 >

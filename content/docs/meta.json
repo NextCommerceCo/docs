@@ -2,7 +2,7 @@
   "pages": [
     "index",
     "about-next",
-    "external:[Changelog](https://changelog.29next.com/blog/)",
+    "external:[Changelog](/changelog)",
     "---Start Here---",
     "start-here/get-started",
     "external:[Developer Docs](https://developers.nextcommerce.com/)",

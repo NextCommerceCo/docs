@@ -6,7 +6,7 @@
   "workers_dev": false,
   "routes": [
     {
-      "pattern": "changelog.nextcommerce.com/*",
+      "pattern": "changelog.nextcommerce.com",
       "custom_domain": true
     }
   ]

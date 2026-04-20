@@ -14,6 +14,14 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       {
+        text: 'Docs',
+        url: '/docs',
+      },
+      {
+        text: 'Changelog',
+        url: '/changelog',
+      },
+      {
         text: 'Developer Docs',
         url: 'https://developers.nextcommerce.com',
         external: true,
