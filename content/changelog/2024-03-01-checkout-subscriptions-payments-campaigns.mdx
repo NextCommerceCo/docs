@@ -1,0 +1,31 @@
+---
+title: AirWallex gateway and Fulfillment Events API
+publishedAt: "2024-03-01"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Introducing support for AirWallex, a new payment gateway for bankcard payments specializing in cross-border payments around the world. Tracked shipment events can now be uploaded to a new Fulfillment Events API that broadens order life-cycle tracking and reporting…
+---
+
+## New Features
+
+- Introducing support for AirWallex, a new payment gateway for bankcard payments specializing in cross-border payments around the world.
+- Tracked shipment events can now be uploaded to a new Fulfillment Events API that broadens order life-cycle tracking and reporting capabilities all the way to delivery.
+- Theme developers can now query store objects with a more flexible and powerful `where` template tag that allows object types, lookup expressions, and variables to passed into.
+- Merchants can now configure storefront [Customer Accounts](https://docs.Next Commerce.com/build-a-store/storefront/customer-accounts#subscriptions) to enable or restrict customers from self-managing their subscription next renewal dates or recurring schedule.
+- The storefront checkout flow now has a more optimized flow for digital only orders that do not require shipping addresses or shipping methods.
+
+## Improvements
+
+- Email sending domain setup flow has been simplified and improved to ease the setup of new email sending domains.
+- Subscription action modals have been updated to be standard modals for improved UX and consistency.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now uses the latest [[Admin API](https://developers.nextcommerce.com/docs/admin-api) version](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01) `2024-04-01` for all of its interaction with the store platform when creating orders.
+- We now track events on subscriptions when the associated payment method is updated by the customer in their storefront account.
+
+## Bug Fixes
+
+- Fixed a few edge cases with Campaigns API rate limiting to improve rate limit handling while under attack.
+- Fixed a typo in store API for correctness.
+- Fixed an issue with cloning campaigns to always select the proper gateway group.

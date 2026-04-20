@@ -1,0 +1,32 @@
+---
+title: Admin API 2024-04-01 and duplicate order detection
+publishedAt: "2024-02-15"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: "We've now released a new [Admin API version, 2024-04-01](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01), which has much improved schemas for better performance and consistency. Duplicate orders are now detected and blocked to prevent customers\u2026"
+---
+
+## New Features
+
+- We've now released a new [[Admin API](https://developers.nextcommerce.com/docs/admin-api) version, 2024-04-01](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01), which has much improved schemas for better performance and consistency.
+- Duplicate orders are now detected and blocked to prevent customers from accidentally creating multiple orders with the same products within a short timeframe.
+- [Admin API reference documentation](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01) now features the capability to send example requests to quickly test API requests/responses.
+
+## Improvements
+
+- Test orders no longer impact product inventory counts to improve product inventory tracking.
+- Storefront asset uploading has been significantly improved from a UX perspective to be more intuitive.
+- Fulfillment event timeline details now include tracking information to surface shipment tracking information within the context of order history for more clarity.
+- Product titles shown in [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) are now automatically updated when the source product is updated to keep these in sync.
+- Campaign API users can now pass a language in the user object to override the campaign default language if selling in multiple languages.
+- Store domains now have improved validation to prevent invalid domains from being added to stores.
+
+## Bug Fixes
+
+- The list of available locations to move a product to has been fixed to not include deleted locations.
+- Returns export errors caused by unsafe handling of null values have now been fixed.
+- Edge case issues with [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) default account country have been fixed.
+- Subscription list views and reports incorrectly offered sorting by total which has now been corrected.

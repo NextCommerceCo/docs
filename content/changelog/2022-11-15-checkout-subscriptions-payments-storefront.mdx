@@ -1,0 +1,29 @@
+---
+title: Customer metadata editing and Apple Pay reporting
+publishedAt: "2022-11-15"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Customer Metadata fields can now be edited on the customer detail view providing more use cases for managing custom customer data. Apple Pay is now an available Payment Method filter on Orders, Transactions, as well as being populated in the Transactions by Payment Method report.
+---
+
+## New Features
+
+- Customer Metadata fields can now be edited on the customer detail view providing more use cases for managing custom customer data.
+- [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) is now an available Payment Method filter on Orders, Transactions, as well as being populated in the Transactions by Payment Method report.
+
+## Improvements
+
+- Removed tabs and counts on Orders, Customers, Subscriptions, and Tickets for more clear UX improved page load times.
+- Product Categories are now available in storefront theme context for theme developers to create dynamic backend driven layouts with product categories.
+- Dashboard navigation has been streamlined for less clicks and an improved UX flow.
+- User lookup and validation on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) has been improved to lookup existing customers by `email` (when passed) as the priority and ignoring the phone number to reduce the E.164 formatting requirements for API consumers.
+- Cart Checkout Links expiration has been updated to 90 days extending the amount of time available for automatic cart recovery.
+
+## Bug Fixes
+
+- Fixed an issue with Support Emails not maintaining line breaks from the comment editor through to the email notification to users.
+- Fixed an edge case where Attribution for Agents was not shown on orders if no other attribution was present.
+- Fixed an edge case that prevented orders from being canceled if the product class had stock tracking setting changed since the order was created.

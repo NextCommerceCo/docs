@@ -1,0 +1,33 @@
+---
+title: Automatic forex pricing rules for storefronts
+publishedAt: "2026-02-06"
+tags:
+  - Storefront
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Storefront country localization settings now allow merchants to configure automatic pricing forex rules so all products get prices set in all currencies even as new products are imported via API.
+---
+
+## New Features
+
+- Storefront country localization settings now allow merchants to configure automatic pricing forex rules so all products get prices set in all currencies even as new products are imported via API.
+
+## Improvements
+
+- Order confirmation pages and invoices now show payment and refund details for more clarity and transparency to end customers.
+- Order management "Mark as Paid" action is now restricted to Admin users to prevent unauthorized users from marking orders as paid.
+- Next Payments exports now have both a Date Created and Last Event date allowing for deeper analysis on payment activity over time.
+- Tax Jar integration has been updated as a correction to only apply in the US and allow all other countries to use internal Next Tax Regions.
+- Webhook events can now be searched by object ID making it possible to find webhook events related to a single object for debugging and troubleshooting.
+- Subscription search has been overhauled with the introduction of a new search index for faster and more accurate search filters.
+- Export CSV processes have been improved to show more visual feedback to the user while the background is in progress to make the user feel more confident their export is in progress and will eventually finish.
+
+## Bug Fixes
+
+- An edge case with directory names and spaces has been fixed with Next App Kit local development tool.
+- We've fixed an edge case that allowed a customer email to change through the [Admin API](https://developers.nextcommerce.com/docs/admin-api) unexpectedly.
+- We've fixed an edge case that allowed a dashboard user email address to be changed through Admin API.
+- We've fixed an edge case issue with SEPA payment method that prevent customers from using it as their payment method at checkout.
+- We've fixed an issue with Campaign Analytics that did not always load the current day of data into the charts.
+- We've fixed an edge case validation issue that allowed creating an order without a customer.

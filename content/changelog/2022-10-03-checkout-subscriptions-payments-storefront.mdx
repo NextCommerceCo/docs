@@ -1,0 +1,31 @@
+---
+title: Apple Pay and TaxJar integration
+publishedAt: "2022-10-03"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Introducing Apple Pay as a new payment method available in the storefront checkout flow and on the Admin API. Introducing TaxJar as a new third-party tax calculation and tax reporting App to automate sales tax collection and reporting.
+---
+
+## New Features
+
+- Introducing [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) as a new payment method available in the storefront checkout flow and on the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Introducing [TaxJar](https://docs.nextcommerce.com/docs/apps/taxjar) as a new third-party tax calculation and tax reporting App to automate sales tax collection and reporting.
+- Checkout Links now support adding attribution metadata to the cart and order by passing a querystring with the metadata key and value, ie `attribution_metadata.KEY=VALUE`
+- The WYSIWYG editor now supports adding video embeds as a new toolbar option to easily embed videos into storefront content.
+
+## Improvements
+
+- Improved the storefront checkout flow order summary totals to make them more clearly display applied discounts.
+- Updated the Product Class Admin APIs to use the product class ID instead of slug as the reference point for consistency across the Admin API.
+
+## Bug Fixes
+
+- Fixed issues where user's IP address wasn't automatically saved in the payment redirect flows for APMs.
+- Fixed the order stats on Funnel overview page that weren't showing all orders associated to the funnel.
+- Fixed the Total Spent metrics on the Customers List view to display correctly.
+- Fixed the Subscriptions Dashboard New Subscribers chart to include all subscriptions created within the timeframe.
+- Fixed missing validation for Attribution Metadata on the Carts Admin API to be consistent with the orders Admin API.
+- Fixed a minor display issue for Apps that don't have a public version yet and installed on development stores.

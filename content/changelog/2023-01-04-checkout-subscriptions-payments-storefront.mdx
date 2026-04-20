@@ -1,0 +1,34 @@
+---
+title: New Order Detail view and metadata search filters
+publishedAt: "2023-01-04"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Introducing a new Order Detail layout view that greatly improves order management UX. Metadata fields can now be enabled as Search Filters, making them much more useful as data points throughout the system.
+---
+
+## New Features
+
+- Introducing a new Order Detail layout view that greatly improves order management UX.
+- Metadata fields can now be enabled as Search Filters, making them much more useful as data points throughout the system.
+- The [Admin API](https://developers.nextcommerce.com/docs/admin-api) now allows passing a custom `shipping_price` to override the default price for the passed `shipping_method` to simplify order creation on the Admin API.
+- The [Storefront GraphQL API](https://developers.nextcommerce.com/docs/storefront/graphql) now includes Products for cart line items, subscription properties to preview the subscription that will be created after checkout, and support for adding and removing vouchers.
+
+## Improvements
+
+- Report date pickers now include a "Last Month" date range.
+- Improved the checkout flow to maintain an anonymous user's email address when going back to the shipping information step.
+- Improved PayPal transaction logging to redact the password so it's not available in logs.
+- `order.updated` and `customer.updated` webhook events are now triggered when updating metadata on orders and customers.
+- Improved the Blog Posts dashboard list view by adding the Post Date which is most relevant for blog posts.
+- Optimized subscription list view queries for more reliable page load times.
+- Improved customer `ip_address` validation to prevent invalid IP address from being passed into this field and failing downstream.
+- Improved the [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) Cancel Order logic to handle cases where the order has already been removed from ShipStation.
+
+## Bug Fixes
+
+- Fixed an issue with Orders Overview Report showing user's email instead of the associated user account.
+- Improved the subscription renewal logic to check for subscriptions that have had a payment event within the last 24 hours, and exclude them from being considered for renewal.
+- Fixed an issue with Partner Reports where the Funnel field was expected to be `exact` but it was `icontains` causing the report to show unexpected results.

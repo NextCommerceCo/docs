@@ -1,0 +1,31 @@
+---
+title: Fulfillment Status, digital products, and Google Merchant Feed
+publishedAt: "2022-02-28"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Webhooks
+summary: Orders now feature two statuses, an Order Status and also a Fulfillment Status which provide more flexibility in order management and added support for orders that do not require fulfillment. Products can now be set to not require shipping (ie digital products) through their…
+---
+
+## New Features
+
+- Orders now feature two statuses, an Order Status and also a Fulfillment Status which provide more flexibility in order management and added support for orders that do not require fulfillment.
+- Products can now be set to not require shipping (ie digital products) through their product class which works along side the order fulfillment status. Orders can contain a mix of products that require and don't require shipping.
+- Stores now feature an XML Google Merchant Feed for easy product import to Google Merchant Accounts and any platforms that support Google Merchant Feeds.
+- Product Attributes and Options now support multi-language which provides the path for fully multi-language product variants in the store front.
+
+## Improvements
+
+- We've now improved several fields on the Order and Cart API serializers and webhooks to support more robust workflows by integrated applications.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) now include related store context so that webhook receiving applications can use the context to easily support multiple stores on the same webhook endpoint.
+- Orders now include the card token in the response transactions allowing API users to use the card token in other API requests.
+- A Store's Payments Environment Key used for card tokenization is now easily found in Settings > Payments.
+- Subscriptions have a new action to update the Shipping Method and Shipping Price allowing this to be changed for future renewal orders.
+
+## Bugs Fixes
+
+- Corrected an issue where Customers status was transitioned from Lead to Customer status after they had made a purchase.
+- Fixed an issue with stock record search not including product variants in the results.
+- Fixed an issue with a missing registered template tag in the password reset template.

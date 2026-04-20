@@ -1,0 +1,31 @@
+---
+title: Soft-decline retry gateway groups and location changes
+publishedAt: "2023-10-17"
+tags:
+  - Payments
+  - Checkout
+  - Storefront
+  - Offers
+summary: Payment attempts that soft decline can now be automatically retried once on an alternate gateway by configuring a re-attempt gateway group. Order Fulfillment Location can now be changed through the dashboard, allowing merchants to move a fulfillment of order items from one…
+---
+
+## New Features
+
+- Payment attempts that soft decline can now be automatically retried once on an alternate gateway by configuring a [re-attempt gateway](https://docs.Next Commerce.com/features/payments/payment-failure-cascading) group.
+- Order [Fulfillment Location](https://docs.Next Commerce.com/start-here/get-started-on-29-next/fulfillment-settings#fulfillment-locations) can now be changed through the dashboard, allowing merchants to move a fulfillment of order items from one location to another.
+
+## Improvements
+
+- Orders list exports now include the shipping amount, to make this data more readily available for custom reporting purposes.
+- Storefront Assets list view has been overhauled to improve overall UX.
+- Internal Apps now follow our App UX, making them available to pin to the navigation sidebar and offer an overall more clear UX.
+
+## Bugs Fixed
+
+- Stripe Payment Intents transactions that use a [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) flow now properly save the flow performed on the transaction.
+- Fixed a UI issue with duplicate product name badges showing in the report detail header.
+- Fixed an issue with express checkout flows to properly route fulfillment location.
+- Fixed an edge case with assets that prevent previously deleted assets from being re-uploaded with the same name.
+- Fixed an edge case where rapid order submission could cause a 500 error when the order already exists.
+- Fixed an edge case that incorretly consumed stock twice.
+- Fixed an issue with email attachments in support tickets expiring, causing them to be inaccessible.

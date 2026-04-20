@@ -1,0 +1,28 @@
+---
+title: Paysafe gateway and Account Updater
+publishedAt: "2024-07-31"
+tags:
+  - Subscriptions
+  - Payments
+  - Fulfillment
+  - Orders
+summary: "Introducing Paysafe as a new payment gateway integration for merchant transaction processing. We're excited to announce the addition of Account Updater, providing automatic bankcard information updates for subscriptions to increase retention rates and recurring transaction\u2026"
+---
+
+## New Features
+
+- Introducing Paysafe as a new payment gateway integration for merchant transaction processing.
+- We're excited to announce the addition of Account Updater, providing automatic bankcard information updates for subscriptions to increase retention rates and recurring transaction approval rates.
+- Merchants using Next Commerce Payments will now receive a notification when a payout transfer has been initiated.
+
+## Improvements
+
+- We've improved fulfillment routing logic to minimize split fulfillment scenarios when adding upsell items to an order ensuring all items are routed to the same fulfillment location.
+- Dispute events have been refactored and improved with more granular detail and a more consistent UX with our order and customer events.
+- Subscription status and gateway filters have been improved to support filtering by multiple statuses/gateways to simplify more complex query and filtering scenarios.
+
+## Bugs
+
+- We've fixed an issue and improved all dashboard analytics charts to use the local timezone of the store to prevent these from being out of sync.
+- We've fixed an edge-case scenario with Stripe and reconnecting an account through the Stripe Oauth flow.
+- We've fixed an issue with deleting payment gateway groups even if all gateways have been removed.

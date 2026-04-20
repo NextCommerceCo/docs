@@ -1,0 +1,34 @@
+---
+title: Klarna Subscriptions and bankcard network tokens
+publishedAt: "2025-10-01"
+tags:
+  - Payments
+  - Subscriptions
+  - Campaigns
+  - Checkout
+summary: Platform update on October 1, 2025.
+---
+
+## **New Features**
+
+- **NEXT Payments - Klarna Subscriptions:** Customers can now use Klarna to sign up and pay for subscriptions—expanding payment flexibility and improving conversion rates for recurring products.
+- **NEXT Tagging for Shopify Orders:** All orders sent to Shopify via [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) are now automatically tagged with **“NEXT”**, making it easier to filter and manage them within the Shopify admin.
+- **Bankcard Network Token Support:** When switching payment gateways on subscriptions or upsell orders, the system now automatically uses network tokens for higher approval rates and improved reliability.
+- **Campaign Session ID:** [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) logs now include a session ID, allowing users to trace all events related to a specific customer session for easier debugging and tracking.
+- **Variant-Level Metadata Support:** Metadata is now exposed at the variant level (separate from the parent product), enabling more advanced storefront customizations for individual product variants.
+
+## **Improvements**
+
+- **Faster Order List View:** Performance of the Orders list view has been significantly improved, particularly for stores with large product catalogs.
+- **NEXT Campaigns - Analytics Speed Boost:** Campaigns App Analytics views now load much faster and are more stable, with several edge-case bugs resolved.
+- **Payment Method in orderRetrieve API:** The orderRetrieve API now returns the payment method used on the order, simplifying receipt page implementation in campaigns.
+- **Theme Template Validation:** The platform now validates uploaded theme templates to prevent the use of invalid *include* tags pointing to non-existent partials, reducing render errors.
+- **Improved Theme Kit Logs:** Terminal logs for Theme Kit now display clearer error messages when asset upload or update operations fail.
+- **Product Purchase Availability Webhook:** Changes to product purchase availability now trigger a *product.updated* webhook, allowing connected systems to stay synced in real time.
+- **Auto-Closure of Stale Support Tickets:** Support tickets with no activity for over 6 months will now automatically close, helping merchants maintain a clean and actionable support queue.
+
+## **Bug Fixes**
+
+- **False Error on orderUpsellCreate API:** Fixed an edge case where the Campaigns orderUpsellCreate API returned a false error despite successfully creating the upsell.
+- **Single Page Checkout Validation Fix:** Resolved an issue that caused the single page checkout flow to get stuck in validation when card details were missing.
+- **Custom Cancel Reason Validation:** Fixed a bug where overly long custom cancel reasons in the order cancellation form could trigger a 500 error.

@@ -1,0 +1,27 @@
+---
+title: OAuth 2.0 Admin API and Stock Records endpoints
+publishedAt: "2022-05-20"
+tags:
+  - Subscriptions
+  - Admin API
+  - Webhooks
+  - Orders
+summary: Introducing OAuth 2.0 access to the Admin API, providing more secure and granular permissions for API users. Stock Records can now be created and updated over the Admin API, providing API consumers more direct access to stock record data.
+---
+
+## New Features
+
+- Introducing OAuth 2.0 access to the [Admin API](https://developers.nextcommerce.com/docs/admin-api), providing more secure and granular permissions for API users.
+- Stock Records can now be created and updated over the Admin API, providing API consumers more direct access to stock record data.
+- Orders, Transactions, Customers, Subscriptions, and Tickets now have Overview Reports which serve as the default view for reports, and where filtered reporting lists are pointed.
+- All Order Reports now feature a unique customer count in the summary and detail table to help expose customer counts in the context of Orders.
+- Subscription Reports now feature detailed reports for Subscriptions by Partner SKU and Cancel Reason for deeper insight into subscriptions.
+- Store admins can now add their store contact information to be used for public facing templates to manage their store contact info from a single place.
+- Store Dashboard users can now edit an order's Marketing Attribution data to correct or adjust as required.
+
+## Improvements
+
+- Dashboard Subscription Detail View have been overhauled with the addition of address management and attribution.
+- We've improved several links from dashboard reporting widgets to point to more appropriate reports, and carry the date filters from the dashboard through to the reports.
+- Order Webhook events and the Order Admin API now feature related subscription information to show the current subscription lifecycle status of an order.
+- Product attributes for subscriptions (interval, interval_count) are now validated to be correct to prevent misconfigurations.

@@ -1,0 +1,27 @@
+---
+title: Campaigns App Offers and Discount Codes
+publishedAt: "2026-01-07"
+tags:
+  - Webhooks
+  - Payments
+  - Campaigns
+  - Storefront
+summary: Introducing Campaigns App Offers & Discount Codes, a new robust solution for offering discounts on multiple items, with API support to dynamically display discounts on external campaign pages.
+---
+
+## New Features
+
+- Introducing [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Offers & Discount Codes, a new robust solution for offering discounts on multiple items, with API support to dynamically display discounts on external campaign pages.
+
+## Improvements
+
+- We've overhauled the [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) setup flow to support Shopify's new dev dashboard API access token flow.
+- PayPal shipment tracking uploads now wait for the order to be fully fulfilled, improving our ability to always upload tracking numbers to PayPal in mixed fulfillment scenarios.
+- We've improved database queries on the dashboard card list view for faster load times and improved UX.
+- We've improved webhook deduplication workflows to be much more efficient and reduce the overall load on databases for all background processing.
+
+## Bug Fixes
+
+- We've fixed an edge case caused by duplicate product category key paths not being able to resolve for products created through the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- We've fixed an issue with Offers combinations saving unexpected combinations when updating existing site offers.
+- We've fixed an issue with Stripe [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) to be compatible with new changes from the authentication flow.

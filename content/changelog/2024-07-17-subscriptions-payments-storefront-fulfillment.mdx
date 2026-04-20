@@ -1,0 +1,29 @@
+---
+title: Stripe Soft Descriptor and fulfillment exports
+publishedAt: "2024-07-17"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+  - Fulfillment
+summary: Stripe payment gateway now supports configuring a Soft Descriptor allowing merchants to customize the descriptor shown on customer bank statements. Theme Settings now supports configuring a page setting type allowing dashboard users to select a page to link to instead of…
+---
+
+## New Features
+
+- Stripe payment gateway now supports configuring a Soft Descriptor allowing merchants to customize the descriptor shown on customer bank statements.
+- Theme Settings now supports configuring a `page` setting type allowing dashboard users to select a page to link to instead of needing to configure the page url manually.
+- Theme Settings now supports configuring a `richtext` field type for settings fields that expect to have formatted html text.
+- Fulfillments can now be exported through the Fulfillments overview report allowing merchants to work with their data externally.
+
+## Improvements
+
+- The Subscription Payment Method update form now shows a warning to suggest to customers that their payment method is failing and needs to be updated.
+- The Theme Customize view now warns users when they have unsaved changes that won't be applied if they exit the view.
+
+## Bug Fixes
+
+- We've fixed an edge case issue where it was possible to send a duplicate fulfillment request while there was an existing fulfillment request pending acceptance.
+- We've fixed an edge case issue with adding a dashboard user without first and last name failed to register with dashboard single sign-on.
+- We've corrected the order line items response to always include variant product titles.
+- We've corrected an edge case with saved settings not being set when re-installing a previously uninstalled app.

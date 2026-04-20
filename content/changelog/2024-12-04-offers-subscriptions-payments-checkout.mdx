@@ -1,0 +1,28 @@
+---
+title: Tracking Events Beta and subscription renewal APIs
+publishedAt: "2024-12-04"
+tags:
+  - Offers
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Introducing Tracking Events Beta, a new and improved way integrate external tracking systems with rich customer behavior event data on your storefront. Full documentation and demos coming soon. Subscriptions Admin API now has a new SubscriptionRetryCreate endpoint enabling…
+---
+
+## New Features
+
+- Introducing Tracking Events Beta, a new and improved way integrate external tracking systems with rich customer behavior event data on your storefront. Full documentation and demos coming soon.
+- Subscriptions [Admin API](https://developers.nextcommerce.com/docs/admin-api) now has a new [SubscriptionRetryCreate](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01#/operations/subscriptionsRetryCreate) endpoint enabling external systems to trigger a renewal payment attempt when a subscription is failing renewal.
+- Subscription transactions can now be retreived through the [SubscriptionsTransactionsList](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01#/operations/subscriptionsTransactionsList) Admin API endpoint to assist external systems to analyze all transactions related to an individual subscription.
+
+## Improvements
+
+- Offer subscription discount logic has been overhauled and improved for more clarity on the scenarios of applying a discount on an initial order and/or the renewal orders.
+- The current logged in user is now shown in the checkout flow for improved customer UX.
+- Delivery Tracking integration now ignores events received after the shipment was initially confirmed as delivered to prevent edge cases where shipments were initially delivered and then changed back to In Transit status.
+- Fulfillment order line items now include tax lines to support tax data flowing through to fulfillment service providers importing orders.
+
+## Bugs Fixed
+
+- We've fixed an issue with the Products Admin API that caused an error when sending an empty category to Products Admin API.
+- We fixed an edge case that allowed invalid interval values to be passed in storefront themes that caused a 500 error.

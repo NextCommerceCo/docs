@@ -1,0 +1,26 @@
+---
+title: Tax Rates and Classes, API Tokens, and line item upsells
+publishedAt: "2020-12-28"
+tags:
+  - Admin API
+  - Payments
+  - Checkout
+  - Orders
+summary: Introducing Tax features with the ability to configure Tax Rates and Tax Classes to dynamically calculate taxes for orders. Taxes are shown throughout the system in the dashboard, customer views and emails. It is now possible to to manage API Tokens to create and delete API…
+---
+
+## New Features
+
+- Introducing Tax features with the ability to configure Tax Rates and Tax Classes to dynamically calculate taxes for orders. Taxes are shown throughout the system in the dashboard, customer views and emails.
+- It is now possible to to manage API Tokens to create and delete API Tokens via the dashboard.
+- The Order APIs now have a new method to Add Line Items to an existing order and create a charge against the initial payment method to support common upsell and cross sell flows.
+
+## Improvements
+
+- Improved support for Stripe Error Codes when payment methods are invalid to map with our Transaction Response codes.
+- Added on the API for Address Title fields to support Klarna's Title field so it is prepopulated in the Klarna widget on for improved checkout experience.
+- We now have a fallback to send email from [noreply@Next Commerce.com](mailto:noreply@Next Commerce.com) when a store does not have any verified email sending domains or the user has misconfigured the store "FROM" email address using an unverified domain.
+
+## Bug Fixes
+
+- Fixed an inconsistent date format in Source Attribution Events

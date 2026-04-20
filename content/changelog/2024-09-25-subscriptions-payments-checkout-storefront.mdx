@@ -1,0 +1,33 @@
+---
+title: 3DS setup overhaul and ticket event logs
+publishedAt: "2024-09-25"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Next Commerce Payments accounts can now be shared with multiple users allowing merchants to give access to their teams and service providers to assist in dispute management workflows. 3DS setup and settings have been completely overhauled to make the setup more intuitive and…
+---
+
+## New Features
+
+- Next Commerce Payments accounts can now be shared with multiple users allowing merchants to give access to their teams and service providers to assist in dispute management workflows.
+- [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) setup and settings have been completely overhauled to make the setup more intuitive and flexible for merchants enable on specific card networks.
+- Support Tickets now feature a full event log to capture all activity related to the ticket to make support workflows easier to audit and see the fully history of the customer and support agent interaction.
+- Ticket comments with reference to another ticket, ie #1234, will now automatically link to the ticket for easier cross-referencing of related support tickets.
+- Subscriptions can now be canceled with a cancel reason on a new [subscriptionCancelCreate](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01#/operations/subscriptionsCancelCreate) endpoint.
+
+## Improvements
+
+- [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) integration now supports multi-currency sales and converting sales metrics into the reporting currency configured with the Klaviyo account.
+- Historical support tickets are now linked to a customer profile if they were created before the customer had a customer profile.
+- Subscription Actions now support the ability for dashboard users to trigger the "Subscription Update Payment Method" email notification to the customer even if the subscription is active (and not failing payment).
+- We now notify store admin's if their store's email sending domain becomes unverified so they are aware of the issue and can take action.
+- Account Updater events now include more context regarding the update action whether it was an expiration date update or a full card update.
+- Improved query logic to improve both dashboard and API transactions list view performance.
+- We've now improved subscription upsell logic to support free initial price and still maintaining a gateway for the future billing cycles.
+
+## Bug Fixes
+
+- We've fixed an edge case that prevented [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) from being offered as an express payment method in the storefront checkout flow.
+- We've fixed a potential error when users input a long subscription cancel "other" reason that exceeds the expected length.

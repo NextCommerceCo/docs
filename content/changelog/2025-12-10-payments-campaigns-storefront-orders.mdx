@@ -1,0 +1,28 @@
+---
+title: Storefront full page caching and custom statement descriptors
+publishedAt: "2025-12-10"
+tags:
+  - Payments
+  - Campaigns
+  - Storefront
+  - Orders
+summary: Storefronts now have full page caching with up 10x faster response times for improved customer experiences. Merchants can now pass a custom statement_descriptor on each order to more accurately reflect the order on customer bank statements to reduce disputes.
+---
+
+## New Features
+
+- Storefronts now have full page caching with up 10x faster response times for improved customer experiences.
+- Merchants can now pass a custom `statement_descriptor` on each order to more accurately reflect the order on customer bank statements to reduce disputes.
+- Merchants can now configure campaigns to use send a custom `statement_descriptor` that matches their campaign flow for improved charge recognition by the customer.
+
+## Improvements
+
+- We've corrected several missing transtions and also improved translations across customer accounts for improved customer experience in non-english markets.
+- We've improved the logic for campaign sales calculations to be more accurate and taking into account more scenarios with different payment flows and possible order management actions.
+- Next Payments now has improved handling of the rare case of a failed refund and will show correctly in the dashboard.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now sends payment information for orders sync'd to shopify to improve the order management views, reporting and also prevent possible duplicate payments.
+
+## Bug Fixes
+
+- We fixed an issue with order confirmation pages showing non shippable products across multiple fulfillments.
+- We fixed an edge case with App Kit wherein the manifest referenced a path that does not exist and was not providing validation error back to the developer.

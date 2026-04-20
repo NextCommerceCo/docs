@@ -1,0 +1,37 @@
+---
+title: Campaign Analytics by page, device, and browser
+publishedAt: "2025-06-27"
+tags:
+  - Admin API
+  - Payments
+  - Campaigns
+  - Checkout
+summary: Platform update on June 27, 2025.
+---
+
+## **New Features**
+
+- **Campaign Analytics by Page:** Campaign Analytics now provides a breakdown of events by page, showing session visits, orders created, and upsells, giving merchants deeper insights into how each campaign page is performing.
+- **Device & Browser Performance:** Campaign Analytics now includes performance breakdowns by device type and browser, helping merchants monitor KPIs and optimize for different audiences.
+- **Bulk Campaign Package Creation:** The [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) package creation flow now supports bulk creation of product variants, streamlining setup for campaigns with many product variants and improving data quality.
+- **Campaign List Performance Metrics:** The Campaigns App list view now displays key performance metrics, giving merchants a quick overview of how campaigns are performing without needing to drill into reports.
+- **Google & Slack Social Sign-In Support:** Platform login now supports Google and Slack sign-in for faster, more convenient access to your account.
+- **[Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) Order Attribution Metadata:** Shop Sync now syncs order attribution metadata to Shopify order metafields, enabling merchants to pass custom attribution values directly into Shopify.
+- **Automatic Variant Generation for Attribute Options:** Adding new product attribute options now automatically generates all variant combinations, ensuring complete variant coverage for your products.
+
+## **Improvements**
+
+- **Improved Checkout Link Behavior:** Checkout links now remain on the current page when opened in a pop-up, such as those triggered by [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo), for a smoother customer experience.
+- **Order Filtering by Currency:** Orders can now be filtered by currency in both the dashboard and [Admin API](https://developers.nextcommerce.com/docs/admin-api), providing better management for stores selling in multiple currencies.
+- **Order Line Item Timestamps:** Admin API order line items now include created_at and updated_at properties, giving API consumers additional context for tracking line item changes.
+- **Enhanced Checkout Customization:** Additional settings have been added to checkout customization, allowing merchants to further adjust colors to match their brand.
+- **Metadata Filtering:** Metadata definitions can now be filtered through both the dashboard and Admin API, supporting deeper integrations with external systems leveraging metadata.
+
+## **Bug Fixes**
+
+- **Template Editor Save Fix:** Resolved a UI issue in the dashboard template editor that prevented changes from being saved.
+- **Klaviyo Pop-up Fix:** Fixed an issue where Klaviyo pop-ups were not displaying on storefronts as expected.
+- **[Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) & [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) Redirect Session Fix:** Corrected an issue where returning users in the Google Pay or Apple Pay redirect flow did not always have an updated browser session.
+- **Cart Currency Fix:** Fixed an edge case where carts created through the Admin API did not consistently save the correct currency.
+- **Shop Sync Shipping Address Fix:** Resolved an issue where shipping addresses were not saved in Shopify when Apple Pay provided no last name.
+- **Disputes UI Sorting Fix:** Fixed an issue where sorting in the Disputes UI did not work and could cause a 500 error.

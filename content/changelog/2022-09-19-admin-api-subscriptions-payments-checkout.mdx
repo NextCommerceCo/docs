@@ -1,0 +1,35 @@
+---
+title: Auth/Capture upsells and Carts Admin API parity
+publishedAt: "2022-09-19"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: It is now possible, when using Auth/Capture payment flows on the Admin API, to authorize a higher value than the initial order amount by passing the authorize_value This allows for upsells to be added to the original order without additional transactions. The core user model…
+---
+
+## New Features
+
+- It is now possible, when using Auth/Capture payment flows on the [Admin API](https://developers.nextcommerce.com/docs/admin-api), to authorize a higher value than the initial order amount by passing the `authorize_value` This allows for upsells to be added to the original order without additional transactions.
+- The core `user` model now has a `user_agent` attribute that can be populated for syncing to external systems that leverage browser user agents as part of their attribution matching algorithms.
+
+## Improvements
+
+- We improved the Carts Admin API to be consistent with the Dashboard > Customers > Open Carts view.
+- We've now added support for the `accepts_marketing` attribute on the Carts Admin API, for specifying this when creating a user with a cart within a single API call.
+- We've updated all gateway secure credential fields to use an obscured password field type for improved security.
+- We've improved the WYSIWYG editor to have a max height, so long content doesn't overly consume Dashboard page vertical real estate.
+- The Stock Records list view now shows the Subscription Price for improved visibility.
+- Creating webhooks now validates that the target uses SSL on the Admin API and Dashboard, as SSL is required for webhook processing tasks.
+- Added more validation/exception handling to safely handle improperly configured checkout links.
+
+## Bug Fixes
+
+- Fixed an issue with failed subscription renewal transactions not properly being flagged as recurring.
+- Fixed a UX edge case that prevented a user from creating a Product Class.
+- Fixed an issue with Tax not showing in order confirmation emails.
+- Fixed an issue where it was possible for a theme to have multiple preview tokens causing an error with theme previews.
+- Fixed an issue with the Stock Record create form Product dropdown selector not properly showing Product Variant titles.
+- Fixed a product image crop inconsistency on the storefront checkout flow.
+- Investigated 500 errors we've been seeing on a few stores' blog views, and fixed pagination.

@@ -1,0 +1,30 @@
+---
+title: Bluesnap Soft Descriptor and faster reports
+publishedAt: "2021-09-20"
+tags:
+  - Admin API
+  - Payments
+  - Orders
+  - Customers
+summary: "Bluesnap gateway now supports a dynamic \"Soft Descriptor\" field that is passed along with each gateway transaction."
+---
+
+## New Features
+
+- Bluesnap gateway now supports a dynamic "Soft Descriptor" field that is passed along with each gateway transaction.
+
+## Improvements
+
+- Many reports have been refactored to significantly improve generation time which was especially evident on larger datasets.
+- The Admin Order API now validates the length of the security code matches the card brand expectation before sending to the gateway for processing.
+- Source Attribution filters are now remote selects improving page load performance where they are available.
+- Support Article navigation and UI has been improved with Categories now being nested inside with Articles as a navigation tab.
+
+## Bug Fixes
+
+- Fixed an issue with Products not being synced properly to Omnisend (legacy email marketing app) and therefore causing Omnisend to not attribute customers to purchasing the product.
+- Fixed an issue with non-admin dashboard users not showing on the list of dashboard users in store settings.
+- Corrected an issue with [Midigator](https://docs.nextcommerce.com/docs/apps/midigator) Prevention case numbers not being automatically saved as the store Dispute case number.
+- Fixed an issue with the Tax reports aggregation to properly show multiple tax rates charged for orders.
+- Corrected an issue with Klarna order capture process occasionally not being able to reference the customer correctly.
+- Fixed an issue with Transaction "initiator" data not being stored correctly and made available on Transaction exports.

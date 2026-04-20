@@ -1,0 +1,33 @@
+---
+title: Accounts and Payments UI overhaul
+publishedAt: "2025-06-11"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Platform update on June 11, 2025.
+---
+
+## **New Features**
+
+- **UI Overhaul for Accounts & Payments:** We’ve rolled out a redesigned interface for Next Commerce Accounts and Payments, aligning them with the main store UI for a more consistent and intuitive user experience.
+- **Disputed Order Fulfillment Cancellation:** It’s now possible to cancel fulfillment on disputed orders (when supported), helping prevent scenarios where items ship after a dispute has been filed.
+
+## **Improvements**
+
+- **Shipping Discounts in One Step Checkout:** Discounted shipping prices are now properly displayed in One Step Checkout when the checkout session includes a shipping discount.
+- **Inventory Export Enhancements:** Inventory exports now include **allocated stock** values, giving merchants more complete data for inventory planning and reconciliation.
+- **Improved Gateway Handling:** Gateway logic relating to bankcard persistence on recurring payments has been improved to better handle cases where the previously used gateway is no longer active.
+- **Simplified User Permissions:** Dashboard user permission groups have been removed for a cleaner, more straightforward permissions model.
+- **Resilient PayPal Subscription Handling:** Recurring PayPal billing now more gracefully handles deactivated PayPal accounts, reducing failed payment errors.
+- **Cleaner Campaign Analytics:** Bot sessions are now excluded from campaign analytics, resulting in more accurate session counts and conversion rate KPIs.
+- **[Admin API](https://developers.nextcommerce.com/docs/admin-api) Pagination Performance:** Pagination performance has been improved across all Admin API list views, especially helpful for large data sets.
+
+## **Bug Fixes**
+
+- **PayPal Cancellation Redirect Fix:** Fixed an issue where customers who canceled a PayPal payment were redirected to an empty cart instead of being returned to the checkout flow.
+- **Fraud Analysis Fix:** Resolved a bug that impacted fraud analysis logic when creating orders from the dashboard.
+- **Order Timeline Pagination Fix:** Timeline events now paginate correctly when more than 100 events are present on an order.
+- **Spreadsheet Import Fix:** Improved handling of integers formatted as strings from different spreadsheet editors to ensure accurate data imports.
+- **Subscription Export Fix:** Fixed an issue that prevented subscription exports from running unless a date range filter was applied.

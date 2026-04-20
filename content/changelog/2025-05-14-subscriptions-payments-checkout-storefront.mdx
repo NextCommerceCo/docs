@@ -1,0 +1,26 @@
+---
+title: PayPal Subscriptions, Campaign Analytics, and Storefront Pages API
+publishedAt: "2025-05-14"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Platform update on May 14, 2025.
+---
+
+## New Features
+- **PayPal Subscriptions Support:** Subscriptions now support recurring payments via PayPal, giving merchants access to more customers using alternative payment methods.
+- **Campaign Analytics Tracking:** Campaigns now include full session tracking and KPI analytics, making it easier to monitor and optimize performance in real time.
+- **Revamped Cart Editing:** Cart updating and editing in the dashboard has been overhauled to align with the order creation flow, offering more flexibility and consistency for merchants.
+- **Storefront Pages via [Admin API](https://developers.nextcommerce.com/docs/admin-api):** Storefront Pages can now be created and managed through the Admin API, enabling Page Builders to generate custom templates and assign them to storefront pages—ideal for headless or externally managed frontends.
+
+## Improvements
+- **Variant-Level Shipping Options:** Shipping settings are now configurable at the product variant level, supporting use cases where a product may have both physical and digital versions.
+- **Faster Payments View:** Performance of the Payments list view has been improved by up to 400% for accounts with large transaction volumes.
+- **Subscription Gateway Persistence:** Subscriptions will now remain active even if the attached payment gateway has been deactivated, with a warning displayed to inform merchants that action is required.
+
+## Bug Fixes
+- **[Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) Button Fix:** The express checkout button for Google Pay has been revised to comply with Google Pay’s approval process and prevent potential rejections.
+- **Currency Switching Fix:** Fixed an issue where storefront users were unable to change currency within their session.
+- **Storefront 404 Fix:** Resolved an issue that caused the storefront to display a 404 page in some unexpected scenarios.

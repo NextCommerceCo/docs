@@ -1,0 +1,33 @@
+---
+title: Express Checkout, Product Variants, and multi-currency gateways
+publishedAt: "2022-02-03"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Customer search is now more robust with the ability to search more freely (such as first and last name) and return expected results. The new checkout flow now shows Express Checkout buttons for PayPal and Klarna allowing users to checkout completely in the external payment…
+---
+
+## New Features
+
+- Customer search is now more robust with the ability to search more freely (such as first and last name) and return expected results.
+- The new checkout flow now shows Express Checkout buttons for PayPal and Klarna allowing users to checkout completely in the external payment platforms.
+- We now have much more robust support for Product Variants with improved setup and configuration in the dashboard. Storefront Themes also now provide functionality for theme developers to create product option selectors.
+- Storefront Themes now feature dashboard "Settings" forms that allow theme developers to integrate options into the themes that can be controlled through settings, such as layouts, color pickers, additional text boxes, etc.
+- Transactions reports now feature all UTM reports to see a breakdown of transactions across UTM parameters.
+- Subscriptions Reports now have a new Subscriptions by Gateway report to show a breakdown of subscriptions across payment gateways.
+- Payment gateways now support multiple currencies which greatly improves and simplifies the setup of gateways for stores that sell in multiple currencies.
+
+## Improvements
+
+- Subscription Shipping Price has now been added to the subscription model so that it can be individually set per subscription changes to the shipping method pricing wont impact existing subscriptions.
+- The checkout flow now shows all countries when the store's configured shipping methods do not have any countries selected to restrict them.
+- The first comment on tickets created via the dashboard is now the actual agent who created the ticket making it easier to see the actual source of the ticket.
+- Several Product Class UI improvements were made in an effort to make the UX more clear when creating and editing product classes and their associated options.
+- The "Free Shipping" threshold field on shipping methods has now been removed in favor of only allowing merchants to setup Offers and Coupon codes for shipping discounts for more clarity and reporting of shipping discounts.
+
+## Bug Fixes
+
+- Corrected an issue with order serializer to ensure that all lines had the same currency and allow the order to be created.
+- Fixed an issue with theme template `asset_url` filter to allow asset files to use hyphens.

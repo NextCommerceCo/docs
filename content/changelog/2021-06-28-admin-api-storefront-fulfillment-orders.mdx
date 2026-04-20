@@ -1,0 +1,30 @@
+---
+title: Orders by Tag report and CDN-served theme assets
+publishedAt: "2021-06-28"
+tags:
+  - Admin API
+  - Storefront
+  - Fulfillment
+  - Orders
+summary: Introducing Orders by Tag report to provide order summary broken down by tag allowing merchants to track arbitrary tags in their order reporting. Admin API Create Order with Tags which simplifies the order tagging process for Admin API consumers.
+---
+
+## New Features
+
+- Introducing Orders by Tag report to provide order summary broken down by tag allowing merchants to track arbitrary tags in their order reporting.
+- [Admin API](https://developers.nextcommerce.com/docs/admin-api) Create Order with Tags which simplifies the order tagging process for Admin API consumers.
+- Dashboard users can now have a new customer action to add the customer to block lists which will block future orders from that customer while maintaining access to their account.
+- You can now configure a "New Ticket Notification" to be sent to an email address to notify store admins that a new support request has been received.
+
+## Improvements
+
+- Shipping method currency pricing now supports a Free Shipping Threshold allowing merchants to set a currency specific value.
+- Storefront theme assets (CSS and JS) are now served via CDN making them faster and more efficient to load for site visitors.
+- Storefront Theme translations now have 2 levels of grouping making it more logical to organize theme translations which have also been verified to work with translation services such as Crowdin.
+
+## Bugs Fixed
+
+- Fixed an issue that caused the Shipping values on Orders reports to be unreported.
+- Fixed several issues related to timezone and date filters on views with date range filters.
+- Fixed an issue wherein order were stuck in processing status due to the line items being marked as shipped but the order was still processing status.
+- Fixed a performance issue on the dispute detail view.

@@ -1,0 +1,31 @@
+---
+title: Klaviyo integration and subscription upsell line items
+publishedAt: "2022-11-01"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Introducing a new Klaviyo integration that now supports Klaviyo subscription ecommerce event tracking as well as adding customers to an SMS subscribers list. The Orders Add Line Item Admin API now supports adding items on subscription as an upsell to the original order.
+---
+
+## New Features
+
+- Introducing a new [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) integration that now supports Klaviyo subscription ecommerce event tracking as well as adding customers to an SMS subscribers list.
+- The Orders Add Line Item [Admin API](https://developers.nextcommerce.com/docs/admin-api) now supports adding items on subscription as an upsell to the original order.
+- The Tickets Admin API now supports filtering tickets by order number to look up tickets related to specific orders.
+
+## Improvements
+
+- Improved database queries on Carts and Orders Admin APIs for improved response times.
+- Improved the Order pipeline to allow "completed" status to change back to "confirmed" on the Dashboard and Admin API.
+- We've improved the stock record form to not include stock allocation fields for products that don't have stock tracking enabled.
+- App Webhook failures now send notifications to store admins and the app developer.
+- Permissions label for access to managed installed Apps has been updated from the old label `Extensions` to match with current label `Apps`.
+- Improved the checkout flow "Back to Information" and "Back to Shipping" links logic on the Payments step to adapt properly when there are shipping options available or not.
+
+## Bug Fixes
+
+- Fixed a missing validation point to prevent rendering issues on storefront.
+- Fixed an issue where improperly named templates caused a 500 error.
+- Fixed an issue with the funnel field on the Admin API not being null-able.

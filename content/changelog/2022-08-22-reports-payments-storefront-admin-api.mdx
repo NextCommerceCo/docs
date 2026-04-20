@@ -1,0 +1,35 @@
+---
+title: App Framework beta and Make.com integration
+publishedAt: "2022-08-22"
+tags:
+  - Reports
+  - Payments
+  - Storefront
+  - Admin API
+summary: App Framework is now in public beta paving the way for third-party developers to build reusable apps to extend storefronts and core platform logic, see Apps documentation. We now have an App available on Make.com to easily integrate 100s of services and create custom workflows.
+---
+
+## New Features
+
+- App Framework is now in public beta paving the way for third-party developers to build reusable apps to extend storefronts and core platform logic, [see Apps documentation](https://developers.Next Commerce.com/apps/).
+- We now have an App available on [Make.com](https://www.make.com/en/integrations/twentyninenext) to easily integrate 100s of services and create custom workflows.
+- Transactions list view and reports can now be filtered by Card Brand to improve workflows for card brand transaction reporting.
+- The `phone_number` field on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) now accepts local numbers and will automatically convert them to E.164 format based on the user's first address country.
+
+## Improvements
+
+- We've improved the default sorting direction for all reports to default to descending (highest to lowest) which is more in line with user expectations when sorting by report columns.
+- We've updated the layout of Page, Blog Post, and Support article editing views to use a two column layout for more UX consistency for content editing views.
+- We've improved the UX for managing Fulfillment Partner linked integrations.
+- We've improved the Admin API Product Class serializer to include the id, slug, and name so it can be used as a reference point for other APIs.
+- Updated the Order Status Page link from the dashboard to use the store's primary domain.
+- Product Attributes File Input fields now have improved UX formatting.
+
+## Bug Fixes
+
+- Fixed an issue with new store creation not completing and getting stuck in the initialization state.
+- Fixed an issue with Omnisend (legacy email marketing app) orders not being able to sync when they don't have a shipping address.
+- Added better error handling for an edge case where a user's PayPal address does not match the country of their chosen shipping method.
+- Fixed an edge case where it was possible that PayPal returned more than one user.
+- Fixed an issue with Product Attribute file uploads producing a 500 error.
+- Improved validation logic to better handle postcode validation errors to properly return a 400 level response code.

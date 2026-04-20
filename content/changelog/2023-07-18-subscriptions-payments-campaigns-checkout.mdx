@@ -1,0 +1,28 @@
+---
+title: Fulfillment APIs and order refund detail
+publishedAt: "2023-07-18"
+tags:
+  - Subscriptions
+  - Payments
+  - Campaigns
+  - Checkout
+summary: The Orders Admin API and order webhooks now include refunds detail for a breakdown of order adjustments, refunded items, and associated refund transactions. Introducing a new suite of Admin Fulfillment APIs for external fulfillment services and warehouses to build fully…
+---
+
+## New Features
+
+- The Orders [Admin API](https://developers.nextcommerce.com/docs/admin-api) and order webhooks now include `refunds` detail for a breakdown of order adjustments, refunded items, and associated refund transactions.
+- Introducing a new suite of Admin Fulfillment APIs for external fulfillment services and warehouses to build fully integrated fulfillment flows.
+- In the [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) it's now possible to "Clone" a campaign to reduce setup time for creating and testing campaign variants.
+- Our [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) integration has been updated to include "Items" in the `Refunded Order` event to include the refunded items in refund email notifications.
+- Klaviyo `Placed Order` events now include `subscription_lifecycle` and `subscription_billing_cycle` attributes making it possible to create Dynamic Segments in Klayvio of customers based on their subscription billing cycle.
+- Users can now enable/disable a server driven Klaviyo `Started Checkout` triggered by the store `abandoned.cart` webhook event.
+- [Everflow](https://docs.nextcommerce.com/docs/apps/everflow) users can now optionally include Tax in the conversion values sent to Everflow for reporting.
+
+## Improvements
+
+- The Orders list view is now filtered to `Open` orders by default for a workflow-oriented user experience as open orders require merchant action.
+- Fulfillment partners has been renamed to locations on the Admin API as this is a better representation of their role within the platform logic.
+- The storefront checkout flow uses **Last Click** attribution and now supports `clear_attribution` parameter that when passed as `false` will maintain existing attribution and only update with new fields passed.
+- Several Campaigns App UX improvements have been completed to improve user experience when creating and debugging campaigns.
+- We've improved and extended the webhook retry policy out to 10 days to ensure that webhooks are attempted for a long period of time.

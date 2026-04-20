@@ -1,0 +1,22 @@
+---
+title: Past Due subscription status and content revision history
+publishedAt: "2020-05-30"
+tags:
+  - Subscriptions
+  - Payments
+  - Campaigns
+  - Storefront
+summary: Introduced a new Subscription status “Past Due” status with the ability to manual retry the renewal for subscriptions that have failed the automated renewal process. Subscription Status Change Tracking to log changes of status throughout the life cycle of a subscription.
+---
+
+## New Features
+
+- Introduced a new Subscription status “Past Due” status with the ability to manual retry the renewal for subscriptions that have failed the automated renewal process.
+- Subscription Status Change Tracking to log changes of status throughout the life cycle of a subscription.
+- Content Pages now have revision history tracking to make it easy for users to revert back to previous versions of their content.
+- Stripe Transaction Decline reason code mapping to core payments transaction response codes.
+- New ability to cancel an order that has already been sent to ShipHero by attempting to cancel the order with ShipHero before it has been shipped.
+
+## Bug Fixes
+
+- Fixed an issue with Omnisend (legacy email marketing app) Attribution not being sent for email campaign driven orders.

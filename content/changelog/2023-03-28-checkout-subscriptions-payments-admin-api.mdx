@@ -1,0 +1,31 @@
+---
+title: Customer Notes API and MRR subscription metric
+publishedAt: "2023-03-28"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Admin API
+summary: Introducing a new Customer Notes API that allows adding Customer Notes by external services on the Admin API. Subscription reports now feature a new Monthly Recurring Revenue metric to provide MRR breakdown across the reports.
+---
+
+## New Features
+
+- Introducing a new Customer Notes API that allows adding Customer Notes by external services on the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Subscription reports now feature a new Monthly Recurring Revenue metric to provide MRR breakdown across the reports.
+- We've now added new Metadata Field Types for Rich Text, File, and Multiline Text with the ability to set metadata on Products.
+- We've updated our Admin API schema generator to Open API 3.0 to provide the latest schema features.
+
+## Improvements
+
+- We've updated our database instances and connection settings to use persistent connections, reducing overhead for a 40% improvement in database performance.
+- Webhook event retry payloads are now more consistent and no longer re-created at the time of retrying.
+- Improved Checkout, off-site payment redirect flow UI, and several minor UI improvements throughout the dashboard.
+- Improved several UX elements in Partners setup and App creation flow.
+- Store Dashboard is no longer available in multiple languages, adding more focus on checkout and notification translations.
+
+## Bug Fixes
+
+- Fixed an issue that showed an unlocalized time in order notification emails.
+- Fixed an issue with Dashboard users not being able to access products in the new product picker.
+- Fixed an issue with Order Overview Report Export not following the Order list view as expected.

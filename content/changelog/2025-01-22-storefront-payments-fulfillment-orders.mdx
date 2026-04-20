@@ -1,0 +1,27 @@
+---
+title: Event Tracking for apps and Product Image API
+publishedAt: "2025-01-22"
+tags:
+  - Storefront
+  - Payments
+  - Fulfillment
+  - Orders
+summary: Apps can now use storefront Event Tracking which brings the path for all existing apps to upgrade from App Snippets to Event Tracking. Product image API has been improved to fully support syncing product images from external catalogues with the ability to set the display…
+---
+
+## New Features
+
+- Apps can now use storefront Event Tracking which brings the path for all existing apps to upgrade from App Snippets to Event Tracking.
+- Product image API has been improved to fully support syncing product images from external catalogues with the ability to set the display order and have endpoints for managing existing images.
+
+## Improvements
+
+- All production databases have been updated to PostgreSQL 16, providing enhanced query performance, improved parallelism, and stronger security enhancements.
+- Fulfillment orders can now be marked as incomplete to handle scenarios where an entire fulfillment order could not be fully fulfilled with the assigned fulfillment location.
+- We've now implemented improved logic to prevent duplicate orders when using alternative payment methods that redirect externally.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) app now properly handles partial fulfillment from Shopify in cases the order was not fully fulfilled.
+
+## Bug Fixes
+
+- We fixed a performance issue related to store metrics on the accounts global dashboard.
+- We fixed an issue that caused email subject and content to not always be fully translated and localized to the customer's preferred language.

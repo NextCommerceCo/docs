@@ -1,0 +1,33 @@
+---
+title: Cart-wide percentage discounts and transactions.updated webhook
+publishedAt: "2025-08-06"
+tags:
+  - Storefront
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Platform update on August 6, 2025.
+---
+
+## **New Features**
+
+- **Cart-Wide Percentage Discount Incentive:** Merchants can now create offer incentives that apply a percentage discount to the entire cart total, making it easier to drive conversions with compelling promotional offers.
+- **Campaigns API: Dynamic Payment Methods:** The Campaigns API now includes *available_payment_methods* and *available_express_payment_methods*, enabling campaign developers to dynamically show eligible payment options within their flows.
+- **New *transactions.updated* Webhook:** Transactions now trigger a *transactions.updated* webhook event when they become disputed, allowing external systems to track dispute events in real time.
+
+## **Improvements**
+
+- **Faster Storefront Performance:** Storefront catalog queries and page load times have been optimized—yielding up to 40% faster performance for end users.
+- **Customer Report Speed Gains:** Customer report views now load faster due to improved query efficiency and data aggregation.
+- **Export Size Limit for Stability:** Exports are now capped at 100,000 objects. Users attempting to export more will see a warning—ensuring faster and more reliable export processing.
+- **User Address [Admin API](https://developers.nextcommerce.com/docs/admin-api) Documentation:** The User Address API endpoints now include detailed attribute descriptions, improving clarity for developers integrating external systems.
+- **Campaign Analytics Optimization:** Campaign Analytics performance has been improved with more efficient backend queries and data processing.
+
+## **Bug Fixes**
+
+- **Order Status Race Condition:** Fixed a rare race condition where the order status would not update to “Processing” after being sent to fulfillment.
+- **[Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) & [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) Logs:** Resolved an issue where failed Apple Pay and Google Pay transactions did not appear in the payment transaction logs.
+- **Checkout Settings Access Restriction:** Fixed an issue where users could still access checkout functionality directly from within Checkout Settings, which was unintended behavior.
+- **Subscription Interval Null Handling:** Corrected a 500 error triggered by passing null as the subscription interval in the Admin API.
+- **Campaign Package Mobile View Fix:** Fixed missing links to campaign packages on mobile, allowing users to properly view and manage packages from their mobile devices.
+- **[3PL Central](https://docs.nextcommerce.com/docs/apps/3pl-central) Logs Fix:** Resolved an issue that caused the Logs tab to be hidden in the 3PL Central app.

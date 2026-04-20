@@ -1,0 +1,32 @@
+---
+title: Checkout tracking events and Single Page branding
+publishedAt: "2025-01-08"
+tags:
+  - Offers
+  - Payments
+  - Checkout
+  - Storefront
+summary: Storefront event tracking now has new events for deeper tracking in the checkout flow; checkout_contact_info_submitted, checkout_shipping_method_submitted, and checkout_shipping_address_submitted, see event tracking docs. Storefront Single Page checkout can now be customized…
+---
+
+## New Features
+
+- Storefront event tracking now has new events for deeper tracking in the checkout flow; `checkout_contact_info_submitted`, `checkout_shipping_method_submitted`, and `checkout_shipping_address_submitted`, see [event tracking docs](https://developers.Next Commerce.com/docs/themes/event-tracking/).
+- Storefront Single Page checkout can now be customized through the dashboard Checkout settings to apply deeper branding styles.
+- Coupon share links now feature a dropdown selector to choose the redirect destination when the coupon is applied.
+- Shopify customer updates are now synced automatically to the Next Commerce customer user account when using [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync).
+
+## Improvements
+
+- Inventory Low Stock alerts has now been consolidated into the inventory view to improve inventory management user experience.
+- Partial fulfillment logic has been improved to not create a new fulfillment order for the remaining products to simplify fulfillment integration logic.
+- We've improved our payment flow handling when payment processors are unavailable.
+- We've improved the SKU filter logic to be exact match to prevent cases where of matching multiple SKUs.
+
+## Bug Fixes
+
+- We've fixed an issue with [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) frictionless flow that intermitently failed depending on the user/browser behavior.
+- We've fixed an issue with custom shipping prices not being applied with Stripe APM payment flow.
+- We've fixed an issue with Partial Fulfillment Requests not sending the correct fulfillment order line items.
+- `product.updated` webhooks were not triggered when removing product categories.
+- We've fixed an issue with product out of stock messages not being shown in the side cart when adding product fails.

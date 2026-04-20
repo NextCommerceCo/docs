@@ -1,0 +1,37 @@
+---
+title: Single Sign On, Klarna One Click, and store branding
+publishedAt: "2021-11-01"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Fulfillment
+summary: Introducing Single Sign On allowing store users to easily access multiple stores from a single user account. Klarna integration now supports a One Click flow allowing the customer to add their details into the Klarna Checkout widget directly for their order.
+---
+
+## New Features
+
+- Introducing Single Sign On allowing store users to easily access multiple stores from a single user account.
+- Klarna integration now supports a One Click flow allowing the customer to add their details into the Klarna Checkout widget directly for their order.
+- Stores now have a new Branding settings section allowing store admins to upload their brand logo and icon.
+
+## Improvements
+
+- Store Tax settings now support "Tax Inclusive Prices" per currency for markets that require tax to be included in presented prices.
+- Support tickets can now be updated in bulk to change their status, assignee, priority, type, or add tags.
+- Test Subscriptions are now created when using Test Cards allowing merchants to fully test subscription processes and pricing.
+- Orders can now be filtered by Fulfillment partner on the Orders list view.
+- The Admin Cart API now has date range filter parameters to support searching by specific date ranges.
+- Resolving an Alert (dispute) that was created by [Midigator](https://docs.nextcommerce.com/docs/apps/midigator) will automatically sync the resolution to Midigator's Prevention API.
+- Support Macros now support order based replacement variables to make it easier for support agents to quickly respond to customers with information about their order.
+- The Subscriptions list view now has tabs with counts to easily see subscriptions by status and keep an eye on subscriptions that are retrying and past due.
+- Orders now show a Support tab when tickets are associated to the order for easier navigation to the associated tickets.
+- The dashboard cart view "Cart Actions" have been updated to simplify the UX for dashboard users to assist a customer with the checkout process.
+
+## Bug Fixes
+
+- Fixed an issue where failed transactions were filtered before the Avg Value was calculated preventing them from being included in Avg Value calculations.
+- Fixed an issue where following a link from a report to a list view with a `date_group` querystring causing the the export to fail.
+- Improved the logic to prevent duplicate Paypal shipping events from creating in the case of an issue uploading.
+- Fixed an issue preventing Test Orders with Klarna payment from being deleted.
+- Fixed an issue with the order total calculation with taxes applied in the dashboard cart summary.

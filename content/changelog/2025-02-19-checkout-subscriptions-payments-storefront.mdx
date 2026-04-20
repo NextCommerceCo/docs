@@ -1,0 +1,29 @@
+---
+title: Configurable product filters and bulk inventory management
+publishedAt: "2025-02-19"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Platform update on February 19, 2025.
+---
+
+## New Features
+- **Configurable Product Filters:** The Storefront Product Catalog now supports configurable filters, allowing customers to refine product searches by attributes, price, and availability.
+- **Bulk Inventory Management:** Inventory can now be updated in bulk via an Export and Import process, making stock management more efficient.
+- **Enhanced [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) Integration:** ShipStation now supports Partner API Keys, providing higher API rate limits for high-volume accounts.
+- **Expanded [Storefront GraphQL API](https://developers.nextcommerce.com/docs/storefront/graphql):** The products query now includes filters for product node IDs and PKs, enabling theme developers to create richer customer experiences.
+- **Improved [Meta Pixel](https://docs.nextcommerce.com/docs/apps/meta-pixel) Integration:** Meta Pixel now leverages our Storefront Event Tracking framework for a more robust and future-proof tracking integration.
+
+## Improvements
+- **Checkout Customization Previews:** Merchants can now preview customer account screens with mock data, allowing them to see exactly what customers experience when logging into their storefront accounts.
+- **Faster Storefront Tracking Events:** The performance of tracking events on the storefront catalog has been optimized for improved response times.
+- **Stronger Subscription Restrictions:** Blocklisted customers are now prevented from reactivating their subscriptions through their customer accounts.
+- **Faster Order Detail Views:** Order detail views now load more efficiently with optimized queries and improved data storage for fulfillment event dates.
+
+## Bug Fixes
+- **Subscription Renewal Fix:** Resolved an issue where subscription payment method updates failed due to the subscription product being out of stock.
+- **Order Search Fix:** Fixed a bug that prevented users from searching for orders via accounts.Next Commerce.com, even when they had the necessary permissions.
+- **Cart Error Handling Fix:** Attempting to add a product without a price to the cart now correctly returns a 400 error instead of a 500 error.
+- **Login Throttling Enhancement:** Login attempts are now more gracefully throttled with a dedicated 429 error page when brute force login attempts are detected.

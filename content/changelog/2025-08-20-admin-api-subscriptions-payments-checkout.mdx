@@ -1,0 +1,29 @@
+---
+title: Verify API for card token validation
+publishedAt: "2025-08-20"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Platform update on August 20, 2025.
+---
+
+## **New Features**
+
+- **New Verify API Endpoint:** A new [verify endpoint](https://developers.Next Commerce.com/docs/api/admin/reference/?v=2024-04-01#/operations/transactionsVerifyCreate) is now available, allowing platforms to verify and retain a card token before using it in an order or subscription. This offers a more flexible and secure approach to pre-validating payment methods.
+
+## **Improvements**
+
+- **Expanded App Settings Field Types:** Internal app settings now support more field types, aligned with those available in Theme Customization Settings—making it easier for apps to adopt rich configuration options.
+- **Auto-Sync Product Slug with Title:** Product URL slugs now automatically update to reflect changes to the product title, helping maintain SEO and internal consistency.
+- **Improved Dashboard Help Links:** User documentation search and support links within the dashboard have been refactored to offer a smoother, more intuitive experience.
+- **Order Exports Include GCLID:** Google Click ID (GCLID) is now included in order exports, enabling bulk retrieval of paid search attribution data outside the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- **Store Schema in Theme Templates:** The store schema name is now available as a theme template variable, simplifying the ability to pass store context into client-side JavaScript.
+
+## **Bug Fixes**
+
+- **Inventory Duplication & Search Filter Fixes:** Resolved issues that caused duplicate inventory entries and search filters not returning expected results.
+- **Gift Card Checkout for Free Orders:** Fixed an issue in the Single Step Checkout flow where free orders using a gift card could not complete the checkout process.
+- **Export Stability Fix:** Addressed a regression introduced in recent export processing optimizations that caused unexpected export issues.
+- **Original Price Discount Fix:** Fixed a bug where original prices on order line items did not correctly reflect applied discounts.

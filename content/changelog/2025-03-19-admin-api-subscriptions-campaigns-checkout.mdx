@@ -1,0 +1,31 @@
+---
+title: PayPal setup redesign and Admin API metadata
+publishedAt: "2025-03-19"
+tags:
+  - Admin API
+  - Subscriptions
+  - Campaigns
+  - Checkout
+summary: "**Simplified PayPal Account Setup:** The PayPal connection and authorization process has been completely redesigned for a more seamless and user-friendly setup experience. **Expanded Admin API Metadata Support:** Carts, Orders, and Subscription Line Items now accept metadata\u2026"
+---
+
+## New Features
+
+- **Simplified PayPal Account Setup:** The PayPal connection and authorization process has been completely redesigned for a more seamless and user-friendly setup experience.
+- **Expanded [Admin API](https://developers.nextcommerce.com/docs/admin-api) Metadata Support:** Carts, Orders, and Subscription Line Items now accept metadata via the Admin API, enabling deeper platform integrations and external tracking of line items.
+
+## Improvements
+
+- **More Accurate AOV Metrics:** Order Report AOV calculations now account for order totals inclusive of returns and refunds, for improved accuracy in merchant reporting.
+- **Flexible SKU Management:** Product SKUs can now be duplicated across multiple products, providing greater flexibility in product catalog management.
+- **Persistent Orders List Date Range Selection:** The date range selection in Orders List view now persists across sessions, enhancing the merchant user experience when monitoring order activity.
+- **Improved Email Domain Setup Instructions:** Email sending domain setup instructions have been refined to minimize user errors when configuring DNS entries.
+- **Optimized Campaign Package Image Handling:** Large campaign package images are now validated and compressed to ensure proper thumbnail generation.
+- **Consistent Storefront Branding:** Storefront customer account branding logos now follow the same sizing rules as those in the checkout experience for a more cohesive appearance.
+- **Enhanced Storefront Event Tracking:** A new init() method has been introduced, providing event tracking integrations with additional context when firing events.
+- **Storefront Catalog Filter Warnings:** Users are now alerted if a catalog filter source has been deleted, prompting them to resolve potential filtering issues.
+
+## Bug Fixes
+
+- **Fixed Low Stock Alert Links:** Low Stock Alert notifications now correctly direct users to the new inventory management views.
+- **Resolved Unexpected Event Tracking in Checkout Customization:** Storefront Event Tracking no longer fires unintended events in the Checkout Customization flow.

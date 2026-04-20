@@ -1,0 +1,30 @@
+---
+title: Order metadata editing and transaction attribution
+publishedAt: "2022-11-28"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Fulfillment
+summary: Order Metadata and Order Attribution Metadata can now be edited in the dashboard on the Order detail view improving workflows for dashboard users. Transaction details now have Attribution data to more easily see the source of the transaction, especially useful for failed…
+---
+
+## New Features
+
+- Order Metadata and Order Attribution Metadata can now be edited in the dashboard on the Order detail view improving workflows for dashboard users.
+- Transaction details now have Attribution data to more easily see the source of the transaction, especially useful for failed transactions that did not successfully create an order.
+
+## Improvements
+
+- Improved database queries on Customer list view with a new approach to customer total spend to improve load speeds by 2x.
+- We've now added support for `product_id` to the [Admin API](https://developers.nextcommerce.com/docs/admin-api) for carts, orders, and subscription line items.
+- The labeling and error messages for App Kit setup has been improved for better DX.
+- We've now added support Auth/Catpure flows for upsells and refunds using [Avalara](https://docs.nextcommerce.com/docs/apps/avalara-avatax) tax calculation.
+
+## Bug Fixes
+
+- Fixed an issue related to customers not receiving the password reset email if they did not have a password set for their account.
+- Fixed an edge case related to Variant Products not showing the lowest price on the product catalogue view.
+- Fixed an edge case for Auth/Capture flows where payment was automatically captured on fulfillment even when setting was disabled.
+- Fixed an issue where public child products were still shown in the Google Merchant feed even though the parent was set to non-public.
+- Fixed an issue where we failed to match chargebacks to failed transactions.

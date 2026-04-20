@@ -1,0 +1,29 @@
+---
+title: Full-text search, page metadata, and Klarna Disputes
+publishedAt: "2025-11-26"
+tags:
+  - Payments
+  - Storefront
+  - Admin API
+  - Fulfillment
+summary: "We've completely overhauled Customer and Order search strategy, migrating to an advanced high-performance full text search index, reducing query times and improving relevance, especially on larger stores. We've added Page and Blog Post Metadata, expanding capabilities for\u2026"
+---
+
+## New Features
+
+- We've completely overhauled Customer and Order search strategy, migrating to an advanced high-performance full text search index, reducing query times and improving relevance, especially on larger stores.
+- We've added Page and Blog Post Metadata, expanding capabilities for Storefront Theme Developers to add dashboard configurable features through custom templates and metadata.
+- We now support Klarna Disputes through the Next Payments portal allowing merchants to respond and defend disputes related to Klarna payment transactions.
+
+## Improvements
+
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now uses Shopify's latest GraphQL [Admin API](https://developers.nextcommerce.com/docs/admin-api) version 2025-10 for future compatibility.
+- We've improved Next Payments Disputes with the addition of pre-arbitration handling when the issuer declines merchant provided defense evidence.
+- We've improved query performance for background abandoned cart tasks for reduced database load and improved operational performance.
+- We've improved query performance for Paypal related tracking upload tasks for improved efficiency.
+- We've improved Klarna payment validation messages related to Klarna regional support for easier understanding of why the payment was not attempted.
+- Assigned Fulfillment Requests Admin API now returns consistent response data for consistent behavior regardless of permission scopes.
+
+## Bug Fixes
+
+- Fixed an issue with Campaign Performance Analytics not being able to infer the correct timezone on datetime objects.

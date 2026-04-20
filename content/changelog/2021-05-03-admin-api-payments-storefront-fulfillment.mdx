@@ -1,0 +1,34 @@
+---
+title: Orders by Product report and tokenized payment methods
+publishedAt: "2021-05-03"
+tags:
+  - Admin API
+  - Payments
+  - Storefront
+  - Fulfillment
+summary: Introducing a new Orders by Product report which breaks down orders revenue by product to help in reviewing product sales, revenue, and inventory forecasting. Admin Order API now returns the tokenized payment method in the payment transaction response details, allowing the…
+---
+
+## New Features
+
+- Introducing a new Orders by Product report which breaks down orders revenue by product to help in reviewing product sales, revenue, and inventory forecasting.
+- Admin Order API now returns the tokenized payment method in the payment transaction response details, allowing the token to be reused in a reattempt.
+
+## Improvements
+
+- Order Notes are now visible in the Customer Notes section, providing a consolidated view of all notes related to the customer and their orders.
+- We've now implemented Void transactions for Braintree to support voiding a transaction prior to the payment being settled.
+- Support tickets search filters now have more fields to make it easier to find tickets.
+- Incoming support emails are now handled with a new storage backend to support larger file attachments being attached to the tickets.
+- All date filter input fields now have a date picker making them more straight forward and easier to use.
+- [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) extension now uses batch order polling to significantly improve the efficiency of retrieving order updates on regular intervals.
+- Added validation to require first and last name on shipping addresses. It was previously possible to not pass these values, but they are required by most fulfillment providers.
+
+## Bugs Fixed
+
+- Fixed an issue with Product SKU filters on Orders list and reports not applying properly.
+- Fixed an issue with support ticket email HTML content stored in the database being rendered improperly in the Dashboard.
+- Corrected an issue with missing CSRF token in storefront templates causing a 403 error.
+- Corrected CSV Export data issues on null fields that were incorrectly populated.
+- Fixed an issue wherein the wrong currency was shown when a cart was empty.
+- Investigated and fixed an issue that caused Orders and Transaction reports to show discrepancies in totals.

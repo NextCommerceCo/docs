@@ -1,0 +1,32 @@
+---
+title: Tax Services overhaul and Stripe Link express checkout
+publishedAt: "2026-03-04"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Tax settings have been overhauled to bring more clarity and flexibility to assign Tax Services to Tax Regions allow for multiple tax services at the same time. Stripe Link is now supported as an express checkout method for a faster, lower friction payment experience.
+---
+
+## New Features
+
+- Tax settings have been overhauled to bring more clarity and flexibility to assign Tax Services to Tax Regions allow for multiple tax services at the same time.
+- Stripe Link is now supported as an express checkout method for a faster, lower friction payment experience.
+
+## Improvements
+
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now always shows for all users in the dashboard for all users who have access to the app.
+- Storefront Checkout now supports South Korea, Japan, China, and Israel and their local respective currencies.
+- We've improved our background CSV export process to be more robust and less likely to
+- German translations on the Checkout flow have been improved to match customer expectations in German speaking markets.
+- We've improved our logic and handling to always pass a customer phone number to shopify on the shipping address if one is possibly available.
+- PayPal now supports adding custom soft descriptor statement descriptor through the dashboard settings, Campaign settings, and also per order using the `statement_descriptor` [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+
+## Bug Fixes
+
+- We fixed an issue with `product.updated` webhooks not being able to send retries if the product images were deleted.
+- We fixed an issue with subscription next renewal date was not set properly after the subscription recovery flow succeeded.
+- We fixed an issue with campaign integration modal not showing after a second click.
+
+##

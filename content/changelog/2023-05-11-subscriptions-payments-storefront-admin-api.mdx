@@ -1,0 +1,29 @@
+---
+title: Products overhaul and User Address APIs
+publishedAt: "2023-05-11"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+  - Admin API
+summary: Products have been overhauled, with the introduction of a more streamlined UX to simplify product variant management, product attributes, and overall product catalogue management. The Admin API now has a full set of User Address APIs to create and manage addresses.
+---
+
+## New Features
+
+- Products have been overhauled, with the introduction of a more streamlined UX to simplify product variant management, product attributes, and overall product catalogue management.
+- The [Admin API](https://developers.nextcommerce.com/docs/admin-api) now has a full set of [User Address APIs ](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/customers/operation/usersAddressesCreate)to create and manage addresses.
+- The PayPal integration now integrates [PayPal FraudNet](https://developer.paypal.com/limited-release/fraudnet/integrate/) to provide expanded transaction and device data on PayPal transactions.
+
+## Improvements
+
+- We've improved theme queries to improve storefront loading performance by ~20%.
+- The original Subscription UI has been removed as we have now fully transitioned to the new Subscription UX.
+- The original Carts UI has been removed as we have now fully transitioned to the new Carts UX.
+- Users can now create metadata objects with the same key for different objects.
+
+## Bug Fixes
+
+- Fixed an issue with US Tax IDs where we limited the field to 9 digits and did not properly handle the `-` in the users input.
+- Fixed an edge case issue where Past Due subscriptions were updated but not automatically set back to `active` status to continue their renewal cycles.
+- We fixed an issue with Avg Value and Avg LTV calculations for Subscriptions Reports.

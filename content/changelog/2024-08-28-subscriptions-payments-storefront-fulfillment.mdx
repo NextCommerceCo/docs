@@ -1,0 +1,33 @@
+---
+title: Subscription Recoveries and Gift Card Balances reports
+publishedAt: "2024-08-28"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+  - Fulfillment
+summary: "Next Commerce Payments dashboard views now include access to view all payments and payment details for deeper breakdown of the payment and fees, expect deeper visibility and more features to come. We're excited to announce a new Subscription Recoveries report with a breakdown\u2026"
+---
+
+## New Features
+
+- Next Commerce Payments dashboard views now include access to view all payments and payment details for deeper breakdown of the payment and fees, expect deeper visibility and more features to come.
+- We're excited to announce a new Subscription Recoveries report with a breakdown of recoveries by source to assist merchants monitor subscription recovery channels and their impact on their MRR.
+- Gift card reporting is now much more robust with the introduction of the Gift Card Balances reporting giving a full historical view of gift card issuance, usage, and outstanding balance to help merchants keep a watchful eye on their gift card programs.
+
+## Improvements
+
+- Delivery tracking app logs now follow the connected store timezone to make the timestamps more cohesive with data in the store.
+- Meta app logs now follow the connected store timezone to make the timestamps more cohesive with data in the store.
+
+## Bug Fixes
+
+- We've improved Braintree descriptor company phone number field to prevent potential failures due to invalid descriptor phone numbers.
+- We've improved our delivery tracking to automatically filter out duplicate events from carriers for a more clear timeline of shipment tracking events.
+- Order Returns trend metric has been corrected to be inverse as lower returns are an improvement and vice versa.
+- We've fixed and improved our inventory tracking to more accurately handle order management actions that impact available product inventory.
+- We've improved Subscription Bulk Gateway Change action to warn users when a subscription could not be updated due to a currency issue on the new gateway.
+- We've improved the Store Name validation to prevent potential issues when sending email and using the store name as the sender name.
+- We've fixed the handling and storage of the transation initiating user across all alternative payment methods.
+- We've improved our theme asset CORS policy to prevent theme assets from failing to load.
+- We fixed an issue with the default storefont side cart item removing sometimes not fully completing before the cart reload.

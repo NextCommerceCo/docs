@@ -1,0 +1,31 @@
+---
+title: Scheduled subscription changes and Address Autocomplete API
+publishedAt: "2026-02-23"
+tags:
+  - Subscriptions
+  - Payments
+  - Campaigns
+  - Checkout
+summary: "We've added the ability to schedule subscription changes in advance enabling merchants to schedule subscription changes ahead of time that are automatically applied in the background at a later date for advanced subscription workflows. Campaigns App now features an Address\u2026"
+---
+
+## New Features
+
+- We've added the ability to schedule subscription changes in advance enabling merchants to schedule subscription changes ahead of time that are automatically applied in the background at a later date for advanced subscription workflows.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now features an Address Autocomplete API that enables address autocomplete functionality for campaign address forms as an included managed service.
+- We now support redirecting customers to a specific language on express checkout by passing a `language` parameter in the payment details object to control the language of the express checkout flow.
+
+## Improvements
+
+- Subscription renewal orders synced through to Shopify will new include an additional "Recurring" tag to help merchants identify these orders and apply workflow rules to them.
+- Campaigns App campaign retrieve API response times have been significantly improved with the additional of caching and gzip compression reducing response times by up to 90%.
+- [Everflow](https://docs.nextcommerce.com/docs/apps/everflow) S2S postback has been updated to pass the order_id parameter for improved conversion deduplication in their platform.
+- We've improved Paypal Tracking Uploads logic to better handle edge cases with multiple fulfillments and multiple payments per order.
+
+## Bug Fixes
+
+- We've fixed an issue where it was possible an order could be created through Paypal Express without a shipping address preventing downstream fulfillment issues.
+- We've fixed a workflow issue for customers added through the dashboard directly did not have their first shipping address automatically set as default.
+- We've fixed an issue with subscription reporting data generation that was failing on very large datasets.
+- We've fixed random errors on customer account views caused by unsortable table columns.
+- We've fixed a storefront issue that was causing the currency to be set to an unsupported format character and resulted in a 500 error.

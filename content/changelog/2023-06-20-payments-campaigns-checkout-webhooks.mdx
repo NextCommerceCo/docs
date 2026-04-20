@@ -1,0 +1,29 @@
+---
+title: Headless Campaigns App and rebilling on file
+publishedAt: "2023-06-20"
+tags:
+  - Payments
+  - Campaigns
+  - Checkout
+  - Webhooks
+summary: Introducing a new headless Campaigns App and API that supports JavaScript integrations, enabling developers to integrate external custom checkout flows without requiring a server side integration. Orders that have been edited and require the collection of additional payment…
+---
+
+## New Features
+
+- Introducing a new headless [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) and API that supports JavaScript integrations, enabling developers to integrate external custom checkout flows without requiring a server side integration.
+- Orders that have been edited and require the collection of additional payment from the customer can now bill the original payment method on file. (Limited to payment methods that allow merchant initiated transactions).
+- Partner Marketing Reports can now be configured to exclude revenue figures when merchants want to exclude them from a partner's view.
+- New Metadata boolean field type handles boolean values being passed and stored as metadata.
+- Transactions APIs and webhooks now feature a new `parent_id` so that integration partners can link related transactions in their external application logic.
+
+## Improvements
+
+- Bancontact is now available for customers in the Netherlands.
+- Improved the logic of the Paypal redirect flow endpoint to not return 500 errors when invalid UUIDs are passed, instead returning a 404.
+
+## Bug Fixes
+
+- Fixed an issue where it was possible for a customer to pay for their order with an alternative payment method, then drop out of the flow before their order was created.
+- Fixed an issue where duplicate `order.updated` webhook events were sent by the authorized transaction recurring processes even though the order had not updated.
+- Fixed an issue to properly handle some edge case errors for Paypal refund transactions.

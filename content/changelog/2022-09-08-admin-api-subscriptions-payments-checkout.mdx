@@ -1,0 +1,31 @@
+---
+title: Gateway credential editing and custom theme templates
+publishedAt: "2022-09-08"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Gateway credentials can now be updated through the dashboard allowing merchants to update existing gateway credentials without needing to create a new gateway. 3DS optimized transactions and standard transactions that were downgraded (from 3DS) now have filters and icons to…
+---
+
+## New Features
+
+- Gateway credentials can now be updated through the dashboard allowing merchants to update existing gateway credentials without needing to create a new gateway.
+- [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) optimized transactions and standard transactions that were downgraded (from 3DS) now have filters and icons to identify them in transaction logs.
+- Pages and Blog Posts now feature new SEO settings along with support using the ` { "@context": "https://schema.org", "@type": "Article", "mainEntityOfPage": { "@type": "WebPage", "@id": "" }, "headline": "", "image": "", "author": { "@type": "Person", "name": "" }, "datePublished": "", "dateModified": "" } ` tag in storefront theme templates allowing dashboard users to configure and optimize their on page SEO.
+- The dashboard theme editor now supports custom templates creation for Products, Pages, Funnels, and Blog Posts.
+
+## Improvements
+
+- Gateways can be added (or removed) from Gateway Groups on the Gateway Settings view making it easier to manage which groups a gateway is included in.
+- Admin Order and Subscription APIs now support updating the shipping/billing addresses and attribution.
+- App installations on development stores are no longer tracked in the App installation activity events.
+- App `name` and `version` have been removed from App manifest.json as they are no longer required for the app installation flow.
+
+## Bug Fixes
+
+- Fixed a performance issue with blog post rendering to improve load times.
+- Fixed a Product API serializer issue related to product images.
+- Fixed an issue in the checkout flow showing card types that from inactive gateways.
+- Fixed an issue with shipping price shown in the subscription preview bubble in the checkout flow.

@@ -1,0 +1,31 @@
+---
+title: Google Pay express checkout and Discover 3DS
+publishedAt: "2023-10-25"
+tags:
+  - Payments
+  - Subscriptions
+  - Checkout
+  - Admin API
+summary: "[Google Pay](https://docs.Next Commerce.com/features/payments/google-pay) is now available for merchants to setup on their store as an express checkout payment method, and on the Admin API. Reports list view has been overhauled to now allow searching and pinning of reports to\u2026"
+---
+
+## New Features
+
+- [[Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay)](https://docs.Next Commerce.com/features/payments/google-pay) is now available for merchants to setup on their store as an express checkout payment method, and on the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Reports list view has been overhauled to now allow searching and pinning of reports to improve report discovery and easy access to frequently used reports.
+- Discover card is now supported for [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) payments. Merchants can configure their Discover Acquiring BIN and Merchant ID when setting up a 3DS Profile.
+- Returns and Return Line Items can now be exported for external use and analysis.
+
+## Improvements
+
+- Orders report "Returns" value is now relative to the date of the orders themselves to help merchants better analyze returns performance relative to the order created date range.
+- Orders and Transactions using the Test gateway are now flagged as test transactions, improving the developer experience when test transactions are necessary for building an integration.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) now always send the latest object state which helps prevent any edge cases that could arise if webhook task messages waited in the queue for processing for a period of time.
+
+## Bugs Fixed
+
+- Fixed an issue with the orders subscription lifecycle filter not working as expected.
+- We've now fixed an issue with the Inventory counts including deleted locations.
+- Fixed an edge case issue where it was possible to create a subscription with a value as an upsell if the initial order was 0.00 and did not have a retained payment method.
+- Fixed the display of line items in emails viewed through the dashboard when a user has dark mode enabled in their OS.
+- Fixed an edge case where removed apps prevented other apps from checking for an available update.

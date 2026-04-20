@@ -1,0 +1,31 @@
+---
+title: Store settings overhaul
+publishedAt: "2023-11-22"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Store settings have been completely overhauled with a new layout, navigation and restructuring to ease store setup and configuration.
+---
+
+## New Features
+
+- Store settings have been completely overhauled with a new layout, navigation and restructuring to ease store setup and configuration.
+
+## Improvements
+
+- Orders can now be filtered by `Is Disputed` on the orders list view and order reports to only see orders that have disputes associated to them.
+- Subscription events have been refactored following our new events structure for all future events.
+- The transaction response message is now available in transaction exports which can be useful for gateway performance and decline analysis.
+- Domains that have become unverified with our backend email provider will now update their verification status shown in dashboard email sending domains.
+
+## Bug Fixes
+
+- Fixed an issue with store timezone and date range filters sometimes showing inconsistent results on the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Fixed a display issue with the Paypal app installed success notification.
+- Fixed an edge case issue with [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) and translations not being able to apply correctly.
+- Fixed an issue with storefront user registrations not receiving their registration email.
+- Improved the customer list view to show an emdash when the customer is missing a first/last name.
+- Fixed an issue with non-public products showing in the cross-sale products in the storefront.
+- Fixed an edge case issue where it was possible to create a 500 error with rapid cart creation submissions for the same user.

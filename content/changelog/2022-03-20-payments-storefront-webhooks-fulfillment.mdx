@@ -1,0 +1,31 @@
+---
+title: Stripe Payment Intents and custom product templates
+publishedAt: "2022-03-20"
+tags:
+  - Payments
+  - Storefront
+  - Webhooks
+  - Fulfillment
+summary: Added support for bankcard transactions with Stripe Payment Intents. Products can now be configured to use custom templates to greatly enhance the development of complex product design layouts.
+---
+
+## New Features
+
+- Added support for bankcard transactions with Stripe Payment Intents.
+- Products can now be configured to use custom templates to greatly enhance the development of complex product design layouts.
+
+## Improvements
+
+- The Source Attribution field Funnel ID now allows free text values, allowing support for funnel IDs from external content management systems.
+- Orders Reports totals now include Pending and Canceled orders which ensures report totals match up to Order List views.
+- All tables throughout the platform now feature a "Results" count to help quickly get a count of objects in a paginated table.
+- The [Everflow](https://docs.nextcommerce.com/docs/apps/everflow) Verification Token is no longer a required field on the setup form, making it easier to configure.
+- Webhook retry policy and deactivation logic have now been improved to retry more and accommodate low volume webhooks.
+- The phone number fields on the Payment Account signup form has been improved to support local phone numbers.
+- Order fulfillment logic for [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) has been improved to support multiple ShipStation accounts on the same order.
+
+## Bug Fixes
+
+- Fixed an issue that was blocking rebills on orders where the product class had been changed from requiring to not requiring shipping.
+- Fixed an issue that caused duplicate order confirmation emails to be sent to the same customer for the same order.
+- Fixed an issue that caused an error when theme zip files contained OS specific directories, and added support for linux based systems folder compression layout.

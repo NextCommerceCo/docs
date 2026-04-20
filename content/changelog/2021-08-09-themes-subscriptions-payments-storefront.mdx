@@ -1,0 +1,29 @@
+---
+title: Subscription renewal notifications and customer-level disputes
+publishedAt: "2021-08-09"
+tags:
+  - Themes
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: "Disputes can now be viewed directly on the Customer Profile allowing store dashboard users to easily see and access a Customer's Disputes. Support Ticket requester's can now be updated to associate a support ticket with the correct customer account."
+---
+
+## Improvements
+
+- Disputes can now be viewed directly on the Customer Profile allowing store dashboard users to easily see and access a Customer's Disputes.
+- Support Ticket requester's can now be updated to associate a support ticket with the correct customer account.
+- Store admins can now configure subscription Upcoming Renewal Notifications to notify customers of upcoming orders and comply with local laws.
+- The Orders, Order Line Items, and Customers exports all now include the Customer IP address so that store admins can use the IP address to cross reference any issues they are seeing.
+- Users created with the Admin Orders API can now accept tags to be associated with the user so that store's can tag users more easily with the orders API operations.
+- We've now been able to significantly reduce the number of queries our theme templates need on page load by caching them in database cache for improved site load times
+- All source attributions can be chosen from during the setup of the [Midigator](https://docs.nextcommerce.com/docs/apps/midigator) integration.
+- Improved the user data model to store the customer type as an actual model field instead of being dynamically derived based on orders or permissions. This also corrected the webhook `customer.updated` signal to send when customers transition from `lead` to `customer`.
+
+## Bug Fixes
+
+- We've now corrected the report inconsistencies caused by missing timezone awareness on a few of the report views.
+- Fixed several issues that prevented orders from syncing correctly to Omnisend (legacy email marketing app).
+- Implemented fixes and improvements to the [Avalara](https://docs.nextcommerce.com/docs/apps/avalara-avatax) extension to not attempt to sync carts without products.
+- Fixed an issue with Omnisend push notifications service worker not using the database settings.
+- Improved the order create validation logic to require a payment_return_url when using a gateway group that has gateways for the order currency that use [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) transactions.

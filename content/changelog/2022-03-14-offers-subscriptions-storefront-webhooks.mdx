@@ -1,0 +1,29 @@
+---
+title: Exact-quantity offer condition and theme zip uploads
+publishedAt: "2022-03-14"
+tags:
+  - Offers
+  - Subscriptions
+  - Storefront
+  - Webhooks
+summary: New Offer Condition type to the set exact quantity of products within the range to be in the cart for the offer to be applied which greatly simplifies quantity based tiered discount scenarios. Storefront Themes can now be uploaded through the dashboard UI with a zip file…
+---
+
+## New Features
+
+- New Offer Condition type to the set exact quantity of products within the range to be in the cart for the offer to be applied which greatly simplifies quantity based tiered discount scenarios.
+- Storefront Themes can now be uploaded through the dashboard UI with a zip file making it easier for Theme developers and store admins to bootstrap store themes.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) now feature two new events; `ticket.created` and `ticket.updated` allowing webhook subscribers to listen for support related events.
+- Store sitemap.xml feeds now properly support multiple languages configured by the store's public languages.
+- Subscription address handling has been improved to better support digital products which do not require shipping and would result in digital subscriptions.
+
+## Improvements
+
+- Subscriptions UI has been overhauled to be more consistent with Orders and other areas of the platform.
+- We've improved the carts list view to exclude anonymous carts and and removed the `owner` object which was deprecated in favor of the `user` object.
+
+## Bug Fixes
+
+- Fixed an issue where multiple subscriptions were created for a single line item through the admin api.
+- Corrected the CORS setting for media file handling on storefront themes.
+- Fixed an issue with Order Reports failing to generate when trying to filter by Partner SKU.

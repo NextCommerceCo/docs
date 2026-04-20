@@ -1,0 +1,30 @@
+---
+title: Gateway and Shipping Method Admin APIs
+publishedAt: "2023-05-23"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Fulfillment
+summary: Payment Gateways and Gateway Groups are now available on the Admin API to list and retrieve their details. Shipping Methods are now available on the Admin API to list and retrieve their details.
+---
+
+## New Features
+
+- Payment [Gateways](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/payments/operation/gatewaysList) and [Gateway Groups ](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/payments/operation/gatewayGroupsList)are now available on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) to list and retrieve their details.
+- [Shipping Methods](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/fulfillment/operation/shippingMethodsList) are now available on the Admin API to list and retrieve their details.
+
+## Improvements
+
+- The payment flow for Stripe APMs has been improved to reduce necessary steps for customers to input their name on the first step before proceeding for Klarna, Giropay, and Bancontact.
+- Belgium has been added as an supported country for iDeal payments due to it's commonality with Belgium users.
+- PayPal credentials are now validated when saving to reduce potential issues when creating or updating PayPal account details.
+- We've now updated the Subscriptions Admin API to allow updating a subscription to any renewal schedule for improved flexibility.
+- We've updated the language display names for Nederlands (Dutch) and Português (Portguese)
+- Added support for `.url` access in templates for files uploaded to metadata for consistency with all other media file access.
+
+## Bug Fixes
+
+- Fixed an issue with Paypal refunds not saving a successful 1000 response code.
+- Fixed a localization issue with pluralization and Norsk language causing a 500 error in a few edge cases.
+- Fixed an issue where attribution was not saved on Subscriptions created through the add-line-items Admin API.

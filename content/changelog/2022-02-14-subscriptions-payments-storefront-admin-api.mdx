@@ -1,0 +1,27 @@
+---
+title: Stand-alone to variant conversion and subscription email controls
+publishedAt: "2022-02-14"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+  - Admin API
+summary: Subscriptions can now be set to not send order confirmation emails for renewal orders. Stand alone products can now be converted to a variant product allowing for additional variants to be added after a product already has a stock record.
+---
+
+## New Features
+
+- Subscriptions can now be set to not send order confirmation emails for renewal orders.
+- Stand alone products can now be converted to a variant product allowing for additional variants to be added after a product already has a stock record.
+- Customers, Orders, and Transactions report summaries now all feature percentage calculations for Upsells, Shipping, Refunds and Net Revenue for easier key metric monitoring.
+
+## Improvements
+
+- Gateway Group is now stored on transactions where the a group was used for the routing of the transaction.
+- [Admin API](https://developers.nextcommerce.com/docs/admin-api) endpoints for Orders, Carts, and Products have been significantly improved with reduced queries and faster response times.
+- Theme settings are now validated for errors that would cause the dashboard settings views to error.
+- Webhook request failure handling has been improved to properly log SSL and network connection errors instead of silently failing in the background.
+
+## Bugs Fixed
+
+- Fixed an edge case where tax was miscalculated when tax is calculated with shipping.

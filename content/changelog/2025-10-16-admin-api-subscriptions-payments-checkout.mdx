@@ -1,0 +1,38 @@
+---
+title: TWINT, Admin API line item editing, and Converge
+publishedAt: "2025-10-16"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Platform update on October 16, 2025.
+---
+
+## 
+
+## **New Features**
+
+- **Twint Payment Method Now Available:** Merchants can now accept **TWINT** through NEXT Payments, enabling local payment support for customers in Switzerland.
+- **[Admin API](https://developers.nextcommerce.com/docs/admin-api): Order Line Item Management:** You can now **add, remove, or swap** order line items via the Admin API, unlocking more flexibility for external systems managing orders.
+- **Localized Metadata Support:** Metadata on public objects like **Products** can now be localized, allowing storefront developers to deliver fully translated and region-specific brand experiences.
+- **New Converge Integration:** Next Commerce now integrates with **Converge**, an enterprise-grade marketing attribution and conversion tracking platform.
+- **[Meta Pixel](https://docs.nextcommerce.com/docs/apps/meta-pixel) Upgrade for Subscriptions:** The **Meta Conversion Pixel** app now excludes subscription renewals by default for cleaner and more accurate Meta reporting.
+
+## **Improvements**
+
+- **Customer Export Enhancements:** Customer **first and last purchase dates** are now included in exports, helping merchants better identify and target returning customers.
+- **Faster Campaign API Queries:** The campaignRetrieve API has been optimized, with up to **2x faster response times**.
+- **Improved PayPal Reporting:** The PayPal transaction list view and export now include **account-level filters and columns**, making it easier to manage multiple accounts.
+- **Checkout UX for Non-Postcode Countries:** Storefront checkout now better supports countries that don’t use postal codes (e.g., **UAE, Qatar, Hong Kong**) for a smoother customer experience.
+- **Delivery Tracking by Fulfillment Date:** Shipment views can now be filtered by **fulfillment date**, helping teams quickly locate shipments by dispatch date.
+- **[ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) API Key Alerts:** The ShipStation integration now **notifies merchants** if their API key is invalid, preventing silent failures when sending fulfillments.
+- **Improved Multi-Select UX:** Multi-select dropdowns now **remain open after selection**, improving filtering workflows and usability.
+- **Filter Support for Campaigns and Packages:** Campaigns and packages can now be **filtered** in the dashboard, streamlining merchant workflows.
+- **[Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) Sync Performance Upgrade:** Webhook handling and sync logic for Klaviyo have been refactored for better reliability and performance under load.
+- **Attribution Field Naming Consistency:** Naming conventions for core attribution fields have been standardized across the platform for better clarity and consistency.
+
+## **Bug Fixes**
+
+- **Customer Default Address Fix:** Resolved an issue where the customer’s default shipping and billing addresses were not correctly set when different addresses were used during their first order.
+- **Checkout Logo Display Fix:** The store logo is now properly contained within the layout when full-width checkout is enabled.

@@ -1,0 +1,30 @@
+---
+title: Default store location and Campaigns custom payment methods
+publishedAt: "2024-10-24"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Stores now have a default location to handle digital products, product inventory, and order management workflows that require assignment to a managed default managed location. Campaigns API now supports external payment methods that are custom per store allowing merchants to…
+---
+
+## New Features
+
+- Stores now have a default location to handle digital products, product inventory, and order management workflows that require assignment to a managed default managed location.
+- Campaigns API now supports `external` payment methods that are custom per store allowing merchants to use their custom payment methods through the campaigns API.
+
+## Improvements
+
+- Disputes are now limited 1 alert and 1 chargeback per linked transaction to prevent multiple sources of disputes creating duplicate disputes that ultimately skew dispute metrics.
+- We've now improved single page checkout loading UX for a smoother end customer experience.
+- We've improved the mapping of NMI failed transaction response codes to improve failed transaction reporting.
+- We now ignore NOFs after chargebacks as there is nothing to do and the in logical terms the alert should not have been raised.
+- We've improved our logic when un-enrolling a cards from account updater due to validations on Spreedly's side when cards are expired.
+- Discover card payment method now shows correctly for all Next Commerce paymetns accounts as we've improved our setup process for this payment method.
+- Contraction and Churn have been re-ordered to improve the clarity of the MRR analytics chart.
+
+## Bugs
+
+- We've fixed an edge case issue that caused a 500 error instead of a validation error when attempting to create a duplciate product.
+- Subscription renewals failures events are now more clear when details to show what happened to inform the user how to fix.

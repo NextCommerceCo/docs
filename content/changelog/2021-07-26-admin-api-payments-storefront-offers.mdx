@@ -1,0 +1,33 @@
+---
+title: Blue Snap gateway and Disputes Admin API
+publishedAt: "2021-07-26"
+tags:
+  - Admin API
+  - Payments
+  - Storefront
+  - Offers
+summary: Introducing Blue Snap gateway integration for bankcard payments, which supports both standard and 3DS2 bankcard payments. Introducing a new Orders by Funnel report showing a breakdown of orders by the source attribution funnel, allowing merchants to easily compare funnel…
+---
+
+## New Features
+
+- Introducing Blue Snap gateway integration for bankcard payments, which supports both standard and [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) bankcard payments.
+- Introducing a new Orders by Funnel report showing a breakdown of orders by the source attribution funnel, allowing merchants to easily compare funnel performance.
+- Introducing a new Disputes [Admin API](https://developers.nextcommerce.com/docs/admin-api) allowing partners to build custom integrations on top of the payment Dispute features.
+- Logs for all Extensions can now be viewed in the Dashboard under the extension management view, allowing store admins to more easily debug issues with extensions.
+
+## Improvements
+
+- The [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation) integration setup form now makes a remote API call to present the available stores in ShipStation, greatly easing the setup process.
+- Orders created using Paypal Sandbox or Klarna Playground credentials will now be logged as Test Orders, which are ignored for reporting purposes and easily deleted.
+- We've now added sortable results on several reports, so that users can view reports data by different column metrics.
+- The Orders Payment Method display has been updated throughout the Orders views to show more contextual payment method information.
+- A new user column has been added to the Transactions CSV Export to show the initiating user of the transaction.
+- Refund and Failed transactions no longer offer any actions, preventing users from attempting to refund or create disputes from them.
+
+## Bug Fixes
+
+- We've now added better handling for several edge case scenarios on 3DS payment redirect pages, to prevent the user from getting stuck after a successful or failed attempt, or upon reloading the page.
+- Fixed an issue with characters not being encoded correctly in some email templates.
+- We've now restored a Homepage sitemap.
+- We corrected an issue that occasionally caused Klarna Transactions to fail, resulting in orders being created as "Part Captured".

@@ -1,0 +1,34 @@
+---
+title: Shareable coupon links and Klaviyo product sync
+publishedAt: "2024-11-08"
+tags:
+  - Admin API
+  - Payments
+  - Checkout
+  - Storefront
+summary: Order refunds now automatically allocate a line item refund to the corresponding original payment transaction to improve UX and merchant reconciliation. Themes now feature a Image Picker setting to select from all of the existing uploaded assets to improve the theme…
+---
+
+## New Features
+
+- Order refunds now automatically allocate a line item refund to the corresponding original payment transaction to improve UX and merchant reconciliation.
+- Themes now feature a Image Picker setting to select from all of the existing uploaded assets to improve the theme customization experience.
+- Products are now automatically synced to [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) for an easy and seamless setup flow when installing the app.
+- [Meta Pixel](https://docs.nextcommerce.com/docs/apps/meta-pixel) conversion events now send the store primary domain as the event source by default. Meta Pixel app now also supports passing a custom domain via order attribution metadata.
+- Coupons can now be shared with a link to automatically apply a discount in the checkout of the shopper's session.
+
+## Improvements
+
+- We've made several improvements to the chargeback defense document submission flow for improved UX.
+- Fulfillment Orders sent to Shipstation now are properly localized to the Shipstation system time zone (PST) and also use the date of the Fulfillment Order to improve workflows.
+- We now automatically set the State field value when available based on the ZIP / postcode to improve data consistency across selling channels.
+- We now validate email sending domains, to improve store setup and monitoring workflows.
+- We now detect and map UniUni as a fulfillment carrier, and have enabled this carrier for delivery tracking integrations.
+- Product [Admin API](https://developers.nextcommerce.com/docs/admin-api) variant create flows have been improved for a more straightforward API consumer perspective.
+- Product Variants now support metadata for more robust integrations with external platforms that require mapping product data.
+- The new customer registration email has now been removed as its core functionality is redundant and no longer necessary with email OTP login flow for customer accounts.
+
+## Bugs Fixed
+
+- We corrected issues with decline code mapping for [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) transactions.
+- We fixed support ticket timeline events that showed an incorrect event for sending notifications to the dashboard user.

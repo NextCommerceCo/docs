@@ -1,0 +1,35 @@
+---
+title: Dashboard theme install and subscription reactivation
+publishedAt: "2022-03-30"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: The Product Class of an existing Product can now be changed, enabling store admins to more easily manage their product catalogue. Stores can now install Themes directly from the Dashboard, making it easy to install and setup themes during the initial store setup process, or…
+---
+
+## New Features
+
+- The Product Class of an existing Product can now be changed, enabling store admins to more easily manage their product catalogue.
+- Stores can now install Themes directly from the Dashboard, making it easy to install and setup themes during the initial store setup process, or switch to a new theme.
+- Themes can now be downloaded from the Dashboard, allowing users to download a theme from one store for backup, or for easy copying to another separate storefront.
+- Dashboard users can now bulk update Subscriptions' Gateway and Next Renewal Dates, improving bulk subscription management.
+- Canceled subscriptions can now be reactivated via the Dashboard, providing a simple way for merchants to recover subscriptions that may have been accidentally canceled.
+
+## Improvements
+
+- Theme templates have now been restructured for consistency.
+- Order Line Item management logic and validation has been updated to be more clear, and to address issues related to the changing of a product class, and its shipping requirements, on existing orders.
+- The `get_checkout_url` model method is now available as an attribute in product templates making it available for integrations that use it for JS events.
+- Links to child products now redirect to the parent product, with the variant id as a querystring, which provides a simple way for theme developers to activate the variant on redirect.
+- Querystrings on cart checkout urls are now carried when redirecting into the checkout flow so that source attribution values are captured properly.
+
+## Bug Fixes
+
+- Fixed an issue related to order fulfillment pipelines causing orders to not transition to Complete status after being fulfilled.
+- Fixed duplicate issues with subscription webhooks, and improved the subscription lines serializer to be more consistent with cart and order lines.
+- Fixed an issue with Shipping State and Shipping Country not being rendered properly in export CSVs.
+- Fixed an issue on the Orders by Product report where product links were not properly drilling down to the Orders by Partner SKU report.
+- Product variant (child products) review links now redirect to the parent product to aggregate reviews onto the parent product.
+- Fixed an issue causing multiple `order.created` webhooks to fire for a single order.

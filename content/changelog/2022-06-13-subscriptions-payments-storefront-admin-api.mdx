@@ -1,0 +1,36 @@
+---
+title: Auth/Capture payment flow and PayPal Digital Goods
+publishedAt: "2022-06-13"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+  - Admin API
+summary: It is now possible to configure gateways to use an Auth / Capture payment flow to delay the actual capture of the funds. This also introduced a new Payment status for orders to track payment statuses more granularly. Our PayPal integration now supports Digital Goods to…
+---
+
+## New Features
+
+- It is now possible to configure gateways to use an Auth / Capture payment flow to delay the actual capture of the funds. This also introduced a new Payment status for orders to track payment statuses more granularly.
+- Our PayPal integration now supports Digital Goods to support the sale of items that do not require fulfillment and tracking codes to be uploaded.
+- We now have several new Subscription reports fro Subscriptions by UTM, by Funnel, by Affiliate to assist store admins with understanding subscription performance by marketing channels.
+
+## Improvements
+
+- Theme Kit now uses Oauth to access the [Admin API](https://developers.nextcommerce.com/docs/admin-api) to support more robust and granular access to the API for theme development purposes.
+- Order Attribution data has now been denormalized to separate it from subscriptions so that editing a single order's attribution will not affect (unexpectedly) the subscription or other orders related to the subscription.
+- We've improved the Order Cancel action to support orders with mixed fulfillment requirements so that dashboard users can more easily manage these orders.
+- Support Macros can now be deleted allowing store admins to better manage their support macros.
+
+## Bug Fixes
+
+- We've fixed an issue with tickets being created and not properly being stripped of all of the extra html content for the initial comment.
+- We've now removed the Subscriptions by Cancel Reason report in favor of relying on the Subscriptions by Cancelation dashboard widget which has been improved to have drill down links from the widget.
+- We've now revamped the webhook deactivation logic to be more robust and accommodating of real life scenarios where there is low volume of events or handle failing webhooks that start working again.
+- We've fixed an issue that allowed Oauth Tokens to be accessed more than once after they were created.
+- Fixed an issue funnel pages not showing the next page properly in the dashboard.
+- Fixed/improved the handling of orders with Paypal accounts that do not have an associated email address.
+- Fixed an issue with emails not showing properly on mobile devices.
+- Fixed an issue with store template variables not rendering in several places throughout the storefront.
+- File uploades are now validated on the themes admin api to prevent 500 errors from occuring when file sizes are too large.
+- Fix a UI bug that prevented products from being removed from ranges.

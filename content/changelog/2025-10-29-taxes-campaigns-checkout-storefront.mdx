@@ -1,0 +1,31 @@
+---
+title: Complete tax system overhaul
+publishedAt: "2025-10-29"
+tags:
+  - Taxes
+  - Campaigns
+  - Checkout
+  - Storefront
+summary: Platform update on October 29, 2025.
+---
+
+## 
+
+## **New Features**
+
+- **Complete Tax System Overhaul:** Taxes can now be more easily configured and applied across your store’s catalog, significantly improving the merchant setup experience and tax compliance workflow.
+
+## **Improvements**
+
+- **Taboola Integration Upgrade:** The Taboola integration now uses our **Storefront Event Tracking **framework to more reliably capture key tracking and conversion events.
+- **Faster Faceted Search & Attribution Handling:** Catalog attribution data storage and storefront search facets have been optimized for faster performance.
+- **Cart Creation Speed Boost:** A slow query in the cart creation flow has been fixed, leading to faster cartCreate API response times.
+- **Smarter Shipping Method Pricing:** Shipping methods now auto-apply forex conversions if a currency-specific price is missing—preventing checkout failures on multi-currency orders.
+- **Campaign Shipping Country Restrictions:** Developers can now define available_shipping_countries for campaigns via the campaignRetrieve API to support dynamic display of country-based shipping rules.
+- **Authorize.net Error Mapping:** Improved error response mapping for **failed credential scenarios** on Authorize.net integrations.
+
+## **Bug Fixes**
+
+- **Checkout Save Indicator Fix:** Resolved a bug where the checkout settings page showed an incorrect last updated timestamp even when no changes were saved.
+- **Metadata Field UX Fixes:** Addressed several UI issues with image and file upload fields in metadata configuration.
+- **Incorrect Language Redirect Fix:** Fixed a bug where the storefront** **redirected to /en/** **even when the requested language was not configured.

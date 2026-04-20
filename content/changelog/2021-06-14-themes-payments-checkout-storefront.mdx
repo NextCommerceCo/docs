@@ -1,0 +1,31 @@
+---
+title: Storefront Themes, Avalara Avatax, and Checkout.com gateway
+publishedAt: "2021-06-14"
+tags:
+  - Themes
+  - Payments
+  - Checkout
+  - Storefront
+summary: The Avalara Avatax Extension automates tax calculation and filing for orders placed on the storefront checkout and through the API. Dashboard Extension Management now allows store admins to enable or disable extensions from the dashboard.
+---
+
+## New Features
+
+- The [Avalara](https://docs.nextcommerce.com/docs/apps/avalara-avatax) Avatax Extension automates tax calculation and filing for orders placed on the storefront checkout and through the API.
+- Dashboard Extension Management now allows store admins to enable or disable extensions from the dashboard.
+- Checkout.com Gateway is now available for bankcard payments, supporting both standard and [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) payment flows.
+- Support Ticket Reports offer greater visibility into customer service inquiries, user actions, and outcomes.
+- Expanded Support Macro Actions automate additional support ticket fields using macros, allowing for more efficient ticket handling workflows.
+- Introducing Storefront Themes, a new way to build and manage your store's theme design from the Dashboard, and Theme Kit, a local development tool for developers to build and maintain themes from their local machine.
+- Added a new Admin Transactions API for direct access to payment transactions, with the ability to search and filter by the same filters available in the dashboard. Store admins can now also setup Transaction based [Webhooks](https://developers.nextcommerce.com/docs/webhooks) to send `transactions.created` events to external systems.
+
+## Improvements
+
+- Shipping Methods now support multiple currency pricing and multiple languages, allowing the same shipping method to be used across multiple markets.
+- Order Payment Events now show the associated User who triggered the event for greater visibility into customer service workflows and associated payment transactions.
+- Disputes are now visible on Orders that have transactions with associated disputes, to improve visibility for dashboard users.
+- Several extensions settings forms, that previously did not allow a user to easily clear existing settings, have now been improved to allow deletion of existing settings.
+
+## Bug Fixes
+
+- Fixed an issue related to errors being thrown when attempting to create and update the same user in rapid succession.

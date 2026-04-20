@@ -1,0 +1,32 @@
+---
+title: Vouchers and saved_card payments on Admin Order API
+publishedAt: "2020-09-21"
+tags:
+  - Subscriptions
+  - Payments
+  - Webhooks
+  - Fulfillment
+summary: Admin Order API now supports the use of Vouchers to apply discounts to item and shipping prices. Admin Order API now supports a new payment method “saved_card” which can be used with a reference transaction id.
+---
+
+## New Features
+
+- Admin Order API now supports the use of Vouchers to apply discounts to item and shipping prices.
+- Admin Order API now supports a new payment method “saved_card” which can be used with a reference transaction id.
+- Admin Order API has three new parameters to assist with using a user’s (customer) saved addresses for billing and shipping.
+- use_default_shipping_address
+- use_default_billing_address
+- billing_same_as_shipping_address
+- Admin Order API now supports adding Attribution Meta Data which can be leveraged by integrations and webhooks.
+
+## Improvements
+
+- Paypal Transactions can now be viewed and searched in the dashboard
+- [Everflow](https://docs.nextcommerce.com/docs/apps/everflow) integration settings are now available in the dashboard for sites that have this extension installed.
+
+## Bug Fixes
+
+- Fixed an issue causing duplicate order admin notifications.
+- Fixed an issue with Boxme status updates not being able to update the line item.
+- Fixed an issue with the Order total on Customer profile showing items total instead of Order total.
+- Fixed typo with Subscriptions misspelling

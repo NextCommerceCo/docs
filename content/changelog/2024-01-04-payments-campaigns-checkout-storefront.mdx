@@ -1,0 +1,27 @@
+---
+title: Gateway rejection alerts and product webhooks
+publishedAt: "2024-01-04"
+tags:
+  - Payments
+  - Campaigns
+  - Checkout
+  - Storefront
+summary: Store admins will now receive a notification if a payment gateway is rejecting transaction attempts, to more quickly surface potential gateway issues that require attention. Webhooks product.created and product.updated events are now available to be subscribed to by external…
+---
+
+## New Features
+
+- Store admins will now receive a notification if a payment gateway is rejecting transaction attempts, to more quickly surface potential gateway issues that require attention.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) `product.created` and `product.updated` events are now available to be subscribed to by external systems for monitoring products in a store, and to enable deeper integrations.
+
+## Improvements
+
+- The background Paypal carrier tracking upload logic has been overhauled and improved to use a bulk upload API, and to upload tracking numbers for "other" shipping carriers that are not mapped.
+- The Campaigns API order response details now includes the `order_status_url` making it possible for campaigns to leverage the storefront order confirmation page and invoice views.
+- Disputes can now be filtered by the related gateway in the Dashboard and [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) accounts are now validated for their uniqness to prevent accidental adding duplicates.
+
+## Bug Fixes
+
+- Fixed an issue with block counts on Block Lists not incrementing in all cases.
+- Fixed an edge case where a customer's IP address was not saved when the customer record was created through the storefront checkout flow.

@@ -1,0 +1,29 @@
+---
+title: NMI Apple Pay, Google Pay, and PayPal Orders V2
+publishedAt: "2025-03-05"
+tags:
+  - Payments
+  - Storefront
+  - Admin API
+  - Webhooks
+summary: Platform update on March 5, 2025.
+---
+
+## New Features
+- **NMI - [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) & [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) Support:** The NMI gateway integration now supports Apple Pay and Google Pay.
+- **PayPal Integration Overhaul:** Our PayPal integration has been upgraded to use the Orders V2 REST API flow and vaulted payment methods for improved functionality.
+- **Two-Factor Authentication (2FA):** We’ve introduced two-factor authentication with support for OTP authenticator apps, enhancing platform user account security.
+- **Enhanced API Support for Product Images:** The API now supports creating product images via source URLs, allowing for larger image file sizes.
+
+## Improvements
+- **Optimized Product Image Handling:** Large product images are now automatically downsized and compressed to ensure proper thumbnail and storefront image generation.
+- **Expanded Fulfillment Carrier Support:** We’ve added many new fulfillment carriers to our core mappings, including tracking links, PayPal tracking uploads, and delivery tracking.
+- **Refined Ticket Email Styling:** Support ticket emails have been redesigned for a more consistent and polished experience, aligning with other ticketing systems.
+- **Improved Outbound Email Handling:** We’ve enhanced our integration with our outbound email provider and introduced better logic for automatically handling bounce notifications.
+- **Enhanced [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) Product Sync:** Shop Sync’s product sync logic has been improved to better handle Shopify’s product update webhooks, ensuring inventory consistency between both systems.
+
+## Bug Fixes
+- **Fulfillment API Error Handling:** The Fulfillment API now raises a clear error message instead of a 500 error when the same fulfillment request is sent multiple times.
+- **More Accurate Braintree Payment Response Codes:** Payment response code mappings with Braintree have been refined for more precise error reporting.
+- **[Admin API](https://developers.nextcommerce.com/docs/admin-api) Payment Method Fix:** Fixed an issue where a new payment method token was not always properly verified and retained when updated through the Admin API.
+- **Delivery Tracking Address Fix:** Resolved an issue where missing address details in delivery tracking could result in a 500 error.

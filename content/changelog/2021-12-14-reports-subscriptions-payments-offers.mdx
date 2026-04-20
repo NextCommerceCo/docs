@@ -1,0 +1,28 @@
+---
+title: Automated dispute actions and Agent Performance Report
+publishedAt: "2021-12-14"
+tags:
+  - Reports
+  - Subscriptions
+  - Payments
+  - Offers
+summary: Disputes now have automated actions to add customers to block lists and cancel subscriptions when a dispute is matched to a transaction. We now have an Agent Performance Report that provides a summary of Orders created and Refunds given by Agents in the dashboard to help…
+---
+
+## New Features
+
+- Disputes now have automated actions to add customers to block lists and cancel subscriptions when a dispute is matched to a transaction.
+- We now have an Agent Performance Report that provides a summary of Orders created and Refunds given by Agents in the dashboard to help monitor agent activity.
+
+## Improvements
+
+- Orders with an automated fulfillment integration and are Processing status can now be manually updated to Shipped status and add shipment tracking details.
+- Bankcard display has been improved to now to show the Gateway and BIN in a popover allowing these to be easily seen throughout the dashboard.
+- We've optimized the queries on the dashboard customer detail view for faster response times.
+
+## Bug Fixes
+
+- An issue with line items with a manual fulfillment partner not updating the line item status has been corrected now.
+- Fixed an issue where removing an offer combination did not remove the combination on the related offer that was being removed and the current offer being saved.
+- Fixed an issue with Braintree where a failed transaction was not mapped to an internal transaction code.
+- Fixed an issue where order status was not updating when adding shipments to an order.

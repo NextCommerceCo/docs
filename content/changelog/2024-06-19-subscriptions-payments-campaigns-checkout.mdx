@@ -1,0 +1,33 @@
+---
+title: Meta Conversion API and subscription recovery emails
+publishedAt: "2024-06-19"
+tags:
+  - Subscriptions
+  - Payments
+  - Campaigns
+  - Checkout
+summary: Introducing server-side Meta Conversion API integration to connect your orders to your Meta advertising campaigns for orders created on the storefront checkout flow and Admin API. Subscriptions that fail renewal will now automatically send an email to the customer with a…
+---
+
+## New Features
+
+- Introducing server-side Meta Conversion API integration to connect your orders to your Meta advertising campaigns for orders created on the storefront checkout flow and [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Subscriptions that fail renewal will now automatically send an email to the customer with a one-click link to update their payment method for an automated subscription recovery flow.
+- The Admin Add Line Items API now supports passing a payment gateway or payment gateway group to override the initial payment gateway used for the order for deeper payment orchestration in the order flow.
+- Gift Cards can now be created and retrieved through the Admin API allowing deeper customized flows to create Gift Cards for customers.
+- External applications can now subscribe to fulfillment activity through the `fulfillment.created` and `fulfillment.updated` webhooks to be updated when new fulfillments are created and as their delivery statuses are updated.
+- The Transactions Admin API now includes a new `external_id` property as a reference to the external payment provider's ID for the payment, also includes support to filter by `external_id`.
+
+## Improvements
+
+- Product detail view queries have been improved resulting in faster load times for products in the storefront.
+- We've added a new Disputes by Resolution report to help merchants better understand their dispute outcomes.
+- The product creation flow UX has some slight improvements to reduce clicks and form validation errors.
+- Test subscriptions now don't auto-renew themselves to prevent cases where test subscriptions continuously create new orders forever.
+- Storefront theme file settings can now be cleared to support cases where you no longer want to utilize the setting.
+- It is now possible to send non-public shipping method IDs on the Admin API to prevent accidental validation errors caused by making a shipping method private.
+
+## Bug Fixes
+
+- We've fixed a rare edge case issue where it was possible to create an order with the end result not matching the intended quantity.
+- Fixed an issue with the querystrings when using All Time date range that prevented reports from loading.

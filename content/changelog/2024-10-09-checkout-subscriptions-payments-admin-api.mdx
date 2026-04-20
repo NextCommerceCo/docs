@@ -1,0 +1,29 @@
+---
+title: Single Page Checkout beta and dispute notifications
+publishedAt: "2024-10-09"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Admin API
+summary: Single Page Checkout is now available in beta for merchants to optionally enable on their stores, many more updates and improvements to come. Merchants can now update their Next Commerce payments store contact information through the payments store detail view.
+---
+
+## New Features
+
+- Single Page Checkout is now available in beta for merchants to optionally enable on their stores, many more updates and improvements to come.
+- Merchants can now update their Next Commerce payments store contact information through the payments store detail view.
+- Next Commerce payments merchants and portal users can now subscribe to dispute notifications to stay on top of these and respond quickly to any customer complaints.
+- [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Optimized payment flows have been improved to automatically downgrade known card BINs that don't support 3DS.
+
+## Improvements
+
+- Disputes [Admin API](https://developers.nextcommerce.com/docs/admin-api) has a new `resolve` action endpoint to simplify the flow and bring it inline with the dashboard actions.
+- Individual fulfillments can now be retrieved on the Admin API to retrieve the items and full detail of the fulfillment.
+- Fulfillment Orders can now be put On Hold after fulfillment has been canceled to improve customer service workflow processes and assist in tracking these orders that still need to be fulfilled.
+- Ticket timelines can now be filtered to show all activity, only events, or only comments to improve user experience while working on support tickets.
+- Payment settings now show a preview of subscriptions linked to active subscriptions with an upcoming expiration date
+
+## Bug Fixes
+
+- We've fixed an edge case issue with report csv download that disabled filters on reload.

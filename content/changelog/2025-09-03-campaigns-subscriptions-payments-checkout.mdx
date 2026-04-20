@@ -1,0 +1,26 @@
+---
+title: Multi-currency campaigns across packages
+publishedAt: "2025-09-03"
+tags:
+  - Campaigns
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: Platform update on September 3, 2025.
+---
+
+## **New Features**
+
+- **Multi-Currency Campaign Support:** NEXT Campaigns now support multiple currencies across all associated packages, allowing merchants to run a single campaign flow while advertising in different markets with localized pricing.
+
+## **Improvements**
+
+- **Smarter Subscription Retry Handling:** Subscription retry recovery transactions are now excluded from gateway failure notifications, reducing noise and false alerts due to their inherently higher failure rate.
+- **Easier Access to Product Variant IDs:** The product variant ID is now consistently accessible via the “View” link on product detail pages in the dashboard—making it easier to generate accurate Checkout Links.
+- **Address Requirement for Fulfillment Locations:** Fulfillment locations created in the dashboard now require an address, ensuring valid routing logic and preventing incomplete location setups.
+- **Reduced customer.updated Event Noise:** The `customer.updated` webhook is no longer triggered on every new order, reducing event volume and simplifying downstream handling for actual customer data changes.
+- **Auth Code Filtering in Next Payments:** Transactions in NEXT Payments can now be searched and filtered by authorization code, helping dispute service providers locate specific transactions even with minimal context.
+
+## **Bug Fixes**
+
+- **Payments Account Balance Display Fix:** Improved clarity of held reserve amounts in the NEXT Payments Account Balance view and resolved an issue where incorrect additional currency balances were displayed in some cases.

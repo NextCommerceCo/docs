@@ -1,0 +1,31 @@
+---
+title: Klarna on NEXT Payments and Orders by Source report
+publishedAt: "2025-09-19"
+tags:
+  - Payments
+  - Subscriptions
+  - Campaigns
+  - Checkout
+summary: Platform update on September 19, 2025.
+---
+
+## **New Features**
+
+- **Klarna on NEXT Payments:** Klarna is now available as a payment method through NEXT Payments, expanding options for buy-now-pay-later transactions.
+- **Interactive KPI Charts in Campaign Analytics:** [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Analytics charts can now be toggled between key metrics to help merchants visualize how performance changes over time—ideal for funnel optimization.
+- **Expanded Campaigns App Product Data:** The Campaign App retrieve API now returns additional product data, enabling developers to group related products by variant attributes and automatically mark out-of-stock items as unavailable.
+- **Campaign Package Data Enhancements:** Campaigns App Packages now display more detailed information about underlying product SKUs, inventory availability, and purchase status, streamlining campaign management.
+- **Revamped Transactional Emails:** All customer-facing transactional emails have been redesigned with a cleaner, more modern look to enhance communication with end customers.
+- **New Orders by Source Report:** A new reporting view lets merchants analyze the origin of their orders across Checkout Flow, Subscriptions, Dashboard, and [Admin API](https://developers.nextcommerce.com/docs/admin-api), offering deeper insights into sales distribution.
+
+## **Improvements**
+
+- **Localized Checkout Forms:** Checkout address formatting has been localized for 21 new countries, aligning with local conventions and improving conversion rates.
+- **Subscription Cancellation Date in Exports:** Subscription exports now include the cancellation date, enabling richer external analysis of churn and retention.
+- **Improved [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) Domain Registration:** Enhanced error handling and retry logic have been implemented for Apple Pay merchant domain registration to handle edge cases more reliably.
+- **Webhook Timeout Handling:** [Webhooks](https://developers.nextcommerce.com/docs/webhooks) now timeout after 20 seconds to prevent delays caused by unresponsive endpoints, improving overall stability of webhook processing.
+
+## **Bug Fixes**
+
+- **Timezone Analytics Chart Error:** Fixed an issue where the analytics chart could fail with a 500 error when crossing over into a new day due to timezone differences.
+- **Order Search Authentication Fix:** Resolved a bug where unauthenticated users attempting to search for orders received a 500 error instead of a proper authentication prompt.

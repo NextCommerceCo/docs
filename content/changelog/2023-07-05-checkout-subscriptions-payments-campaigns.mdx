@@ -1,0 +1,31 @@
+---
+title: Sofort payments and Campaigns package quantity
+publishedAt: "2023-07-05"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Introducing Sofort as an available alternative payment method for the European market. When collecting additional payment for an order, it is now possible to send an updated invoice notification to the customer to inform them of the additional charges for their order.
+---
+
+## New Features
+
+- Introducing [Sofort](https://www.sofort.com/) as an available alternative payment method for the European market.
+- When collecting additional payment for an order, it is now possible to send an updated invoice notification to the customer to inform them of the additional charges for their order.
+- It is now possible to pass a "package quantity" to line items on [[Campaigns Cart](https://developers.nextcommerce.com/docs/campaigns) and Order APIs](https://developers.Next Commerce.com/docs/api/campaigns/) to simplify package creation and allow more complex bundling scenarios.
+
+## Improvements
+
+- The [Admin API](https://developers.nextcommerce.com/docs/admin-api) now returns a `supports_post_purchase_upsells` to indicate if the order supports adding additional upsell items to the order, based on the original payment method.
+- We now show a tax percentage on order confirmation emails and order status/invoice views.
+- [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) App - Test orders are now not sent by default, to avoid Klaviyo counting test orders as real revenue in their reporting metrics.
+- We've improved order reporting calculations to address some inaccuracies introduced when editing orders.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) that receive a 410 (Gone) error response will now automatically deactivate as the endpoint has indicated that it is no longer available.
+- We've improved the Product Metadata UX to save when the full product details are saved, for a more clear user experience.
+
+## Bugs Fixed
+
+- Fixed an issue where the Billing Address in the checkout flow did not automatically show in a localized format for the chosen country.
+- Fixed an issue for handling the available subscription billing cycle options in the customer account subscription `Change Schedule` action.
+- Fixed an issue where a 500 error was created when incorrect address booleans were passed when creating an order.

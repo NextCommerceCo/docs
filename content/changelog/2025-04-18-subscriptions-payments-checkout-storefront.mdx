@@ -1,0 +1,39 @@
+---
+title: Gateway Groups overhaul and Shopify confirmation emails
+publishedAt: "2025-04-18"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Platform update on April 18, 2025.
+---
+
+## 
+
+## **New Features**
+
+- **Revamped Gateway Groups Interface:** Gateway Group settings and UX have been completely overhauled for a more seamless and intuitive experience, making it easier for merchants to manage their gateway configurations.
+- **Shopify Order Confirmation Emails:** Order confirmation emails can now be sent from Shopify when using the [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) app, offering more flexibility in customer communications.
+
+## **Improvements**
+
+- **Cancelable Fulfilled Pending Orders:** Orders that are pending payment but already fulfilled can now be canceled via order management actions—streamlining customer service operations.
+- **Default Variant Image Handling:** Product variants now automatically use the main product image if no variant-specific image is set.
+- **[Admin API](https://developers.nextcommerce.com/docs/admin-api) Gateway Access:** A new gateways:read permission has been added to the Admin API, allowing targeted access to gateways and gateway group endpoints.
+- **Digital Product Subscription Pricing:** Subscription creation for digital products no longer inherits the initial order’s shipping price, ensuring more logical and accurate subscription pricing.
+- **Improved Checkout CSS Editing UX:** Checkout customization settings now load more smoothly, preventing premature reloads while editing CSS for a better user experience.
+- **Faster Delivery Tracking App:** Database queries in the Delivery Tracking app have been optimized to improve page load speeds and overall UX.
+- **Automatic Order Archiving:** Orders older than 6 months with no updates will now be automatically archived, keeping order management views clean and focused on actionable items.
+- **Stripe Radar Integration:** Stripe gateway decline handling now integrates with Stripe Radar outcomes for improved mapping to global transaction response codes.
+- **Extended Fulfillment Delay Options:** Automatic fulfillment delays can now be set for up to 72 hours (4320 minutes) after order creation, supporting longer fulfillment lead times.
+- **Product Sync Enabled by Default in Shop Sync:** The Shop Sync app now automatically enables Product Sync by default, aligning with expected behavior for most merchant setups.
+- **Improved Checkout Customization Settings UI:** Setting names and help text in Checkout Customization have been refined for greater clarity when adjusting storefront appearance.
+- **More Accurate Decline Code Mapping:** Next Commerce Payments decline code mappings have been updated for improved reporting and clearer transaction handling.
+- **SpeedX Carrier Support:** SpeedX has been added to the carrier mapping list when importing fulfillments from [ShipStation](https://docs.nextcommerce.com/docs/apps/shipstation).
+
+## **Bug Fixes**
+
+- **Shop Sync Address Line 2 Fix:** Resolved an issue where Address Line 2 was not syncing properly through Shop Sync for order fulfillments.
+- **Sitemap Loading Fix:** Fixed an issue that caused sitemaps to fail to load correctly.
+- **Product Page 502 Error Fix:** Corrected a bug that resulted in a 502 error when viewing non-public product pages.

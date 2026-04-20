@@ -1,0 +1,29 @@
+---
+title: Delivery notifications, theme live preview, and COGS
+publishedAt: "2024-06-05"
+tags:
+  - Themes
+  - Storefront
+  - Offers
+  - Fulfillment
+summary: New customer notifications have been added when orders are Out for Delivery and Delivered to keep customers updated on their shipment statuses. This is supported for stores with Delivery Tracking app installed. Theme settings now feature a live preview to see your changes…
+---
+
+## New Features
+
+- New customer notifications have been added when orders are Out for Delivery and Delivered to keep customers updated on their shipment statuses. This is supported for stores with [Delivery Tracking](https://docs.Next Commerce.com/apps/delivery-tracking) app installed.
+- Theme settings now feature a live preview to see your changes while you edit, to make the storefront theme editing experience more intuitive and interactive for users.
+- Product cost per item can now be added to calculate COGS on orders so that merchants can integrate their raw costs into external services to track ROI.
+
+## Improvements
+
+- Shipping carrier names have been improved system-wide to display more friendly names.
+- FirstMile has been added as a core fulfillment carrier with mapping support from Shipstation to map to external services such as PayPal and Delivery Tracking.
+- 4PX has been added as a core fulfillment carrier with mapping support from Shipstation to map to external services such as PayPal and Delivery Tracking.
+- Product SKUs are now shown on the order detail view to more easily surface exactly which product SKU has been purchased by the customer.
+
+## Bug Fixes
+
+- Fixed an issue where we ocassionally get multiple `delivered` events from providers and create multiple fulfillment `delivered` events.
+- Fixed a UI issue when creating offers when using the `Discount is a fixed amount off of the product's value` incentive.
+- Fixed an issue that caused the order confirmation email not to be sent if the order was completely digital.

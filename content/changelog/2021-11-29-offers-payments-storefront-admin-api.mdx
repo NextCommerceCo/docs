@@ -1,0 +1,32 @@
+---
+title: Offer flexibility and Transactions by Funnel report
+publishedAt: "2021-11-29"
+tags:
+  - Offers
+  - Payments
+  - Storefront
+  - Admin API
+summary: Offers and Vouchers have been updated with new features for increased flexibility for discounted pricing use cases and improvement management features. Open carts with a known customer and product are now browsable allowing merchants to view their open carts.
+---
+
+## New Features
+
+- Offers and Vouchers have been updated with new features for increased flexibility for discounted pricing use cases and improvement management features.
+- Open carts with a known customer and product are now browsable allowing merchants to view their open carts.
+- Introducing a new Transactions by Funnel report allowing merchants to easily see a breakdown of their transaction performance by funnel.
+- Orders that are Confirmed status can now be changed to Pending status to prevent the order from being automatically sent to fulfillment until the merchant is able to correct the order.
+
+## Improvements
+
+- Card Token payment method now supports Gateway Groups for the gateway selection logic by card type.
+- [Admin API](https://developers.nextcommerce.com/docs/admin-api) users can now pass a `stockrecord_id` in lieu of `sku` and `currency` for order line items when creating new orders.
+- It is now possible to create a shipping address for an order in the rare case that an order was created without a shipping address.
+- Shipping methods now follow the `is_public` logic as many other models that are customer facing. Non-public shipping methods cannot be used on the API so the available shipping methods in APM interfaces are consistent.
+- Hovering over the humanized date on a ticket comment will now show the actual date in a tooltip.
+- We've improved the MRR and MRR Growth charts to be show more accurate metrics and trend indicators.
+- We've now updated many of the status enums to be lowercase for consistency across data models on the api.
+- The `initiator` object on the transactions api is now trimmed down to have the user id, email, first and last name.
+
+## Bugs Fixed
+
+- Fixed an issue of missing template code to populate the meta description of funnel pages.Fixed an issue of missing template code to populate the meta description of funnel pages.

@@ -1,0 +1,29 @@
+---
+title: Order invoice links and Subscription Forecast report
+publishedAt: "2023-04-11"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Order Confirmation pages now feature a new Invoice link allowing customers to easily print an invoice for their order. The new Subscription Forecast report summarizes subscriptions by their next renewal date to help merchants preview upcoming revenue and project recurring…
+---
+
+## New Features
+
+- Order Confirmation pages now feature a new Invoice link allowing customers to easily print an invoice for their order.
+- The new Subscription Forecast report summarizes subscriptions by their next renewal date to help merchants preview upcoming revenue and project recurring product demand.
+
+## Improvements
+
+- The Storefront Checkout flow now creates new customer accounts and attaches their cart session to improve abandoned cart scenarios.
+- Address fields and formats have been improved for many European countries to reduce friction in the Storefront Checkout flow.
+- App Oauth settings have now moved to App settings in the Partner dashboard to ease the app development flow and reduce necessary steps for backend app integrations.
+- Legacy API Users have now been fully deprecated with the removal of the ability to create new API users and associated tokens.
+
+## Bug Fixes
+
+- Fixed edge case issues that caused the Products List to be empty while updating a cart in the dashboard.
+- Corrected an issue where a Refund action was offered on already refunded transactions.
+- Fixed an issue with duplicate notes being created when updating user addresses in the dashboard.
+- Fixed errors caused by webhooks attempting to send even though the user was not actually created due to a validation error.

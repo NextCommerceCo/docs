@@ -1,0 +1,32 @@
+---
+title: Authorize.net gateway, Dispute Resolutions, and Tickets API
+publishedAt: "2021-10-04"
+tags:
+  - Offers
+  - Subscriptions
+  - Payments
+  - Admin API
+summary: "Authorize.net integration is now generally available and can be added as a payment gateway in stores. Disputes now have Resolutions which provide a clear workflow to \"resolve\" disputes and indicate the outcome and/or action taken."
+---
+
+## New Features
+
+- Authorize.net integration is now generally available and can be added as a payment gateway in stores.
+- Disputes now have Resolutions which provide a clear workflow to "resolve" disputes and indicate the outcome and/or action taken.
+- Tickets can now be fully managed via the [Admin API](https://developers.nextcommerce.com/docs/admin-api) to enable more complex use cases and 3rd party support ticket integrations.
+
+## Improvements
+
+- Updated Order Confirmation emails to link to a secure publicly viewable order detail view allowing customers to view their order status without needing to login to their account.
+- The Support "Inbox" views have been refactored and incorporated as tabs on the main Tickets list view making it easier to monitor tickets in different stages and more clear workflows.
+- Orders line items now clearly indicate if an item is on subscription and the related subscription details are available in a Subscription tab.
+- Product Variants now inherit their parent's product images and content by default making it easier to manage several product offer.
+- Overhauled the Coupon detail view to be more similar to Offer detail and also added pagination to the orders list table.
+
+## Bug Fixes
+
+- Fixed an issue where export data sometimes did not have the store timezone applied.
+- We've now corrected an issue that caused orders without addresses to always attempt and fail to send to the fulfillment partner.
+- Fixed an issue with thank you page that caused a 500 error if it was randomly accessed without an order in the current session.
+- Corrected an issue with the dropdown list of users to create an API token for included all customers which caused a performance issue on stores with large customer datasets.
+- Fixed an issue preventing a user from updating a product slug.

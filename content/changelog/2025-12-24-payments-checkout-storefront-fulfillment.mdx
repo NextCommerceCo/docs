@@ -1,0 +1,27 @@
+---
+title: Stripe Link payment method
+publishedAt: "2025-12-24"
+tags:
+  - Payments
+  - Checkout
+  - Storefront
+  - Fulfillment
+summary: Introducing Link (by Stripe) as a new payment method available to merchants through their Stripe gateway.
+---
+
+## New Features
+
+- Introducing Link (by Stripe) as a new payment method available to merchants through their Stripe gateway.
+
+## Improvements
+
+- Single Page Checkout flow shipping methods have now been improved to load the shipping methods earlier in the flow based on the customer's shipping address country, resulting in improved UX in the checkout flow.
+- Apps can now inject custom header and footer scripts into the Customer Accounts portal for advanced customization of views and actions.
+- Upsell transactions that fail are now associated with the order, to better surface these within the order detail view, and provide visibility to customer service staff and store admins.
+- Order line item fulfillment status has been deprecated as a legacy field, as we have moved to fulfillment orders and associated workflows.
+- Dashboard users (customers) list view has been optimized for faster load times, especially relevant on stores with larger customer data sets.
+- We've improved app manifest validation to check that requisite files exist, providing real time feedback to app developers in cases their manifest contains issues with snippets and file paths.
+
+## Bug Fixes
+
+- We fixed an issue with non-public products showing as out of stock on the storefront, where they were in fact in stock.

@@ -1,0 +1,31 @@
+---
+title: Returns creation and per-app user permissions
+publishedAt: "2023-08-17"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Fulfillment
+summary: Merchants can now create Returns for products that have been fulfilled through Order Details view. Non-admin dashboard users can now be given access to individual apps as needed.
+---
+
+## New Features
+
+- Merchants can now create [Returns](https://docs.Next Commerce.com/manage/orders/create-and-manage-returns) for products that have been fulfilled through [Order Details](https://docs.Next Commerce.com/manage/orders/order-management#order-details-view) view.
+- Non-admin dashboard users can now be given access to individual apps as needed.
+
+## Improvements
+
+- We've implemented a new `Unsaved Changes` bar across the whole platform for more consistent UX.
+- We've overhauled the Order Detail view and fulfillment orders for more clarity and ease of use.
+- Fulfillment `Partners` have now been renamed to `Locations` for clarity and usability.
+- Fulfillment Order Line items on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) now include more product information to make these easily available for fulfillment integrations.
+- Fulfillment Location Addresses are now validated to ensure the address follows standard address format expectations.
+- Added additional fields to the Stockrecords Admin API to improve usability by external systems.
+- Improve Taxes shown in orders and order confirmation views for more clarity when multiple tax rates are applied.
+
+## Bugs Fixed
+
+- We now prevent users from deleting fulfillment locations that are associated with stockrecords and orders, to prevent cascading data dependency issues.
+- Fixed an issue that prevented partners from being able to create apps.
+- Fixed an edge case issue where the payment gateway was not stored with subscriptions when created.

@@ -1,0 +1,27 @@
+---
+title: 3DS2 Payments and Transactions by Payment App report
+publishedAt: "2021-02-15"
+tags:
+  - Admin API
+  - Payments
+  - Fulfillment
+  - Orders
+summary: Introducing 3DS2 Payments support with Strong Customer Authentication (SCA) for merchants taking payments in markets that require 3DS/SCA. Introducing Transactions by Payment App Report that provides a summary of payment transactions by payment integration.
+---
+
+## New Features
+
+- Introducing [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Payments support with Strong Customer Authentication (SCA) for merchants taking payments in markets that require 3DS/SCA.
+- Introducing Transactions by Payment App Report that provides a summary of payment transactions by payment integration.
+
+## Improvements
+
+- [Admin API](https://developers.nextcommerce.com/docs/admin-api) users can now specify that an Order Line Item is an "upsell" which is visible in the order details and will provide the data for future upsell reports.
+- Dashboard users now have the option to send an "Order Canceled" email notification to users when canceling an order.
+- Dashboard users now have the option to send a "Payment Refund" email notification to users when creating a payment transaction refund.
+
+## Bug Fixes
+
+- Fixed an issue related to product creation and stock record validation when the stock record was not being created.
+- Fixed an issue with stock records syncing inventory with Rapid Fulfillment (legacy fulfillment app) when Stock Sync was disabled.
+- Fixed an issue preventing refunds from being able to process if the order's tax rate had been deleted.

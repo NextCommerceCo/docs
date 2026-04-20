@@ -1,0 +1,27 @@
+---
+title: Campaigns App package images and payment failed events
+publishedAt: "2024-01-17"
+tags:
+  - Admin API
+  - Payments
+  - Campaigns
+  - Checkout
+summary: "Overhauled the Campaign App package editing experience and introduced package images to allow campaign developers leverage package images directly from the campaigns app. Customer events have been overhauled and we've now introduced a new payment failed event to easily\u2026"
+---
+
+## New Features
+
+- Overhauled the Campaign App package editing experience and introduced package images to allow campaign developers leverage package images directly from the campaigns app.
+- Customer events have been overhauled and we've now introduced a new payment failed event to easily surface when a customer has failed payment attempts.
+
+## Improvements
+
+- Store Payments Environment Keys are now available on the Store Detail [Admin API](https://developers.nextcommerce.com/docs/admin-api) for external apps and integrations to have programmatic access to.
+- We've now changed the Google Maps integration to require a merchant provided key through their store Checkout settings.
+
+## Bug Fixes
+
+- We've fixed an issue with Metadata Boolean values not being stored properly which in turn prevented them from working properly for data filters.
+- We fixed an issue with the Dispute Detail view showing the wrong dispute amount.
+- Fixed a regression introduced that the prevented saving the global settings in [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app).
+- Added improved logic to prevent the deletion of Next Commerce.store sending domain globally throughout the system.

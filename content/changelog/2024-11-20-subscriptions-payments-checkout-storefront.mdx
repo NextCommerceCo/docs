@@ -1,0 +1,35 @@
+---
+title: Payments CSV exports and product variant metadata
+publishedAt: "2024-11-20"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Next Commerce Payments users can now export all Payments and Disputes to CSV for further analysis and custom workflows. Fulfillment reports can now be filtered by Last Event date to assist in finding fulfillments that have not received an update in many days.
+---
+
+## New Features
+
+- Next Commerce Payments users can now export all Payments and Disputes to CSV for further analysis and custom workflows.
+- Fulfillment reports can now be filtered by Last Event date to assist in finding fulfillments that have not received an update in many days.
+- Products now support drag-and-drop for image uploads, improving the product setup UX.
+- We now automatically sync product categories to [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo).
+- Product Variants now support metadata allowing new integration scenarios with unique product variant metadata.
+
+## Improvements
+
+- We now detect and map China Post as a parcel carrier from Shipstation, with data flowing all the way through to Delivery Tracking app events.
+- The bankcard payment form's card icons on the Checkout Flow's responsive design has been improved for mobile users.
+- We now create a customer event when a sending the Complete Order email notification from the dashboard cart view.
+- We've made several improvements to domain settings and the handling of adding/removing domains for a more clear UX.
+- Customer Last Login is now available on the customer detail view in the dashboard to provide users more context on the last time the customer had logged into their storefront customer account.
+- Products can now be freely changed back and forth between digital and physical requiring fulfillment, easing integration issues with external platforms that don't support digital products.
+
+## Bug Fixes
+
+- Fixed an edge case where it was possible for a user updating their subscription payment method to trigger duplicate transactions.
+- Fixed an issue with dashboard users possibly creating duplicated users due to case differences in their registered email.
+- Fixed an issue with PayPal flow causing the cart contents to empty if the customer clicked cancel from PayPal.
+- Fixed an issue where new tickets created from an previously closed ticket did not have the proper channel attribution.
+- Fixed an edge case issue with store notifications settings that could create a 500 error when saving.

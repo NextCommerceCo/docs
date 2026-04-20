@@ -1,0 +1,35 @@
+---
+title: Auto-capture on fulfillment and Dispute webhooks
+publishedAt: "2022-07-25"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: When using Auth/Capture payment flow, payments can now be set to automatically capture on order fulfillment. Filters UX has been overhauled throughout the Dashboard to make the active filters applied to the current view easier to see and clear.
+---
+
+## New Features
+
+- When using Auth/Capture payment flow, payments can now be set to automatically capture on order fulfillment.
+- Filters UX has been overhauled throughout the Dashboard to make the active filters applied to the current view easier to see and clear.
+- Orders List View now supports generic searching by number, name, email or any address text.
+- Subscriptions List View now support generic searching by number, name, email or any address text.
+- Orders and Transactions Admin APIs now feature `capture` methods to capture authorized payments.
+- [Webhooks](https://developers.nextcommerce.com/docs/webhooks) can now be created to subscribe to Dispute events, to notify external systems when disputes are created and updated.
+
+## Improvements
+
+- Checkout Links now support subscription based parameters to add items to the cart on a recurring interval.
+- The Product Details View has been completely overhauled for an improved UX when creating and managing products.
+- The public Order Status Pages now include a Google Map with a geolocated pin to designate the expected delivery address for the order.
+- Improved the Transaction Reports to better support Auth Capture flows including Voids so it is more clear how these transactions are flowing through the system.
+- Subscriptions connected to an inactive gateway will now transition to Past Due status with an event indicating the gateway is inactive allowing store admins to manually resolve the issue.
+- Orders that have a fulfillment tracking code but do not have a designated carrier (likely because the carrier is unsupported), will use a generic tracking page that can detect the carrier from the tracking code.
+
+## Bug Fixes
+
+- Fixed an issue where the billing address in the checkout flow showed all countries instead of matching to the shipping address countries list.
+- Fixed an edge case calculation issue with Net Revenue on Order reports.
+- Fixed an edge case where it was possible a customer had two open carts at the same time.
+- Fixed an edge case where re-activated subscriptions still showed in subscription canceled reports.

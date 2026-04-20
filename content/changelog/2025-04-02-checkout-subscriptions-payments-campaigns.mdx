@@ -1,0 +1,34 @@
+---
+title: Order Refunds API and line item metadata
+publishedAt: "2025-04-02"
+tags:
+  - Checkout
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Platform update on April 2, 2025.
+---
+
+## New Features
+- **Dashboard Support for Line Item Metadata:** Line item metadata can now be viewed and edited directly in the dashboard for Carts, Orders, and Subscriptions.
+- **Revamped Order Refunds API:** A new two-step Order Refunds API flow is now available, allowing you to preview and calculate refunds before creation. This flow supports line-item level refunds and aligns with the dashboard’s refund experience.
+- **Split Fulfillment Orders Filter:** Orders list can now be filtered by “Has Split Fulfillment,” making it easier for merchants to identify orders with multiple fulfillment records.
+
+## Improvements
+- **Digital Product Fulfillment Enhancements:** Digital products now follow an improved order management and auto-fulfillment flow. This allows upsells to be added during order creation, even when the order begins with digital products only.
+- **Updated [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) SDK:** We’ve updated to the latest Apple Pay SDK, which now includes support for Apple Pay on non-Apple devices and browsers.
+- **[Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Pinning:** Users can now pin campaigns to keep important or frequently accessed campaigns at the top of the Campaigns App list view.
+- **Improved Event Tracking Setup:** Event tracking setup now links directly to developer documentation for easier access to event guides and usage examples.
+- **Overhauled [Gorgias](https://docs.nextcommerce.com/docs/apps/gorgias) App:** The Gorgias integration has been rebuilt with significantly improved multi-store support, allowing smoother loading of the Next Commerce widget inside Gorgias.
+- **Upgraded [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) App Integration:** The Klaviyo App now uses the latest Storefront Event Tracking framework for more accurate and flexible customer activity tracking.
+- **Improved Shipping Discount Calculation:** Shipping discount logic has been improved for [Google Pay](https://docs.nextcommerce.com/docs/features/payments/google-pay) and Apple Pay within our 3-step checkout flow.
+
+## Bug Fixes
+- **[3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Test Card Fix:** Resolved an issue where the 3DS test card was not functioning as expected.
+- **Fulfillment Location Move API Fix:** Fixed a bug where a successful fulfillment location move could incorrectly return a 500 error.
+- **Refund Error Handling Fix:** Attempting to refund an uncaptured transaction now correctly returns a validation error instead of a 500 error.
+- **Product Variant Attribute Fixes:** Addressed several edge cases related to editing and saving product variant attributes.
+- **Apple Pay Order Creation Fix:** Fixed an issue where Apple Pay orders could occasionally fail to create.
+- **Returns Reporting Correction:** Corrected report values related to returns that were sometimes calculated incorrectly.
+- **Checkout Customization Flow Fix:** Fixed a 500 error that could occur when viewing the storefront via Checkout Customization.
+- **Improved Shopify Sync Error Handling:** Enhanced handling for intermittent errors received from Shopify during order syncing.

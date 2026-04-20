@@ -1,0 +1,35 @@
+---
+title: Gift Card Products, Approval Rate metric, and Orders Summary
+publishedAt: "2024-07-03"
+tags:
+  - Themes
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Introducing a new Orders Summary widget providing a quick view of recent order activity to help monitor order KPIs. Campaigns Upsell Create API now supports passing additional payment detail to specify a gateway or gateway group for more complex campaign flows.
+---
+
+## New Features
+
+- Introducing a new Orders Summary widget providing a quick view of recent order activity to help monitor order KPIs.
+- Campaigns Upsell Create API now supports passing additional payment detail to specify a gateway or gateway group for more complex campaign flows.
+- Transaction reports now include a new Approval Rate metric to assist merchants in monitoring the rate payment attempts are approved as an indicator of gateway health.
+- Theme and App Settings now feature new html, css, and javascript settings types for code snippets users may want to include in their theme.
+- [Meta Pixel](https://docs.nextcommerce.com/docs/apps/meta-pixel) app now features a logs of server side events to assist in monitoring and troubleshooting any issues.
+- Order Exports now feature COGS values for both order total COGS and order line items for viewing and working with COGS data externally.
+- Disputes now feature the ability to set a `happened_at` date allowing external service providers to more accurately set the dispute date in the past when the dispute actually happened.
+- Gift Cards can now be sold through "Gift Card Products" on the storefront and APIs enabling merchants to sell gift cards to customers as part of promotional offers.
+
+## Improvements
+
+- Order Address update actions now create events with improved details for more consistency with order events and actions.
+- We've improved the UX of order line items that are related to subscriptions and order editing actions so this detail is not missed in order management workflows.
+- Meta Pixel app now fires events on the storefront for PageView, AddToCart, ViewContent, and InitiateCheckout.
+- We've updated Stripe [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) flow to favor the frictionless when possible to reduce friction in the payment flow.
+- We've now removed the coupon from from the storefront sidecart platform wide to focus the cart on getting customers to the checkout flow where coupon and gift card application is available.
+- We've now added Return Tracking information to Returns Exports which was previously not included.
+
+## Bug Fixes
+
+- We've fixed an edge case issue with the storefront checkout flow that caused attribution metadata to be unnecessarily cleared.
+- We've fixed an edge case where it was possible to create a 500 error when passing an unparseable string to the phone number field on user API.

@@ -1,0 +1,32 @@
+---
+title: Gorgias, Bancontact, and Admin API versioning
+publishedAt: "2023-02-28"
+tags:
+  - Offers
+  - Payments
+  - Checkout
+  - Storefront
+summary: "Introducing a new integration with [Gorgias](https://www.gorgias.com/) that is available to install on stores from the Apps menu. Introducing Bancontact Payments through Stripe as an alternative payment method in the Checkout flow and Admin API."
+---
+
+## New Features
+
+- Introducing a new integration with [[Gorgias](https://docs.nextcommerce.com/docs/apps/gorgias)](https://www.gorgias.com/) that is available to install on stores from the Apps menu.
+- Introducing [Bancontact Payments](https://stripe.com/docs/payments/bancontact) through Stripe as an alternative payment method in the Checkout flow and [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Offers can now be "cloned" making it easier to duplicate offers without needing to manually fill out the form fields.
+- Admin API and [Webhooks](https://developers.nextcommerce.com/docs/webhooks) are now versioned with the default version "2023-02-10". More documentation will follow as new versions of the Admin API and Webhooks are introduced.
+
+## Improvements
+
+- Offer setup and editing has been overhauled with a new single page layout, simplifying the setup and editing of offers.
+- The Cart detail view as been overhauled for improved UX to follow our new UI views.
+- Coupons detail view has been overhauled for improved UX to follow our new UI views.
+- Product Option group has been revamped with a more clear UI and the addition of sorting on options, making it possible to set the display order of options displayed in the storefront.
+- Transactions by Payment Method report now uses the display name of payment methods instead of the enum for a better UX.
+- We've improved API Rate Limiting to now reference the API Access Token as the determining factor instead of IP address, improving support for external services that access multiple stores from the same IP address.
+- PayPal Account setup now has improved form validation with additional required fields for proper setup.
+
+## Bug Fixes
+
+- Fixed an issue with App Installation flow that did not always update the "app_url" when installing an app during development flows.
+- Fixed an issue with the [Storefront GraphQL API](https://developers.nextcommerce.com/docs/storefront/graphql) that caused it to create a new cart every time the cart was loaded instead of retrieving the existing cart.

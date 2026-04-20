@@ -1,0 +1,29 @@
+---
+title: Store switcher and self-serve domain management
+publishedAt: "2021-11-16"
+tags:
+  - Themes
+  - Subscriptions
+  - Storefront
+  - Fulfillment
+summary: Introducing the ability to switch between stores from the store dashboard to make it easy to manage multiple stores from a single user account. Store admins can now manage their domains through their store settings making it easy to add domains and point DNS to allow the…
+---
+
+## New Features
+
+- Introducing the ability to switch between stores from the store dashboard to make it easy to manage multiple stores from a single user account.
+- Store admins can now manage their domains through their store settings making it easy to add domains and point DNS to allow the domain to resolve to the Next Commerce platform.
+- Line Items can now be updated and and added while orders are Confirmed status allowing CS agents to more easily make adjustments to orders before they are sent to the fulfillment center.
+
+## Improvements
+
+- Theme templates can now access products, posts, and post_categories in all templates allowing them to create dynamic content blocks that are driven by the objects configured in the dashboard.
+- Users subscription to marketing communications is now managed through the user model as `accepts_marketing` allowing this to be used by externally integrated communication systems.
+- Blog posts now allow them to be hidden through the `Public` attribute following other public facing storefront content models.
+- Existing users added to stores will receive an email notification they have been added with a link to access their stores.
+- Dashboard users can now change their email in our unified accounts SSO with a supported email verification flow and new email propagation to stores as they login to them again.
+- Improved several misc items related to SSO to improve dashboard users' UX with their managed accounts.
+
+## Bugs Fixed
+
+- Fixed an issue with Address Line 2 not being imported when using the PayPal One Click flow.

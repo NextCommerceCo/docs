@@ -1,0 +1,28 @@
+---
+title: Sales by Page analytics and Collect Payment API
+publishedAt: "2025-11-13"
+tags:
+  - Payments
+  - Campaigns
+  - Storefront
+  - Admin API
+summary: Platform update on November 13, 2025.
+---
+
+## **New Features**
+
+- **Sales by Page in Campaign Analytics:** Campaign Analytics now includes Sales by Page, allowing merchants to analyze which funnel pages are contributing most to total campaign revenue.
+- **New Collect Payment API:** A new API endpoint has been introduced to collect payment for outstanding balances after an order has been edited. This is ideal for manual workflows or custom billing flows.
+- **Recalculate Prices in Campaign Packages:** Campaign Package editing now includes a Recalculate All Prices option, making it easier to update price changes across multiple currencies in multi-region campaigns at one time.
+- **Configurable Campaign Shipping Countries:** Campaign shipping countries can now be defined directly in campaign settings, and are returned via the campaignRetrieve API, allowing for dynamic country-based campaign logic.
+
+## **Improvements**
+
+- **Order Timeline Accuracy:** When line items are added to an order via the [Admin API](https://developers.nextcommerce.com/docs/admin-api), an associated timeline event is now automatically created. This improves audit trails and order history visibility.
+- **Localized APM Redirects:** Redirect flows for alternative payment methods (like Klarna, PayPal, etc.) now respect the customer’s current language, ensuring a more seamless localized experience.
+
+## **Bug Fixes**
+
+- **Fulfillment Report Filter Fix:** Resolved an issue where the** **Locations filter** **in Fulfillment Reports was not functioning correctly.
+- **Duplicate [Meta Pixel](https://docs.nextcommerce.com/docs/apps/meta-pixel) Fix:** Fixed a bug that was causing two Meta Pixels to be injected into the storefront in certain scenarios.
+- **[Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) Digital Order Fix:** Addressed an edge case that blocked digital-only orders from completing successfully when using Apple Pay.

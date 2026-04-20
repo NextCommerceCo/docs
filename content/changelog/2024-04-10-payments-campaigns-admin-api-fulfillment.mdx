@@ -1,0 +1,31 @@
+---
+title: Fulfillment Events timeline and dispute transaction metrics
+publishedAt: "2024-04-10"
+tags:
+  - Payments
+  - Campaigns
+  - Admin API
+  - Fulfillment
+summary: Fulfillment Events now show directly in the dashboard on the fulfillment order as a timeline for ease of tracking Transaction reports now include summary metrics indicating the number of transactions that were disputed to help merchants have improved visibility into dispute…
+---
+
+## New Features
+
+- Fulfillment Events now show directly in the dashboard on the fulfillment order as a timeline for ease of tracking
+- Transaction reports now include summary metrics indicating the number of transactions that were disputed to help merchants have improved visibility into dispute sources.
+
+## Improvements
+
+- Improved clarity of Transaction Statuses by removing legacy statuses that are no longer used or applicable.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) API now accepts specifying the Gateway Group or Gateway directly in the API request to override the campaigns settings for more complex campaign flows.
+- Oauth App create flow in the dashboard has been improved for clarity to no longer require associating with a dashboard user.
+- Improved the Product selector for campaigns to improve support for stores with large product catalogs.
+- Fulfillment locations and fulfillment apps are now prevented from removal if the locations have active fulfillments in progress to protect against situations that could leave orders stuck in fulfillment processing status indefinitely.
+- Improved order refund events to stamp the Oauth App if created over the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
+- Campaigns API docs now support testing the campaign calls through the interactive console for faster exploration and testing.
+
+## Bug Fixes
+
+- Fixed an issue with support macros duplicating the response text when using.
+- Fixed an edge case issue where it was possible to create a 500 error due to attempting to add the same customer to a block list multiple times.
+- Fixed an edge case issue with changing the fulfillment location when the order also has digital products.

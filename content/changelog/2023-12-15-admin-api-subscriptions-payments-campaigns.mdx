@@ -1,0 +1,39 @@
+---
+title: Store Admin API and custom external payment methods
+publishedAt: "2023-12-15"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: "Introducing a new [Admin API](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/store/operation/storeRetrieve) to retrieve store information such as the public contact information, available languages, available currencies, and primary domain to open up new\u2026"
+---
+
+## New Features
+
+- Introducing a new [[Admin API](https://developers.nextcommerce.com/docs/admin-api)](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/store/operation/storeRetrieve) to retrieve store information such as the public contact information, available languages, available currencies, and primary domain to open up new and deeper integration possibilities.
+- Custom external payment methods can now be created in the dashboard and used in the Checkout Flow and Admin API when creating a new order to support custom payment methods that dont have native integration.
+- Disputes now have new status `accepted` available, and now support adding notes to Disputes on the [Admin API](https://developers.Next Commerce.com/docs/api/admin/reference/#tag/payments), enabling dispute integration providers to add notes.
+- [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) App now supports setting a default email subscribe list, and uses remote dropdown lists for an improved user experience when configuring the App.
+
+## Improvements
+
+- Braintree payment gateway now supports `descriptor_name`, `descriptor_phone`, and `descriptor_url` custom fields, enabling merchants to customize them.
+- Storefront themes have been updated to use the object meta title in the `<title></title>`.
+- Order invoices and store notifications now use the store legal name as it's more appropriate in these cases than the public store name.
+- Products Admin API now features a `sku` to enable searching for existing products by their SKU.
+- We've improved the Admin API and Checkout Flow to validate cases an attempt is made to create a 0.00 (free) initial order with a paid recurring subscription.
+- We've now remapped the `NO_AVAILABLE_PROCESSORS` error code from Bluesnap to 5007 as it means the merchant account has been disabled at Bluesnap.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now dynamically shows the available languages and currencies that are configured on the store for a tighter integration.
+- Campaigns App - improved the campaign edit view to set the campaign currency field as read-only, as it cannot be changed after it's been created.
+- Improved API integration to always provide the end customer `ip_address` and `user_agent` so these can be used for order and payment processing.
+
+## Bug Fixes
+
+- Fixed an issue with initial declined payment re-attempts not being stamped as re-attemps when they fail.
+- Fixed an issue with product creation form field validation not showing properly when duplicate currencies exist.
+- Fixed an edge case with SKU validation when a product was converted from a stand alone to variant product.
+- Fixed an issue with Campaigns API that required the shipping address `phone_number` but allowed the field to be blank.
+- Fixed an issue with the Subscription Forecast report default subscription created date range, which is expected to be "All Time" with next renewal date range filters applied.
+- Fixed issues with order sub-affiliate reports including sub-affiliates and not properly filtering for the parent affiliate.
+- Fixed an edge case issue with campaign cloning when the browser default language converted price formats to use commas instead of decimal points.

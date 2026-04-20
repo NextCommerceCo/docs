@@ -1,0 +1,31 @@
+---
+title: Apple Pay overhaul, 2FA, and partial fulfillment
+publishedAt: "2025-02-05"
+tags:
+  - Admin API
+  - Payments
+  - Fulfillment
+  - Orders
+summary: Platform update on February 5, 2025.
+---
+
+## New Features
+- **[Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) Overhaul:** Apple Pay has been revamped and can now be enabled with a single click in your payment gateway settings.
+- **Two-Factor Authentication:** Secure your dashboard user accounts with two-factor authentication for enhanced security.
+- **Advanced Fulfillment Services:** Partial order fulfillment is now supported, allowing remaining items to be automatically reassigned to another fulfillment location when needed.
+
+## Improvements
+- **Faster Fulfillment Automation:** The fulfillment delay setting can now be reduced to as little as 10 minutes, providing better support for merchants syncing orders to external fulfillment systems.
+- **Enhanced Payment Decline Handling:** Next Commerce Payments now integrates more deeply with card issuer merchant advice codes, improving decline processing and reporting.
+- **Upgraded Code Editors:** All code editors across the dashboard have been updated with a modern syntax highlighter for an improved user experience.
+- **Improved Dashboard Filtering:** The Payments and Disputes dashboards can now be filtered by store, streamlining workflows for merchants managing multiple stores.
+- **Expanded [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Authentication for Upsells:** Upsells now attempt 3D Secure (3DS) authentication when possible, increasing overall coverage and security.
+- **UPC Management Update:** UPCs are now assigned to individual product variants, ensuring SKU-specific UPC accuracy.
+- **[Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) Fulfillment Flexibility:** The Shop Sync app now allows merchants to specify the fulfillment location address, enhancing fulfillment routing options.
+- **Refined Delivery Tracking:** Delivery tracking events in Mandarin are now ignored, reducing unnecessary notifications for merchants shipping from China.
+- **[3PL Central](https://docs.nextcommerce.com/docs/apps/3pl-central) Integration Update:** The 3PL Central integration now follows our latest fulfillment APIs and workflows, improving order management and fulfillment processes.
+- **Optimized Shop Sync Image Sync:** Shop Sync’s image synchronization has been enhanced following recent improvements to our Product Image Admin APIs.
+
+## Bug Fixes
+- **PayPal Express Fulfillment Rules Fix:** Fixed an edge case where fulfillment routing rules were not correctly applied through the PayPal Express flow.
+- **500 Error Fix for External Payments:** Resolved an issue that caused a 500 error when external payment method details were missing.

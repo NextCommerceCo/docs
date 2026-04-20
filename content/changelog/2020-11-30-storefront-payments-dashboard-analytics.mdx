@@ -1,0 +1,26 @@
+---
+title: NMI gateway and storefront currency switching
+publishedAt: "2020-11-30"
+tags:
+  - Storefront
+  - Payments
+  - Dashboard
+  - Analytics
+summary: NMI Gateway Integration for bankcard payments that supports using NMIs routing logic or specifying specific processors for transactions. NMI transaction decline and error codes are also mapped to our Transaction Response codes for unified reporting across gateways. Storefront…
+---
+
+## New Features
+
+- NMI Gateway Integration for bankcard payments that supports using NMIs routing logic or specifying specific processors for transactions. NMI transaction decline and error codes are also mapped to our Transaction Response codes for unified reporting across gateways.
+- Storefront Currency switching for store visitors is now possible for stores that have multiple currencies configured allowing shoppers to view products across multiple currencies.
+- [Cart JS API](https://developers.nextcommerce.com/docs/storefront/graphql) add-to-cart action now has a new parameter to accept a stockrecord id so that funnel developers can target currency specific stockrecords in their flows.
+- All email related settings have been combined into the Email settings section for easier management.
+
+## Improvements
+
+- Improved naming of gateway settings for configuring the Currency Default gateway.
+- Improved dashboard error template for an improved user experience when an error occurs.
+
+## Bug Fixes
+
+- Fixed an issue with bankcard transaction errors not being saved with core transactions and therefore not available in reporting.

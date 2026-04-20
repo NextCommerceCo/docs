@@ -1,0 +1,31 @@
+---
+title: Immediate subscription renewals and network_transaction_id on webhooks
+publishedAt: "2026-03-20"
+tags:
+  - Subscriptions
+  - Payments
+  - Campaigns
+  - Checkout
+summary: "Subscriptions Admin API now features a new endpoint to trigger an immediate renewal to simplify integrations managing subscriptions externally. Transactions Admin APIs and Webhook events now include the issuer's auth_code and the card network's network_transaction_id to\u2026"
+---
+
+## New Features
+
+- Subscriptions [Admin API](https://developers.nextcommerce.com/docs/admin-api) now features a new endpoint to trigger an immediate renewal to simplify integrations managing subscriptions externally.
+- Transactions Admin APIs and Webhook events now include the issuer's `auth_code` and the card network's `network_transaction_id` to assist in mapping disputes to transactions more reliably.
+- [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now has a fully integrated Address Autocomplete function enabled by default in the latest release.
+
+## Improvements
+
+- One Step Checkout Flow shipping address form logic has been completely overhauled for a smoother customer experience.
+- Platform stores overview now includes a date range picker allowing merchants to see orders across all their stores by different date ranges.
+- Express payment flows through [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now follow the language of the campaign for an improved localized payment experience.
+- Emojis are now automatically removed from customers and addresses as a data cleaning step as downstream integration platforms typically don't allow emoji characters.
+- We've improved the storefront event tracking `checkout_complete` event's "fire once" robustness to prevent the event from ever firing multiple times.
+- Fulfillments imported through [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now have improved carrier guessing logic to map known carriers by their tracking code patterns if the carrier is not set.
+- We've improved the payment gateway [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) setup flow for a more clear user experience.
+
+## Bug Fixes
+
+- Fixed an edge case error that occurred when email addresses from [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) have spaces at the end of them.
+- Fixed an issue with Klarna disputes to improve handling of their first notification of dispute.

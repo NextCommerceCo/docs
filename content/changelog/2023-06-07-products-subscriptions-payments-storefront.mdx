@@ -1,0 +1,30 @@
+---
+title: Order editing and Disputes timeline overhaul
+publishedAt: "2023-06-07"
+tags:
+  - Products
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: Order management has received a major update, with new features allowing order editing, adding/removing items from an order, creating refunds for specific items, and a more robust backend for handling complex order management and fulfillment scenarios. Disputes have been…
+---
+
+## New Features
+
+- Order management has received a major update, with new features allowing order editing, adding/removing items from an order, creating refunds for specific items, and a more robust backend for handling complex order management and fulfillment scenarios.
+- Disputes have been overhauled with a new timeline layout, which is now consistent with new UI views across the platform.
+- Orders that are "Rejected" by the fulfillment partner are now displayed with an alert counter on the Orders List View, to notify merchants they need to take action to repair and resend for fulfillment.
+- Variant Attributes are now sortable, to configure their ordering on the product details in the storefront.
+
+## Improvements
+
+- PayPal transactions are now exportable for merchants who need to analyze their PayPal transactions on a deeper level.
+- Refunds on NMI gateways now attempt a `void` first when issuing a refund, to better handle reversing transactions that have not yet fully settled.
+- Customers reports now shows an emdash when filering by any of the order-based attributes that inherently mean that the user type is a customer and not a lead.
+
+## Bug Fixes
+
+- Fixed an issue where `subscription.created` webhooks were not firing when a subscription was created through the `add-line-items` [Admin API](https://developers.nextcommerce.com/docs/admin-api) endpoint.
+- Fixed a few edge cases where the initiating user was not stored for PayPal and [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) transactions.
+- Fixed an edge case where a validation error was not properly thrown when updating an order's shipping address on the Admin API.
+- Fixed an issue where multiple admin order notifications were sent incorrectly.

@@ -1,0 +1,27 @@
+---
+title: Test Orders and Transactions by UTM Campaign report
+publishedAt: "2021-03-01"
+tags:
+  - Admin API
+  - Payments
+  - Checkout
+  - Webhooks
+summary: "Introducing \"Test Orders\" which allow store admins a reliable way to test order functionality without needing to worry about them going our for shipping or refunding the transactions. More documentation on this to come. 3DS2 transactions that fail due to the card not being\u2026"
+---
+
+## New Features
+
+- Introducing "Test Orders" which allow store admins a reliable way to test order functionality without needing to worry about them going our for shipping or refunding the transactions. More documentation on this to come.
+- [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) transactions that fail due to the card not being enrolled will now automatically retry as a standard transaction to attempt the purchase.
+- Introducing a new Transactions by UTM Campaign report allowing you to report on your transactions by Google utm_campaign attribution.
+- Orders now support multiple shipments in the core paving the way for more complex scenarios where multiple fulfillment centers are involved on the same order.
+
+## Improvements
+
+- Product "slugs" are now editable in the dashboard on the product details view.
+
+## Bug Fixes
+
+- Fixed a bug related to Omnisend (legacy email marketing app) basket syncing for orders that abandoned during APM checkout flow or the bankcard transaction failed.
+- Fixed an issue where variant product's categories were not available on the API or in webhook data.
+- Fixed API response formatting to always format external system passed through messages in JSON format.

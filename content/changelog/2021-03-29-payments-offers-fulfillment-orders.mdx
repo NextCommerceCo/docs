@@ -1,0 +1,27 @@
+---
+title: Reports navigation overhaul and 3DS2 Merchant Profile setup
+publishedAt: "2021-03-29"
+tags:
+  - Payments
+  - Offers
+  - Fulfillment
+  - Orders
+summary: Test Orders can now be deleted en mass with a bulk order action to delete all test orders. 3DS2 Merchant Profile setup has been improved to support ABIN and MID per card network for more flexibility.
+---
+
+## New Features
+
+- Test Orders can now be deleted en mass with a bulk order action to delete all test orders.
+- [3DS2](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Merchant Profile setup has been improved to support ABIN and MID per card network for more flexibility.
+- Payment Gateway's now have an "Active" state to support disabling a gateway to prevent attempted transactions.
+
+## Improvements
+
+- Reports UX and navigation has been completely overhauled to make report discovery easier and navigated to related reports.
+- Customers can now be searched by any of their Address data making it possible to find customers with limited amounts of their address.
+
+## Bug Fixes
+
+- Fixed an issue with filter links on Transactions by Card Bin report.
+- Fixed an issue related to offers and the add-line-items api creating a line item with 0 qty.
+- Fixed fulfillment automation logic to prevent Test Orders from automatically being sent to fulfillment partners.

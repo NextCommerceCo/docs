@@ -1,0 +1,26 @@
+---
+title: SEPA Direct Debit and multi-fulfillment orders
+publishedAt: "2023-08-03"
+tags:
+  - Payments
+  - Webhooks
+  - Fulfillment
+  - Orders
+summary: "Orders now support multiple fulfillment orders with the same fulfillment location for more flexible workflows such as editing orders after they've already been sent to the warehouse or creating fulfillments to ship out replacement items from within the original order.\u2026"
+---
+
+## New Features
+
+- Orders now support multiple fulfillment orders with the same fulfillment location for more flexible workflows such as editing orders after they've already been sent to the warehouse or creating fulfillments to ship out replacement items from within the original order.
+- Introducing SEPA Direct Debit as a new alternative payment method that can be enabled with Stripe gateways for the EU market.
+- We now have a full suite of Fulfillment APIs for external Fulfillment Services to integrate into the fulfillment flow, see [Fulfillment Service Apps](https://developers.Next Commerce.com/docs/apps/guides/fulfillment-service/) guide for more detail.
+
+## Improvements
+
+- Orders with `authorized` payments can now create `void` transactions when canceling the order.
+- Webhook logs can now be filtered by event type to assist in debugging webhooks that are integrated with other platforms.
+- Campaign logs can now be filtered by success or error to assist with debugging and monitoring.
+
+## Bug Fixes
+
+- Fix dashboard issue when user tried to access the fulfillment view when fulfillment order had already been canceled.

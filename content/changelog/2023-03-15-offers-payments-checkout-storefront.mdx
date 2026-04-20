@@ -1,0 +1,29 @@
+---
+title: Giropay, Order Notes API, and Klaviyo order events
+publishedAt: "2023-03-15"
+tags:
+  - Offers
+  - Payments
+  - Checkout
+  - Storefront
+summary: Introducing Giropay as an available alternative payment method for the German market. Order Notes can now be added through a new endpoint on the Admin API allowing external integrations to add notes to orders.
+---
+
+## New Features
+
+- Introducing [Giropay](https://stripe.com/docs/payments/giropay) as an available alternative payment method for the German market.
+- Order Notes can now be added through a new endpoint on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) allowing external integrations to add notes to orders.
+- The [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) App now supports three new events; Fulfilled Order, Canceled Order, and Refunded Order, to support merchants using Klaviyo for transactional emails.
+- The [Gorgias](https://docs.nextcommerce.com/docs/apps/gorgias) App now supports pulling customer data from the store to show in the sidebar incoming calls.
+
+## Improvements
+
+- Stripe Payment Intents now has a more user-friendly onboarding flow, automatically connect the merchant's Stripe account with Stripe Connect.
+- Alternative Payment Methods are now displayed based on the customer's shipping address in the storefront checkout flow.
+- Product Categories has now been overhauled with a new UI including the ability to add products from within the category detail view.
+- Ranges have now been overhauled with a new UI and improved product management for improved user experience.
+- Shipping Method has been added to Order exports so users can use this data in their workflows.
+
+## Bug Fixes
+
+- Fixed an edge case where site offers were not always applied and shown in the storefront side cart.

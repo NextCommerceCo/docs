@@ -1,0 +1,28 @@
+---
+title: Klarna, iDEAL, and Storefront GraphQL theme migration
+publishedAt: "2023-02-15"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Introducing Klarna and iDeaL Payments through Stripe as alternative payment methods. These methods can now be enabled on the store checkout and Admin API payment flows. Storefront Themes have been migrated to use a new GraphQL Storefront API, with the storefront sidecart now…
+---
+
+## New Features
+
+- Introducing Klarna and iDeaL Payments through Stripe as alternative payment methods. These methods can now be enabled on the store checkout and [Admin API](https://developers.nextcommerce.com/docs/admin-api) payment flows.
+- Storefront Themes have been migrated to use a new GraphQL Storefront API, with the storefront sidecart now able to be controlled by themes, unlocking it for customization.
+- Product Variants (child products) can now be created and managed through the Admin API.
+
+## Improvements
+
+- Content "excerpts" have been removed across the platform in an effort to make the UI more clear and easier to use.
+- The subscription renewal process has had several improvements to handle more edge case scenarios preventing renewal orders being created incorrectly.
+- All "Advanced" search buttons have now be renamed to "Filters" for improved UI clarity and consistency.
+
+## Bug Fixes
+
+- Improved Checkout CSS to fix minor display issues on Firefox.
+- Fixed an edge case that caused an Order to not be created after a successful PayPal transaction.
+- Fixed an issue causing the available Apps to not show all.

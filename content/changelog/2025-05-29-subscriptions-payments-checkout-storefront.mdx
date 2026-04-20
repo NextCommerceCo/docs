@@ -1,0 +1,30 @@
+---
+title: Saved payment methods in dashboard orders
+publishedAt: "2025-05-29"
+tags:
+  - Subscriptions
+  - Payments
+  - Checkout
+  - Storefront
+summary: Platform update on May 29, 2025.
+---
+
+## **New Features**
+
+- **Reuse Saved Payment Methods in Dashboard Orders:** The dashboard order creation flow now supports using a customer’s retained payment methods, enabling faster and more efficient support workflows when placing orders on behalf of existing customers.
+- **Simplified Product Management:** The concept of stand-alone products has been removed, streamlining the product setup process and making catalog management more intuitive.
+
+## **Improvements**
+
+- **Subscription Line Item Handling:** Subscription line item behavior now mirrors that of cart and order line items for a more consistent and intuitive experience.
+- **Single Page Checkout Enhancements:** Several updates have been made to the single page checkout flow, improving the end-customer experience and aimed at boosting conversion rates.
+- **Improved Checkout Settings UX:** The checkout settings interface has been refined for easier customization of the checkout experience from the dashboard settings.
+- **More Accurate Payment Response Codes:** Payment response code 2003 has been renamed to *Issuer Declined*, and additional network response mappings have been updated for improved clarity and reporting.
+- **[Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) Express Display Logic:** Apple Pay buttons are now more intelligently handled on devices that do not support them, reducing display inconsistencies.
+- **[Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) Currency Defaults:** Shop Sync now automatically sets USD as the default currency if none is configured in the connected Shopify store, preventing product sync failures and improving first-time setup.
+
+## **Bug Fixes**
+
+- **Unexpected Redirect Fix:** Fixed an edge case where logged-out dashboard users were incorrectly redirected to the storefront.
+- **Gateway Routing Fix:** Resolved an issue where bankcard transactions didn’t always follow expected gateway group routing configurations.
+- **Order Attribution Field Fix:** The order attribution *funnel* field is now correctly configured as a text input.

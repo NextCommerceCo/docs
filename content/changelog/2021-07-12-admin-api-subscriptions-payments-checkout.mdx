@@ -1,0 +1,28 @@
+---
+title: Gateway Groups, subscription webhooks, and ticket analytics
+publishedAt: "2021-07-12"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Checkout
+summary: "Introducing Gateway Groups which provide an easier path to using multiple bankcard gateways and distributing the transactions for your store's checkout flow or API orders. Introducing a new Transactions by Gateway report that shows a breakdown of all bankcard transactions by\u2026"
+---
+
+## New Features
+
+- Introducing Gateway Groups which provide an easier path to using multiple bankcard gateways and distributing the transactions for your store's checkout flow or API orders.
+- Introducing a new Transactions by Gateway report that shows a breakdown of all bankcard transactions by gateway for analysis of payment transactions.
+- Introducing Support Tickets by Product and Tickets by Tag reports with the addition of "Avg First Reply Time" tracking for all ticket reports, offering a better understanding of support staff responsiveness.
+- API users can now add or remove a customer from block lists by updating the `is_blocked` attribute, which will add or remove the customer from block lists.
+- Webhook subscribers can now subscribe to `subscription.created` and `subscription.updated` event triggers to receive subscription related events.
+
+## Improvements
+
+- Disputes can now be matched to non-bankcard transactions, such as Paypal and Klarna transactions, for the tracking of APM disputes.
+- Omnisend (legacy email marketing app) processes are now fully asynchronous, improving our resilience against third party API outages.
+- Many Admin APIs have had query improvements, resulting in faster response times.
+
+## Bug Fixes
+
+- Fixed a conflict between the storefront subscription detail view and the side cart that caused a 500 error.

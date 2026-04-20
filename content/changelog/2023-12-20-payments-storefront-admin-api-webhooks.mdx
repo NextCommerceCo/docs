@@ -1,0 +1,30 @@
+---
+title: Adyen gateway and Gift Cards
+publishedAt: "2023-12-20"
+tags:
+  - Payments
+  - Storefront
+  - Admin API
+  - Webhooks
+summary: Introducing Adyen, a new payment gateway for bankcard payments. Merchants can now create Gift Cards to offer customers store credit to use for future purchases on their store.
+---
+
+## New Features
+
+- Introducing Adyen, a new payment gateway for bankcard payments.
+- Merchants can now create Gift Cards to offer customers store credit to use for future purchases on their store.
+
+## Improvements
+
+- Store Localization settings have been significantly improved with drag-and-drop functionality to simplify the setup and prioritization of storefront geos, languages, and currencies.
+- The Order Detail view now always shows alerts when there is an associated ticket or dispute, to assist customer service users in their workflows.
+- Stripe Payment Intents is now the preferred Stripe gateway, with the legacy Stripe gateway now removed from the list of available gateways.
+- Webhook failing notifications have been improved to notify all store admins to increase the observability potential issues with external integrations leveraging webhooks.
+- The test gateway is now limited to one per store to reduce unnecessaary test gateways from being created.
+
+## Bug Fixes
+
+- Fixed an issue with failing input field validations when creating a product.
+- Fixed an issue with customer exports not applying the current list view filters for the exported data.
+- Fixed an issue with Transaction Detail views showing a link to a non-existing order due to failed a payment attempt.
+- Fixed an edge case with [Admin API](https://developers.nextcommerce.com/docs/admin-api) shipping method validation for the Paypal one-click flow.

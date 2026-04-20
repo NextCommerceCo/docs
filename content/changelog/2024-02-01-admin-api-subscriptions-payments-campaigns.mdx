@@ -1,0 +1,39 @@
+---
+title: Storefront Accounts overhaul and Metadata APIs
+publishedAt: "2024-02-01"
+tags:
+  - Admin API
+  - Subscriptions
+  - Payments
+  - Campaigns
+summary: Storefront Accounts have been completely overhauled and moved into the core platform to improve customer UX and pave the path forward for deeper customer account features. Subscription Line Items can now be managed from the Admin API enabling new integration possibilities.
+---
+
+## New Features
+
+- Storefront Accounts have been completely overhauled and moved into the core platform to improve customer UX and pave the path forward for deeper customer account features.
+- Subscription Line Items can now be managed from the [Admin API](https://developers.nextcommerce.com/docs/admin-api) enabling new integration possibilities.
+- Introducing Metadata APIs allowing external apps to register their Metadata Definitions on stores for metadata used in their integration.
+- Disputes resolution flows now offer the ability to register external refunds.
+- It is now possible to restock items back to inventory when creating a refund for an order.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now features improved failed payment handling for external redirect flows.
+- Webhook subscribers can now listen for store general configuration updates through the `store.updated` webhook.
+
+## Improvements
+
+- Many major improvements have been integrated with the Admin API `unstable` version with improved performance, additional order reporting values, and consistency, see [docs](https://developers.Next Commerce.com/docs/api/admin/reference/?v=unstable).
+- Store Payments Env key is now automatically saved during Campaigns App installation flow to reduce setup steps.
+- Customer IP Address is now sync'd to [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) to power their [profile location features](https://help.klaviyo.com/hc/en-us/articles/11500507390) to leverage a customer location in automation flows.
+- We've improved order refund and order adjustment tracking to improve the accuracy of order returns report values.
+- Order Returns can now be filtered by Products to easily find returns by product.
+- Orders can now be filtered by `has_outstanding_balance` to find orders that have outstanding owed refunds or require payment collection.
+- Core Attribution fields now all support a consistent 500 characters to match external attribution platform general best practices.
+- Maxmind App has been refactored to use the `riskScore` API instead of `Insights` to reduce costs.
+
+## Bug Fixes
+
+- Images inserted into emails now save properly to the ticket so they can be seen by dashboard users.
+- Fixed an issue with saving the comment mode on support macros.
+- Fixed error message shown in the Partners App portal when creating a release for an S2S app without an app file.
+- Fixed an edge case issue with using a different billing address than shipping in the storefront checkout flow.
+- Fixed an edge case issue with campaign currencies blocking package creation.
