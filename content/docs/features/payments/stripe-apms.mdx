@@ -3,7 +3,7 @@ title: "Alternative Payment Methods"
 description: "Offer Buy Now Pay Later, bank payments, and wallet methods alongside card payments"
 ---
 
-Next Commerce supports a range of alternative payment methods (APMs) beyond traditional bankcards, including Buy Now Pay Later (BNPL), bank transfers, and digital wallets. These methods are available on both the storefront checkout and for custom checkouts via the Admin API.
+Next Commerce supports a range of alternative payment methods (APMs) beyond traditional bankcards, including Buy Now Pay Later (BNPL), bank transfers, and digital wallets. These methods are available on the storefront checkout, and many are also available for custom checkouts via the Admin API.
 
 ## Buy Now, Pay Later
 
@@ -41,6 +41,24 @@ Klarna availability and payment options vary by market. Consult [**Klarna's coun
 
 ## Digital Wallets
 
+### TWINT
+
+**TWINT** is a Swiss mobile wallet that lets customers pay from their TWINT app at checkout. TWINT is available exclusively to merchants processing via **NEXT Payments**.
+
+- Available for eligible merchants selling to customers in **Switzerland**
+- Works as a redirect-based wallet payment during checkout
+- Supports one-time purchases and recurring purchases
+- Supports one-click upsells after checkout
+- Merchant receives payment through the connected NEXT Payments account
+
+To enable TWINT, first log in to your [**NEXT Payments account**](https://accounts.29next.com/) and apply to add TWINT as a payment method. Once approved, navigate to **Settings > Payments** in your store, select your NEXT Payments gateway, and enable **TWINT** from the **Alternative Payment Methods** card.
+
+<Callout type="info">
+
+TWINT is a **NEXT Payments exclusive** payment method. It is not available through Stripe gateways.
+
+</Callout>
+
 ### Stripe Link
 
 **Stripe Link** saves and autofills customer payment and shipping details across Stripe-powered checkouts, reducing friction and accelerating checkout.
@@ -76,9 +94,9 @@ These methods may be available in specific regions only. Consult Stripe's docume
 
 ## Custom Checkout (Admin API)
 
-All alternative payment methods listed above are available on the Admin API for custom campaign checkouts, not just the storefront.
+Many alternative payment methods listed above are available on the Admin API for custom campaign checkouts, not just the storefront.
 
-For implementation details, start with the [**External Checkout Flow**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), then use the payment-method guides:
+For implementation details, start with the [**External Checkout Flow**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), then use the payment-method guides where available:
 
 - [**Affirm**](https://developers.nextcommerce.com/docs/admin-api/guides/affirm)
 - [**Klarna**](https://developers.nextcommerce.com/docs/admin-api/guides/klarna)
