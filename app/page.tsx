@@ -139,30 +139,33 @@ export default function HomePage() {
                 Next Commerce User Docs
               </p>
               <h1 className="mt-3 text-4xl font-bold tracking-tight text-fd-foreground md:text-5xl">
-                Search first. Browse when you need context.
+                Guides for setting up, running, and extending your store.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-fd-muted-foreground md:text-lg">
-                The fastest path is usually search. If you are still orienting, the sections below
-                will take you to the right part of the product.
+                Start with a common path, browse by area, or search if you already know the
+                feature, setting, or workflow you need.
               </p>
             </div>
 
-            <FullSearchTrigger
-              className="w-full justify-between rounded-xl border border-fd-border bg-fd-secondary px-4 py-3 text-left text-sm font-medium text-fd-muted-foreground shadow-none hover:bg-fd-accent md:max-w-xl"
-              aria-label="Search docs"
-            >
-              <span className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-fd-background text-fd-primary">
-                  <Search className="size-4" />
-                </span>
-                <span className="flex flex-col items-start">
-                  <span className="text-sm font-medium text-fd-foreground">Search docs</span>
-                  <span className="text-xs text-fd-muted-foreground">
-                    Settings, guides, features, or reports
+            <div className="flex flex-col gap-2">
+              <p className="text-sm font-medium text-fd-foreground">Know what you need?</p>
+              <FullSearchTrigger
+                className="w-full justify-between rounded-xl border border-fd-border bg-fd-secondary px-4 py-3 text-left text-sm font-medium text-fd-muted-foreground shadow-none hover:bg-fd-accent md:max-w-xl"
+                aria-label="Search docs"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="flex size-9 items-center justify-center rounded-lg bg-fd-background text-fd-primary">
+                    <Search className="size-4" />
+                  </span>
+                  <span className="flex flex-col items-start">
+                    <span className="text-sm font-medium text-fd-foreground">Search docs</span>
+                    <span className="text-xs text-fd-muted-foreground">
+                      Settings, guides, features, or reports
+                    </span>
                   </span>
                 </span>
-              </span>
-            </FullSearchTrigger>
+              </FullSearchTrigger>
+            </div>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
               <Link
@@ -189,7 +192,7 @@ export default function HomePage() {
           </div>
 
           <aside className="rounded-xl border border-fd-border bg-fd-background p-4 md:p-5">
-            <p className="text-sm font-semibold tracking-tight text-fd-foreground">Popular paths</p>
+            <p className="text-sm font-semibold tracking-tight text-fd-foreground">Start here</p>
             <div className="mt-4 grid gap-2.5">
               {quickLinks.map((link) => {
                 const Icon = link.icon;
