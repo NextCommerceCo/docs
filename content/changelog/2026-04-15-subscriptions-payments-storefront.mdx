@@ -1,0 +1,28 @@
+---
+title: Subscription pause/resume, Affirm, and address autocomplete
+publishedAt: "2026-04-15"
+tags:
+  - Subscriptions
+  - Payments
+  - Storefront
+summary: "Subscriptions can now be paused and resumed from the dashboard, letting merchants halt auto-renewals indefinitely and resume them on demand. NEXT Payments now supports Affirm as a payment method, giving merchants another option for offering customer\u2026"
+---
+
+## New Features
+
+- Subscriptions can now be paused and resumed from the dashboard, letting merchants halt auto-renewals indefinitely and resume them on demand.
+- NEXT Payments now supports Affirm as a payment method, giving merchants another option for offering customer financing at checkout.
+- One Step Checkout now includes address autocomplete to speed up form completion and reduce input errors.
+
+## Improvements
+- [Admin API](https://developers.nextcommerce.com/docs/admin-api) Fulfillment Orders endpoint now supports filtering by product ID and SKU to simplify fulfillment workflows and reporting integrations.
+- PayPal Commerce Gateway ACDC now supports up to 3 days between authorization and capture to accommodate longer fulfillment workflows.
+- Stored cards that have had a prior successful transaction are no longer hidden after an occasional decline, so merchants can re-use them when creating orders.
+
+## Bug Fixes
+
+- Fixed an error in the Storefront Checkout basket caused by a race condition with database routing.
+- Fixed an issue where pressing Enter on checkout forms submitted the form multiple times.
+- Fixed an issue where the selected shipping method would reset to the default option when Link Payment was enabled.
+- Fixed an issue where the first address added to a customer was not set as their default address.
+- Fixed an issue where voucher discount benefits were applied to lines with a zero or negative discount budget.
