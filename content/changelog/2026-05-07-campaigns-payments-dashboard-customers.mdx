@@ -1,33 +1,33 @@
 ---
-title: Payment MID/MCC codes, faster Campaign API, and a customer metrics refresh
+title: MID/MCC visibility and faster Campaign APIs
 publishedAt: "2026-05-07"
 tags:
   - Campaigns
   - Payments
   - Dashboard
   - Customers
-summary: "Next Payments now displays Acquirer MID and MCC codes on each payment method so merchants can share these with their disputes provider for alerts and chargeback handling. Campaigns App Campaign Retrieve and Cart Calculate APIs are now significantly faster, with optimized queries and pre-generated package thumbnails…"
+summary: "NEXT Payments now shows acquirer MID, MCC, and ARN details for dispute alerts, chargeback handling, and reconciliation. Campaign Retrieve and Cart Calculate API responses are faster, and customer detail metrics are easier to scan."
 ---
 
 ## New Features
 
-- Next Payments now displays the Acquirer MID and MCC codes on each payment method so merchants can share these with their disputes provider for setting up alerts and chargeback handling.
-- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Campaign Retrieve API now includes a top-level `campaign_id` field for easier identification when debugging or working across environments.
+- NEXT Payments now shows acquirer MID and MCC codes on each payment method so merchants can share them with dispute providers for alerts and chargeback handling.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Campaign Retrieve API now includes a top-level `campaign_id` field, making campaigns easier to identify when debugging or working across environments.
 
 ## Improvements
 
 - We've added a setting to disable tag auto-creation through customer and order widgets for non-admin users, keeping the Tags list cleaner.
-- Next Payments now shows the Acquirer Reference Number (ARN) in each payment timeline event for easier reconciliation.
-- Campaigns App Campaign Retrieve and Cart Calculate APIs are now significantly faster, with optimized queries and pre-generated package thumbnails.
-- New email sending domains are now configured with our dedicated transactional setup by default, improving deliverability.
-- Customer detail metrics have been moved to the top of the customer view with a humanized customer-since value and direct links to Orders and Tickets, making top-level customer KPIs more visible.
-- Storefront `catalogue_viewed` pixel event is now lighter and faster, with the `variant` field removed to reduce database load on high-traffic catalogues.
+- NEXT Payments now shows the Acquirer Reference Number (ARN) in each payment timeline event for easier reconciliation.
+- Campaigns App Campaign Retrieve and Cart Calculate APIs are now significantly faster thanks to optimized queries and pre-generated package thumbnails.
+- New email sending domains now use NEXT's dedicated transactional setup by default, improving deliverability.
+- Customer detail metrics now appear at the top of the customer view, with a clearer customer-since value and direct links to Orders and Tickets.
+- Storefront `catalogue_viewed` pixel events are now lighter and faster after removing the `variant` field, reducing database load on high-traffic catalogs.
 
 
 ## Bug Fixes
 
-- Fixed an issue where the subscription price estimate was missing when redirecting customers to an APM checkout flow.
-- Fixed an issue where the PayPal account name was missing on the PayPal transaction details view.
-- Fixed an issue where the "Buy X items → Y% off Entire Order" offer condition was not applying the discount correctly.
+- Fixed an issue where the subscription price estimate was missing when redirecting customers to an alternate payment method (APM) checkout flow.
+- Fixed an issue where the [PayPal](https://docs.nextcommerce.com/docs/features/payments/paypal) account name was missing on the PayPal transaction details view.
+- Fixed an issue where the "Buy X items -> Y% off Entire Order" offer condition was not applying the discount correctly.
 - Fixed an issue where editing an offer type from voucher to offer returned a 500 error.
 - Fixed an issue where invalid shipping country inputs in checkout caused a 500 error.
