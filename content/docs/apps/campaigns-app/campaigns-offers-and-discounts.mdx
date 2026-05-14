@@ -10,6 +10,20 @@ _Product + Quantity + Price + (optionally a Subscription schedule and recurring 
 
 Campaigns App **Offers & Discounts** opens up the possibility of selling at multiple price points on your checkout, without the need for creating individual Packages for each variation.
 
+<Callout type="info">
+
+Campaigns App Offers & Discounts are separate from the store-level Offers and Coupons found in the broader Offers menu. Use this guide for Campaigns App Packages, Campaigns API checkout flows, and Campaign Cart SDK behavior.
+
+</Callout>
+
+## Packages, Offers, and Coupon Codes
+
+In Campaign Cart SDK 0.4.x checkout flows, the Campaigns App **Offer** is the source of truth for which Packages or items qualify for a discount. A coupon code does not need to be hand-wired to a specific bundle card in the checkout template. The coupon code activates one or more Campaigns App Offers, and each Offer's conditions and incentive define which cart items receive the discount.
+
+For example, if an exit intent popup or promo code field applies a code for an extra discount, configure the Offer to target the eligible Package quantity, Product Range, or shipping incentive. The checkout should then apply the coupon code and let Campaigns API cart calculation return the discounted package prices, shipping price, and order summary totals.
+
+Use checkout template state, such as whether a coupon code is currently applied, only for presentation: success messages, badges, or conditional copy. Do not use it to decide which bundle price should be shown. Bundle picker pricing should follow the calculated Offer result.
+
 ### Set up Offers
 
 From the Campaigns App main list view, click on your campaign name, or choose "View".
