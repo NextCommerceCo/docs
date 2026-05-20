@@ -2,13 +2,29 @@
 title: "Campaigns Offers & Discounts"
 description: "Create custom discounting codes and logic for Campaigns API"
 ---
-Campaigns App **Packages** represent the items for sale on your external custom checkout flow.
+Campaigns App **Packages** represent the product or product variant identities for sale on your external custom checkout flow.
 
-A **Package** can be understood as simply a:
+A **Package** can be understood as:
 
-_Product + Quantity + Price + (optionally a Subscription schedule and recurring price point)_
+_Product or Variant + base Package Price + optional subscription schedule_
 
-Campaigns App **Offers & Discounts** opens up the possibility of selling at multiple price points on your checkout, without the need for creating individual Packages for each variation.
+Campaigns App **Offers & Discounts** is the pricing layer. Use Offers to sell at multiple price points, including quantity tiers and strike-through savings, without creating individual packages for each variation.
+
+For example, a single Widget package can support Buy 1, Buy 2, and Buy 3 pricing. The funnel sends the selected package and quantity, the matching Offer applies, and the order calculation returns the original price, final price, savings amount, and savings percentage.
+
+| Setup need | Use |
+| --- | --- |
+| Product or variant identity | Package |
+| Base list price | Package Price |
+| Buy more, save more on checkout | Automatic Offer |
+| Upsell, downsell, exit pop, or manual promo code | Code offer |
+| Compare-at / strike-through pricing | Offer before/after calculation |
+
+<Callout type="warn">
+
+Do not create separate `1x`, `2x`, and `3x` packages just to express tiered pricing. Package-level Quantity and Retail Price are compatibility fields exposed by the **Enable Package Retail Price & Quantity** campaign setting for campaigns that already rely on them.
+
+</Callout>
 
 ### Set up Offers
 
@@ -20,8 +36,8 @@ Next, select **Packages -** then from **Offers & Discounts** select **Add Offer*
 
 * **Name** - The name of the discount
 * **Type** - Choose between
-  * **Offer** - Always apply the discount when the order meets the conditions
-  * **Code** - Only apply the discount when the code is used - when selected you must enter the Discount Code.
+  * **Offer** - Automatically apply the discount when the order meets the conditions. Use this for checkout quantity tiers.
+  * **Code** - Only apply the discount when the code is used - when selected you must enter the Discount Code. Use this for upsells, downsells, exit pops, and coupon-style promotions.
 
 **Condition Type**
 
@@ -30,6 +46,8 @@ Set the conditions required for your discount logic to apply to the order
 * Any Criteria
 * Package quantity greater than or equal to - a value
 * All Packages - Select to automatically add all current and future Packages to this condition
+
+Scope checkout tier Offers to the intended package or package family. Avoid **All Packages** unless the discount should apply to every package in the campaign, including add-ons and cross-sells.
 
 **Incentive**
 

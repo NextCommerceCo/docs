@@ -2,7 +2,7 @@
 title: "Build Campaign Packages"
 description: "Set up the sellable items for your custom checkouts and upsell paths"
 ---
-Campaigns App maps configurable **Packages** to the items for sale on your external custom checkout flow.  A **Package** can be understood as simply a Product + Quantity + Price + (optionally) a Subscription schedule and a recurring price point.
+Campaigns App maps configurable **Packages** to the items for sale on your external custom checkout flow. A **Package** is best understood as a Product or Product Variant + base Package Price + optional subscription schedule.
 
 Each Package carries a unique ID that will be referenced on the Campaigns API.
 
@@ -12,9 +12,11 @@ The [**Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api) 
 
 </Callout>
 
-Package data — including names, prices, and images — is loaded dynamically on every page visit via the [`campaignRetrieve`](https://developers.nextcommerce.com/docs/campaigns/api) API call (exposed as `getCampaignData()` in the Campaign Cart JS SDK). This means changes made in Campaigns App take effect immediately across the live funnel, with no code deploy required.
+Package data — including names, prices, and images — is loaded dynamically on every page visit. This means changes made in Campaigns App take effect immediately across the live funnel, with no code deploy required.
 
 Packages can be configured as one-time purchases, or subscriptions.
+
+For bundle or quantity pricing such as "Buy 1", "Buy 2", and "Buy 3", create one package for the product or variant and use [Campaigns Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts) to set the tier prices. Do not create separate packages only to express quantity discounts.
 
 ## Add Campaign Packages
 
@@ -28,11 +30,17 @@ Hint - you can pin your most important campaigns to the top of this list view.
 
 Next, select **Packages -** then **Add Package** and configure the following values:
 
-* **Package Name** - the name of this package. **This is a customer-facing value** — when using the Campaign Cart JS SDK or core templates, the Package Name is pulled from the API at page load and displayed directly on the live site. Use a clean, customer-ready name rather than an internal code or shorthand.
+* **Package Name** - the name of this package. **This is a customer-facing value** — package names can be displayed directly on the live site. Use a clean, customer-ready name rather than an internal code or shorthand.
 * **Product** - select the product to assign to the package.  For products with multiple variants you can automatically create packages for every variant at this step, or opt to add them individually.
-* **Quantity** - define the quantity of the product the package will sell
-* **Package Price** - enter the price that will be charged to the customer for the package.  For multi-quantity packages the per unit price is shown here.  The package per unit price must be divisible to two digits (.00)
-* **Retail Price** - (optional) enter the full retail price, or "compare at" price of the item, before any discounts.
+* **Quantity** - leave package quantity at `1` unless an existing campaign specifically relies on package-level quantity. Customer-selected quantities are sent by the funnel when the package is added to cart.
+* **Package Price** - enter the package's base list price. Offers can then discount the cart so the API returns the original price, final price, savings amount, and savings percentage.
+* **Retail Price** - optional compatibility field. It only appears when the campaign setting **Enable Package Retail Price & Quantity** is enabled. Leave it empty unless an existing campaign depends on it; use Offers for compare-at or strike-through pricing.
+
+<Callout type="warn">
+
+**Package Retail Price and package Quantity are compatibility fields.** They are still available behind the campaign setting for existing builds, but the recommended setup is Offer-based pricing. Keep the package list to real product or variant identities, then model tiered prices and savings through Offers.
+
+</Callout>
 
 <Callout type="warning">
 
@@ -44,7 +52,7 @@ For Campaigns using multiple currencies, your Package will automatically be assi
   * **Interval -** choose the billing interval (days, weeks, months) to use for each recurring billing cycle
   * **Interval Count -** enter the number of days / weeks / months for each recurring cycle (e.g. 30 days)
   * **Recurring Price** - enter the price for subscription renewals.  This can be the same price as the Package Price (initial price) or a different price.
-* **Image** - by default the product's image from the [**store catalogue**](/docs/build-a-store/catalogue) will be assigned to the package. You can upload a different or custom image for this package. **Package images are displayed to customers on the live funnel** — they are served by the SDK and rendered on your checkout and landing pages. Use a high-quality, campaign-appropriate image if the creative requires it.
+* **Image** - by default the product's image from the [**store catalogue**](/docs/build-a-store/catalogue) will be assigned to the package. You can upload a different or custom image for this package. **Package images are displayed to customers on the live funnel**, including checkout and landing pages. Use a high-quality, campaign-appropriate image if the creative requires it.
 
 When all fields are configured - **Save.**
 
