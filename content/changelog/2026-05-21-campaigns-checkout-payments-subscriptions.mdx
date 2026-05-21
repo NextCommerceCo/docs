@@ -25,6 +25,6 @@ summary: "Campaigns App campaign detail now features a refreshed navigation with
 - Fixed an issue where checkout shipping methods could return a 500 error when the `shipping-address-country` query parameter contained unexpected characters.
 - Fixed an issue where reinstalling an installed app didn't refresh its configuration, causing redirect URI mismatch errors when multiple redirect URIs were configured.
 - Fixed an edge case where the order response returned empty fields after a successful [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) transaction even though the transaction completed and the order was created.
-- Fixed an issue where theme CTA button URL fields rejected valid relative paths such as `/catalogue/`.
+- Fixed a theme settings issue where theme CTA button URL fields rejected valid relative paths such as `/catalogue/`.
 - Fixed an issue where the shipping method `delivery_time` estimate stopped rendering on the checkout shipping-method card when a shipping offer wrapped the method.
 - Fixed an issue where customers with blocked email addresses could not have their subscriptions canceled from the dashboard.
