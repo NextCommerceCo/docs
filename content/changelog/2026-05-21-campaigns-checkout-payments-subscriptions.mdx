@@ -1,0 +1,30 @@
+---
+title: Refreshed Campaigns App navigation, discount breakdown percentages, and line item metadata
+publishedAt: "2026-05-21"
+tags:
+  - Campaigns
+  - Checkout
+summary: "Campaigns App campaign detail now features a refreshed navigation with first-class Settings, Packages, and Analytics tabs, plus a dedicated Developer workspace. Cart Calculate API responses now include a `percentage` field on each voucher and offer discount, and line item metadata can now pass through the Campaigns API to the order…"
+---
+
+## New Features
+
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) campaign detail now features a refreshed navigation with first-class Analytics, Packages, and Settings tabs, plus a dedicated Developer modal consolidating Install, Campaigns API context, Session Tracking, and Logs access.
+- Campaigns App Cart Calculate API responses now include a `percentage` field on each voucher and offer discount, making it easier to display the percentage applied for each discount source.
+- Campaigns App now supports passing line item metadata through the Campaigns API to the order, so merchants can store customized metadata on line items.
+
+## Improvements
+- Address autocomplete on Storefront Checkout and the [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now supports arrow key navigation through suggested results, for improved accessibility and UX when entering addresses.
+- Cloning a campaign in Campaigns App now also clones its offers, so merchants don't need to recreate them after a clone.
+- Order line item titles are now stored in English while emails and the storefront continue to display the language used at purchase, keeping the dashboard consistent across multi-language stores.
+
+## Bug Fixes
+- Fixed an issue where [Admin API](https://developers.nextcommerce.com/docs/admin-api) order creation rejected shipping addresses for Iceland with a "`state` is required" error even when a `state` value was supplied.
+- Fixed an issue where Discover disputes still within the defense period showed as "Undefended" in NEXT Payments with no option to upload defense documents.
+- Fixed an issue where Klarna transactions showed an empty Shopper Name.
+- Fixed an issue where checkout shipping methods could return a 500 error when the `shipping-address-country` query parameter contained unexpected characters.
+- Fixed an issue where reinstalling an installed app didn't refresh its configuration, causing redirect URI mismatch errors when multiple redirect URIs were configured.
+- Fixed an edge case where the order response returned empty fields after a successful [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) transaction even though the transaction completed and the order was created.
+- Fixed an issue where theme CTA button URL fields rejected valid relative paths such as `/catalogue/`.
+- Fixed an issue where the shipping method `delivery_time` estimate stopped rendering on the checkout shipping-method card when a shipping offer wrapped the method.
+- Fixed an issue where customers with blocked email addresses could not have their subscriptions canceled from the dashboard.
