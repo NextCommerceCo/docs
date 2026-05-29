@@ -20,11 +20,25 @@ Shopify merchants connecting NEXT should start by installing [**Shop Sync**](/do
 
 Navigate to the **Settings** menu to begin configuring your store.
 
-Follow our step-by-step Getting Started guides to add essential settings:
+Follow the step-by-step Getting Started guides to configure the core settings every store should review before launch:
 
 <Cards>
   <Card title="General Settings & Branding" description="Set up your store's general settings, branding, and domains" href="/docs/start-here/get-started/general-settings-and-branding" />
+  <Card title="Locations & Languages" description="Configure the markets, currencies, and languages your store will support" href="/docs/start-here/get-started/add-locations-and-languages" />
+  <Card title="Link Domains" description="Connect storefront and email sending domains" href="/docs/start-here/get-started/link-domains" />
+  <Card title="Payment Providers" description="Add gateways, gateway groups, and payment settings" href="/docs/start-here/get-started/add-payment-providers" />
+  <Card title="Fulfillment Settings" description="Set up fulfillment locations, shipping methods, and processing behavior" href="/docs/start-here/get-started/fulfillment-settings" />
+  <Card title="Support & Notifications" description="Configure transactional email and customer support settings" href="/docs/start-here/get-started/support-and-notifications" />
 </Cards>
+
+<Callout type="success">
+
+**Preparing to Go Live?**
+
+A store should have a primary domain, payment processing, fulfillment, shipping, notifications, and at least one sellable product configured before accepting live orders. Stores using apps such as Shop Sync, Campaigns App, or NEXT Payments may have additional setup requirements.
+
+</Callout>
+
 ### Technical Settings
 
 Once your basic settings are in place, you may choose to grant [**API access**](/docs/build-a-store/technical-settings#api-access) for your developers and third-party apps. You can also configure [**Webhooks**](/docs/build-a-store/technical-settings/configure-webhooks) or [**Redirects**](/docs/build-a-store/storefront/storefront-redirects) to enable custom functionality.
@@ -34,13 +48,13 @@ Check out the NEXT [**Developers Documentation**](https://developers.nextcommerc
 <Cards>
   <Card title="Technical Settings" description="Set up API users, metadata, and other advanced features" href="/docs/build-a-store/technical-settings" />
 </Cards>
-### Optional Settings
+### Conditional Settings
 
-At this stage, you may wish to implement [**Sales Tax**](/docs/build-a-store/catalogue/tax-settings), [**Subscription**](/docs/manage/subscriptions-guide/subscription-settings) settings, and customize [**Tags**](/docs/build-a-store/technical-settings/metadata-fields-and-tags#tags) for segmenting events and data. Otherwise, you can revisit these areas at any time.
+At this stage, configure [**Sales Tax**](/docs/build-a-store/catalogue/tax-settings), [**Subscription**](/docs/manage/subscriptions-guide/subscription-settings) settings, and custom [**Tags**](/docs/build-a-store/technical-settings/metadata-fields-and-tags#tags) if they apply to your launch. Otherwise, you can revisit these areas later.
 
 ### Apps
 
-Apps and extensions can be enabled and configured at this stage. For example, if you plan to accept [**PayPal**](/docs/features/payments/paypal) in your checkout, you should enable the PayPal app and enter your account credentials.
+Apps and extensions can be enabled and configured at this stage. For example, if you plan to accept [**PayPal**](/docs/features/payments/paypal) in your checkout, you should enable the PayPal app and enter your account credentials before launch.
 
 For extensions related to shipping and fulfillment, such as [**ShipStation**](/docs/apps/shipstation), remember to return to [**Fulfillment Settings > Locations**](/docs/start-here/get-started/fulfillment-settings#fulfillment-locations) after setup, and ensure that any locations are updated so the “Processing By” setting points orders to your preferred fulfillment app integration.
 

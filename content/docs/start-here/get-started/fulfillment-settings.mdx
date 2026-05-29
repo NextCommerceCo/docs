@@ -10,9 +10,13 @@ You will be prompted to enter a name and physical address for the Location, and 
 
 Set up **Allowed Destination Countries** to define which countries this Location can serve, and to give orders from those countries priority routing to this Location.  This field is the highest-priority input to [**Location-Based Routing**](/docs/features/fulfillment-guide/location-based-routing) — leaving it empty means the Location serves every country but isn't prioritized for any.  Note: the Location's name (e.g. "US Warehouse") has no effect on routing; only the Allowed Destinations list does.
 
-<Callout type="info">
+For automated fulfillment by [**Shipstation**](/docs/apps/shipstation) or another supported integration, set up the corresponding **App** first, then return to the Location setup to update the **Processing By** setting.
 
-For automated fulfillment by [**Shipstation**](/docs/apps/shipstation) or another supported integration, you should set up the corresponding **App** first, then return to the Location setup to update the **Processing By** setting.
+<Callout type="success">
+
+**Preparing to Go Live?**
+
+Physical-product stores need at least one fulfillment location and one shipping method with pricing in each selling currency. If an app such as ShipStation or Shop Sync handles fulfillment, return to the location after app setup and confirm **Processing By** points to the correct integration.
 
 </Callout>
 
