@@ -1,6 +1,6 @@
 # Changelog Editing Rules
 
-Applied by `/tmp/process-changelog.py` to scraped entries from
+Applied by `scripts/changelog-migration/process.py` to scraped entries from
 changelog.29next.store. Encodes the user-approved decisions:
 
 - Tier (b) editing — tighten parallelism + clarity, preserve voice

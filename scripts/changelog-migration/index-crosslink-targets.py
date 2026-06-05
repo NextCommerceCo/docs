@@ -4,15 +4,22 @@ Build a cross-link target index from the Next Commerce docs and developer-docs r
 Each target is { url, title, description, keywords }.
 
 Output: /tmp/crosslink-targets.json
+
+Set DEV_DOCS_ROOT to point at a local developer-docs checkout. If it is not set,
+the script looks for a sibling ../developer-docs/content/docs directory.
 """
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
-DOCS_ROOT = Path("/Users/devin/Developer/docs/content/docs")
-DEV_DOCS_ROOT = Path("/Users/devin/Developer/developer-docs/content/docs")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DOCS_ROOT = REPO_ROOT / "content/docs"
+DEV_DOCS_ROOT = Path(
+    os.environ.get("DEV_DOCS_ROOT", REPO_ROOT.parent / "developer-docs/content/docs")
+)
 DOCS_BASE = "https://docs.nextcommerce.com/docs"
 DEV_DOCS_BASE = "https://developers.nextcommerce.com/docs"
 OUT = Path("/tmp/crosslink-targets.json")
