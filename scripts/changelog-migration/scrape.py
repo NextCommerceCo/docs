@@ -120,7 +120,7 @@ def fetch_one(url: str) -> dict:
     for attempt in range(6):
         try:
             req = urllib.request.Request(
-                url, headers={"User-Agent": "changelog-migration/1.0 (devin@29next.com)"}
+                url, headers={"User-Agent": "nextcommerce-docs-changelog-migration/1.0"}
             )
             with urllib.request.urlopen(req, timeout=30) as r:
                 html_text = r.read().decode("utf-8", errors="replace")

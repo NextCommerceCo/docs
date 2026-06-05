@@ -11,7 +11,8 @@ import json
 import re
 from pathlib import Path
 
-CHANGELOG_DIR = Path("/Users/devin/Developer/docs/content/changelog")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+CHANGELOG_DIR = REPO_ROOT / "content/changelog"
 TITLES = Path("/tmp/all-titles.json")
 
 

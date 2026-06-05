@@ -4,7 +4,7 @@ Process scraped changelog JSON into MDX files + redirect slug map.
 
 Inputs:
   /tmp/changelog-scraped.json       — scraped raw entries
-  /Users/devin/Developer/docs/content/changelog  — destination
+  content/changelog/                — destination
   /tmp/editing-rules.md             — terminology reference
 
 Outputs:
@@ -21,7 +21,8 @@ import sys
 from pathlib import Path
 
 SCRAPED = Path("/tmp/changelog-scraped.json")
-OUT_DIR = Path("/Users/devin/Developer/docs/content/changelog")
+REPO_ROOT = Path(__file__).resolve().parents[2]
+OUT_DIR = REPO_ROOT / "content/changelog"
 SLUG_MAP_OUT = Path("/tmp/redirect-slug-map.json")
 
 # ---------- Terminology / typo rules ----------
