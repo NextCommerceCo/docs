@@ -1,0 +1,40 @@
+---
+title: Swish payments, customer data-erasure webhooks, and Campaigns Cart bundle deep-linking
+publishedAt: "2026-06-08"
+tags:
+  - Campaigns
+  - Payments
+  - Admin API
+  - Webhooks
+summary: "NEXT Payments now supports Swish for merchants selling in Sweden, and a new `customer.redacted` webhook notifies connected apps when a customer's personal data is erased. The Campaigns Cart SDK can now deep-link shoppers to a specific bundle tier and create prospect carts from a phone number…"
+---
+
+## New Features
+
+- NEXT Payments now supports Swish, a popular local payment method for merchants selling in Sweden.
+- We've added a `customer.redacted` webhook that fires when a customer's personal data is erased, so connected apps and integrations can remove that data on their side.
+- The [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now supports a `forceBundleId` URL parameter to deep-link shoppers straight to a specific bundle tier on page load, which is useful for ads, emails, and affiliate links that should land on a particular offer.
+- The Campaigns Cart SDK can now create a prospect cart from a phone number using the new `phoneEntry` and `emailAndPhone` trigger modes, enabling SMS-led funnels that capture a phone number before email.
+
+## Improvements
+
+- New [Admin API](https://developers.nextcommerce.com/docs/admin-api) keys now default to the latest stable API version (`2024-04-01`), and the last-used version of each key is now tracked.
+- The Admin API `/gateways/{id}/` response now exposes the `re_attemp_intitial_charge` and `re_attemp_group` fields that drive [Payment Failure Cascading](https://docs.nextcommerce.com/docs/features/payments/payment-failure-cascading), so you can audit a gateway's cascade configuration programmatically.
+- Catalogue updates are now faster and put less load on the store during large syncs, including catalogues kept in sync through [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync).
+- The Campaigns Cart SDK cart and bundle templates now support a `{discount.percentage}` token, so you can display the percentage applied for each discount without hard-coding it.
+- The Campaigns Cart SDK now supports a `cart.hasCoupon()` conditional, so you can show or hide content based on whether any coupon, or a specific code, is applied.
+- Product locations now expose `date_created` and `date_updated` timestamps, making fulfillment-routing issues easier to investigate.
+- CHF amounts are now formatted as `CHF 12.34`, matching the standard Swiss format.
+
+## Bug Fixes
+
+- Fixed an issue where an order with a United States shipping address could be routed to an international fulfillment location even though location-based routing rules selected the US warehouse.
+- Fixed an issue where refunds on NEXT Payments failed for zero-decimal currencies such as JPY and KRW because the amount was over-converted, causing the refund to be rejected.
+- Fixed an issue where a NEXT Payments gateway account could be added to a store multiple times, creating duplicate payment gateways.
+- Fixed an issue where an Adyen error during checkout could return a server error instead of being handled gracefully.
+- Fixed an issue where unexpected characters in the checkout shipping-address URL could trigger a server error.
+- Fixed an issue where the Campaigns API returned an unclear error when an order-create request omitted `payment_failed_url`; the response now makes clear that `payment_failed_url` or `referrer` is required.
+- Fixed an issue where bundle slot templates in the Campaigns Cart SDK ignored the `data-next-discounts` filter, showing both automatic offer savings and coupon savings in each spot instead of separately.
+- Fixed an issue where post-checkout upsell and confirmation pages could display in the wrong currency after the shipping country was changed during checkout.
+- Fixed an issue where the checkout phone field could render with excess left padding.
+- Fixed a console error that appeared when loading the Campaigns Cart SDK from the CDN.
