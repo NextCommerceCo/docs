@@ -4,4 +4,4 @@
 .gstack/
 node_modules
 out
-.claude/
+.claude/settings.json

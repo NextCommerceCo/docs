@@ -12,7 +12,7 @@ The main public-readiness issues found were repository hygiene rather than expos
 
 - the root `README.md` was imported site content rather than a repository guide
 - public contribution and security reporting conventions were missing
-- a tracked `.claude` changelog skill contained internal sprint/project workflow, private repo names, and personal local paths
+- the tracked `.claude` changelog skill contained personal local paths and internal sprint/project workflow
 - several one-time migration scripts contained absolute local paths
 - the locked Next.js dependency had active advisories
 
@@ -42,8 +42,8 @@ Results:
 - Replaced the root README with repository-oriented setup, validation, publishing, and public safety guidance.
 - Added `CONTRIBUTING.md`.
 - Added `SECURITY.md`.
-- Removed the tracked internal `.claude` changelog skill from the public repo surface.
-- Ignored local `.claude/` configuration and skills going forward.
+- Restored the tracked `.claude` changelog skill because the team relies on it.
+- Removed personal local paths from the changelog skill and kept only `.claude/settings.json` ignored.
 - Converted changelog migration script paths from local absolute paths to repo-relative paths.
 - Updated `next` from `16.2.1` to `16.2.7`.
 - Added a narrow npm override for `postcss@8.5.10` because stable Next.js still pins a vulnerable nested PostCSS release.
@@ -61,7 +61,7 @@ Before flipping the repository to public:
 
 ## Ongoing Rules
 
-- Keep internal automation skills, sprint workflows, and private project exports in an internal repository.
+- Keep new internal automation skills, sprint workflows, and private project exports in an internal repository unless the team explicitly depends on them in this repo.
 - Keep generated local folders untracked: `.next/`, `.source/`, `.wrangler/`, `.gstack/`, `node_modules/`, and `out/`.
 - Re-run `npm audit --omit=dev` when dependencies change.
 - Re-run `npm run build` before merging content or framework changes.
