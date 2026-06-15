@@ -1,16 +1,27 @@
 # Next Commerce Docs
 
-This repository powers [docs.nextcommerce.com](https://docs.nextcommerce.com), the public user documentation and changelog for the Next Commerce platform.
+Public source for [docs.nextcommerce.com](https://docs.nextcommerce.com) — the user
+documentation and changelog for the Next Commerce platform.
 
-Developer API documentation lives separately at [developers.nextcommerce.com](https://developers.nextcommerce.com).
+**Primary audience for this public repo:** developers and AI agents who clone it
+locally to reference accurate product docs while building stores, integrations,
+and campaigns on Next Commerce. The live site remains the canonical rendered
+experience.
+
+API, SDK, webhook, and theme documentation lives separately at
+[developers.nextcommerce.com](https://developers.nextcommerce.com).
+
+AI agents: see [`AGENTS.md`](AGENTS.md) for which paths to read and which to skip.
 
 ## What lives here
 
-- `content/docs/` contains merchant and operator guides.
-- `content/changelog/` contains published changelog entries.
-- `app/`, `components/`, and `lib/` contain the Next.js/Fumadocs site.
-- `scripts/` contains content validation and historical migration utilities.
-- `redirects/` contains the legacy changelog redirect worker.
+| Path | Purpose |
+|------|---------|
+| `content/docs/` | Merchant and operator guides — **main reference surface** |
+| `content/changelog/` | Published changelog entries |
+| `app/`, `components/`, `lib/` | Next.js/Fumadocs site (maintainers only) |
+| `scripts/` | Link validation and legacy migration utilities |
+| `redirects/` | Legacy changelog redirect worker |
 
 ## Local development
 
@@ -23,15 +34,15 @@ npm run dev
 
 The local site runs at `http://localhost:3000` by default.
 
-## Validation
+## Validation (NEXT team)
 
-Before opening a pull request, run:
+Before merging changes to `main`, run:
 
 ```sh
 npm run build
 ```
 
-The build also runs the docs link checks:
+The build also runs docs link checks:
 
 - `npm run audit-developer-links`
 - `npm run validate-links`
@@ -40,17 +51,23 @@ Run `npm audit --omit=dev` when touching dependencies.
 
 ## Publishing
 
-The production site is statically exported by Next.js and deployed to Cloudflare Workers assets using `wrangler.jsonc`.
+The production site is statically exported by Next.js and deployed to Cloudflare
+Workers assets using `wrangler.jsonc`. See [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md)
+for team workflow details.
 
-Normal content changes should land through pull requests. Changelog entries should be added as MDX files under `content/changelog/` with frontmatter matching `source.config.ts`.
+## Contributing
 
-## Public Repository Notes
+This repository is **maintained by the NEXT team only**. External contributions
+are not accepted. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-This repo is intended to be safe for public cloning by agencies, developers, merchants, and AI agents. Do not commit:
+## Public clone safety
+
+Do not commit:
 
 - customer data, private merchant names, screenshots with account data, or support artifacts
 - API keys, `.env` files, tokens, credentials, or private keys
 - internal planning docs, private GitHub project exports, or sprint-only engineering notes
 - staging-only URLs unless they are part of a documented public workflow
 
-If a change depends on private operational context, keep that context in an internal repository and link only to public, stable documentation here.
+If a change depends on private operational context, keep that context in an
+internal repository and link only to public, stable documentation here.

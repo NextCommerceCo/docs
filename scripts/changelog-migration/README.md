@@ -1,5 +1,10 @@
 # Changelog Migration Scripts
 
+> **Deprecated.** This pipeline was used once to backfill historical changelog
+> entries from the legacy `changelog.nextcommerce.com` blog. Do not re-run unless
+> explicitly rebuilding the archive — it overwrites `content/changelog/*.mdx`.
+> New entries should be added as normal MDX files. See `docs/MAINTENANCE.md`.
+
 One-time (but re-runnable) pipeline that pulled the full historical changelog
 from `changelog.nextcommerce.com` (the legacy storefront blog) into
 `content/changelog/` as fumadocs-compatible MDX.
