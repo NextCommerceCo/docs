@@ -2,14 +2,20 @@
 
 ## Reporting a Vulnerability
 
-Do not open a public GitHub issue for vulnerabilities, exposed credentials, private customer data, or other sensitive reports.
+Do not open a public GitHub issue for vulnerabilities, exposed credentials,
+private customer data, or other sensitive reports.
 
-Use GitHub private vulnerability reporting if it is enabled for this repository. If that is unavailable, contact your Next Commerce representative and include:
+Use GitHub private vulnerability reporting if it is enabled for this repository.
+If that is unavailable, contact your Next Commerce representative and include:
 
 - the affected page, file, or URL
 - what sensitive data or behavior is exposed
 - steps to reproduce, if safe to share privately
 - whether the issue appears in the live site, the repository, or both
+
+This repository is public for documentation reference (including AI agent
+clones). Security reports about the docs content or site are welcome through
+the channels above.
 
 ## Sensitive Content Rules
 
@@ -20,4 +26,6 @@ This repository should not contain:
 - internal-only sprint notes, private GitHub project exports, or private incident notes
 - unpublished security procedures that would increase risk if disclosed
 
-If sensitive content is committed, treat the repository history as exposed once the repository is public. Remove the content, rotate any affected credentials, and review the exposure window before publishing.
+If sensitive content is committed, treat the repository history as exposed.
+Remove the content, rotate any affected credentials, and review the exposure
+window.
