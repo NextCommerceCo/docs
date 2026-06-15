@@ -11,16 +11,16 @@ summary: "A Product's Fulfillment Location is now automatically assigned to opti
 
 ## New Features
 
-- A Product's [Fulfillment Location](https://docs.nextcommerce.com/features/fulfillment-guide/location-based-routing) is now automatically assigned to optimally route fulfillments to: Minimize split fulfillments to reduce shipping costs
+- A Product's [Fulfillment Location](https://docs.nextcommerce.com/docs/features/fulfillment-guide/location-based-routing) is now automatically assigned to optimally route fulfillments to: Minimize split fulfillments to reduce shipping costs
 - Stay within country of origin to reduce cross-border shipments
 - Prioritize shortest physical distance to reduce time to home
 
 ## Improvements
 
-- [Support Ticket Macros](https://docs.nextcommerce.com/manage/support#support-ticket-macros) have now moved to the main Support section to make them available to create and maintain by all users with access to Support.
+- [Support Ticket Macros](https://docs.nextcommerce.com/docs/manage/support#support-ticket-macros) have now moved to the main Support section to make them available to create and maintain by all users with access to Support.
 - Product stock records can now be deleted through the dashboard. Note, legacy usage of `stockrecord_id` on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) is still currently supported but we recommend all API users to update to using `product_id` instead.
 - Customer first and last name fields are now optimistically populated from the names on shipping address information, if they are blank.
 - Orders on the Admin API now feature `report_values` that are a foreign exchange conversion to the store reporting currency (USD), allowing external platforms to pull the same reporting values.
-- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) shipping methods are now available on the [Campaigns API](https://developers.nextcommerce.com/docs/api/campaigns/) allowing campaign developers to dynamically pull and populate these into campaign frontends.
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) shipping methods are now available on the [Campaigns API](https://developers.nextcommerce.com/docs/campaigns) allowing campaign developers to dynamically pull and populate these into campaign frontends.
 - Campaigns App cartCreate and orderCreate API calls now return `product_sku` in line items to support event tracking integrations that require `product_sku` in the event details.
 - Campaigns App packages now support a "Retail Price" to makes it easier for campaign developers to pull this into their designs to show a discount to customers dynamically.

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * One-time repair pass for changelog URLs broken during legacy blog migration.
- * Fixes spaced hostnames (docs.Next Commerce.com), legacy path prefixes, and
- * double-link artifacts ([[label](good)](bad)).
+ * Repair pass for changelog URLs broken during legacy blog migration.
+ * Fixes spaced hostnames (docs.Next Commerce.com), legacy path prefixes,
+ * double-link artifacts ([[label](good)](bad)), duplicated hash fragments,
+ * and missing /docs/ path prefixes.
  *
  * Usage: node scripts/fix-changelog-urls.mjs
  * Safe to re-run — idempotent on already-fixed files.
@@ -11,8 +12,6 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const CHANGELOG_DIR = path.join(process.cwd(), 'content/changelog');
-
-const DEV_API_REFERENCE = 'https://developers.nextcommerce.com/docs/admin-api/reference';
 
 /** @type {Record<string, string>} */
 const EXACT_URL_MAP = {
@@ -29,6 +28,48 @@ const EXACT_URL_MAP = {
   'https://developers.Next Commerce.com/docs/themes/templates/filters/#math':
     'https://developers.nextcommerce.com/docs/themes/templates/filters/#math',
 };
+
+function joinLinkLabel(inner, trailing) {
+  if (!trailing) return inner;
+  return trailing.startsWith(' ') ? `${inner}${trailing}` : `${inner} ${trailing}`;
+}
+
+function dedupeHash(url) {
+  return url.replace(/(#[^#\s?]+)\1/g, '$1');
+}
+
+function normalizeDocsPathname(pathname) {
+  let normalized = pathname.replace(
+    '/start-here/get-started-on-29-next/',
+    '/docs/start-here/get-started/',
+  );
+
+  const needsDocsPrefix =
+    normalized.startsWith('/apps/') ||
+    normalized.startsWith('/features/') ||
+    normalized.startsWith('/manage/') ||
+    normalized.startsWith('/analytics/') ||
+    normalized.startsWith('/build-a-store/') ||
+    normalized.startsWith('/start-here/');
+
+  if (needsDocsPrefix && !normalized.startsWith('/docs/')) {
+    normalized = `/docs${normalized}`;
+  }
+
+  return normalized;
+}
+
+function normalizeDocsHostUrl(url) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== 'docs.nextcommerce.com') return dedupeHash(url);
+
+    parsed.pathname = normalizeDocsPathname(parsed.pathname);
+    return dedupeHash(parsed.toString().replace(/\/$/, ''));
+  } catch {
+    return dedupeHash(url);
+  }
+}
 
 function fixDeveloperUrl(url) {
   if (EXACT_URL_MAP[url]) return EXACT_URL_MAP[url];
@@ -48,33 +89,7 @@ function fixDeveloperUrl(url) {
 
 function fixDocsUrl(url) {
   let fixed = url.replace(/docs\.Next Commerce\.com/g, 'docs.nextcommerce.com');
-
-  try {
-    const parsed = new URL(fixed);
-    let pathname = parsed.pathname;
-
-    pathname = pathname.replace(
-      '/start-here/get-started-on-29-next/',
-      '/docs/start-here/get-started/',
-    );
-
-    const needsDocsPrefix =
-      pathname.startsWith('/apps/') ||
-      pathname.startsWith('/features/') ||
-      pathname.startsWith('/manage/') ||
-      pathname.startsWith('/analytics/') ||
-      pathname.startsWith('/build-a-store/') ||
-      pathname.startsWith('/start-here/');
-
-    if (needsDocsPrefix && !pathname.startsWith('/docs/')) {
-      pathname = `/docs${pathname}`;
-    }
-
-    parsed.pathname = pathname;
-    return parsed.toString().replace(/\/$/, '') + (parsed.hash || '');
-  } catch {
-    return fixed;
-  }
+  return normalizeDocsHostUrl(fixed);
 }
 
 function fixUrl(url) {
@@ -82,16 +97,20 @@ function fixUrl(url) {
   if (/developers\.Next Commerce\.com|api-docs\.Next Commerce\.com/.test(url)) {
     return fixDeveloperUrl(url);
   }
+  if (/^https:\/\/docs\.nextcommerce\.com\//.test(url)) {
+    return normalizeDocsHostUrl(url);
+  }
+  if (/^https:\/\/developers\.nextcommerce\.com\//.test(url)) {
+    return fixDeveloperUrl(url);
+  }
   return url;
 }
 
 function fixDoubleLinks(content) {
-  // [[Label](good)](bad) → [Label](good) — docs host
   content = content.replace(
     /\[\[([^\]]+)\]\((https:\/\/docs\.nextcommerce\.com[^)]+)\)\]\([^)]+\)/g,
     '[$1]($2)',
   );
-  // [[Label](inner)](outer) → [Label](outer) — developer host (prefer outer/reference URL)
   content = content.replace(
     /\[\[([^\]]+)\]\((https:\/\/developers\.nextcommerce\.com[^)]+)\)\]\((https:\/\/developers\.nextcommerce\.com[^)]+)\)/g,
     (_, label, _inner, outer) => `[${label}](${fixDeveloperUrl(outer)})`,
@@ -100,11 +119,10 @@ function fixDoubleLinks(content) {
 }
 
 function fixNestedDoubleLinks(content) {
-  // [[Inner](good) trailing](bad) → [Inner trailing](bad-or-good)
   return content.replace(
     /\[\[([^\]]+)\]\((https:\/\/docs\.nextcommerce\.com[^)]+)\)\s*([^\]]*?)\]\((https:\/\/docs\.Next Commerce\.com[^)]+)\)/g,
-    (_, inner, good, trailing, bad) => {
-      const label = trailing ? `${inner}${trailing}` : inner;
+    (_, inner, _good, trailing, bad) => {
+      const label = joinLinkLabel(inner, trailing);
       const url = fixDocsUrl(bad);
       return `[${label}](${url})`;
     },
@@ -121,12 +139,7 @@ function fixAllUrls(content) {
     'https://docs.nextcommerce.com/docs/apps/',
   );
 
-  return content.replace(/https?:\/\/[^)\s"']+/g, (url) => {
-    if (!/Next Commerce|api-docs\.Next|accounts\.Next|developers\.Next/.test(url)) {
-      return url;
-    }
-    return fixUrl(url);
-  });
+  return content.replace(/https?:\/\/[^)\s"']+/g, (url) => fixUrl(url));
 }
 
 function fixProseDomains(content) {
