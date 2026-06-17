@@ -1,0 +1,32 @@
+---
+title: Invoice payment requests, Campaigns Cart product-level quantity sync, and customizable products in the Admin API
+publishedAt: "2026-06-17"
+tags:
+  - Payments
+  - Campaigns
+  - Admin API
+  - Orders
+summary: "Merchants can now send an invoice by email to collect payment on an order, and the Campaigns Cart SDK can sync a bump card's quantity across every variant of a product with a single `data-next-product-sync` attribute. Customizable products are now supported in the Admin API, keeping the same product as separate line items when each has its own customization details…"
+---
+
+## New Features
+
+- Merchants can now send an invoice by email to collect payment on an order, including orders that were edited to add products and need an additional payment. The customer pays the outstanding balance through a hosted, checkout-style payment page.
+- Customizable products are now supported across the [Admin API](https://developers.nextcommerce.com/docs/admin-api), so the same product can be added as separate line items on orders, carts, and subscriptions when each line has its own customization details, such as a personalized name, instead of being merged into a single quantity. Each line carries its own `properties`, which can also be updated or removed from the dashboard.
+
+## Improvements
+
+- Bump cards in the [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) can now sync their quantity against every cart line sharing the same `product_id` using a new `data-next-product-sync` attribute, covering all variants of a product with a single value instead of listing each variant in `data-next-package-sync`.
+- NEXT Payments now makes the payment method enablement flow clearer: when a method must first be enabled in your NEXT Payments account before it can go live on your store gateway, the payment methods table flags it with a warning and a shortcut to configure it, so the order of steps is obvious.
+- Fulfillment locations in the [Admin API](https://developers.nextcommerce.com/docs/admin-api) now include an `allowed_destination_countries` field, so you can confirm whether a location can ship to an order's destination country without checking the dashboard.
+- Customer timelines now record a dispute event when a dispute is created or matched to a customer, making it clearer when a dispute led the system to add that customer to a block list.
+- Webhooks for `fulfillment.updated` no longer fire when only a fulfillment's `last_event_date` changes, so routine tracking-timestamp updates that don't change anything else no longer trigger redundant notifications.
+- Order editing now warns merchants when they edit an order after a refund that did not specify line items, a flow that can otherwise produce an incorrect balance owing.
+- Campaign analytics now excludes internal traffic from the campaign app itself, keeping those requests out of visitor session and event counts.
+
+## Bug Fixes
+
+- Fixed an issue where some orders were missing from Campaign Analytics when a visitor's session ID was unavailable, such as when blocked by browser privacy settings; analytics now falls back to matching by campaign, IP address, and user agent.
+- Fixed an issue where the Get Address Autocomplete API returned Irish counties with a `County` prefix, for example `County Dublin` instead of `Dublin`, requiring manual reformatting.
+- Fixed an issue where a campaign package could still create subscriptions after its subscription option had been disabled.
+- Fixed an issue where Adyen Klarna upsell charges could fail with an unavailable-payment-method error.
