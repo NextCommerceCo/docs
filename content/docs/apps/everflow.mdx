@@ -26,7 +26,7 @@ The configurable fields are as follows:
 * Everflow Network ID\*
 * Everflow Verification Token
 * Everflow Postback Delay Minutes
-*   Include Tax in Conversion Value\
+*   Include Tax in Conversion Value
     <br />
 
 The Everflow App uses the S2S (Server to Server) conversion method with an order. The S2S conversion method will enable the following values to be passed back on a conversion event into Everflow.
@@ -65,8 +65,8 @@ The **`everflow_transaction_id`** is equivalent to the "transaction\_id" that Ev
 }
 ```
 
-<Callout type="warning">
+<Callout type="info">
 
-Note that [**Test Orders**](/docs/manage/orders/test-orders) do not fire an S2S postback to Everflow.
+By default, [**Test Orders**](/docs/manage/orders/test-orders) do not fire an S2S postback to Everflow. Enable the **Enable S2S Postback for test orders** setting (with **Enable Everflow S2S Postback** also enabled) if you want test orders to fire a conversion postback to Everflow.
 
 </Callout>
