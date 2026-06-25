@@ -2,6 +2,9 @@
 title: "Klaviyo"
 description: "Integrate Marketing Automation for Email & SMS"
 ---
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { ShoppingCart, ShoppingBag, Package, Truck, XCircle, RotateCcw, Repeat, CalendarX } from 'lucide-react';
+
 Klaviyo is a leading ecommerce marketing automation and CRM platform that integrates with Next Commerce as an app. With Klaviyo, you can engage your prospects and customers at every step of the customer lifecycle through email and SMS.
 
 <Callout type="info">
@@ -20,28 +23,82 @@ To install the Klaviyo app on your store, navigate to Apps and find Klaviyo in t
 
 ### Supported Ecommerce Events
 
-The following events in NEXT are synced to Klaviyo. NEXT also provides personalized checkout URLs, so customers may return to abandoned carts and check out with their details pre-populated.
+NEXT syncs your store's events to Klaviyo so you can target customers across the
+lifecycle. Events arrive in Klaviyo two ways: Klaviyo's **onsite JavaScript** in your
+storefront theme, and a **server-to-server API** integration. NEXT also provides
+personalized checkout URLs, so customers may return to abandoned carts and check out
+with their details pre-populated.
 
-* customer.created
-* customer.updated
-* cart.abandoned
-* order.created
-* order.updated
-* subscription.created
-* subscription.updated
-* app.uninstalled
+#### Onsite events (Klaviyo JavaScript)
 
-Klaviyo standard events available in Campaigns and Flows:
+Tracked by Klaviyo's onsite tag in the storefront theme:
 
 * Active on Site
 * Viewed Product
 * Added to Cart
 * Started Checkout\*
-* Started Subscription
-* Cancelled Subscription
-* Fulfilled Order
-* Cancelled Order
-* Refunded Order
+
+#### Server-to-server events
+
+NEXT posts these Klaviyo metric events from your store's webhooks. Expand each to see
+the trigger and a sample payload.
+
+<div className="flex flex-col gap-3">
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><ShoppingCart className="size-4 text-fd-muted-foreground" /> Started Checkout</span>}>
+
+**Klaviyo event:** `Started Checkout`
+
+**Trigger:** `cart.abandoned` — cart `status == "open"` with lines, store *Send Started Checkout* enabled
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Started Checkout" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "ItemNames": ["Example Product"],
+        "CheckoutURL": "https://store.example.com/accounts/complete-order/061f2d7a88a041198f2cbca9bb0e285c/",
+        "Items": [
+          {
+            "ProductID": 1,
+            "SKU": "TESTSKU26",
+            "ProductName": "Example Product",
+            "Quantity": 4,
+            "ItemPrice": 75.0,
+            "RowTotal": 300.0,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ]
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "value": 300.0,
+      "unique_id": "76193_1716249600",
+      "value_currency": "USD"
+    }
+  }
+}
+```
 
 <Callout type="info">
 
@@ -50,6 +107,743 @@ The **Started Checkout** event is supported by both the front-end Klaviyo JavaSc
 To prevent duplicate events from firing, you may wish to disable the **Send Started Checkout Event with Abandoned Cart** setting in the Klaviyo app settings.
 
 </Callout>
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><ShoppingBag className="size-4 text-fd-muted-foreground" /> Placed Order</span>}>
+
+**Klaviyo event:** `Placed Order`
+
+**Trigger:** `order.created` — new order
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Placed Order" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 8.1,
+            "RowTotal": 16.2,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        },
+        "subscription_billing_cycle": 0,
+        "subscription_lifecycle": "non-recurring"
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "209484_1716290669",
+      "value": 16.2,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><Package className="size-4 text-fd-muted-foreground" /> Ordered Product</span>}>
+
+**Klaviyo event:** `Ordered Product`
+
+**Trigger:** `order.created` — one event per order line
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Ordered Product" } }
+      },
+      "properties": {
+        "ProductID": "436",
+        "SKU": "TESTSKU26TH",
+        "ProductName": "Example Product",
+        "Quantity": 2,
+        "Currency": "USD",
+        "ProductURL": "https://store.example.com/catalogue/example-product/",
+        "ImageURL": "/media/products/example-product.jpg",
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "OrderId": "209484",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "85544_1716249600",
+      "value": 8.1,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><Truck className="size-4 text-fd-muted-foreground" /> Fulfilled Order</span>}>
+
+**Klaviyo event:** `Fulfilled Order`
+
+**Trigger:** `order.updated` — new fulfillment since last seen (one event per new fulfillment)
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Fulfilled Order" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 8.1,
+            "RowTotal": 16.2,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        },
+        "Fulfillment": {
+          "Carrier": "asendia",
+          "TrackingCode": "0011",
+          "TrackingURL": "https://tracking.asendia.com/tracking/0011"
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "209484_1716303088",
+      "value": 16.2,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><XCircle className="size-4 text-fd-muted-foreground" /> Canceled Order</span>}>
+
+**Klaviyo event:** `Canceled Order`
+
+**Trigger:** `order.updated` — `status == "canceled"` and not already canceled
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Canceled Order" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 8.1,
+            "RowTotal": 16.2,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "209484_1716290669",
+      "value": 16.2,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><RotateCcw className="size-4 text-fd-muted-foreground" /> Refunded Order</span>}>
+
+**Klaviyo event:** `Refunded Order`
+
+**Trigger:** `order.updated` — new refund with transactions since last seen (one event per new refund)
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Refunded Order" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 1,
+            "ItemPrice": 8.1,
+            "RowTotal": 8.1,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "Reason": "test"
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "1839_1716307432",
+      "value": 8.1,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><Repeat className="size-4 text-fd-muted-foreground" /> Started Subscription</span>}>
+
+**Klaviyo event:** `Started Subscription`
+
+**Trigger:** `subscription.created`
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Started Subscription" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": 2503,
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 6.5,
+            "RowTotal": 13.0,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "https://store.example.com/media/products/example-product.jpg"
+          }
+        ],
+        "OrderIntervalUnit": "month",
+        "OrderIntervalFrequency": 1,
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "$extra": {
+          "attribution": {
+            "agent": null,
+            "funnel": "Postman",
+            "utm_source": null,
+            "utm_medium": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_content": null,
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "affiliate": null,
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null
+          }
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "2503_1716249600",
+      "value": 13.0,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><CalendarX className="size-4 text-fd-muted-foreground" /> Cancelled Subscription</span>}>
+
+**Klaviyo event:** `Cancelled Subscription`
+
+**Trigger:** `subscription.updated` — `status == "canceled"`
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Cancelled Subscription" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": 2503,
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 6.5,
+            "RowTotal": 13.0,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "https://store.example.com/media/products/example-product.jpg"
+          }
+        ],
+        "OrderIntervalUnit": "month",
+        "OrderIntervalFrequency": 1,
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "CancellationReason": "test cancel reason",
+        "$extra": {
+          "attribution": {
+            "agent": null,
+            "funnel": "Postman",
+            "utm_source": null,
+            "utm_medium": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_content": null,
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "affiliate": null,
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null
+          }
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "2503_1716249600",
+      "value": 13.0,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+</div>
+
+#### Other synced webhooks
+
+These store webhooks are also synced but do not create a Klaviyo metric event:
+
+* `customer.created` / `customer.updated` — creates or updates the Klaviyo profile and manages email/SMS list consent
+* `product.created` / `product.updated` — syncs the catalog item (when **Sync Product Catalogue to Klaviyo** is enabled)
+* `app.uninstalled` — disconnects the account and removes synced catalog data
+
 
 ## Configure Klaviyo
 
