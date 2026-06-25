@@ -51,13 +51,11 @@ Standard MDX. Recommended structure:
 Use any MDX/fumadocs components — the same `getMDXComponents` map that powers
 `/docs` is applied.
 
-## Content Factory integration
+## Publishing (NEXT team)
 
-The Factory watches this folder for new files on `main`. When a PR lands that
-adds `content/changelog/*.mdx`, the Factory picks up the frontmatter + body and
-fans it out to Slack, social, and email. The webhook contract is documented in
-`next-mind/designs/content-factory-above-layer1.md` — this migration's only job
-was to put entries on a stable git-watchable path.
+Add entries as MDX files under `content/changelog/` on `main`. New files are
+picked up by internal release automation. See `docs/MAINTENANCE.md` for the
+full team workflow.
 
-**Stable path for Factory:** `content/changelog/*.mdx` on the default branch of
-`NextCommerceCo/docs`.
+Use stable public URLs when linking to docs pages (`https://docs.nextcommerce.com/docs/...`)
+and developer docs (`https://developers.nextcommerce.com/docs/...`).

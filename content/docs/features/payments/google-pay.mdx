@@ -6,13 +6,24 @@ Google Pay is supported as a payment method on the Next Commerce Storefront Chec
 
 Google Pay is supported on the following gateways:
 
+* NEXT Payments
 * Adyen
+* Airwallex\*
 * Authorize.Net
+* BlueSnap
 * Braintree
 * Checkout.com
 * NMI
+* PayPal Commerce Platform
+* Paysafe
 * Stripe Payment Intents
 * Test Gateway
+
+<Callout type="info">
+
+\*Airwallex accounts require 3DS2 by default. You must request support to remove this restriction and bypass 3DS2, or set up a [**3DS2 Merchant Profile**](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to assign to the gateway.
+
+</Callout>
 
 ## Google Pay Requirements
 
@@ -34,7 +45,7 @@ Once your Business Profile is Approved, choose the **Google Pay API** menu and u
 
 Input the following fields:
 
-* Your website - input the website URL corresponding to your store's [**Primary Domain**](https://docs.nextcommerce.com/start-here/get-started-on-29-next/general-settings#domain-settings)
+* Your website - input the website URL corresponding to your store's [**Primary Domain**](/docs/start-here/get-started/link-domains#domains)
 * Google API Integration Type - choose **Gateway**
 * Screenshots of your buyflow - upload screen shots from your storefront cart and checkout flow to validate with Google.
 
@@ -66,3 +77,11 @@ Now that you've created and configured your Google Pay account, you can associat
 
 * From the **Settings > Payments** view, choose a gateway ID
 * On the Gateway Detail view, under **Google Pay,** associate your Google Pay profile to the gateway, then **Update Gateway.**
+
+### Use Google Pay on External Funnels (API)
+
+<Callout type="info">
+
+See our [**Developer Documentation**](https://developers.nextcommerce.com/docs/admin-api/guides/google-pay) for instructions on implementing Google Pay on the Admin API or Campaigns API.
+
+</Callout>

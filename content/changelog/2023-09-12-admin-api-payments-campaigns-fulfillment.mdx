@@ -13,15 +13,15 @@ summary: Product inventory management has been overhauled to unify SKUs per prod
 
 - Product inventory management has been overhauled to unify SKUs per product as well as allowing backorders to continue selling when stock has run out.
 - Introducing a new Orders by Country report allowing merchants to see a breakdown of their orders by their respective shipping country.
-- Packages can now be deleted from Campaigns on the [[Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app)](https://docs.Next Commerce.com/apps/campaigns-app).
+- Packages can now be deleted from Campaigns on the [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app).
 - It is now possible create refunds on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) that are not processed with the original payment integration, to log refunds that happen externally. This helps to keep store reports in sync for scenarios such as RDR alerts.
 - Product prices are now available as a nested object on the Admin API to complete the transition away from prices on stock records.
 
 ## Improvements
 
 - Dashboard user permissions UX has been overhauled to ease the setup and clarity of giving users access to the Dashboard.
-- [Fulfillment Locations](https://docs.Next Commerce.com/start-here/get-started-on-29-next/fulfillment-settings#fulfillment-locations) settings list now shows a `Returns` column to easily see which fulfillment locations are configured to accept returns.
-- [[3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) Merchant Profiles](https://docs.Next Commerce.com/features/payments/3ds2-payments#3ds2-merchant-profiles) now have a `Name` field to use for reference to improve clarity for merchants with multiple 3DS merchant profiles with the same Merchant Name.
+- [Fulfillment Locations](https://docs.nextcommerce.com/docs/start-here/get-started/fulfillment-settings#fulfillment-locations) settings list now shows a `Returns` column to easily see which fulfillment locations are configured to accept returns.
+- [3DS Merchant Profiles](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) now have a `Name` field to use for reference to improve clarity for merchants with multiple 3DS merchant profiles with the same Merchant Name.
 - We've now deployed a solution for handling a rare payments error where Spreedly closes the connection before a payment is completed. We now recover and import the transaction successfully.
 
 ## Bugs Fixed

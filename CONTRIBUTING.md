@@ -1,24 +1,26 @@
 # Contributing
 
-Thanks for helping improve Next Commerce Docs.
+This repository is **maintained by the NEXT team only**. External contributions
+are not accepted.
 
-## Content guidelines
+## Why this repo is public
 
-- Write for merchants, agencies, developers, and operators who are using the platform.
-- Keep instructions specific and task-oriented.
-- Link to [Developer Docs](https://developers.nextcommerce.com) for API, SDK, webhook, and theme implementation details.
-- Do not include customer data, private merchant examples, credentials, account screenshots, internal tickets, or private GitHub links.
-- Prefer public product names and stable public URLs.
+The repository is public so developers and AI agents can clone it locally and
+reference Next Commerce user documentation while building on the platform. See
+[`AGENTS.md`](AGENTS.md) for agent-oriented guidance.
 
-## Pull requests
+## Content standards
 
-1. Create a branch from `main`.
-2. Make the smallest focused change that solves the documentation issue.
-3. Run `npm run build`.
-4. Open a pull request with a short summary and any relevant screenshots for visual changes.
+When editing docs as a team member:
 
-For changelog entries, follow `content/changelog.README.md`.
+- Write for merchants, agencies, developers, and operators using the platform.
+- Link to [Developer Docs](https://developers.nextcommerce.com) for API, SDK,
+  webhook, and theme implementation details.
+- Do not include customer data, credentials, internal tickets, or private GitHub links.
 
-## Security and sensitive content
+Team workflow and publishing details: [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md).
 
-Do not report security vulnerabilities or leaked sensitive content in a public issue. Follow `SECURITY.md` instead.
+## Security
+
+Do not report security vulnerabilities or leaked sensitive content in a public
+issue. Follow [`SECURITY.md`](SECURITY.md) instead.
