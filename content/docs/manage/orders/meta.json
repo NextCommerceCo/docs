@@ -4,6 +4,7 @@
     "index",
     "create-orders",
     "order-management",
+    "collect-payments-on-orders",
     "edit-orders",
     "refund-items-and-orders",
     "create-and-manage-returns",
