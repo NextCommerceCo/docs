@@ -1,0 +1,40 @@
+---
+title: Bancontact on NEXT Payments, order balance payments, and campaign identifiers in analytics
+publishedAt: "2026-07-15"
+tags:
+  - Payments
+  - Campaigns
+  - Analytics
+  - Fulfillment
+summary: "NEXT Payments now supports Bancontact, merchants can collect an outstanding order balance with the customer's existing card or a new card from the order detail view, and campaign analytics events now carry campaign identifiers on every event…"
+---
+
+## New Features
+
+- NEXT Payments now supports Bancontact, so merchants can accept Belgium's most widely used payment method.
+- Merchants can now collect an outstanding balance on an order using the customer's existing card or a newly added card directly from the order detail view, matching the payment options available when creating an order.
+
+## Improvements
+
+- Campaign analytics events now include campaign identifiers — `campaign_id`, `campaign_name`, `campaign_currency`, `campaign_language`, and `campaign_session_id` — on every event across all providers, so analytics data can be segmented by campaign and joined back to campaign sessions and order attribution.
+- The [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) RudderStack integration now follows the RudderStack ecommerce events spec: events use the official event names, carry complete product details, and include session-based `cart_id` and `checkout_id` identifiers so a shopper's journey can be followed from cart to checkout to order.
+- Analytics events from the Campaigns Cart SDK now include applied coupons and discount amounts, so they appear in your analytics reports.
+- The Campaigns Cart SDK now logs clear setup warnings when the campaign API key is missing, a provider is missing a required setting, or a provider's script never loads, naming the exact configuration to add.
+- The Campaigns Cart SDK in-page analytics debug panel has been redesigned with per-provider delivery status and an easier-to-read event timeline, and failed sends are now reported as failed instead of sent.
+- Delivery tracking now recognizes tracking number formats from more carriers, including CIRRO E-Commerce, SwiftX, and several international postal carriers, so those shipments get delivery tracking automatically.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now syncs order line item `properties` to Shopify orders, so product customization details carry through.
+- Shop Sync fulfillment processing now guards against creating duplicate fulfillment orders for the same order.
+- The NEXT Payments portal navigation has been restructured: opening a payments account now shows a dedicated navigation for that account with an account switcher, balances and payouts are brought together in a new Balances view, and creating an account is clearer.
+
+## Bug Fixes
+
+- Fixed an issue where the `order.updated` webhook event fired twice when a fulfillment was created or its delivery status changed.
+- Fixed an issue where the checkout summary on German stores showed "Included MwSt." with the word "Included" untranslated.
+- Fixed an issue where offers with XX.99 discount price rounding overcharged single-unit lines when a quantity-based offer was met across separate lines, such as one line per color variant.
+- Fixed an issue where the cart calculate API split a single package line into multiple lines when a percentage offer produced fractional per-unit amounts, making one product display as several rows at checkout.
+- Fixed an issue where sessions from development and test domains were counted in campaign analytics.
+- Fixed an issue where Apple Pay displayed the wrong value for orders using a custom price.
+- Fixed an issue where accepting a post-purchase upsell reported a quantity of 1 and an unresolved product in tracking events for bundle upsells, regardless of the actual quantity.
+- Fixed an issue where purchase tracking events counted tax and shipping in the purchase value, over-reporting sales; product revenue, tax, and shipping are now reported in separate fields.
+- Fixed an issue where the Cart Viewed analytics event was sent with an empty product list and a value of zero.
+- Fixed an issue where wildcard subdomain redirect URIs were rejected during the app OAuth install flow.
