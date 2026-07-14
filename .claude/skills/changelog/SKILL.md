@@ -1,6 +1,6 @@
 ---
 name: changelog
-version: 0.3.0
+version: 0.4.0
 description: |
   Generate a new published changelog entry for docs.nextcommerce.com from
   GitHub Releases and Sprint-tagged issues across the NextCommerceCo

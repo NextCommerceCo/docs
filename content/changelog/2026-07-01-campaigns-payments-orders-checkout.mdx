@@ -1,0 +1,35 @@
+---
+title: Customizable products in campaigns and iDEAL on NEXT Payments
+publishedAt: "2026-07-01"
+tags:
+  - Campaigns
+  - Payments
+  - Orders
+  - Checkout
+summary: "Campaigns now support customizable products end to end, passing line item properties from the campaign page through to the order, and NEXT Payments now supports iDEAL so merchants can accept the leading payment method in the Netherlands…"
+---
+
+## New Features
+
+- Campaigns now support customizable products end to end: the [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) can bind input fields to line items with the new `data-next-property` and `data-next-default-property` attributes, and the values are passed through the Campaigns API to the order as line item `properties`. Items with the same package but different properties stay as separate line items, cart summaries can render each item's properties dynamically with `{property.key}` and `{property.value}` tokens, and `data-next-exclude-property` keeps selected properties out of API payloads.
+- NEXT Payments now supports iDEAL, so merchants can accept the leading payment method in the Netherlands.
+- Fraud screening is now built into the platform: orders are automatically screened for fraud risk without installing a separate app.
+
+## Improvements
+
+- Order line item `properties` are now included as item options when orders are sent to ShipStation, so product customization details carry through to fulfillment.
+- Editing an order now shows a warning when adding an item that is out of stock and does not allow backorders, helping agents avoid saving orders that cannot ship.
+- [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) and Google Pay now collect the customer's phone number when the checkout requires a phone number.
+- The NEXT Payments portal now displays the acquirer BIN for each card network alongside the MID and MCC, so merchants can enroll in chargeback alert and fraud tooling services without contacting support.
+- Card payment throttling now allows 3 failed attempts per card within 10 minutes instead of 4, reducing repeat declines that are highly unlikely to succeed.
+- All stores now use the single page checkout flow, and the legacy three step checkout option has been retired.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) product deletion is now safer: products with orders are never deleted, and deletions are re-confirmed with Shopify so temporary outages or empty API responses can no longer remove products in error.
+
+## Bug Fixes
+
+- Fixed an issue where percentage discounts on campaign bundles caused rounding errors that made exact target bundle prices impossible to configure.
+- Fixed an issue where campaign orders were rejected when both the `payment_failed_url` field and the HTTP `Referer` header were missing, which affected traffic from in-app browsers and privacy settings that strip the referrer; a default failure URL is now derived instead.
+- Fixed an issue where `attribution.funnel` was not populated from the campaign name when the `next-funnel` meta tag was omitted from a campaign page.
+- Fixed an issue where post-purchase upsells placed through the Campaigns Cart SDK did not include line item `properties` in the order.
+- Fixed an issue where transparent PNG brand logos rendered on a black background in transactional emails, making light logos unreadable.
+- Fixed an issue where orders created by Shop Sync were not automatically matched to the correct customer; orders are now matched by email.
