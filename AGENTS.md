@@ -38,3 +38,16 @@ Unless you are maintaining the docs site itself, skip:
 
 This repository is maintained by the NEXT team only. External pull requests are
 not accepted. See `README.md` and `docs/MAINTENANCE.md`.
+
+## Issue tracking
+
+Work in this repo is tracked with GitHub Issues and coordinated on the
+org-level **[Operations](https://github.com/orgs/NextCommerceCo/projects/10)**
+Kanban board (Todo / In Progress / Done). New issues are added to the board
+automatically by the `add-to-project` workflow.
+
+Before starting work on an issue: check it is not assigned to someone else,
+assign yourself (`gh issue edit <n> --add-assignee @me`), and move the card to
+In Progress. Open PRs with `Closes #<n>` so the card moves to Done on merge.
+Full conventions: `docs/agents/project-board.md` in the `next-mind` repo; the
+`/next-board` skill wraps board operations.
