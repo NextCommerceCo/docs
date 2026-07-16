@@ -107,8 +107,8 @@ export default function HomePage() {
       <header className="sticky top-0 z-40 border-b border-fd-border bg-fd-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-6">
           <Link href="/" className="flex items-center gap-3">
-            <img src="/logo-light.png" alt="Next Commerce" width={105} height={21} className="dark:hidden" />
-            <img src="/logo-dark.png" alt="Next Commerce" width={105} height={21} className="hidden dark:block" />
+            <img src="/next-dark.svg" alt="Next Commerce" width={451} height={148} className="h-auto w-24 dark:hidden" />
+            <img src="/next-white.svg" alt="Next Commerce" width={451} height={148} className="hidden h-auto w-24 dark:block" />
             <span className="hidden border-l border-fd-border pl-3 text-xs font-medium text-fd-muted-foreground sm:inline">
               Docs
             </span>
