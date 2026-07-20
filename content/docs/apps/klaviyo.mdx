@@ -3,7 +3,7 @@ title: "Klaviyo"
 description: "Integrate Marketing Automation for Email & SMS"
 ---
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-import { ShoppingCart, ShoppingBag, Package, Truck, XCircle, RotateCcw, Repeat, CalendarX } from 'lucide-react';
+import { ShoppingCart, ShoppingBag, Package, Truck, Navigation, PackageCheck, XCircle, RotateCcw, Repeat, CalendarX } from 'lucide-react';
 
 Klaviyo is a leading ecommerce marketing automation and CRM platform that integrates with Next Commerce as an app. With Klaviyo, you can engage your prospects and customers at every step of the customer lifecycle through email and SMS.
 
@@ -395,6 +395,230 @@ To prevent duplicate events from firing, you may wish to disable the **Send Star
       },
       "time": "2024-05-21T00:00:00+00:00",
       "unique_id": "209484_1716303088",
+      "value": 16.2,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><Navigation className="size-4 text-fd-muted-foreground" /> Order Out for Delivery</span>}>
+
+**Klaviyo event:** `Order Out for Delivery`
+
+**Trigger:** `fulfillment.updated` — carrier tracking status changes to out for delivery (one event per status transition)
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Order Out for Delivery" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 8.1,
+            "RowTotal": 16.2,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        },
+        "Fulfillment": {
+          "Carrier": "asendia",
+          "TrackingCode": "0011",
+          "TrackingURL": "https://tracking.asendia.com/tracking/0011"
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "209484_out_for_delivery_1716303088",
+      "value": 16.2,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><PackageCheck className="size-4 text-fd-muted-foreground" /> Order Delivered</span>}>
+
+**Klaviyo event:** `Order Delivered`
+
+**Trigger:** `fulfillment.updated` — carrier tracking status changes to delivered (one event per status transition)
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Order Delivered" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": "209484",
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 8.1,
+            "RowTotal": 16.2,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "/media/products/example-product.jpg"
+          }
+        ],
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "OrderStatusURL": "https://store.example.com/accounts/order-status/209484/209484:_V1JBFzXBVSEOAu-fpYMkXo18lg_rzbZ_IQsJOWcOkE/",
+        "DiscountCodes": ["DISCOUNT50"],
+        "$extra": {
+          "attribution": {
+            "affiliate": null,
+            "agent": null,
+            "funnel": "Postman",
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null,
+            "utm_campaign": null,
+            "utm_content": null,
+            "utm_medium": null,
+            "utm_source": null,
+            "utm_term": null
+          },
+          "metadata": {}
+        },
+        "Fulfillment": {
+          "Carrier": "asendia",
+          "TrackingCode": "0011",
+          "TrackingURL": "https://tracking.asendia.com/tracking/0011"
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "209484_delivered_1716303088",
       "value": 16.2,
       "value_currency": "USD"
     }
