@@ -2,11 +2,11 @@
 title: "Campaign Analytics"
 description: "Track the traffic and performance of your campaigns in detail"
 ---
-To set up Campaign Analytics on your custom funnels, from the Campaigns App main list view, click on your campaign name, or choose **View**, then **Integration.**
+To set up Campaign Analytics on a custom funnel, open the campaign, select **Developer**, and find the **Session Tracking** section.
 
 <Callout type="info">
 
-Copy the script shown on **Session Tracking Integration** to every page of your funnel to enable session tracking in Campaigns App.
+Copy the script shown under **Session Tracking** to every page of your funnel to enable session tracking in Campaigns App.
 
 Campaigns using the [**Campaign Cart JS SDK**](https://developers.nextcommerce.com/docs/campaigns/cart-system) will automatically include Analytics on connected pages.
 
@@ -41,3 +41,29 @@ Every URL that users have visited in your funnel is reflected in this list, with
 ### Performance by Device & Browser
 
 View at a glance your traffic patterns and performance by device type and browser.  Conversion rates are shown by percentage to help identify areas for optimization.
+
+## Analytics Provider Data
+
+Campaign analytics events include the following campaign identifiers across supported providers:
+
+* `campaign_id`
+* `campaign_name`
+* `campaign_currency`
+* `campaign_language`
+* `campaign_session_id`
+
+These fields make it possible to segment events by campaign and join provider data back to Campaigns App sessions and order attribution. Cart and checkout events also include applied coupon and discount amounts when those values are available.
+
+The Campaigns Cart SDK's RudderStack integration follows RudderStack's ecommerce event conventions and includes product details plus session-based `cart_id` and `checkout_id` values. See the [**Campaign analytics developer guides**](https://developers.nextcommerce.com/docs/campaigns/analytics) for provider setup and event details.
+
+## Debug Analytics Delivery
+
+Open the in-page analytics debug panel on the campaign page to review the event timeline and delivery status for each configured provider. The panel distinguishes failed sends from successful delivery.
+
+The Campaigns Cart SDK also reports setup warnings when:
+
+* the campaign API key is missing
+* an analytics provider is missing a required setting
+* a provider's script does not load
+
+Use the named warning to correct the campaign configuration, then send a test event and confirm that the provider reports a successful delivery.

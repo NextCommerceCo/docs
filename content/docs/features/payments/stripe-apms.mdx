@@ -3,7 +3,28 @@ title: "Alternative Payment Methods"
 description: "Offer Buy Now Pay Later, bank payments, and wallet methods alongside card payments"
 ---
 
-Next Commerce supports a range of alternative payment methods (APMs) beyond traditional bankcards, including Buy Now Pay Later (BNPL), bank transfers, and digital wallets. These methods are available on the storefront checkout, and many are also available for custom checkouts via the Admin API.
+Next Commerce supports a range of alternative payment methods (APMs) beyond traditional bankcards, including Buy Now Pay Later (BNPL), bank payments, and digital wallets. These methods are available on the storefront checkout, and many are also available for custom checkouts via the Admin API.
+
+Availability depends on the payment gateway connected to your store.
+
+| Method | Primary market | NEXT Payments | Stripe |
+| --- | --- | --- | --- |
+| Affirm | United States and Canada | Yes | No |
+| Klarna | North America, Europe, and Oceania | Yes | Yes |
+| TWINT | Switzerland | Yes | No |
+| Swish | Sweden | Yes | No |
+| Stripe Link | Stripe-supported markets | No | Yes |
+| iDEAL | Netherlands | Yes | Yes |
+| Bancontact | Belgium | Yes | Yes |
+| Sofort | Selected European markets | No | Yes |
+| Giropay | Germany | No | Yes |
+| SEPA Direct Debit | Eurozone | No | Yes |
+
+<Callout type="info">
+
+For methods offered through NEXT Payments, enable the method in your NEXT Payments account first. After it is available on the account, go to **Settings > Payments**, select the NEXT Payments gateway, and enable it for the store.
+
+</Callout>
 
 ## Buy Now, Pay Later
 
@@ -59,6 +80,16 @@ TWINT is a **NEXT Payments exclusive** payment method. It is not available throu
 
 </Callout>
 
+### Swish
+
+**Swish** is a local payment method for customers in Sweden. It is available to merchants processing through **NEXT Payments**.
+
+- Intended for merchants selling to customers in **Sweden**
+- Uses the connected NEXT Payments account
+- Appears as an alternative payment method at checkout once enabled
+
+Enable Swish in your NEXT Payments account first. Once it is available, go to **Settings > Payments**, select your NEXT Payments gateway, and enable **Swish** from the **Alternative Payment Methods** card.
+
 ### Stripe Link
 
 **Stripe Link** saves and autofills customer payment and shipping details across Stripe-powered checkouts, reducing friction and accelerating checkout.
@@ -74,21 +105,37 @@ For [**Apple Pay**](/docs/features/payments/apple-pay) and [**Google Pay**](/doc
 
 ## European Bank Payments
 
-The following bank payment methods are available for merchants using **Stripe** as their gateway. These are especially useful for merchants selling in European markets.
+### iDEAL
+
+**iDEAL** is a bank redirect payment method for customers in the Netherlands. It is available through **NEXT Payments** and **Stripe**.
+
+To enable iDEAL through NEXT Payments, add it to your NEXT Payments account first. Once it is available, go to **Settings > Payments**, select the NEXT Payments gateway, and enable **iDEAL** from the **Alternative Payment Methods** card.
+
+For Stripe, go to **Settings > Payments**, select the Stripe gateway, and enable **iDEAL**.
+
+### Bancontact
+
+**Bancontact** is a bank redirect payment method for customers in Belgium. It is available through **NEXT Payments** and **Stripe**.
+
+To enable Bancontact through NEXT Payments, add it to your NEXT Payments account first. Once it is available, go to **Settings > Payments**, select the NEXT Payments gateway, and enable **Bancontact** from the **Alternative Payment Methods** card.
+
+For Stripe, go to **Settings > Payments**, select the Stripe gateway, and enable **Bancontact**.
+
+### Stripe European Bank Methods
+
+These additional bank payment methods are available through Stripe:
 
 | Method | Markets | Type |
-|--------|---------|------|
-| **iDEAL** | Netherlands | Bank redirect |
-| **Bancontact** | Belgium | Bank redirect |
+| --- | --- | --- |
 | **Sofort** | Germany, Austria, Belgium, Netherlands, Spain | Bank redirect |
 | **Giropay** | Germany | Bank redirect |
-| **SEPA Direct Debit** | Eurozone (36 countries) | Bank debit |
+| **SEPA Direct Debit** | Eurozone | Bank debit |
 
-To enable any of these methods, navigate to **Settings > Payments**, select your Stripe gateway, and enable the method from the **Alternative Payment Methods** card.
+To enable one of these methods, go to **Settings > Payments**, select the Stripe gateway, and enable it from the **Alternative Payment Methods** card.
 
 <Callout type="info">
 
-These methods may be available in specific regions only. Consult Stripe's documentation for current availability and requirements per market.
+Payment-method availability and onboarding requirements vary by region and account. Review the requirements shown in your payment account before enabling a method on the store.
 
 </Callout>
 
