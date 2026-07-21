@@ -67,7 +67,7 @@ This rule prevents a gateway that does not support a given card type or currency
 ### General Payment Settings
 
 * Assign a Gateway Group to use as the default on your storefront with the **Default Gateway Group** setting.  Assigning a Gateway Group will override any previously configured "Default" gateway for each currency.
-* Card payment throttling allows three failed attempts per card within ten minutes. Further attempts with that card are blocked until the window passes.
+* Enable **Throttle Attempts for Declining Bankcards** to allow three failed attempts per card within ten minutes. Further attempts with that card are blocked until the window passes.
 * Set **Disputes Handling** actions at this step, such as automating the adding of customers with payment disputes to [**Block Lists**](/docs/features/payments/block-lists), Cancelling Orders, and Canceling Subscriptions.
 * Set the **Subscription Cancel Reason** to assign to subscriptions that fail automatically due to failed recurring payments. Configure the rest of your subscription settings before launch if you sell subscriptions.
 
