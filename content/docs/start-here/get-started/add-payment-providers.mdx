@@ -26,7 +26,13 @@ Once a Gateway has been added to your store, you can specify
 * Enable [**3DS**](/docs/features/payments/3ds2-payments) support (optional), and assign a [**3DS Merchant Profile**](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
 * Connect an [**Apple Pay**](/docs/features/payments/apple-pay) profile (optional)
 * Connect a [**Google Pay**](/docs/features/payments/google-pay) profile (optional)
-* Enable [**Alternative Payment Methods**](/docs/features/payments/stripe-apms) — Affirm, Klarna, TWINT, Stripe Link, and European bank payments (optional)
+* Enable [**Alternative Payment Methods**](/docs/features/payments/stripe-apms), including Affirm, Klarna, TWINT, Swish, Stripe Link, iDEAL, Bancontact, and other European bank payments (optional)
+
+<Callout type="info">
+
+Some NEXT Payments methods must be enabled on the NEXT Payments account before they can be enabled on the store gateway. If the payment methods table shows an account-level warning, use its shortcut to open your NEXT Payments account, complete that step, then return to the gateway settings.
+
+</Callout>
 
 <Callout type="info">
 
@@ -61,7 +67,7 @@ This rule prevents a gateway that does not support a given card type or currency
 ### General Payment Settings
 
 * Assign a Gateway Group to use as the default on your storefront with the **Default Gateway Group** setting.  Assigning a Gateway Group will override any previously configured "Default" gateway for each currency.
-* Set the **Throttle Attempts for Declining Bankcards** flag, to limit a cardholder from re-attempting an already-declined transaction more than 4 times in a single session.
+* Card payment throttling allows three failed attempts per card within ten minutes. Further attempts with that card are blocked until the window passes.
 * Set **Disputes Handling** actions at this step, such as automating the adding of customers with payment disputes to [**Block Lists**](/docs/features/payments/block-lists), Cancelling Orders, and Canceling Subscriptions.
 * Set the **Subscription Cancel Reason** to assign to subscriptions that fail automatically due to failed recurring payments. Configure the rest of your subscription settings before launch if you sell subscriptions.
 
