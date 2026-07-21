@@ -7,7 +7,6 @@
     "apple-pay",
     "google-pay",
     "stripe-apms",
-    "fraud-screening",
     "external-payment-methods",
     "authorize-and-capture-payments",
     "disputes-guide",
