@@ -46,9 +46,10 @@ Confirm Shop Sync shows a green **Connected** badge, Shopify products have SKU c
 
 **Step 4:** Install your app
 
-* On the following screen, from the left side menu under your App's name, go to the **Home** menu.
-* Click **Install App.**  You will be prompted to choose the Shopify store in your account on which to install the app.
-* Once selected, you will be prompted by Shop Sync to input a **Client ID** and **Secret.**  From the Shopify Dev Dashboard left side navigation menu, click **Settings.**  Copy and paste the **Client ID** and **Secret** into the Shop Sync prompt screen and submit.
+* On the following screen, go to your **App's name** on the left side menu.
+* In the Distribution section, click **Select distribution method**. You will be taken to the Distribution page.
+* Select **Custom distribution** and input your **Shopify store domain**. Copy the generated link and open it — you will be redirected to the Install app page on Shopify.
+* Click **Install**. You will be prompted by Shop Sync to input a **Client ID** and **Secret**. From the Shopify Dev Dashboard left side navigation menu, click **Settings**. Copy and paste the **Client ID** and **Secret** into the Shop Sync prompt screen and submit.
 * You will then be redirected to the Shop Sync App settings on NEXT.
 
 Now that your NEXT store is successfully connected to your Shopify store, a green **Connected** badge along with the Shopify store ID will be displayed.
@@ -140,3 +141,17 @@ It is recommended to keep the below notifications Active in most merchant scenar
 * Subscription Update Payment Notification<br />
 
 Be sure to set up and verify an [Email Sending Domain](/docs/start-here/get-started/link-domains#email-sending-domains), and a [Default From Address](/docs/start-here/get-started/support-and-notifications#notifications), to ensure notifications always carry your branding.
+
+## Reconnect Shop Sync
+
+If the connection between NEXT and your Shopify store is lost, syncing is paused until the connection is restored. This typically happens when the custom app is accidentally uninstalled from your Shopify store, or when the app's credentials become invalid.
+
+To reconnect, first confirm that the custom app is uninstalled from your Shopify store. From your Shopify admin, go to Settings > Apps and verify that the app is no longer listed. If it is still installed, uninstall it, then follow the steps below to reconnect Shop Sync:
+
+* Go to the Shopify Dev Dashboard. This can be accessed from the NEXT Shop Sync App settings.
+* Select your app. In the Distribution section on the right side menu, click **Manage custom install link**. You will be taken to the Distribution page.
+* Copy the generated link and open it — you will be redirected to the Install app page on Shopify.
+* Click **Install**. You will be prompted by Shop Sync to input a **Client ID** and **Secret**. From the Shopify Dev Dashboard left side navigation menu, click **Settings**. Copy and paste the **Client ID** and **Secret** into the Shop Sync prompt screen and submit.
+* You will then be redirected to the Shop Sync App settings on NEXT.
+
+Once reconnected, the green Connected badge will be displayed on the Shop Sync App settings and syncing will resume.
