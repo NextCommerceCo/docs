@@ -1,23 +1,22 @@
 ---
-title: Balance Summary report for NEXT Payments, delivery events in Klaviyo, and line item properties on storefront themes
+title: Balance Summary report for NEXT Payments, delivery events in Klaviyo, and customized products on storefront themes
 publishedAt: "2026-07-30"
 tags:
   - Payments
   - Fulfillment
   - Orders
   - Storefront
-summary: "NEXT Payments now includes a Balance Summary report of daily balance, activity, and fees, the Klaviyo integration now receives fulfillment and delivery status events like Delivered, and storefront themes now support line item properties so the same product can be added as separate lines when each has different custom attributes…"
+summary: "NEXT Payments now includes a Balance Summary report of daily balance, activity, and fees, the Klaviyo integration now receives fulfillment and delivery status events like Delivered, and storefront themes now support customized products so the same product can be added as separate lines when each has different custom attributes…"
 ---
 
 ## New Features
 
 - NEXT Payments now includes a Balance Summary report showing daily account balance, activity, and fees across a date range.
 - [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) integration now pushes fulfillment and delivery status events, including `Delivered`, so post-purchase flows like review requests can trigger when the customer receives their order instead of a set number of days after it ships.
-- Storefront themes now support line item `properties`, so the same product can be added as separate lines when each has different custom attributes, such as personalization text. Properties display in the side cart and can be set through the Storefront GraphQL API with `createCart` and `addCartLines`.
+- Storefront themes now support customized products: the same product can be added to the cart as separate line items when each carries different custom attributes, such as personalization text, set through line item `properties`. The properties display in the side cart and can be set through the Storefront GraphQL API with `createCart` and `addCartLines`.
 
 ## Improvements
 
-- New stores now come with the Campaigns app installed and pinned, and stores using NEXT Payments automatically get the Delivery Tracking app. Both are ready to use with no manual setup.
 - Editing an order's address now opens a modal with the same country-aware form and autocomplete as checkout, so agents can enter a valid address without leaving the order.
 - Campaigns API now tries to convert phone numbers to E.164 format from the customer's address or IP-based country before returning a validation error, reducing failures from locally formatted numbers.
 - Gateway secret API keys can no longer be viewed in the dashboard, so no one with store access can read these sensitive credentials.
