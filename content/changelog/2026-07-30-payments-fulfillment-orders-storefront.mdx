@@ -1,0 +1,38 @@
+---
+title: Balance Summary report for NEXT Payments, delivery events in Klaviyo, and line item properties on storefront themes
+publishedAt: "2026-07-30"
+tags:
+  - Payments
+  - Fulfillment
+  - Orders
+  - Storefront
+summary: "NEXT Payments now includes a Balance Summary report of daily balance, activity, and fees, the Klaviyo integration now receives fulfillment and delivery status events like Delivered, and storefront themes now support line item properties so the same product can be added as separate lines when each has different custom attributes…"
+---
+
+## New Features
+
+- NEXT Payments now includes a Balance Summary report showing daily account balance, activity, and fees across a date range.
+- [Klaviyo](https://docs.nextcommerce.com/docs/apps/klaviyo) integration now pushes fulfillment and delivery status events, including `Delivered`, so post-purchase flows like review requests can trigger when the customer receives their order instead of a set number of days after it ships.
+- Storefront themes now support line item `properties`, so the same product can be added as separate lines when each has different custom attributes, such as personalization text. Properties display in the side cart and can be set through the Storefront GraphQL API with `createCart` and `addCartLines`.
+
+## Improvements
+
+- New stores now come with the Campaigns app installed and pinned, and stores using NEXT Payments automatically get the Delivery Tracking app. Both are ready to use with no manual setup.
+- Editing an order's address now opens a modal with the same country-aware form and autocomplete as checkout, so agents can enter a valid address without leaving the order.
+- Campaigns API now tries to convert phone numbers to E.164 format from the customer's address or IP-based country before returning a validation error, reducing failures from locally formatted numbers.
+- Gateway secret API keys can no longer be viewed in the dashboard, so no one with store access can read these sensitive credentials.
+- Subscriptions whose customer data has been erased can no longer be reactivated from the storefront, dashboard, or API, since they would no longer function.
+- PayPal accounts flagged as restricted are now re-checked automatically, both on a daily schedule and when the account detail page is opened, so the warning clears on its own once the account is back in good standing.
+- Klaviyo integration now handles the `customer.redacted` event by removing the customer's personal information and unsubscribing them, so erased customers no longer receive email.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now detects when a store's Shopify API key stops working and alerts both the merchant and our team before syncing is disrupted.
+- Shop Sync now identifies the carrier from the tracking link when Shopify provides one, so more shipments match the correct carrier and get delivery tracking.
+
+## Bug Fixes
+
+- Fixed an issue where setting a product's available inventory to 0 did not mark it out of stock.
+- Fixed an issue where address autocomplete returned no results in the United Arab Emirates and Saudi Arabia, and where addresses without a postal code were rejected in countries that don't use them.
+- Fixed an edge case where a card could be charged against a cart that had already been merged and emptied, producing a charge with no order; charges and order creation are now blocked on empty or merged carts.
+- Fixed an issue where editing an order could route products to a fulfillment location that didn't serve the shipping country; adding such a product now shows an error instead.
+- Fixed an issue where creating a user through the [Admin API](https://developers.nextcommerce.com/docs/admin-api) returned a server error when the request included duplicate addresses.
+- Fixed an issue where the `is_next_payment` flag was not set for alternative payment method orders and transactions, such as Klarna and TWINT, causing them to be misreported.
+- Fixed an issue where re-opening the connected Shopify app and re-entering credentials could uninstall the app and break its API key while Shop Sync still showed as connected.
