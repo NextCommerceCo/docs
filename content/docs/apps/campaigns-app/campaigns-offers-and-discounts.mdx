@@ -12,6 +12,12 @@ Campaigns App **Offers & Discounts** is the pricing layer. Use Offers to sell at
 
 For example, a single Widget package can support Buy 1, Buy 2, and Buy 3 pricing. The funnel sends the selected package and quantity, the matching Offer applies, and the order calculation returns the original price, final price, savings amount, and savings percentage.
 
+<Callout type="info" title="Campaigns App pricing is separate">
+
+Campaigns App Offers & Discounts are separate from the store-level Offers and Coupons tools. Configure campaign pricing inside the campaign under **Packages > Offers & Discounts**.
+
+</Callout>
+
 | Setup need | Use |
 | --- | --- |
 | Product or variant identity | Package |
@@ -19,6 +25,8 @@ For example, a single Widget package can support Buy 1, Buy 2, and Buy 3 pricing
 | Buy more, save more on checkout | Automatic Offer |
 | Upsell, downsell, exit pop, or manual promo code | Code offer |
 | Compare-at / strike-through pricing | Offer before/after calculation |
+
+Campaign checkout templates should submit the selected Package and quantity, plus the configured discount code for a **Code** offer when needed. Render the original price, final price, and savings returned by Campaigns API instead of hardcoding a coupon-specific bundle price. See the developer guides for [Campaigns Offers](https://developers.nextcommerce.com/docs/campaigns#offers) and [calculating cart totals](https://developers.nextcommerce.com/docs/campaigns/api#calculate-cart).
 
 <Callout type="warn">
 
