@@ -10,6 +10,7 @@ const config = {
   outputFileTracingRoot: repoRoot,
   reactStrictMode: true,
   images: {
+    // Static exports do not use Next.js's Sharp-based image optimizer.
     unoptimized: true,
   },
 };
