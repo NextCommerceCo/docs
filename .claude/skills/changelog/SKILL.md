@@ -174,10 +174,10 @@ Find the iteration with title `Sprint <N>` (check both `iterations` and `complet
 
 ```bash
 gh api graphql --paginate -f query='
-query($cursor: String) {
+query($endCursor: String) {
   organization(login: "NextCommerceCo") {
     projectV2(number: 4) {
-      items(first: 100, after: $cursor) {
+      items(first: 100, after: $endCursor) {
         pageInfo { hasNextPage endCursor }
         nodes {
           fieldValueByName(name: "Sprint") {

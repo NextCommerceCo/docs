@@ -1,0 +1,38 @@
+---
+title: Markets in store settings, automatic 3DS setup for NEXT Payments, and European price formatting in campaigns
+publishedAt: "2026-08-13"
+tags:
+  - Payments
+  - Campaigns
+  - Settings
+  - Orders
+summary: "Store settings now has Markets, where each market carries its own languages, payment gateways, and fulfillment locations. NEXT Payments gateways now configure 3DS automatically, and campaigns can display prices the way European markets expect…"
+---
+
+## New Features
+
+- Store settings now has Markets, replacing Localization. Each market carries its own languages, payment gateways, and fulfillment locations. Markets can be reordered to control the storefront's market selection list.
+- NEXT Payments gateways now configure [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) automatically. The merchant ID, acquirer BIN, and MCC for each card network are set up for you.
+- Stripe Payment Intents can now be added as a bankcard gateway with your own API key and account ID, so a Stripe Connect account from another provider can take cards, Apple Pay, and Google Pay.
+- The [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now supports a `locale` setting on `window.nextConfig`. Set `de-DE` and prices render as `69,99 €` instead of `€69.99`. Leave it unset and the visitor's browser decides.
+- NEXT Theme Kit now reads the store API key from the `NTK_APIKEY` environment variable, so it no longer has to be passed on the command line.
+
+## Improvements
+
+- [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app/campaigns-offers-and-discounts) Code offers now discount the offer price instead of the retail price. A 10% code delivers 10% at every quantity tier, rather than stacking with the automatic Offer into a deeper discount than configured.
+- The Campaigns Cart SDK `order:completed` event now means the order is finished, not created. It fires on the page the shopper lands on after checkout and carries the full order, making it the event to attach conversion tracking to. Your success page needs to load the SDK and keep the `ref_id` parameter the checkout redirect adds.
+- Address editing in the dashboard has been revamped. Customer addresses now open in a modal with localized address formats and autocomplete, matching the order address form.
+- The dashboard's order create form now uses the same localized address fields and autocomplete as order editing. An existing customer's default address is pre-populated, replacing the separate address picker.
+- NEXT Theme Kit now retries failed requests and spaces them to respect the rate limit. Commands time out instead of hanging, and exit with a clear message when they fail. `ntk watch` keeps running through transient errors and stops on permanent ones.
+- The Campaigns Cart SDK downloads less on every page load, because its module chunks are now minified.
+- Campaigns [debug mode](https://developers.nextcommerce.com/docs/campaigns/utilities/debugger) now survives a redirect through a payment gateway. `?debug=true` and `?debugger=true` are carried onto the checkout return URL, so the page a shopper comes back to from PayPal still has the logs and the overlay.
+- The Campaigns Cart SDK debug overlay's currency, country, and locale pickers now apply without a page reload.
+
+## Bug Fixes
+
+- Fixed an issue where the Campaigns Cart SDK reported a purchase when an express checkout order was created rather than paid. Pressing back from PayPal or a declined payment counted a conversion for an order that never existed. Purchases are now reported once per order, from the page the shopper lands on after checkout.
+- Fixed an issue where a card was charged but no order was created, because a server error during card unenrollment went unhandled.
+- Fixed an issue where Checkout.com payments sent a previous transaction reference on cardholder-present transactions that had none, lowering approval rates.
+- Fixed an issue where address autocomplete returned no results for Japanese addresses.
+- Fixed an issue where the shopper's user agent was not passed through to MaxMind on campaign orders, producing higher risk scores than the order warranted.
+- Fixed an issue where cart line `attributes` were missing from the Storefront GraphQL API cart query.
