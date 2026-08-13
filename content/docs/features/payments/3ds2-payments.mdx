@@ -10,17 +10,14 @@ For EU-based merchants, or merchants selling to EU-based customers, Strong Custo
 
 **3DS2** authentication is supported on Next Commerce for the following gateways:
 
-* NEXT Payments
-* Adyen
-* Airwallex
-* BlueSnap
-* Braintree
-* Checkout.com
-* NMI
-* Nuvei
-* PayPal Commerce Platform
-* Stripe Payment Intents
-* NEXT Test Gateway
+| Gateway | |
+| --- | --- |
+| [NEXT Payments](/docs/features/payments/gateways/next-payments) | [Checkout.com](/docs/features/payments/gateways/checkout-com) |
+| [Adyen](/docs/features/payments/gateways/adyen) | [NMI](/docs/features/payments/gateways/nmi) |
+| [Airwallex](/docs/features/payments/gateways/airwallex) | Nuvei |
+| [BlueSnap](/docs/features/payments/gateways/bluesnap) | [PayPal Commerce Platform](/docs/features/payments/gateways/paypal-commerce-platform) |
+| [Braintree](/docs/features/payments/gateways/braintree) | [Stripe Payment Intents](/docs/features/payments/gateways/stripe-payment-intents) |
+| | [Test Gateway](/docs/features/payments/gateways/test-gateway) |
 
 <Callout type="info">
 
@@ -32,13 +29,17 @@ To support 3DS2 payments over the Admin API, see the [Developers Guide](https://
 
 To enable your gateway for 3DS2 payments, navigate to **Settings > Payments** and choose your gateway. On the **3DS** card select **Enable 3D Secure Transactions**.
 
-You must set up a **3DS Merchant Profile**. You will be prompted to enter the following values for your merchant account, some of which can be obtained from your processing provider or acquiring bank.
+You must set up a **3DS Merchant Profile**. You will be prompted to enter the following values, most of which come from your processing provider or acquiring bank.
 
-* Merchant Name
-* Merchant Country
-* Visa, Mastercard, AMEX, Discover Merchant IDs
-* Visa, Mastercard, AMEX, Discover acquiring BINs (ABIN)
-* MCC Code (merchant category code)
+| Field | Description |
+| --- | --- |
+| Merchant Name | The merchant name assigned by your acquiring bank |
+| Merchant Country | The country your business is registered in |
+| Acquirer BIN | The acquiring BIN (ABIN) issued for that card network |
+| Merchant ID (MID) | The merchant ID issued for that card network |
+| MCC Code | Your merchant category code |
+
+Acquirer BIN, Merchant ID, and MCC Code are entered per card network — Visa, Mastercard, AMEX, and Discover.
 
 Choose to **Save** your Merchant Profile.
 

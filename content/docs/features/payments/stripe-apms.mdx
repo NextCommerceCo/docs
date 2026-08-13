@@ -7,9 +7,15 @@ Next Commerce supports a range of alternative payment methods (APMs) beyond trad
 
 Availability depends on the payment gateway connected to your store.
 
-| Method | Primary market | NEXT Payments | Stripe |
+<Callout type="warn">
+
+Stripe methods below require a Stripe account added through **Connect with Stripe Account**. They are not available on a [manually added Stripe account](/docs/features/payments/gateways/stripe-payment-intents#enter-api-keys-manually).
+
+</Callout>
+
+| Method | Primary market | [NEXT Payments](/docs/features/payments/gateways/next-payments) | [Stripe](/docs/features/payments/gateways/stripe-payment-intents) |
 | --- | --- | --- | --- |
-| Affirm | United States and Canada | Yes | No |
+| Affirm | United States and Canada | Yes | Yes |
 | Klarna | North America, Europe, and Oceania | Yes | Yes |
 | TWINT | Switzerland | Yes | No |
 | Swish | Sweden | Yes | No |
@@ -32,7 +38,7 @@ BNPL methods let customers split purchases into installments at checkout, increa
 
 ### Affirm
 
-**Affirm** enables customers to pay over time with transparent, simple financing — no hidden fees or compounding interest. Affirm is available to merchants processing via **NEXT Payments**.
+**Affirm** enables customers to pay over time with transparent, simple financing — no hidden fees or compounding interest. Affirm is available to merchants processing via **NEXT Payments** or **Stripe**.
 
 - Available in the **United States** and **Canada**
 - Supports one-time purchases only — does not support recurring subscriptions or post-checkout upsells
@@ -40,7 +46,15 @@ BNPL methods let customers split purchases into installments at checkout, increa
 - Merchant receives full payment upfront — Affirm handles collections and risk
 - Minimum and maximum order amounts apply — consult Affirm's merchant documentation for current limits
 
-To enable Affirm, first log in to your [**NEXT Payments account**](https://accounts.29next.com/) and apply to add Affirm as a payment method. Once approved, navigate to **Settings > Payments** in your store, select your NEXT Payments gateway, and enable **Affirm** from the **Alternative Payment Methods** card.
+To enable Affirm via NEXT Payments, first log in to your [**NEXT Payments account**](https://accounts.29next.com/) and apply to add Affirm as a payment method. Once approved, navigate to **Settings > Payments** in your store, select your NEXT Payments gateway, and enable **Affirm** from the **Alternative Payment Methods** card.
+
+For Stripe, go to **Settings > Payments**, select the Stripe gateway, and enable **Affirm**.
+
+<Callout type="info">
+
+On Stripe, Affirm accepts **USD** for customers in the United States and **CAD** for customers in Canada, with a minimum order of **50.00** in either currency.
+
+</Callout>
 
 ### Klarna
 

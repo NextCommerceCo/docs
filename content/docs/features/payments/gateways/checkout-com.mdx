@@ -1,0 +1,41 @@
+---
+title: "Checkout.com"
+description: "Connect a Checkout.com account as a bankcard gateway"
+---
+Checkout.com is available as a bankcard gateway.
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Checkout.com**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Client Id | Your Checkout.com client ID |
+| Client Secret | The secret issued for that client ID |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on Checkout.com.
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+Checkout.com does not expose a statement descriptor setting on the gateway. The descriptor comes from your Checkout.com account.
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. Refunds are issued as refunds, not voids. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

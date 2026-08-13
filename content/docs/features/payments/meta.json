@@ -2,6 +2,7 @@
   "title": "Payments Guide",
   "pages": [
     "index",
+    "gateways",
     "3ds2-payments",
     "paypal",
     "apple-pay",

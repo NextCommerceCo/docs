@@ -1,0 +1,50 @@
+---
+title: "NEXT Payments"
+description: "Set up NEXT Payments, the built-in payment account for Next Commerce stores"
+---
+NEXT Payments is the payment account built into Next Commerce. It is the only gateway offering the full range of alternative payment methods, and the only one where 3DS2 is configured for you.
+
+## Setup
+
+NEXT Payments is not added from the gateway list. It is created from your Next Commerce account.
+
+* From your [**Next Commerce Account**](https://accounts.29next.com/), choose **Payments**
+* Choose **Create New**
+* Complete the onboarding flow with your account setup details
+
+Once the account is approved it loads into your store's Payment Gateways automatically and is available for live transactions. There are no credentials to enter.
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+| Method | Markets |
+| --- | --- |
+| [Apple Pay](/docs/features/payments/apple-pay) | All |
+| [Google Pay](/docs/features/payments/google-pay) | All |
+| Affirm | United States and Canada |
+| Klarna | North America, Europe, and Oceania |
+| TWINT | Switzerland |
+| Swish | Sweden |
+| iDEAL | Netherlands |
+| Bancontact | Belgium |
+
+TWINT and Swish are exclusive to NEXT Payments.
+
+To enable a method, apply for it in your NEXT Payments account first. Once approved, go to **Settings > Payments**, select the NEXT Payments gateway, and enable it from the **Alternative Payment Methods** card. See [Alternative Payment Methods](/docs/features/payments/stripe-apms) for the full detail on each.
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is set up automatically on NEXT Payments gateways.
+
+There is no **3DS Merchant Profile** to fill in. The Acquirer BIN, Merchant ID (MID), and MCC code for each card network are configured for you, so you never have to request them from an acquiring bank.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+The statement descriptor is set from your NEXT Payments account and is not editable on the gateway.
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

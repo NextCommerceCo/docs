@@ -1,0 +1,47 @@
+---
+title: "Airwallex"
+description: "Connect an Airwallex account as a bankcard gateway"
+---
+Airwallex is available as a bankcard gateway.
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Airwallex**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Client Id | Your Airwallex client ID |
+| Client API Key | The API key issued for that client ID |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on Airwallex.
+
+## 3DS2
+
+<Callout type="warn">
+
+Airwallex accounts require [3DS2](/docs/features/payments/3ds2-payments) on every transaction by default. Contact support to remove this restriction if you do not want 3DS2 applied to all payments.
+
+</Callout>
+
+To configure it yourself, choose **Enable 3D Secure Transactions** on the gateway's **3DS** card.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+Airwallex does not expose a statement descriptor setting on the gateway. The descriptor comes from your Airwallex account.
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. Refunds are issued as refunds, not voids. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

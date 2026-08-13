@@ -8,27 +8,30 @@ Next Commerce supports a variety of global gateways for bankcard transactions, e
 
 Beyond bankcards, Next Commerce supports [**Alternative Payment Methods**](/docs/features/payments/stripe-apms), including Buy Now, Pay Later options such as Affirm and Klarna; TWINT and Swish through NEXT Payments; iDEAL and Bancontact through NEXT Payments or Stripe; Stripe Link; [Apple Pay](/docs/features/payments/apple-pay); [Google Pay](/docs/features/payments/google-pay); and [PayPal](/docs/features/payments/paypal).
 
+Each gateway has its own guide covering setup, credentials, supported payment methods, and statement descriptor rules.
+
+| Gateway | 3DS2 | Apple Pay | Google Pay | APMs |
+| --- | --- | --- | --- | --- |
+| [NEXT Payments](/docs/features/payments/gateways/next-payments) | Yes | Yes | Yes | Yes |
+| [Adyen](/docs/features/payments/gateways/adyen) | Yes | Yes | Yes | No |
+| [Airwallex](/docs/features/payments/gateways/airwallex) | Yes | Yes | Yes | No |
+| [Authorize.net](/docs/features/payments/gateways/authorize-net) | No | Yes | Yes | No |
+| [BlueSnap](/docs/features/payments/gateways/bluesnap) | Yes | No | Yes | No |
+| [Braintree](/docs/features/payments/gateways/braintree) | Yes | Yes | Yes | No |
+| [Checkout.com](/docs/features/payments/gateways/checkout-com) | Yes | Yes | Yes | No |
+| [NMI](/docs/features/payments/gateways/nmi) | Yes | Yes | Yes | No |
+| [PayPal Commerce Platform](/docs/features/payments/gateways/paypal-commerce-platform) | Yes | No | Yes | No |
+| [Paysafe](/docs/features/payments/gateways/paysafe) | No | Yes | Yes | No |
+| [Stripe Payment Intents](/docs/features/payments/gateways/stripe-payment-intents) | Yes | Yes | Yes | Yes |
+| [Test Gateway](/docs/features/payments/gateways/test-gateway) | Yes | Yes | Yes | No |
+
+**APMs** are [alternative payment methods](/docs/features/payments/stripe-apms) such as Klarna, Affirm, iDEAL, and Bancontact.
+
+Every gateway accepts Visa, Mastercard, AMEX, Discover, and JCB. Narrow this per gateway with the **Accepted Card Types** setting.
+
+Authorizations expire after 7 days on every gateway except PayPal Commerce Platform, where they expire after 3. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).
+
 If you don't see your payment gateway listed as supported, just ask us.
-
-| **NEXT Payments**        |
-| ------------------------ |
-| Adyen                    |
-| Airwallex\*              |
-| Authorize.net            |
-| BlueSnap                 |
-| Braintree                |
-| Checkout.com             |
-| NMI                      |
-| PayPal Commerce Platform |
-| Paysafe                  |
-| Stripe Payment Intents   |
-| Test Gateway             |
-
-<Callout type="info">
-
-\*Airwallex accounts require 3DS2 by default. You must request support to remove this restriction and bypass 3DS2, or set up a [**3DS2 Merchant Profile**](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to assign to the gateway.
-
-</Callout>
 
 ### Adding a NEXT Payments Account
 

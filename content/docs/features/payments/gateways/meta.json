@@ -1,0 +1,17 @@
+{
+  "title": "Gateways",
+  "pages": [
+    "next-payments",
+    "adyen",
+    "airwallex",
+    "authorize-net",
+    "bluesnap",
+    "braintree",
+    "checkout-com",
+    "nmi",
+    "paypal-commerce-platform",
+    "paysafe",
+    "stripe-payment-intents",
+    "test-gateway"
+  ]
+}

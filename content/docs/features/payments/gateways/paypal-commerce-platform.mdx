@@ -1,0 +1,54 @@
+---
+title: "PayPal Commerce Platform"
+description: "Connect PayPal Commerce Platform as a gateway"
+---
+PayPal Commerce Platform is available as a gateway using your own PayPal REST API credentials.
+
+<Callout type="info">
+
+For PayPal Express Checkout, including connecting a PayPal account with the automated flow and running multiple PayPal accounts in one store, see the [PayPal guide](/docs/features/payments/paypal).
+
+</Callout>
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **PayPal Commerce Platform**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Client ID | The client ID from your PayPal REST app |
+| Client Secret | The secret issued for that client ID |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on this gateway.
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+The descriptor field is **Soft Descriptor**. It is the dynamic text used to build the descriptor on the payer's card statement.
+
+It supports up to 22 characters: letters, numbers, spaces, and `. - *`
+
+## Authorize & Capture
+
+<Callout type="warn">
+
+Authorizations expire after **3 days** on PayPal Commerce Platform, shorter than the 7 days every other gateway allows. Capture within that window.
+
+</Callout>
+
+A refund against an uncaptured authorization is sent as a void. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

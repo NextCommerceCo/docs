@@ -1,0 +1,50 @@
+---
+title: "Braintree"
+description: "Connect a Braintree account as a bankcard gateway"
+---
+Braintree is available as a bankcard gateway.
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Braintree**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Merchant ID | Your Braintree merchant ID |
+| Merchant Account ID | The merchant account to process against |
+| Public Key | Your Braintree API public key |
+| Private Key | Your Braintree API private key |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on Braintree.
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+The descriptor field is **Descriptor Company Name**.
+
+It supports up to 22 characters: letters, numbers, spaces, and `. + - *`
+
+Two more descriptor fields are available:
+
+* **Descriptor Company Phone Number** — the phone number shown on the customer's statement, exactly 10 digits, using only numbers, dashes, and parentheses
+* **Descriptor Company URL** — the URL shown on the customer's statement
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. A refund against an uncaptured authorization is sent as a void. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

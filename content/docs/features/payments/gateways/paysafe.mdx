@@ -1,0 +1,46 @@
+---
+title: "Paysafe"
+description: "Connect a Paysafe account as a bankcard gateway"
+---
+Paysafe is available as a bankcard gateway.
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Paysafe**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Username | Your Paysafe API user name |
+| Password | The password for that API user |
+| Account ID | The Paysafe account to process against |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on Paysafe.
+
+<Callout type="warn">
+
+Recurring transactions may not be supported for Apple Pay on Paysafe. Contact support to confirm before relying on it for subscriptions.
+
+</Callout>
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is not supported on Paysafe.
+
+## Statement Descriptor
+
+The descriptor field is **Merchant Descriptor**.
+
+It supports up to 20 characters: letters, numbers, spaces, and `*`
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. Refunds are issued as refunds, not voids. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

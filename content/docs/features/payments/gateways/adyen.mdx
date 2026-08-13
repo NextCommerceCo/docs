@@ -1,0 +1,51 @@
+---
+title: "Adyen"
+description: "Connect your own Adyen account as a bankcard gateway"
+---
+Adyen is available as a bankcard gateway for merchants with their own Adyen account.
+
+<Callout type="info">
+
+If you are looking for the payment account built into Next Commerce, see [NEXT Payments](/docs/features/payments/gateways/next-payments). This page covers connecting your own Adyen account.
+
+</Callout>
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Adyen**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| Username | Your Adyen API user name |
+| Password | The password for that API user |
+| Merchant Account | The Adyen merchant account to process against |
+| Subdomain | Your Adyen live endpoint prefix |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods such as Klarna and iDEAL are not available on a self-managed Adyen gateway. They require [NEXT Payments](/docs/features/payments/gateways/next-payments).
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Statement Descriptor
+
+The descriptor field is **Statement Descriptor**, set on your Adyen account rather than on the gateway.
+
+It supports up to 22 characters: letters, numbers, spaces, and `. , ' _ - ? + * /`
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. Refunds are issued as refunds, not voids. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

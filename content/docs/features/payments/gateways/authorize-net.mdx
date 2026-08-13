@@ -1,0 +1,37 @@
+---
+title: "Authorize.net"
+description: "Connect an Authorize.net account as a bankcard gateway"
+---
+Authorize.net is available as a bankcard gateway.
+
+## Setup
+
+* From **Settings > Payments**, choose **Add Gateway**
+* Select **Authorize.net**
+* Enter your credentials
+
+| Field | Description |
+| --- | --- |
+| API Login ID | The API Login ID from your Authorize.net account |
+| Transaction Key | The Transaction Key issued alongside it |
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+Alternative payment methods are not available on Authorize.net.
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is not supported on Authorize.net.
+
+## Statement Descriptor
+
+Authorize.net does not expose a statement descriptor setting on the gateway. The descriptor comes from your Authorize.net account.
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. A refund against an uncaptured authorization is sent as a void. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).

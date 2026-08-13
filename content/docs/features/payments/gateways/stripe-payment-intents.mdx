@@ -1,0 +1,80 @@
+---
+title: "Stripe Payment Intents"
+description: "Connect Stripe with OAuth or with your own API keys, and see which methods each path supports"
+---
+Stripe Payment Intents is available as a bankcard gateway. There are two ways to connect a Stripe account, and the choice determines which payment methods you can offer.
+
+## Setup
+
+From **Settings > Payments**, choose **Add Gateway** and select **Stripe**. The **Setup Stripe** dialog offers both paths.
+
+### Connect with Stripe Account
+
+The recommended path. Sign in to your Stripe account and authorize the connection in a few clicks. No credentials are entered by hand.
+
+Use this path unless your Stripe account is managed by another provider.
+
+### Enter API Keys Manually
+
+Use this path to connect a Stripe Connect account that belongs to another provider.
+
+| Field | Description |
+| --- | --- |
+| API Secret Key | The secret key for the account |
+| Stripe Account ID | The account ID of the connected account |
+
+Credentials are validated when you save. If the key cannot access the account you entered, the gateway is not created and an error is shown.
+
+A Stripe account already connected through **Connect with Stripe Account** cannot be added a second time manually.
+
+## Payment Methods
+
+Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
+
+* [Apple Pay](/docs/features/payments/apple-pay)
+* [Google Pay](/docs/features/payments/google-pay)
+
+These [alternative payment methods](/docs/features/payments/stripe-apms) are available on Stripe:
+
+| Method | Markets |
+| --- | --- |
+| Klarna | North America, Europe, and Oceania |
+| Affirm | United States and Canada, USD or CAD, minimum order 50.00 |
+| Stripe Link | All Stripe-supported markets |
+| iDEAL | Netherlands |
+| Bancontact | Belgium |
+| Sofort | Germany, Austria, Belgium, Netherlands, Spain |
+| Giropay | Germany |
+| SEPA Direct Debit | Eurozone |
+
+<Callout type="warn">
+
+**Alternative payment methods are not available on manually added accounts.** None of the methods above can be offered on an account added through **Enter API Keys Manually**. Your store's domains are also not registered with Stripe on that path.
+
+Connect with your Stripe account instead if you need any of these methods.
+
+</Callout>
+
+## 3DS2
+
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+
+You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+
+See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+
+## Additional Settings
+
+| Setting | What it does |
+| --- | --- |
+| Disable Reference Transactions on Recurring | Sends recurring transactions without a reference to the initial transaction |
+
+## Statement Descriptor
+
+The descriptor field is **Statement Descriptor**.
+
+It must be between 5 and 22 characters, using Latin letters, numbers, spaces, and `. -`. At least one letter is required.
+
+## Authorize & Capture
+
+Authorizations expire after 7 days. Refunds are issued as refunds, not voids. See [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments).
