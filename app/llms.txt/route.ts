@@ -1,29 +1,32 @@
 import { source } from '@/lib/source';
+import { siteConfig } from '@/lib/config';
 import { llms } from 'fumadocs-core/source/llms';
 
 export const dynamic = 'force-static';
 
-const BASE_URL = 'https://docs.nextcommerce.com';
-
 const generator = llms(source);
 
 export function GET() {
+  const index = generator
+    .index()
+    // The shared loader must keep site-relative URLs for the app's own routing,
+    // so the generated index is absolutized here instead — agents fetch this
+    // file standalone, with no base URL to resolve against.
+    .replaceAll('](/', `](${siteConfig.url}/`)
+    // llms.txt expects a single H1 (ours, below); demote the generator's root
+    // heading by position rather than by literal text.
+    .replace(/^# /m, '## ');
+
   const body = [
     '# Next Commerce Merchant Documentation',
     '',
     '> Merchant documentation for Next Commerce (NEXT), an ecommerce platform for direct-to-consumer brands and performance marketers — storefronts, orders, subscriptions, payments, fulfillment, apps, and analytics.',
     '',
-    'Related resources: [Developer Docs](https://developers.nextcommerce.com/) (APIs, themes, campaigns), [Platform Changelog](/changelog), [nextcommerce.com](https://nextcommerce.com) (product and pricing).',
+    `Related resources: [Developer Docs](https://developers.nextcommerce.com/) (APIs, themes, campaigns), [Platform Changelog](${siteConfig.url}/changelog), [nextcommerce.com](https://nextcommerce.com) (product and pricing).`,
     '',
-    generator.index(),
+    index,
     '',
-  ]
-    .join('\n')
-    // The generator emits site-relative links; agents fetch this file standalone,
-    // so links must resolve without a base URL.
-    .replaceAll('](/', `](${BASE_URL}/`)
-    // llms.txt expects a single H1; demote the generator's root heading.
-    .replace(/^# Docs$/m, '## Docs');
+  ].join('\n');
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
