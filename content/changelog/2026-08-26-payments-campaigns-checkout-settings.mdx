@@ -1,0 +1,35 @@
+---
+title: NEXT Risk Protect, campaigns on the Admin API, and Balance Summary statements
+publishedAt: "2026-08-26"
+tags:
+  - Payments
+  - Campaigns
+  - Checkout
+  - Settings
+summary: "NEXT Risk Protect is a new Payments view listing the orders blocked by fraud screening and the signals behind each block. Campaigns can now be managed over the Admin API, and Balance Summary reports export as a PDF statement…"
+---
+
+## New Features
+
+- NEXT Risk Protect is a new Payments view listing the orders fraud screening blocked and why, so you can tell whether good customers are being turned away.
+- Campaigns and their packages can now be managed over the [Admin API](https://developers.nextcommerce.com/docs/admin-api) with new `campaigns:read` and `campaigns:write` permissions, so you can edit campaigns in bulk.
+- Balance Summary reports can now be exported as a PDF statement for any date range, giving you a shareable record of account activity, fees and payouts.
+- The customers list now has a metrics bar with new, returning and total customers plus average lifetime value, so you can see acquisition trends without opening reports.
+- Affirm and Afterpay are now available on the Stripe gateway, giving shoppers a buy now, pay later option once you activate them in Stripe.
+
+## Improvements
+
+- A new Risk Tolerance setting under Payments sets the score at which orders are blocked, so you can tighten screening or loosen it to stop rejecting good customers.
+- [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now passes payment methods it doesn't recognise straight through to the orders API, so new methods work before an SDK release names them.
+- Campaigns Cart SDK no longer includes the FOMO popup, removed for compliance, so check your pages for `next.fomo()` calls before upgrading.
+- Long webhook names in the webhook list now truncate with the full name on hover, keeping the remaining columns visible.
+
+## Bug Fixes
+
+- Fixed an issue where the checkout loading overlay could disappear during a slow card payment, leading shoppers to submit a second time.
+- Fixed an issue where a voucher applied on one campaign carried into another campaign on the same domain and caused the order to be rejected.
+- Fixed an issue where `next.getCartData()` always returned an empty `cartLines` array.
+- Fixed an issue where orders shipping to Greece were rejected by address validation for a missing `state`.
+- Fixed an issue where reinstalling a previously deleted app failed with an App Instances error.
+- Fixed an issue where the payout link in payout emails opened a page with broken styling.
+- Fixed an issue where a failed processing fee was not retried.

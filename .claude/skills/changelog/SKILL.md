@@ -1,6 +1,6 @@
 ---
 name: changelog
-version: 0.4.0
+version: 0.7.0
 description: |
   Generate a new published changelog entry for docs.nextcommerce.com from
   GitHub Releases and Sprint-tagged issues across the NextCommerceCo
@@ -18,7 +18,7 @@ allowed-tools:
 
 # Changelog Generation
 
-Drafts a new MDX entry in `/home/alex/git/29next/docs/content/changelog/` for a specific sprint.
+Drafts a new MDX entry in `/home/alex/git/docs/content/changelog/` for a specific sprint.
 
 ## Always ask first
 
@@ -26,7 +26,14 @@ Drafts a new MDX entry in `/home/alex/git/29next/docs/content/changelog/` for a 
 
 ## Format
 
-Before drafting, **read 2-3 recent entries in `content/changelog/*.mdx`** to internalize the format and voice — those existing entries are the spec. The notes below are the non-obvious rules.
+Before drafting, read entries in `content/changelog/*.mdx` to internalize format and voice. The notes
+below are the non-obvious rules.
+
+**Do not calibrate on the newest entries.** Entries from 2026-06 onward were drafted with this skill
+and have drifted long: 26 to 34 words per bullet against a six-year hand-written norm of 20 to 23.
+Calibrating on them compounds the drift with every sprint. Read entries from **2022 through early
+2026** instead, where the voice is stable and hand-written. Good samples: `2022-09-19`, `2024-03-01`,
+`2025-02-05`.
 
 ### Filename
 
@@ -63,6 +70,13 @@ Three H2 sections, in this exact order. Skip a section entirely if empty.
 ```
 
 Hard rules:
+- **One sentence per bullet.** Not two, not a short one plus an elaboration. If an item genuinely
+  needs a second sentence, it is two items, or the second sentence is detail the reader doesn't need.
+- **20 to 23 words per bullet on average**, and no bullet past ~30. This is measured, not a feel:
+  see the self-check in step 11.
+- Detail lost to those two rules is a feature, not a cost. Merchants skim these. Configuration
+  specifics, per-country coverage lists, reproduction conditions, and background mechanics belong in
+  the docs page, not the changelog.
 - **Never include `## Internal`** — internal items don't get published.
 - No other heading levels. No images. No fenced code blocks. No MDX components.
 - Each section is a flat bullet list of full sentences ending in periods.
@@ -77,7 +91,27 @@ Hard rules:
 - `We've added <feature>...`
 - `We now support <feature>...`
 
-**Bug Fixes** — `Fixed an issue where...` / `Fixed an edge case error that occurred when...` / `We've fixed an issue where...`.
+**"benefit-led" is a requirement, not a flourish.** Every New Feature and Improvement bullet states
+the change *and* what the merchant gets from it. A bullet that stops at the change is a bad entry:
+
+> A new Risk Tolerance setting under Payments controls the risk score at which orders are blocked.
+
+That tells a merchant a setting exists and nothing about why they'd touch it. With the value clause:
+
+> A new Risk Tolerance setting under Payments sets the score at which orders are blocked, so you can
+> tighten screening or loosen it to stop rejecting good customers.
+
+**Take the value clause from the issue, don't invent it.** Nearly every issue opens with
+`As a <role>, I want <thing> so that <value>`. That `so that` is the merchant value, written by the
+person who scoped the work. Lift it and compress it. Where an issue has no user story, the exit
+criteria usually imply the value; if neither does, ask rather than inventing a benefit.
+
+This is the one thing that competes with the length rules. Resolve it by cutting mechanism, never by
+cutting value: drop the configuration detail, the country list, the field names, and keep the
+`so that`. If change plus value genuinely cannot fit one sentence under ~30 words, the bullet is
+covering two things and should be split.
+
+**Bug Fixes** — `Fixed an issue where...` / `Fixed an edge case error that occurred when...` / `We've fixed an issue where...`. These need no value clause; the value is that it stopped happening.
 
 Don't include severity, ticket number, repo name, version, sprint number, or engineer names.
 
@@ -144,6 +178,20 @@ If a new product repo starts cutting releases outside this list, ask before addi
 
 ## Process
 
+### 0. Read what's already published
+
+```bash
+ls /home/alex/git/docs/content/changelog/*.mdx | tail -3
+```
+
+Read the last two entries in full before gathering anything. This does two jobs: it is where you
+pick up the format and voice, and it is the only way to know what has already gone out.
+
+**Entries do not line up with sprint boundaries.** They are published on their own cadence, so the
+previous entry has usually already covered the first week or so of the sprint you are drafting. Note
+every item it published. Anything on that list is out, no matter how big it is, and the fact that a
+release inside your window shipped it is not an argument for including it again.
+
 ### 1. Ask which sprint
 
 Required. Sprint number like `207`, `208`. Don't proceed without it.
@@ -204,6 +252,15 @@ query($endCursor: String) {
 }'
 ```
 
+**The cursor variable must be named `$endCursor`.** `gh --paginate` only auto-injects a variable
+with that exact name. Name it `$cursor` and the variable is never bound, `after:` stays null, and gh
+refetches page 1 forever without ever erroring. Sanity check after running:
+
+```bash
+# should equal the number of pages, not 1
+jq -r '.data.organization.projectV2.items.pageInfo.endCursor' project-raw.json | sort -u | wc -l
+```
+
 Filter client-side:
 - Keep items where `fieldValueByName.title == "Sprint <N>"`.
 - Keep `Issue` content with `state == "CLOSED"`.
@@ -258,6 +315,38 @@ Drop items that:
 - Match merge-only entries: `Merge Develop to Master`, `Merge develop into main`, `Merge branch …`.
 - Are dependency bumps from Dependabot/Renovate (`Bump <pkg> from X to Y`, `chore(deps): …`).
 - Are pure refactors, test-only, or CI/infra changes with no merchant-visible behavior.
+- Are spikes (`[Spike] …`) — research, not shipped behavior.
+
+Then apply the three checks below. Each one has produced a wrong entry before, and none of them
+can be settled from the issue title.
+
+**Already published?** Check the item against the most recent published entries (see step 0). A
+sprint's first week routinely ships inside the *previous* entry's window. Anything already published
+is dropped, however prominent it looks.
+
+**Actually visible to merchants?** An issue can be closed, released, and still gated. Look for
+`Display for superuser only`, `staff only`, or a feature flag in the issue body, then confirm in the
+diff of its PR:
+
+```bash
+gh pr diff <num> -R NextCommerceCo/<repo> | grep -inE "is_superuser|is_staff|feature_flag|waffle"
+```
+
+A view gated on `is_superuser or is_staff` is not merchant-facing. Hold it until the gate is lifted,
+and tell the user you held it.
+
+**Actually finished?** Count the exit criteria. A large issue can be closed with most boxes still
+open, which usually means the plumbing landed and the merchant-facing surface did not:
+
+```bash
+gh issue view <num> -R NextCommerceCo/<repo> --json body | jq -r .body | grep -c '^- \[x\]'
+```
+
+Nothing checked on a long list means hold it, and say so.
+
+**Shipped after the window.** An issue tagged `Sprint = N` whose PR merged after the sprint's last
+release is done but not yet live. Include it, and flag it to the user so they can drop it if the
+entry should only cover what is already out.
 
 ### 8. Translate to merchant-facing prose
 
@@ -287,7 +376,7 @@ If an issue is genuinely too internal to translate (infrastructure-only, no merc
 
 ### 10. Write the MDX file
 
-Save to `/home/alex/git/29next/docs/content/changelog/<filename>.mdx`.
+Save to `/home/alex/git/docs/content/changelog/<filename>.mdx`.
 
 ### 11. Self-check
 
@@ -298,10 +387,36 @@ Save to `/home/alex/git/29next/docs/content/changelog/<filename>.mdx`.
 - [ ] Inline `code` used for all API field, event, and parameter names
 - [ ] `summary` ends with `…`
 - [ ] Tags came from your own topic analysis
+- [ ] No item duplicates one in the previous entry (step 0)
+- [ ] Nothing staff-gated or with its exit criteria still open (step 7)
+- [ ] Anything held back or shipped after the window was flagged to the user
+- [ ] Every New Feature / Improvement bullet has a value clause lifted from its issue's `so that`
+- [ ] One sentence per bullet, average 20-23 words, none past ~30:
+
+```bash
+f=content/changelog/<filename>.mdx
+n=$(grep -cE "^- " "$f"); w=$(grep -E "^- " "$f" | wc -w)
+echo "avg_words=$((w/n))"                                  # want 20-23
+grep -E "^- " "$f" | grep -nE "\. [A-Z\`]" || echo "1 sentence each"   # want no hits
+grep -E "^- " "$f" | awk '{print NF}' | sort -rn | head -1  # want <= 30
+```
+
+Compare against the hand-written norm before publishing:
+
+```bash
+for f in content/changelog/*.mdx; do n=$(grep -cE "^- " "$f"); [ "$n" -gt 0 ] && \
+  echo "$((`grep -E "^- " "$f" | wc -w`/n)) $f"; done | sort -n | tail -20
+```
 
 ## Cross-reference: sprint recap
 
-If a recap exists at `~/sync/Sprint Recaps/sprint-NNN-recap.md`, read it first — it has done a lot of the engineering-to-merchant translation. The recap is the better starting point than raw issues; raw issues are the fallback.
+Recaps live in two places, and neither has every sprint:
+
+```bash
+ls ~/sync/"Sprint Recaps"/sprint-*-recap.md /home/alex/Desktop/"Sprint Recaps"/*recap.md 2>/dev/null
+```
+
+If a recap exists for the sprint, read it first — it has done a lot of the engineering-to-merchant translation. The recap is the better starting point than raw issues; raw issues are the fallback.
 
 ## When unsure, ask
 

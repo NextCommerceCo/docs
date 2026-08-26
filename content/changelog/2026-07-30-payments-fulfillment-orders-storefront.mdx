@@ -33,5 +33,4 @@ summary: "NEXT Payments now includes a Balance Summary report of daily balance, 
 - Fixed an edge case where a card could be charged against a cart that had already been merged and emptied, producing a charge with no order; charges and order creation are now blocked on empty or merged carts.
 - Fixed an issue where editing an order could route products to a fulfillment location that didn't serve the shipping country; adding such a product now shows an error instead.
 - Fixed an issue where creating a user through the [Admin API](https://developers.nextcommerce.com/docs/admin-api) returned a server error when the request included duplicate addresses.
-- Fixed an issue where the `is_next_payment` flag was not set for alternative payment method orders and transactions, such as Klarna and TWINT, causing them to be misreported.
 - Fixed an issue where re-opening the connected Shopify app and re-entering credentials could uninstall the app and break its API key while Shop Sync still showed as connected.
