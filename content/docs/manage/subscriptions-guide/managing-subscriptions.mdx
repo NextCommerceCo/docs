@@ -12,7 +12,13 @@ To move several subscriptions to another payment gateway, open **Subscriptions**
 
 Before making the change, confirm that the destination gateway supports every selected subscription's currency. A subscription cannot move to a gateway that does not process its billing currency.
 
-The list action applies to the subscriptions selected on the current page. For a migration that spans many pages, use the [Bulk Subscription Updates skill](https://github.com/NextCommerceCo/skills/tree/main/next-bulk-subscription). Run its dry-run step first to check the proposed changes before updating live subscriptions.
+The list action applies to the subscriptions selected on the current page.
+
+<Callout type="info" title="Use an AI agent for larger migrations">
+
+For a migration that spans multiple pages, ask an AI agent with the NEXT skills package to run the [Bulk Subscription Updates skill](https://github.com/NextCommerceCo/skills/tree/main/next-bulk-subscription). This workflow runs outside the Dashboard and updates subscriptions through the Admin API. Have the agent run a dry run first, then review the proposed changes before approving updates to live subscriptions.
+
+</Callout>
 
 ## Subscription Details View
 
