@@ -1,0 +1,15 @@
+---
+title: "Fraud Screening"
+description: "Understand fraud screening, rejected checkouts, and risk review options"
+---
+## Fraud Screening
+
+Next Commerce screens checkout attempts for fraud before sending a payment to the gateway. An attempt that exceeds the platform-managed risk tolerance is rejected before a cart, order, or gateway transaction is created.
+
+This can look like a gateway problem because the customer sees a checkout error while the gateway has no matching transaction. Review these attempts under **Dashboard > MaxMind Logs**.
+
+## Risk Settings and Review
+
+The fraud threshold is managed by NEXT and is not configurable per store in the Dashboard. Next Commerce does not currently provide a manual review queue for attempts above the threshold.
+
+The MaxMind log identifies flagged attempts, but the Dashboard does not show the individual risk factors behind each score. If a legitimate customer is blocked, contact NEXT Support with the store, customer email address, and approximate attempt time. The team can review the risk signals and report a false positive.

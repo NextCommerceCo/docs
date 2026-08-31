@@ -6,6 +6,14 @@ description: "Manage individual subscriptions in your store"
 
 From the **Subscriptions** menu you can view and access all subscriptions, and perform certain management [**Actions**](/docs/manage/subscriptions-guide#subscriptions-list-actions) on one, or multiple subscriptions in bulk.
 
+## Change payment gateways in bulk
+
+To move several subscriptions to another payment gateway, open **Subscriptions**, select the subscriptions on the current page, then choose **Actions > Change Payment Gateway**. The new gateway will process each selected subscription's next renewal and all future renewals.
+
+Before making the change, confirm that the destination gateway supports every selected subscription's currency. A subscription cannot move to a gateway that does not process its billing currency.
+
+The list action applies to the subscriptions selected on the current page. For a migration that spans many pages, use the [Bulk Subscription Updates skill](https://github.com/NextCommerceCo/skills/tree/main/next-bulk-subscription). Run its dry-run step first to check the proposed changes before updating live subscriptions.
+
 ## Subscription Details View
 
 Click **View** to see the Subscription Details view, which displays an overview of the Subscription, the items contained in it, the orders history, any events that have taken place during its lifecycle on the Timeline, with available actions to manage it.
