@@ -11,6 +11,7 @@
     "external-payment-methods",
     "authorize-and-capture-payments",
     "disputes-guide",
+    "risk-screening",
     "block-lists",
     "payment-failure-cascading",
     "transaction-response-codes"

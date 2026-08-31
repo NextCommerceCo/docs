@@ -1,0 +1,32 @@
+---
+title: "Risk Screening"
+description: "Set your risk tolerance and review blocked checkout attempts"
+---
+## Risk Screening
+
+Next Commerce scores every checkout from 0 to 100 before payment is taken. If a checkout's score is above your store's risk tolerance, the payment is declined and no order is created.
+
+## Review Blocked Checkouts
+
+Go to **Payments > Risk** to review checkout attempts that were blocked by risk screening. The list shows each attempt's:
+
+* Risk review ID
+* Customer email address
+* Risk score
+* Amount
+* Card ending
+* IP country
+* Date and time
+
+Search the list by customer email address, then select **View** to open a risk review.
+
+The risk review compares the checkout's risk score with the store's risk tolerance and confirms why the attempt was blocked. **Risk Signals** shows the factors that raised or lowered the score. Select **All Reviewed Data** to inspect the available IP address, email, card, billing, and shipping details for the attempt.
+
+## Set the Risk Tolerance
+
+Go to **Settings > Payments**, then find the **Risk** section. Use the **Risk Tolerance** slider to choose a value from 10 to 90:
+
+* **10** is the strictest setting. Lower values block more potentially legitimate customers.
+* **90** is the most permissive setting. Higher values allow more potentially fraudulent checkouts through.
+
+Next Commerce recommends a risk tolerance of **50**. After choosing a value, select **Save Changes**.
