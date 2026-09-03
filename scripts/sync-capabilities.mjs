@@ -16,13 +16,17 @@ import { fileURLToPath } from 'node:url';
 const URL = process.env.CAPABILITY_MAP_URL ?? 'https://developers.nextcommerce.com/capabilities.json';
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'lib', 'capabilities.snapshot.json');
 
-const res = await fetch(URL, { headers: { 'user-agent': 'nextcommerce-docs-sync/1' } });
+const res = await fetch(URL, {
+  headers: { 'user-agent': 'nextcommerce-docs-sync/1' },
+  signal: AbortSignal.timeout(30_000),
+});
 if (!res.ok) {
   console.error(`sync-capabilities: ${URL} returned ${res.status}`);
   process.exit(1);
 }
 const map = await res.json();
-if (map.version !== 1 || !Array.isArray(map.capabilities)) {
+// Shape the site depends on: llms.txt renders bundles, the panel and checks read capabilities.
+if (map.version !== 1 || !Array.isArray(map.capabilities) || !Array.isArray(map.bundles) || !map.sources?.developer_docs) {
   console.error('sync-capabilities: response is not a version 1 capability map');
   process.exit(1);
 }

@@ -21,6 +21,7 @@ const byId = new Map(capabilities.map((c) => [c.id, c]));
 export function DeveloperResources({ ids }: { ids?: string[] }) {
   const matched = (ids ?? []).map((id) => byId.get(id)).filter((c): c is Capability => Boolean(c));
   if (matched.length === 0) return null;
+  const withCounts = matched.filter((c) => c.api_operations.length > 0 || c.webhooks.length > 0);
 
   return (
     <aside aria-label="Developer resources" className="mt-10 rounded-lg border bg-fd-card p-4 text-sm text-fd-card-foreground">
@@ -46,10 +47,9 @@ export function DeveloperResources({ ids }: { ids?: string[] }) {
           )),
         )}
       </ul>
-      {matched.some((c) => c.api_operations.length > 0 || c.webhooks.length > 0) && (
+      {withCounts.length > 0 && (
         <p className="mt-2 text-fd-muted-foreground">
-          {matched
-            .filter((c) => c.api_operations.length > 0 || c.webhooks.length > 0)
+          {withCounts
             .map((c) => {
               const parts: string[] = [];
               if (c.api_operations.length > 0) parts.push(`${c.api_operations.length} Admin API operations`);
