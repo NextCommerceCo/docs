@@ -19,6 +19,7 @@ jobs:
 
       - run: npm ci
 
+      # prebuild runs audit-developer-links, validate-links, and check-capabilities.
       - run: npm run build
 
       - run: npm run check-search-budget

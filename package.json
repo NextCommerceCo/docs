@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "npm run audit-developer-links && npm run validate-links",
+    "prebuild": "npm run audit-developer-links && npm run validate-links && npm run check-capabilities",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "validate-links": "node scripts/validate-links.mjs",
     "audit-developer-links": "node scripts/audit-developer-links.mjs",
-    "check-search-budget": "node scripts/check-search-budget.mjs"
+    "check-search-budget": "node scripts/check-search-budget.mjs",
+    "check-capabilities": "node scripts/check-capabilities.mjs",
+    "sync-capabilities": "node scripts/sync-capabilities.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.1",

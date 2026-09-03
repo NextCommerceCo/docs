@@ -1,6 +1,7 @@
 import { source } from '@/lib/source';
 import { siteConfig } from '@/lib/config';
 import { llms } from 'fumadocs-core/source/llms';
+import capabilityMap from '@/lib/capabilities.snapshot.json';
 
 export const dynamic = 'force-static';
 
@@ -27,6 +28,12 @@ export function GET() {
     'Legacy identifiers: Next Commerce was formerly 29 Next, and the platform still carries that name in its core technical identifiers: your account and store hostnames (`accounts.29next.com`, `{store}.29next.store`), API headers, and the API key namespace. These are current, in use on every store, and not scheduled to change. Use them exactly as written.',
     '',
     index,
+    '',
+    '## Capability map and domain bundles',
+    '',
+    `[capabilities.json](${capabilityMap.sources.developer_docs}/capabilities.json) ([readable](${capabilityMap.sources.developer_docs}/docs/capabilities)) links each platform capability to its merchant guides here, its developer guides, Admin API operations, webhook events, and skills under a stable id; pages on this site declare their ids in a \`capability_ids\` frontmatter field. Domain bundles are plain Markdown, one per domain:`,
+    '',
+    ...capabilityMap.bundles.map((b) => `- [${b.title}](${b.url}): ${b.intro}`),
     '',
   ].join('\n');
 
