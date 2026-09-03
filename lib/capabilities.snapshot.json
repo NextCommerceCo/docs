@@ -1,0 +1,1713 @@
+{
+  "$schema": "https://developers.nextcommerce.com/capabilities.schema.json",
+  "version": 1,
+  "generated_at": "2026-09-03",
+  "sources": {
+    "developer_docs": "https://developers.nextcommerce.com",
+    "merchant_docs": "https://docs.nextcommerce.com",
+    "changelog": "https://docs.nextcommerce.com/changelog",
+    "admin_api_spec": "https://developers.nextcommerce.com/api/admin/2024-04-01.yaml",
+    "admin_api_versions": [
+      "2023-02-10",
+      "2024-04-01",
+      "unstable"
+    ],
+    "stable_api_version": "2024-04-01"
+  },
+  "bundles": [
+    {
+      "id": "platform",
+      "title": "Platform overview",
+      "intro": "What Next Commerce is, how the two documentation sites divide the material, the Admin API versions, how to test safely, and the legacy identifiers an agent must not \"correct\". Start here before fetching a domain bundle.",
+      "url": "https://developers.nextcommerce.com/llms/platform.txt",
+      "capabilities": [
+        "admin-api",
+        "testing",
+        "legacy-identifiers",
+        "agent-skills"
+      ]
+    },
+    {
+      "id": "admin-api",
+      "title": "Admin API",
+      "intro": "The REST Admin API and its guides: orders and external checkout, subscriptions, fulfillment, and exports. Operations are listed by tag; the versioned OpenAPI file is the contract.",
+      "url": "https://developers.nextcommerce.com/llms/admin-api.txt",
+      "capabilities": [
+        "admin-api",
+        "orders",
+        "subscriptions",
+        "fulfillment"
+      ]
+    },
+    {
+      "id": "payments",
+      "title": "Payments and gateways",
+      "intro": "Gateways, payment methods, gateway selection on API-created orders, disputes, and the Test Gateway. NEXT Payments processing rates are not published.",
+      "url": "https://developers.nextcommerce.com/llms/payments.txt",
+      "capabilities": [
+        "payments-gateways",
+        "disputes",
+        "testing"
+      ]
+    },
+    {
+      "id": "campaigns",
+      "title": "Campaigns",
+      "intro": "Campaign funnels: the Campaigns API, Campaign Page Kit, starter templates, and the Admin API surface for campaigns and offers. Campaign orders are store orders.",
+      "url": "https://developers.nextcommerce.com/llms/campaigns.txt",
+      "capabilities": [
+        "campaigns"
+      ]
+    },
+    {
+      "id": "storefront",
+      "title": "Storefront",
+      "intro": "Storefront themes and Theme Kit, template objects, tags and filters, theme settings, the storefront GraphQL API, checkout links, and event tracking.",
+      "url": "https://developers.nextcommerce.com/llms/storefront.txt",
+      "capabilities": [
+        "storefront-themes",
+        "checkout-links"
+      ]
+    },
+    {
+      "id": "apps-webhooks",
+      "title": "Apps and webhooks",
+      "intro": "Building apps with OAuth, app manifests and settings, service integrations (fulfillment, disputes, attribution), and every webhook event with its payload.",
+      "url": "https://developers.nextcommerce.com/llms/apps-webhooks.txt",
+      "capabilities": [
+        "apps",
+        "webhooks"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "admin-api",
+      "title": "Admin API",
+      "summary": "The REST Admin API manages store resources: products, orders, customers, subscriptions, fulfillment, payments, campaigns, and more. Access is by OAuth app token against https://{store}.29next.store/api/admin/, with the version selected per request by the X-29next-API-Version header. 2024-04-01 is the stable version; 2023-02-10 is deprecated; unstable carries in-progress changes.",
+      "audiences": [
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/build-a-store/technical-settings/configure-webhooks",
+        "https://docs.nextcommerce.com/changelog"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/admin-api",
+        "https://developers.nextcommerce.com/docs/admin-api/permissions",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/exports"
+      ],
+      "api_operations": [
+        {
+          "id": "storeDetail",
+          "method": "GET",
+          "path": "/store/",
+          "summary": "Retrieve general business information and store settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/store/storeDetail"
+        },
+        {
+          "id": "exportsList",
+          "method": "GET",
+          "path": "/exports/",
+          "summary": "Retrieve a list of exports.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/exports/exportsList"
+        },
+        {
+          "id": "exportsCreate",
+          "method": "POST",
+          "path": "/exports/",
+          "summary": "Create a new export.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/exports/exportsCreate"
+        },
+        {
+          "id": "exportsTypesRetrieve",
+          "method": "GET",
+          "path": "/exports/types/",
+          "summary": "Retrieve all available export types.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/exports/exportsTypesRetrieve"
+        },
+        {
+          "id": "exportsRetrieve",
+          "method": "GET",
+          "path": "/exports/{id}/",
+          "summary": "Retrieve an export.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/exports/exportsRetrieve"
+        },
+        {
+          "id": "exportsDownloadRetrieve",
+          "method": "GET",
+          "path": "/exports/{id}/download/",
+          "summary": "Retrieve the download URL for a completed export file.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/exports/exportsDownloadRetrieve"
+        },
+        {
+          "id": "metadataList",
+          "method": "GET",
+          "path": "/metadata/",
+          "summary": "Retrieve a list of metadata definitions.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataList"
+        },
+        {
+          "id": "metadataCreate",
+          "method": "POST",
+          "path": "/metadata/",
+          "summary": "Create a new metadata definition.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataCreate"
+        },
+        {
+          "id": "metadataRetrieve",
+          "method": "GET",
+          "path": "/metadata/{id}/",
+          "summary": "Retrieve a metadata definition.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataRetrieve"
+        },
+        {
+          "id": "metadataUpdate",
+          "method": "PUT",
+          "path": "/metadata/{id}/",
+          "summary": "Update an existing metadata definition.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataUpdate"
+        },
+        {
+          "id": "metadataPartialUpdate",
+          "method": "PATCH",
+          "path": "/metadata/{id}/",
+          "summary": "Partial update an existing metadata definition.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataPartialUpdate"
+        },
+        {
+          "id": "metadataDestroy",
+          "method": "DELETE",
+          "path": "/metadata/{id}/",
+          "summary": "Delete an existing metadata definition.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/metadata/metadataDestroy"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "export.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/exports/export.created"
+        },
+        {
+          "event": "store.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/store/store.updated"
+        }
+      ],
+      "skills": [
+        {
+          "name": "next-ops-scan",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-ops-scan"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "The developer portal has no changelog of its own; version history is on the merchant changelog.",
+        "There is no consolidated migration guide between API versions yet."
+      ]
+    },
+    {
+      "id": "orders",
+      "title": "Orders and external checkout",
+      "summary": "Orders can be created through the Admin API from an external checkout (cart, order, upsell flow) and managed afterwards: fulfil, refund, capture, cancel, and edit. Campaign and storefront orders land in the same orders list.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/manage/orders/collect-payments-on-orders",
+        "https://docs.nextcommerce.com/docs/manage/orders/test-orders"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/order-management"
+      ],
+      "api_operations": [
+        {
+          "id": "ordersList",
+          "method": "GET",
+          "path": "/orders/",
+          "summary": "Retrieve a list of orders.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersList"
+        },
+        {
+          "id": "ordersCreate",
+          "method": "POST",
+          "path": "/orders/",
+          "summary": "Create a new order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersCreate"
+        },
+        {
+          "id": "ordersRetrieve",
+          "method": "GET",
+          "path": "/orders/{number}/",
+          "summary": "Retrieve a order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersRetrieve"
+        },
+        {
+          "id": "ordersUpdate",
+          "method": "PUT",
+          "path": "/orders/{number}/",
+          "summary": "Update an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersUpdate"
+        },
+        {
+          "id": "ordersPartialUpdate",
+          "method": "PATCH",
+          "path": "/orders/{number}/",
+          "summary": "Partial update an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersPartialUpdate"
+        },
+        {
+          "id": "ordersAddLineItemsCreate",
+          "method": "POST",
+          "path": "/orders/{number}/add-line-items/",
+          "summary": "Add additional items to the order and charge the initial order payment method.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersAddLineItemsCreate"
+        },
+        {
+          "id": "ordersCancelCreate",
+          "method": "POST",
+          "path": "/orders/{number}/cancel/",
+          "summary": "Cancel an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersCancelCreate"
+        },
+        {
+          "id": "ordersCaptureCreate",
+          "method": "POST",
+          "path": "/orders/{number}/capture/",
+          "summary": "Captures the total amount of the previously authorized funds for this order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersCaptureCreate"
+        },
+        {
+          "id": "ordersCollectPaymentCreate",
+          "method": "POST",
+          "path": "/orders/{number}/collect-payment/",
+          "summary": "Collect payment for an order outstanding balance on the order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersCollectPaymentCreate"
+        },
+        {
+          "id": "ordersFulfillmentOrdersRetrieve",
+          "method": "GET",
+          "path": "/orders/{number}/fulfillment-orders/",
+          "summary": "Retrieves a list of fulfillment orders for a specific order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentOrdersRetrieve"
+        },
+        {
+          "id": "ordersFulfillmentsRetrieve",
+          "method": "GET",
+          "path": "/orders/{number}/fulfillments/",
+          "summary": "Retrieve order fulfillments.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsRetrieve"
+        },
+        {
+          "id": "ordersFulfillmentsCreate",
+          "method": "POST",
+          "path": "/orders/{number}/fulfillments/",
+          "summary": "Add shipment order for separate line.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsCreate"
+        },
+        {
+          "id": "ordersFulfillmentRetrieve",
+          "method": "GET",
+          "path": "/orders/{number}/fulfillments/{fulfillmentId}/",
+          "summary": "Retrieve an existing order fulfillment.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentRetrieve"
+        },
+        {
+          "id": "ordersFulfillmentsEventsList",
+          "method": "GET",
+          "path": "/orders/{number}/fulfillments/{fulfillmentId}/events/",
+          "summary": "Retrieve a list of fulfillment events of a order fulfillment.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsEventsList"
+        },
+        {
+          "id": "ordersFulfillmentsEventsCreate",
+          "method": "POST",
+          "path": "/orders/{number}/fulfillments/{fulfillmentId}/events/",
+          "summary": "Create a fulfillment event in an existing order fulfillment.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsEventsCreate"
+        },
+        {
+          "id": "ordersFulfillmentsEventsRetrieve",
+          "method": "GET",
+          "path": "/orders/{number}/fulfillments/{fulfillmentId}/events/{eventId}/",
+          "summary": "Retrieve a fulfillment event.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsEventsRetrieve"
+        },
+        {
+          "id": "ordersFulfillmentsEventsDestroy",
+          "method": "DELETE",
+          "path": "/orders/{number}/fulfillments/{fulfillmentId}/events/{eventId}/",
+          "summary": "Delete an existing fulfillment event.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersFulfillmentsEventsDestroy"
+        },
+        {
+          "id": "ordersLinesCreate",
+          "method": "POST",
+          "path": "/orders/{number}/lines/",
+          "summary": "Add a new line item to an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersLinesCreate"
+        },
+        {
+          "id": "ordersLinesPartialUpdate",
+          "method": "PATCH",
+          "path": "/orders/{number}/lines/{lineId}/",
+          "summary": "Update an existing line item in an order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersLinesPartialUpdate"
+        },
+        {
+          "id": "ordersLinesDestroy",
+          "method": "DELETE",
+          "path": "/orders/{number}/lines/{lineId}/",
+          "summary": "Remove a line item from an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersLinesDestroy"
+        },
+        {
+          "id": "ordersMarkAsPaidCreate",
+          "method": "POST",
+          "path": "/orders/{number}/mark-as-paid/",
+          "summary": "Marks an order as paid.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersMarkAsPaidCreate"
+        },
+        {
+          "id": "ordersNotesList",
+          "method": "GET",
+          "path": "/orders/{number}/notes/",
+          "summary": "Retrieve a list of all order notes in an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersNotesList"
+        },
+        {
+          "id": "ordersNotesCreate",
+          "method": "POST",
+          "path": "/orders/{number}/notes/",
+          "summary": "Create an order note in an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersNotesCreate"
+        },
+        {
+          "id": "ordersRefundCreate",
+          "method": "POST",
+          "path": "/orders/{number}/refund/",
+          "summary": "Refund an existing order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersRefundCreate"
+        },
+        {
+          "id": "ordersRefundCalculateCreate",
+          "method": "POST",
+          "path": "/orders/{number}/refund/calculate/",
+          "summary": "",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/orders/ordersRefundCalculateCreate"
+        },
+        {
+          "id": "cartsList",
+          "method": "GET",
+          "path": "/carts/",
+          "summary": "Retrieve a list of all open carts.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/carts/cartsList"
+        },
+        {
+          "id": "cartsCreate",
+          "method": "POST",
+          "path": "/carts/",
+          "summary": "Create a new cart.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/carts/cartsCreate"
+        },
+        {
+          "id": "cartsRetrieve",
+          "method": "GET",
+          "path": "/carts/{id}/",
+          "summary": "Retrieve a cart.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/carts/cartsRetrieve"
+        },
+        {
+          "id": "cartsUpdate",
+          "method": "PUT",
+          "path": "/carts/{id}/",
+          "summary": "Update an existing cart.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/carts/cartsUpdate"
+        },
+        {
+          "id": "cartsDestroy",
+          "method": "DELETE",
+          "path": "/carts/{id}/",
+          "summary": "Delete an existing cart.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/carts/cartsDestroy"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "order.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/orders/order.created"
+        },
+        {
+          "event": "order.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/orders/order.updated"
+        },
+        {
+          "event": "cart.abandoned",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/carts/cart.abandoned"
+        }
+      ],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "subscriptions",
+      "title": "Subscriptions",
+      "summary": "Native recurring orders. Merchants configure phases, statuses, pause, cancellation paths, decline salvage, and account updater in the dashboard; developers create and manage subscriptions through the Admin API. Renewals are not a separate webhook: a renewal surfaces as transaction.created (and order.created) with billing_cycle set.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/managing-subscriptions",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/subscription-phases",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/subscription-statuses",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/subscription-settings",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/pause-subscriptions",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/cancellation-paths",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/decline-salvage",
+        "https://docs.nextcommerce.com/docs/manage/subscriptions-guide/account-updater",
+        "https://docs.nextcommerce.com/docs/analytics/subscription-performance"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/admin-api/guides/subscription-management"
+      ],
+      "api_operations": [
+        {
+          "id": "subscriptionsList",
+          "method": "GET",
+          "path": "/subscriptions/",
+          "summary": "Retrieve a list of subscriptions.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsList"
+        },
+        {
+          "id": "subscriptionsCreate",
+          "method": "POST",
+          "path": "/subscriptions/",
+          "summary": "Create a new subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsCreate"
+        },
+        {
+          "id": "subscriptionsRetrieve",
+          "method": "GET",
+          "path": "/subscriptions/{id}/",
+          "summary": "Retrieve a subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsRetrieve"
+        },
+        {
+          "id": "subscriptionsPartialUpdate",
+          "method": "PATCH",
+          "path": "/subscriptions/{id}/",
+          "summary": "Partial update an existing subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsPartialUpdate"
+        },
+        {
+          "id": "subscriptionsCancelCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/cancel/",
+          "summary": "Cancel an existing subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsCancelCreate"
+        },
+        {
+          "id": "subscriptionsLinesCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/lines/",
+          "summary": "Create a new subscription line.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsLinesCreate"
+        },
+        {
+          "id": "subscriptionsLinesUpdate",
+          "method": "PUT",
+          "path": "/subscriptions/{id}/lines/{lineId}/",
+          "summary": "Update an existing subscription line.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsLinesUpdate"
+        },
+        {
+          "id": "subscriptionsLinesDestroy",
+          "method": "DELETE",
+          "path": "/subscriptions/{id}/lines/{lineId}/",
+          "summary": "Delete a subscription line in an existing subscription line.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsLinesDestroy"
+        },
+        {
+          "id": "subscriptionsPauseCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/pause/",
+          "summary": "Pause an existing subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsPauseCreate"
+        },
+        {
+          "id": "subscriptionsRenewCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/renew/",
+          "summary": "Trigger a subscription renewal order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsRenewCreate"
+        },
+        {
+          "id": "subscriptionsResumeCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/resume/",
+          "summary": "Resume a paused subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsResumeCreate"
+        },
+        {
+          "id": "subscriptionsRetryCreate",
+          "method": "POST",
+          "path": "/subscriptions/{id}/retry/",
+          "summary": "Trigger a renewal payment retry for a subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsRetryCreate"
+        },
+        {
+          "id": "subscriptionsTransactionsList",
+          "method": "GET",
+          "path": "/subscriptions/{id}/transactions/",
+          "summary": "Retrieve a list of transactions in an existing subscription.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/subscriptions/subscriptionsTransactionsList"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "subscription.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/subscriptions/subscription.created"
+        },
+        {
+          "event": "subscription.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/subscriptions/subscription.updated"
+        },
+        {
+          "event": "transaction.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/transaction.created"
+        }
+      ],
+      "skills": [
+        {
+          "name": "next-bulk-subscription",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-subscription"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "There is no subscription.renewed event. Detect renewals from transaction.created with billing_cycle."
+      ]
+    },
+    {
+      "id": "payments-gateways",
+      "title": "Payments and gateways",
+      "summary": "Merchants add bankcard gateways and alternative payment methods under Settings > Payments and group them for routing and failure cascading. Developers choose a gateway on an API-created order with payment_details.payment_gateway or payment_gateway_group, and integrate each payment method through its guide. NEXT Payments is the platform's own processing service.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/features/payments",
+        "https://docs.nextcommerce.com/docs/start-here/get-started/add-payment-providers",
+        "https://docs.nextcommerce.com/docs/features/payments/gateways/next-payments",
+        "https://docs.nextcommerce.com/docs/features/payments/payment-failure-cascading",
+        "https://docs.nextcommerce.com/docs/features/payments/authorize-and-capture-payments",
+        "https://docs.nextcommerce.com/docs/features/payments/3ds2-payments",
+        "https://docs.nextcommerce.com/docs/features/payments/external-payment-methods",
+        "https://docs.nextcommerce.com/docs/features/payments/risk-screening",
+        "https://docs.nextcommerce.com/docs/features/payments/transaction-response-codes"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/bankcard",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/apple-pay",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/google-pay",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/paypal",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/klarna",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/affirm",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/afterpay",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/link",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/bancontact",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/ideal",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/sepa-debit",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/swish",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/payment-methods/twint"
+      ],
+      "api_operations": [
+        {
+          "id": "disputesList",
+          "method": "GET",
+          "path": "/disputes/",
+          "summary": "Retrieve a list of disputes.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesList"
+        },
+        {
+          "id": "disputesCreate",
+          "method": "POST",
+          "path": "/disputes/",
+          "summary": "Create a new dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesCreate"
+        },
+        {
+          "id": "disputesRetrieve",
+          "method": "GET",
+          "path": "/disputes/{id}/",
+          "summary": "Retrieve a dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesRetrieve"
+        },
+        {
+          "id": "disputesUpdate",
+          "method": "PUT",
+          "path": "/disputes/{id}/",
+          "summary": "Update an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesUpdate"
+        },
+        {
+          "id": "disputesPartialUpdate",
+          "method": "PATCH",
+          "path": "/disputes/{id}/",
+          "summary": "Partial update an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesPartialUpdate"
+        },
+        {
+          "id": "disputesDestroy",
+          "method": "DELETE",
+          "path": "/disputes/{id}/",
+          "summary": "Delete an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesDestroy"
+        },
+        {
+          "id": "disputesNotesList",
+          "method": "GET",
+          "path": "/disputes/{id}/notes/",
+          "summary": "Retrieve a list of all dispute notes in an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesList"
+        },
+        {
+          "id": "disputesNotesCreate",
+          "method": "POST",
+          "path": "/disputes/{id}/notes/",
+          "summary": "Create an dispute note in an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesCreate"
+        },
+        {
+          "id": "disputesResolveCreate",
+          "method": "POST",
+          "path": "/disputes/{id}/resolve/",
+          "summary": "Resolve a dispute with a resolution and optional external refund.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesResolveCreate"
+        },
+        {
+          "id": "gatewayGroupsList",
+          "method": "GET",
+          "path": "/gateway-groups/",
+          "summary": "Retrieve a list of gatway groups.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/gatewayGroupsList"
+        },
+        {
+          "id": "gatewayGroupsRetrieve",
+          "method": "GET",
+          "path": "/gateway-groups/{id}/",
+          "summary": "Retrieve a gatway group.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/gatewayGroupsRetrieve"
+        },
+        {
+          "id": "gatewaysList",
+          "method": "GET",
+          "path": "/gateways/",
+          "summary": "Retrieve a list of gateways.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/gatewaysList"
+        },
+        {
+          "id": "gatewaysRetrieve",
+          "method": "GET",
+          "path": "/gateways/{id}/",
+          "summary": "Retrieve a gateway.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/gatewaysRetrieve"
+        },
+        {
+          "id": "transactionsList",
+          "method": "GET",
+          "path": "/transactions/",
+          "summary": "Retrieve a list of transactions.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/transactionsList"
+        },
+        {
+          "id": "transactionsVerifyCreate",
+          "method": "POST",
+          "path": "/transactions/verify/",
+          "summary": "Verify a card token.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/transactionsVerifyCreate"
+        },
+        {
+          "id": "transactionsRetrieve",
+          "method": "GET",
+          "path": "/transactions/{id}/",
+          "summary": "Retrieve a transaction.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/transactionsRetrieve"
+        },
+        {
+          "id": "transactionsCaptureCreate",
+          "method": "POST",
+          "path": "/transactions/{id}/capture/",
+          "summary": "Capture an existing transaction.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/transactionsCaptureCreate"
+        },
+        {
+          "id": "transactionsRefundCreate",
+          "method": "POST",
+          "path": "/transactions/{id}/refund/",
+          "summary": "Refund an existing transaction.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/transactionsRefundCreate"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "gateway.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/gateway.created"
+        },
+        {
+          "event": "gateway.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/gateway.updated"
+        },
+        {
+          "event": "transaction.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/transaction.created"
+        },
+        {
+          "event": "transaction.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/transaction.updated"
+        }
+      ],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "NEXT Payments processing rates are not published in the documentation; they are quoted by sales."
+      ]
+    },
+    {
+      "id": "disputes",
+      "title": "Disputes",
+      "summary": "Disputes are chargebacks. Merchants review and respond to them in the dashboard and report on them; apps can act as a dispute service and receive dispute events.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/features/payments/disputes-guide",
+        "https://docs.nextcommerce.com/docs/analytics/disputes-reports"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/apps/guides/dispute-service"
+      ],
+      "api_operations": [],
+      "webhooks": [
+        {
+          "event": "dispute.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/dispute.created"
+        },
+        {
+          "event": "dispute.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/dispute.updated"
+        }
+      ],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "fulfillment",
+      "title": "Fulfillment",
+      "summary": "Orders are fulfilled through locations, fulfillment statuses, and location-based routing. Apps can register as a fulfillment service and receive assigned fulfillment orders through the Admin API.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/features/fulfillment-guide",
+        "https://docs.nextcommerce.com/docs/features/fulfillment-guide/fulfillment-statuses",
+        "https://docs.nextcommerce.com/docs/features/fulfillment-guide/location-based-routing",
+        "https://docs.nextcommerce.com/docs/features/fulfillment-guide/advanced-settings",
+        "https://docs.nextcommerce.com/docs/start-here/get-started/fulfillment-settings"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/apps/guides/fulfillment-service"
+      ],
+      "api_operations": [
+        {
+          "id": "assignedFulfillmentOrdersList",
+          "method": "GET",
+          "path": "/assigned-fulfillment-orders/",
+          "summary": "Retrieve assigned fulfillment order requests",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/assignedFulfillmentOrdersList"
+        },
+        {
+          "id": "fulfillmentOrdersList",
+          "method": "GET",
+          "path": "/fulfillment-orders/",
+          "summary": "Retrieve a list of fulfillment orders.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersList"
+        },
+        {
+          "id": "fulfillmentOrdersRetrieve",
+          "method": "GET",
+          "path": "/fulfillment-orders/{id}/",
+          "summary": "Retrieve a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersRetrieve"
+        },
+        {
+          "id": "availableLocationsRetrieve",
+          "method": "GET",
+          "path": "/fulfillment-orders/{id}/available-locations/",
+          "summary": "Retrieve available locations for a Fulfillment Order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/availableLocationsRetrieve"
+        },
+        {
+          "id": "fulfillmentOrdersCancel",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/cancel/",
+          "summary": "Cancel fulfillment order",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersCancel"
+        },
+        {
+          "id": "cancellationRequestSend",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/cancellation-request/",
+          "summary": "Sends a fulfillment cancellation request to the fulfillment service.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/cancellationRequestSend"
+        },
+        {
+          "id": "cancellationRequestAccept",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/cancellation-request/accept/",
+          "summary": "Accepts a fulfillment cancellation request sent to a fulfillment service for a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/cancellationRequestAccept"
+        },
+        {
+          "id": "cancellationRequestCancel",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/cancellation-request/cancel/",
+          "summary": "Cancel a requested fulfillment cancellation request.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/cancellationRequestCancel"
+        },
+        {
+          "id": "cancellationRequestReject",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/cancellation-request/reject/",
+          "summary": "Rejects a fulfillment cancellation request sent to a fulfillment service for a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/cancellationRequestReject"
+        },
+        {
+          "id": "fulfillmentOrdersClose",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/close/",
+          "summary": "Marks an processing fulfillment order as incomplete",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersClose"
+        },
+        {
+          "id": "fulfillmentRequestSend",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/fulfillment-request/",
+          "summary": "Sends a fulfillment request to the fulfillment service of a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentRequestSend"
+        },
+        {
+          "id": "fulfillmentRequestAccept",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/fulfillment-request/accept/",
+          "summary": "Accepts a fulfillment request sent to a fulfillment service for a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentRequestAccept"
+        },
+        {
+          "id": "fulfillmentRequestCancel",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/fulfillment-request/cancel/",
+          "summary": "Cancel Requested Fulfillment Order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentRequestCancel"
+        },
+        {
+          "id": "fulfillmentRequestReject",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/fulfillment-request/reject/",
+          "summary": "Rejects a fulfillment request sent to a fulfillment service for a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentRequestReject"
+        },
+        {
+          "id": "fulfillmentsRetrieve",
+          "method": "GET",
+          "path": "/fulfillment-orders/{id}/fulfillments/",
+          "summary": "Retrieve Fulfillments for a Fulfillment Order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentsRetrieve"
+        },
+        {
+          "id": "fulfillmentsCreate",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/fulfillments/",
+          "summary": "Create Fulfillments for a Fulfillment Order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentsCreate"
+        },
+        {
+          "id": "fulfillmentOrdersHold",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/hold/",
+          "summary": "Hold Fulfillment.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersHold"
+        },
+        {
+          "id": "fulfillmentOrdersMove",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/move/",
+          "summary": "Move location of a fulfillment order.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersMove"
+        },
+        {
+          "id": "fulfillmentOrdersReleaseHold",
+          "method": "POST",
+          "path": "/fulfillment-orders/{id}/release-hold/",
+          "summary": "Release On Hold Fulfillment.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/fulfillmentOrdersReleaseHold"
+        },
+        {
+          "id": "locationsList",
+          "method": "GET",
+          "path": "/locations/",
+          "summary": "Retrieve a list of all configured fulfillment locations.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/locationsList"
+        },
+        {
+          "id": "locationsCreate",
+          "method": "POST",
+          "path": "/locations/",
+          "summary": "Create a new fulfillment location.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/locationsCreate"
+        },
+        {
+          "id": "locationsRetrieve",
+          "method": "GET",
+          "path": "/locations/{id}/",
+          "summary": "Retrieve an existing fulfillment location.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/locationsRetrieve"
+        },
+        {
+          "id": "locationsUpdate",
+          "method": "PUT",
+          "path": "/locations/{id}/",
+          "summary": "Update an existing fulfillment location.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/locationsUpdate"
+        },
+        {
+          "id": "locationsDestroy",
+          "method": "DELETE",
+          "path": "/locations/{id}/",
+          "summary": "",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/locationsDestroy"
+        },
+        {
+          "id": "shippingMethodsList",
+          "method": "GET",
+          "path": "/shipping-methods/",
+          "summary": "Retrieve a list of all configured shipping methods.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/shippingMethodsList"
+        },
+        {
+          "id": "shippingMethodsRetrieve",
+          "method": "GET",
+          "path": "/shipping-methods/{id}/",
+          "summary": "Retrieve an existing shipping method.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/fulfillment/shippingMethodsRetrieve"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "fulfillment.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/fulfillment/fulfillment.created"
+        },
+        {
+          "event": "fulfillment.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/fulfillment/fulfillment.updated"
+        }
+      ],
+      "skills": [
+        {
+          "name": "next-bulk-fulfill",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-fulfill"
+        },
+        {
+          "name": "next-bulk-move",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-move"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "campaigns",
+      "title": "Campaigns",
+      "summary": "Campaigns are custom checkout funnels (landing, checkout, upsell, receipt pages) backed by the CORS-enabled Campaigns API, built with the Campaign Page Kit and starter templates. A campaign's checkout is separate from the storefront checkout, but its orders are ordinary store orders that share the orders list, inventory, and subscriptions.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/apps/campaigns-app",
+        "https://docs.nextcommerce.com/docs/apps/campaigns-app/build-campaign-packages",
+        "https://docs.nextcommerce.com/docs/apps/campaigns-app/campaigns-offers-and-discounts",
+        "https://docs.nextcommerce.com/docs/apps/campaigns-app/campaign-analytics"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/campaigns",
+        "https://developers.nextcommerce.com/docs/campaigns/page-kit",
+        "https://developers.nextcommerce.com/docs/campaigns/templates",
+        "https://developers.nextcommerce.com/docs/campaigns/api",
+        "https://developers.nextcommerce.com/docs/campaigns/admin-api"
+      ],
+      "api_operations": [
+        {
+          "id": "campaignsList",
+          "method": "GET",
+          "path": "/campaigns/",
+          "summary": "List every campaign belonging to the store.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsList"
+        },
+        {
+          "id": "campaignsCreate",
+          "method": "POST",
+          "path": "/campaigns/",
+          "summary": "Create a campaign's settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsCreate"
+        },
+        {
+          "id": "campaignsRetrieve",
+          "method": "GET",
+          "path": "/campaigns/{id}/",
+          "summary": "Retrieve a campaign's settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsRetrieve"
+        },
+        {
+          "id": "campaignsPartialUpdate",
+          "method": "PATCH",
+          "path": "/campaigns/{id}/",
+          "summary": "Partial update a campaign's settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPartialUpdate"
+        },
+        {
+          "id": "campaignsDestroy",
+          "method": "DELETE",
+          "path": "/campaigns/{id}/",
+          "summary": "Delete a campaign's settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsDestroy"
+        },
+        {
+          "id": "campaignsOffersList",
+          "method": "GET",
+          "path": "/campaigns/{id}/offers/",
+          "summary": "List every offer on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsOffersList"
+        },
+        {
+          "id": "campaignsOffersCreate",
+          "method": "POST",
+          "path": "/campaigns/{id}/offers/",
+          "summary": "Create an offer on the campaign, with its condition and benefit.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsOffersCreate"
+        },
+        {
+          "id": "campaignsOffersRetrieve",
+          "method": "GET",
+          "path": "/campaigns/{id}/offers/{offerId}/",
+          "summary": "Retrieve an offer on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsOffersRetrieve"
+        },
+        {
+          "id": "campaignsOffersPartialUpdate",
+          "method": "PATCH",
+          "path": "/campaigns/{id}/offers/{offerId}/",
+          "summary": "Partially update an offer on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsOffersPartialUpdate"
+        },
+        {
+          "id": "campaignsOffersDestroy",
+          "method": "DELETE",
+          "path": "/campaigns/{id}/offers/{offerId}/",
+          "summary": "Delete an offer on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsOffersDestroy"
+        },
+        {
+          "id": "campaignsPackagesList",
+          "method": "GET",
+          "path": "/campaigns/{id}/packages/",
+          "summary": "List every packages on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPackagesList"
+        },
+        {
+          "id": "campaignsPackagesCreate",
+          "method": "POST",
+          "path": "/campaigns/{id}/packages/",
+          "summary": "Create a package on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPackagesCreate"
+        },
+        {
+          "id": "campaignsPackagesRetrieve",
+          "method": "GET",
+          "path": "/campaigns/{id}/packages/{packageId}/",
+          "summary": "Retrieve a package on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPackagesRetrieve"
+        },
+        {
+          "id": "campaignsPackagesPartialUpdate",
+          "method": "PATCH",
+          "path": "/campaigns/{id}/packages/{packageId}/",
+          "summary": "Partially update a package on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPackagesPartialUpdate"
+        },
+        {
+          "id": "campaignsPackagesDestroy",
+          "method": "DELETE",
+          "path": "/campaigns/{id}/packages/{packageId}/",
+          "summary": "Delete a package on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsPackagesDestroy"
+        },
+        {
+          "id": "campaignsShippingMethodsList",
+          "method": "GET",
+          "path": "/campaigns/{id}/shipping-methods/",
+          "summary": "List every shipping method on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsShippingMethodsList"
+        },
+        {
+          "id": "campaignsShippingMethodsCreate",
+          "method": "POST",
+          "path": "/campaigns/{id}/shipping-methods/",
+          "summary": "Create a shipping method on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsShippingMethodsCreate"
+        },
+        {
+          "id": "campaignsShippingMethodsRetrieve",
+          "method": "GET",
+          "path": "/campaigns/{id}/shipping-methods/{shippingMethodId}/",
+          "summary": "Retrieve a shipping method on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsShippingMethodsRetrieve"
+        },
+        {
+          "id": "campaignsShippingMethodsPartialUpdate",
+          "method": "PATCH",
+          "path": "/campaigns/{id}/shipping-methods/{shippingMethodId}/",
+          "summary": "Partially update a shipping method on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsShippingMethodsPartialUpdate"
+        },
+        {
+          "id": "campaignsShippingMethodsDestroy",
+          "method": "DELETE",
+          "path": "/campaigns/{id}/shipping-methods/{shippingMethodId}/",
+          "summary": "Delete a shipping method on the campaign.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/campaigns/campaignsShippingMethodsDestroy"
+        }
+      ],
+      "webhooks": [],
+      "skills": [
+        {
+          "name": "next-campaigns-setup",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-campaigns-setup"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "storefront-themes",
+      "title": "Storefront themes",
+      "summary": "The hosted storefront is rendered from a theme built with Django Template Language. Merchants install and customise themes under Storefront > Themes; developers build themes locally with Theme Kit (the ntk CLI: ntk pull, ntk push, ntk watch), starting from the Spark starter theme, and query storefront data through the GraphQL API.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/build-a-store/storefront",
+        "https://docs.nextcommerce.com/docs/build-a-store/storefront/themes",
+        "https://docs.nextcommerce.com/docs/build-a-store/storefront/pages-and-assets"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/storefront",
+        "https://developers.nextcommerce.com/docs/storefront/themes",
+        "https://developers.nextcommerce.com/docs/storefront/themes/theme-kit",
+        "https://developers.nextcommerce.com/docs/storefront/themes/settings",
+        "https://developers.nextcommerce.com/docs/storefront/themes/translations",
+        "https://developers.nextcommerce.com/docs/storefront/themes/cdn-and-caching",
+        "https://developers.nextcommerce.com/docs/storefront/themes/templates",
+        "https://developers.nextcommerce.com/docs/storefront/themes/templates/objects",
+        "https://developers.nextcommerce.com/docs/storefront/themes/templates/tags",
+        "https://developers.nextcommerce.com/docs/storefront/themes/templates/filters",
+        "https://developers.nextcommerce.com/docs/storefront/themes/templates/urls-and-template-paths",
+        "https://developers.nextcommerce.com/docs/storefront/themes/guides/custom-page-templates",
+        "https://developers.nextcommerce.com/docs/storefront/themes/guides/custom-product-templates",
+        "https://developers.nextcommerce.com/docs/storefront/themes/guides/product-variants",
+        "https://developers.nextcommerce.com/docs/storefront/themes/guides/product-metadata",
+        "https://developers.nextcommerce.com/docs/storefront/themes/guides/personalized-products",
+        "https://developers.nextcommerce.com/docs/storefront/graphql",
+        "https://developers.nextcommerce.com/docs/storefront/event-tracking"
+      ],
+      "api_operations": [
+        {
+          "id": "pagesList",
+          "method": "GET",
+          "path": "/pages/",
+          "summary": "Retrieve a list of pages.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesList"
+        },
+        {
+          "id": "pagesCreate",
+          "method": "POST",
+          "path": "/pages/",
+          "summary": "Create a new page.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesCreate"
+        },
+        {
+          "id": "pagesRetrieve",
+          "method": "GET",
+          "path": "/pages/{id}/",
+          "summary": "Retrieve a page.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesRetrieve"
+        },
+        {
+          "id": "pagesUpdate",
+          "method": "PUT",
+          "path": "/pages/{id}/",
+          "summary": "Update an existing page.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesUpdate"
+        },
+        {
+          "id": "pagesPartialUpdate",
+          "method": "PATCH",
+          "path": "/pages/{id}/",
+          "summary": "Partially update an existing page.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesPartialUpdate"
+        },
+        {
+          "id": "pagesDestroy",
+          "method": "DELETE",
+          "path": "/pages/{id}/",
+          "summary": "Delete an existing page.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/pagesDestroy"
+        },
+        {
+          "id": "themesList",
+          "method": "GET",
+          "path": "/themes/",
+          "summary": "Retrieve a list of themes.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesList"
+        },
+        {
+          "id": "themesCreate",
+          "method": "POST",
+          "path": "/themes/",
+          "summary": "Create a new theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesCreate"
+        },
+        {
+          "id": "themesRetrieve",
+          "method": "GET",
+          "path": "/themes/{id}/",
+          "summary": "Retrieve a theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesRetrieve"
+        },
+        {
+          "id": "themesDestroy",
+          "method": "DELETE",
+          "path": "/themes/{id}/",
+          "summary": "Delete an existing theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesDestroy"
+        },
+        {
+          "id": "themesTemplatesRetrieve",
+          "method": "GET",
+          "path": "/themes/{id}/templates/",
+          "summary": "Retrieve a list of templates in an existing theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesTemplatesRetrieve"
+        },
+        {
+          "id": "themesTemplatesCreate",
+          "method": "POST",
+          "path": "/themes/{id}/templates/",
+          "summary": "Create a new template in an existing theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesTemplatesCreate"
+        },
+        {
+          "id": "themesTemplatesDestroy",
+          "method": "DELETE",
+          "path": "/themes/{id}/templates/",
+          "summary": "Delete an existing template in an existing theme.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/storefront/themesTemplatesDestroy"
+        }
+      ],
+      "webhooks": [],
+      "skills": [
+        {
+          "name": "next-theme-dev",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-theme-dev"
+        },
+        {
+          "name": "next-theme-figma",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-theme-figma"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "checkout-links",
+      "title": "Checkout links",
+      "summary": "Prebuilt URLs that open the storefront checkout with products, quantities, and attribution already applied, for use from ads, emails, and campaign pages.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/features/offers/shareable-coupon-links"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/storefront/checkout-links"
+      ],
+      "api_operations": [],
+      "webhooks": [],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "apps",
+      "title": "Apps and OAuth",
+      "summary": "Apps extend a store through OAuth, a manifest, settings, snippets, and storefront extensions, and can act as fulfillment, dispute, or marketing-attribution services. Merchants install apps from the dashboard; App Kit is the developer toolchain.",
+      "audiences": [
+        "developer"
+      ],
+      "operator_docs": [],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/apps",
+        "https://developers.nextcommerce.com/docs/apps/app-development-flow",
+        "https://developers.nextcommerce.com/docs/apps/app-kit",
+        "https://developers.nextcommerce.com/docs/apps/manifest",
+        "https://developers.nextcommerce.com/docs/apps/settings",
+        "https://developers.nextcommerce.com/docs/apps/snippets",
+        "https://developers.nextcommerce.com/docs/apps/assets",
+        "https://developers.nextcommerce.com/docs/apps/review",
+        "https://developers.nextcommerce.com/docs/apps/event-tracking",
+        "https://developers.nextcommerce.com/docs/apps/oauth",
+        "https://developers.nextcommerce.com/docs/apps/oauth/getting-started",
+        "https://developers.nextcommerce.com/docs/apps/oauth/install-flows",
+        "https://developers.nextcommerce.com/docs/apps/oauth/session-auth",
+        "https://developers.nextcommerce.com/docs/apps/guides/server-to-server-apps",
+        "https://developers.nextcommerce.com/docs/apps/guides/storefront-extension",
+        "https://developers.nextcommerce.com/docs/apps/guides/marketing-attribution"
+      ],
+      "api_operations": [
+        {
+          "id": "appsRetrieve",
+          "method": "GET",
+          "path": "/apps/{clientId}/",
+          "summary": "Retrieve a object of app.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/apps/appsRetrieve"
+        },
+        {
+          "id": "appsSettingsRetrieve",
+          "method": "GET",
+          "path": "/apps/{clientId}/settings/",
+          "summary": "Retrieve a object of all app settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/apps/appsSettingsRetrieve"
+        },
+        {
+          "id": "appsSettingsUpdate",
+          "method": "PUT",
+          "path": "/apps/{clientId}/settings/",
+          "summary": "Update an existing app settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/apps/appsSettingsUpdate"
+        },
+        {
+          "id": "appsSettingsPartialUpdate",
+          "method": "PATCH",
+          "path": "/apps/{clientId}/settings/",
+          "summary": "Partially update an existing app settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/apps/appsSettingsPartialUpdate"
+        },
+        {
+          "id": "appsSettingsDestroy",
+          "method": "DELETE",
+          "path": "/apps/{clientId}/settings/",
+          "summary": "Delete an existing app settings.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/apps/appsSettingsDestroy"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "app.uninstalled",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/apps/app.uninstalled"
+        }
+      ],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "The merchant site documents individual apps (Klaviyo, ShipStation, Gorgias, and others) under /docs/apps/<app>, not app installation in general."
+      ]
+    },
+    {
+      "id": "webhooks",
+      "title": "Webhooks",
+      "summary": "Stores send signed JSON webhooks for events on orders, customers, subscriptions, transactions, disputes, fulfillment, products, gateways, tickets, exports, apps, and the store itself. Merchants configure endpoints in the dashboard; developers manage them through the Admin API and verify the X-29Next-Signature header.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/build-a-store/technical-settings/configure-webhooks"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/webhooks"
+      ],
+      "api_operations": [
+        {
+          "id": "webhooksList",
+          "method": "GET",
+          "path": "/webhooks/",
+          "summary": "Retrieve a list of webhooks.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksList"
+        },
+        {
+          "id": "webhooksCreate",
+          "method": "POST",
+          "path": "/webhooks/",
+          "summary": "Create a new webhook.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksCreate"
+        },
+        {
+          "id": "webhooksRetrieve",
+          "method": "GET",
+          "path": "/webhooks/{id}/",
+          "summary": "Retrieve a webhook.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksRetrieve"
+        },
+        {
+          "id": "webhooksUpdate",
+          "method": "PUT",
+          "path": "/webhooks/{id}/",
+          "summary": "Update an existing webhook.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksUpdate"
+        },
+        {
+          "id": "webhooksPartialUpdate",
+          "method": "PATCH",
+          "path": "/webhooks/{id}/",
+          "summary": "Partial update an existing webhook.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksPartialUpdate"
+        },
+        {
+          "id": "webhooksDestroy",
+          "method": "DELETE",
+          "path": "/webhooks/{id}/",
+          "summary": "Delete an existing webhook.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/webhooks/webhooksDestroy"
+        }
+      ],
+      "webhooks": [
+        {
+          "event": "app.uninstalled",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/apps/app.uninstalled"
+        },
+        {
+          "event": "cart.abandoned",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/carts/cart.abandoned"
+        },
+        {
+          "event": "customer.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/customers/customer.created"
+        },
+        {
+          "event": "customer.redacted",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/customers/customer.redacted"
+        },
+        {
+          "event": "customer.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/customers/customer.updated"
+        },
+        {
+          "event": "dispute.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/dispute.created"
+        },
+        {
+          "event": "dispute.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/dispute.updated"
+        },
+        {
+          "event": "export.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/exports/export.created"
+        },
+        {
+          "event": "fulfillment.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/fulfillment/fulfillment.created"
+        },
+        {
+          "event": "fulfillment.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/fulfillment/fulfillment.updated"
+        },
+        {
+          "event": "gateway.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/gateway.created"
+        },
+        {
+          "event": "gateway.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/gateway.updated"
+        },
+        {
+          "event": "order.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/orders/order.created"
+        },
+        {
+          "event": "order.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/orders/order.updated"
+        },
+        {
+          "event": "product.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/products/product.created"
+        },
+        {
+          "event": "product.deleted",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/products/product.deleted"
+        },
+        {
+          "event": "product.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/products/product.updated"
+        },
+        {
+          "event": "store.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/store/store.updated"
+        },
+        {
+          "event": "subscription.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/subscriptions/subscription.created"
+        },
+        {
+          "event": "subscription.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/subscriptions/subscription.updated"
+        },
+        {
+          "event": "ticket.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/support/ticket.created"
+        },
+        {
+          "event": "ticket.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/support/ticket.updated"
+        },
+        {
+          "event": "transaction.created",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/transaction.created"
+        },
+        {
+          "event": "transaction.updated",
+          "url": "https://developers.nextcommerce.com/docs/webhooks/reference/payments/transaction.updated"
+        }
+      ],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    },
+    {
+      "id": "testing",
+      "title": "Testing and test orders",
+      "summary": "There is no separate sandbox. Test cards (6011111111111117, and 6011000990139424 for 3DS) create tagged Test Orders on live stores without touching a gateway; the Test Gateway produces realistic test transactions when an integration needs them.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/manage/orders/test-orders",
+        "https://docs.nextcommerce.com/docs/features/payments/gateways/test-gateway"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/testing",
+        "https://developers.nextcommerce.com/docs/admin-api/guides/testing-guide"
+      ],
+      "api_operations": [],
+      "webhooks": [],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "Do not tell a prospect there is no test mode; test cards work on live stores."
+      ]
+    },
+    {
+      "id": "legacy-identifiers",
+      "title": "Legacy identifiers (29next)",
+      "summary": "Next Commerce was formerly 29 Next, and the platform still carries that name in its core technical identifiers: store and account hostnames ({store}.29next.store, accounts.29next.com), the X-29next-API-Version and X-29Next-Signature headers, and the API key namespace. These are current, in use on every store, and not scheduled to change. Use them exactly as written.",
+      "audiences": [
+        "merchant",
+        "developer"
+      ],
+      "operator_docs": [
+        "https://docs.nextcommerce.com/docs/start-here/get-started"
+      ],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/admin-api",
+        "https://developers.nextcommerce.com/docs/webhooks"
+      ],
+      "api_operations": [],
+      "webhooks": [],
+      "skills": [],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": [
+        "Never rewrite 29next identifiers to nextcommerce; the requests would fail."
+      ]
+    },
+    {
+      "id": "agent-skills",
+      "title": "AI agent skills",
+      "summary": "Pre-built skills that give AI coding agents platform knowledge (theme development, campaign setup, bulk operations, daily ops scans), installable with the skills CLI or loadable as plain markdown.",
+      "audiences": [
+        "developer"
+      ],
+      "operator_docs": [],
+      "developer_docs": [
+        "https://developers.nextcommerce.com/docs/skills"
+      ],
+      "api_operations": [],
+      "webhooks": [],
+      "skills": [
+        {
+          "name": "next-theme-figma",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-theme-figma"
+        },
+        {
+          "name": "next-theme-dev",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-theme-dev"
+        },
+        {
+          "name": "next-campaigns-setup",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-campaigns-setup"
+        },
+        {
+          "name": "next-bulk-fulfill",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-fulfill"
+        },
+        {
+          "name": "next-bulk-move",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-move"
+        },
+        {
+          "name": "next-bulk-subscription",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-bulk-subscription"
+        },
+        {
+          "name": "next-ops-scan",
+          "url": "https://github.com/NextCommerceCo/skills/tree/main/next-ops-scan"
+        }
+      ],
+      "status": "available",
+      "last_verified": "2026-09-03",
+      "notes": []
+    }
+  ]
+}

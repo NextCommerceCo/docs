@@ -1,0 +1,30 @@
+/**
+ * Refreshes lib/capabilities.snapshot.json from the developer site's published
+ * capability map. The developer repo owns the map (its source is
+ * developer-docs/content/capabilities.yaml); this site consumes the stable ids
+ * and the developer links, and a committed snapshot keeps the build deterministic
+ * and offline. Run when the map changes, then review the diff and commit.
+ *
+ *   npm run sync-capabilities
+ *   CAPABILITY_MAP_URL=https://deploy-preview.../capabilities.json npm run sync-capabilities
+ */
+
+import { writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const URL = process.env.CAPABILITY_MAP_URL ?? 'https://developers.nextcommerce.com/capabilities.json';
+const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'lib', 'capabilities.snapshot.json');
+
+const res = await fetch(URL, { headers: { 'user-agent': 'nextcommerce-docs-sync/1' } });
+if (!res.ok) {
+  console.error(`sync-capabilities: ${URL} returned ${res.status}`);
+  process.exit(1);
+}
+const map = await res.json();
+if (map.version !== 1 || !Array.isArray(map.capabilities)) {
+  console.error('sync-capabilities: response is not a version 1 capability map');
+  process.exit(1);
+}
+writeFileSync(OUT, JSON.stringify(map, null, 2) + '\n');
+console.log(`sync-capabilities: wrote ${map.capabilities.length} capabilities from ${URL} (generated ${map.generated_at})`);

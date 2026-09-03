@@ -1,6 +1,7 @@
 import { source } from '@/lib/source';
 import { siteConfig } from '@/lib/config';
 import { llms } from 'fumadocs-core/source/llms';
+import capabilityMap from '@/lib/capabilities.snapshot.json';
 
 export const dynamic = 'force-static';
 
@@ -25,6 +26,12 @@ export function GET() {
     `Related resources: [Developer Docs](https://developers.nextcommerce.com/) (APIs, themes, campaigns), [Platform Changelog](${siteConfig.url}/changelog), [nextcommerce.com](https://nextcommerce.com) (product and pricing).`,
     '',
     index,
+    '',
+    '## Capability map and domain bundles',
+    '',
+    `[capabilities.json](${capabilityMap.sources.developer_docs}/capabilities.json) ([readable](${capabilityMap.sources.developer_docs}/docs/capabilities)) links each platform capability to its merchant guides here, its developer guides, Admin API operations, webhook events, and skills under a stable id; pages on this site declare their ids in a \`capability_ids\` frontmatter field. Domain bundles are plain Markdown, one per domain:`,
+    '',
+    ...capabilityMap.bundles.map((b) => `- [${b.title}](${b.url}): ${b.intro}`),
     '',
   ].join('\n');
 

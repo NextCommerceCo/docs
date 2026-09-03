@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import type { Metadata } from 'next';
+import { DeveloperResources } from '@/components/developer-resources';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -25,6 +26,7 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={getMDXComponents({ a: createRelativeLink(source, page) })} />
+        <DeveloperResources ids={page.data.capability_ids} />
       </DocsBody>
     </DocsPage>
   );
