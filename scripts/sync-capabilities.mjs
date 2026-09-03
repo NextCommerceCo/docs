@@ -26,7 +26,7 @@ if (!res.ok) {
 }
 const map = await res.json();
 // Shape the site depends on: llms.txt renders bundles, the panel and checks read capabilities.
-if (map.version !== 1 || !Array.isArray(map.capabilities) || !Array.isArray(map.bundles) || !map.sources?.developer_docs) {
+if (map.version !== 1 || !Array.isArray(map.capabilities) || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
   console.error('sync-capabilities: response is not a version 1 capability map');
   process.exit(1);
 }
