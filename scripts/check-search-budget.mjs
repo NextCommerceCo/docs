@@ -6,7 +6,19 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DEFAULT_BUDGET_BYTES = 6_000_000;
-const SEARCH_INDEX_BUDGET_BYTES = Number(process.env.SEARCH_INDEX_BUDGET_BYTES) || DEFAULT_BUDGET_BYTES;
+const SEARCH_INDEX_BUDGET_BYTES = readBudget(process.env.SEARCH_INDEX_BUDGET_BYTES);
+
+// Unset or empty means the default. Anything else must be a positive integer;
+// a typo should stop the check loudly rather than silently use the default.
+function readBudget(raw) {
+  if (raw === undefined || raw.trim() === '') return DEFAULT_BUDGET_BYTES;
+  const parsed = Number(raw);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    console.error(`check-search-budget: SEARCH_INDEX_BUDGET_BYTES must be a positive integer, got ${JSON.stringify(raw)}`);
+    process.exit(2);
+  }
+  return parsed;
+}
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const candidates = [
