@@ -24,6 +24,8 @@ export function GET() {
     '',
     `Related resources: [Developer Docs](https://developers.nextcommerce.com/) (APIs, themes, campaigns), [Platform Changelog](${siteConfig.url}/changelog), [nextcommerce.com](https://nextcommerce.com) (product and pricing).`,
     '',
+    'Legacy identifiers: Next Commerce was formerly 29 Next, and the platform still carries that name in its core technical identifiers: your account and store hostnames (`accounts.29next.com`, `{store}.29next.store`), API headers, and the API key namespace. These are current, in use on every store, and not scheduled to change. Use them exactly as written.',
+    '',
     index,
     '',
   ].join('\n');
