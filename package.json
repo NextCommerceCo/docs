@@ -11,6 +11,7 @@
     "validate-links": "node scripts/validate-links.mjs",
     "audit-developer-links": "node scripts/audit-developer-links.mjs",
     "check-search-budget": "node scripts/check-search-budget.mjs",
+    "check-search-quality": "node scripts/check-search-quality.mjs",
     "check-capabilities": "node scripts/check-capabilities.mjs",
     "sync-capabilities": "node scripts/sync-capabilities.mjs"
   },

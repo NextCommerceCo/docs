@@ -24,6 +24,8 @@ jobs:
 
       - run: npm run check-search-budget
 
+      - run: npm run check-search-quality
+
   security-audit:
     runs-on: ubuntu-latest
     steps:
