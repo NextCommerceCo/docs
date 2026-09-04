@@ -12,7 +12,7 @@ accurate product docs while building on the platform.
 | Published release history | `content/changelog/` |
 | Live site (canonical rendered output) | [docs.nextcommerce.com](https://docs.nextcommerce.com) |
 | Admin API, Campaigns SDK, webhooks, themes, GraphQL | [developers.nextcommerce.com](https://developers.nextcommerce.com) — separate repo |
-| Which merchant and developer pages cover one capability | [capabilities.json](https://developers.nextcommerce.com/capabilities.json) ([readable](https://developers.nextcommerce.com/docs/capabilities)) — pages here declare their ids in `capability_ids` frontmatter; domain bundles at `https://developers.nextcommerce.com/llms/<bundle>.txt` |
+| Which merchant and developer pages cover one capability | [capabilities.json](https://developers.nextcommerce.com/capabilities.json) — page relationships come from the URLs in the map; domain bundles are at `https://developers.nextcommerce.com/llms/<bundle>.txt` |
 
 Start with `content/docs/index.mdx` and `content/docs/about-next.mdx` for platform
 overview, then follow the section structure under `content/docs/`.

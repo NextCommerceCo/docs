@@ -1,7 +1,7 @@
 {
   "$schema": "https://developers.nextcommerce.com/capabilities.schema.json",
   "version": 1,
-  "generated_at": "2026-09-03",
+  "generated_at": "2026-09-04",
   "sources": {
     "developer_docs": "https://developers.nextcommerce.com",
     "merchant_docs": "https://docs.nextcommerce.com",
@@ -632,69 +632,6 @@
       ],
       "api_operations": [
         {
-          "id": "disputesList",
-          "method": "GET",
-          "path": "/disputes/",
-          "summary": "Retrieve a list of disputes.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesList"
-        },
-        {
-          "id": "disputesCreate",
-          "method": "POST",
-          "path": "/disputes/",
-          "summary": "Create a new dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesCreate"
-        },
-        {
-          "id": "disputesRetrieve",
-          "method": "GET",
-          "path": "/disputes/{id}/",
-          "summary": "Retrieve a dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesRetrieve"
-        },
-        {
-          "id": "disputesUpdate",
-          "method": "PUT",
-          "path": "/disputes/{id}/",
-          "summary": "Update an existing dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesUpdate"
-        },
-        {
-          "id": "disputesPartialUpdate",
-          "method": "PATCH",
-          "path": "/disputes/{id}/",
-          "summary": "Partial update an existing dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesPartialUpdate"
-        },
-        {
-          "id": "disputesDestroy",
-          "method": "DELETE",
-          "path": "/disputes/{id}/",
-          "summary": "Delete an existing dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesDestroy"
-        },
-        {
-          "id": "disputesNotesList",
-          "method": "GET",
-          "path": "/disputes/{id}/notes/",
-          "summary": "Retrieve a list of all dispute notes in an existing dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesList"
-        },
-        {
-          "id": "disputesNotesCreate",
-          "method": "POST",
-          "path": "/disputes/{id}/notes/",
-          "summary": "Create an dispute note in an existing dispute.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesCreate"
-        },
-        {
-          "id": "disputesResolveCreate",
-          "method": "POST",
-          "path": "/disputes/{id}/resolve/",
-          "summary": "Resolve a dispute with a resolution and optional external refund.",
-          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesResolveCreate"
-        },
-        {
           "id": "gatewayGroupsList",
           "method": "GET",
           "path": "/gateway-groups/",
@@ -798,7 +735,71 @@
       "developer_docs": [
         "https://developers.nextcommerce.com/docs/apps/guides/dispute-service"
       ],
-      "api_operations": [],
+      "api_operations": [
+        {
+          "id": "disputesList",
+          "method": "GET",
+          "path": "/disputes/",
+          "summary": "Retrieve a list of disputes.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesList"
+        },
+        {
+          "id": "disputesCreate",
+          "method": "POST",
+          "path": "/disputes/",
+          "summary": "Create a new dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesCreate"
+        },
+        {
+          "id": "disputesRetrieve",
+          "method": "GET",
+          "path": "/disputes/{id}/",
+          "summary": "Retrieve a dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesRetrieve"
+        },
+        {
+          "id": "disputesUpdate",
+          "method": "PUT",
+          "path": "/disputes/{id}/",
+          "summary": "Update an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesUpdate"
+        },
+        {
+          "id": "disputesPartialUpdate",
+          "method": "PATCH",
+          "path": "/disputes/{id}/",
+          "summary": "Partial update an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesPartialUpdate"
+        },
+        {
+          "id": "disputesDestroy",
+          "method": "DELETE",
+          "path": "/disputes/{id}/",
+          "summary": "Delete an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesDestroy"
+        },
+        {
+          "id": "disputesNotesList",
+          "method": "GET",
+          "path": "/disputes/{id}/notes/",
+          "summary": "Retrieve a list of all dispute notes in an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesList"
+        },
+        {
+          "id": "disputesNotesCreate",
+          "method": "POST",
+          "path": "/disputes/{id}/notes/",
+          "summary": "Create an dispute note in an existing dispute.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesNotesCreate"
+        },
+        {
+          "id": "disputesResolveCreate",
+          "method": "POST",
+          "path": "/disputes/{id}/resolve/",
+          "summary": "Resolve a dispute with a resolution and optional external refund.",
+          "url": "https://developers.nextcommerce.com/docs/admin-api/reference/payments/disputesResolveCreate"
+        }
+      ],
       "webhooks": [
         {
           "event": "dispute.created",
@@ -1643,12 +1644,9 @@
       "title": "Legacy identifiers (29next)",
       "summary": "Next Commerce was formerly 29 Next, and the platform still carries that name in its core technical identifiers: store and account hostnames ({store}.29next.store, accounts.29next.com), the X-29next-API-Version and X-29Next-Signature headers, and the API key namespace. These are current, in use on every store, and not scheduled to change. Use them exactly as written.",
       "audiences": [
-        "merchant",
         "developer"
       ],
-      "operator_docs": [
-        "https://docs.nextcommerce.com/docs/start-here/get-started"
-      ],
+      "operator_docs": [],
       "developer_docs": [
         "https://developers.nextcommerce.com/docs/admin-api",
         "https://developers.nextcommerce.com/docs/webhooks"

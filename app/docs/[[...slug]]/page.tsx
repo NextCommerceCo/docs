@@ -26,7 +26,7 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={getMDXComponents({ a: createRelativeLink(source, page) })} />
-        <DeveloperResources ids={page.data.capability_ids} />
+        <DeveloperResources pageUrl={page.url} />
       </DocsBody>
     </DocsPage>
   );

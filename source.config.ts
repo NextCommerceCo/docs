@@ -7,11 +7,9 @@ export const docs = defineDocs({
     schema: frontmatterSchema.extend({
       title: z.string().optional().default(''),
       description: z.string().optional(),
-      // Agent-retrieval metadata. capability_ids are stable ids from the platform
-      // capability map published by the developer site (lib/capabilities.snapshot.json);
-      // scripts/check-capabilities.mjs keeps them consistent with the map.
+      // Optional agent-retrieval metadata. Capability relationships are derived
+      // from lib/capabilities.snapshot.json instead of duplicated in frontmatter.
       audience: z.array(z.enum(['merchant', 'developer'])).optional(),
-      capability_ids: z.array(z.string()).optional(),
       status: z.enum(['available', 'beta', 'deprecated']).optional(),
       last_verified: z
         .string()

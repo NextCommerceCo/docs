@@ -31,7 +31,7 @@ export function GET() {
     '',
     '## Capability map and domain bundles',
     '',
-    `[capabilities.json](${capabilityMap.sources.developer_docs}/capabilities.json) ([readable](${capabilityMap.sources.developer_docs}/docs/capabilities)) links each platform capability to its merchant guides here, its developer guides, Admin API operations, webhook events, and skills under a stable id; pages on this site declare their ids in a \`capability_ids\` frontmatter field. Domain bundles are plain Markdown, one per domain:`,
+    `[capabilities.json](${capabilityMap.sources.developer_docs}/capabilities.json) links each platform capability to its merchant guides here, its developer guides, Admin API operations, webhook events, and skills. Page relationships are derived from the URLs in the map. Domain bundles are plain Markdown, one per domain:`,
     '',
     ...capabilityMap.bundles.map((b) => `- [${b.title}](${b.url}): ${b.intro}`),
     '',

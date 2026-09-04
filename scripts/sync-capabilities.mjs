@@ -1,8 +1,8 @@
 /**
  * Refreshes lib/capabilities.snapshot.json from the developer site's published
  * capability map. The developer repo owns the map (its source is
- * developer-docs/content/capabilities.yaml); this site consumes the stable ids
- * and the developer links, and a committed snapshot keeps the build deterministic
+ * developer-docs/content/capabilities.yaml); this site derives page relationships
+ * and developer links from it, and a committed snapshot keeps the build deterministic
  * and offline. Run when the map changes, then review the diff and commit.
  *
  *   npm run sync-capabilities
@@ -25,7 +25,8 @@ if (!res.ok) {
   process.exit(1);
 }
 const map = await res.json();
-// Shape the site depends on: llms.txt renders bundles, the panel and checks read capabilities.
+// Shape the site depends on: llms.txt renders bundles, and contextual links and
+// checks read capabilities.
 if (map.version !== 1 || !Array.isArray(map.capabilities) || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
   console.error('sync-capabilities: response is not a version 1 capability map');
   process.exit(1);
