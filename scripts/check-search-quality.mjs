@@ -24,6 +24,8 @@ if (exported.type !== 'advanced') {
   process.exit(1);
 }
 
+// Mirror Fumadocs' static-search client: Orama needs a placeholder schema to
+// create the database shell, then load() restores the exported index and docs.
 const database = create({ schema: { _: 'string' }, language: 'english' });
 load(database, exported);
 
