@@ -4,7 +4,6 @@ const recoveryLinks = [
   { label: 'Browse all docs', href: '/docs' },
   { label: 'Changelog', href: '/changelog' },
   { label: 'Developer docs', href: 'https://developers.nextcommerce.com' },
-  { label: 'Capability map', href: 'https://developers.nextcommerce.com/docs/capabilities' },
   { label: 'Agent index (llms.txt)', href: '/llms.txt' },
 ];
 

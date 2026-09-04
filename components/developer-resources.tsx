@@ -3,63 +3,61 @@ import capabilityMap from '@/lib/capabilities.snapshot.json';
 interface Capability {
   id: string;
   title: string;
+  audiences: string[];
+  operator_docs: string[];
   developer_docs: string[];
-  api_operations: { id: string; method: string; path: string; url: string | null }[];
-  webhooks: { event: string; url: string | null }[];
 }
 
-const DEVELOPER_SITE: string = capabilityMap.sources.developer_docs;
+const MERCHANT_SITE: string = capabilityMap.sources.merchant_docs;
 const capabilities = capabilityMap.capabilities as Capability[];
-const byId = new Map(capabilities.map((c) => [c.id, c]));
+
+function documentPath(url: string, base?: string) {
+  const path = new URL(url, base).pathname.replace(/\/+$/, '');
+  return path || '/';
+}
 
 /**
- * Developer resources for the capabilities a merchant page declares in
- * `capability_ids`. Driven by the capability map snapshot the developer site
- * publishes, so the links here are the same ones the map and the developer
- * pages carry back to this site.
+ * A compact developer handoff for merchant pages explicitly cited by the
+ * capability map. The first developer_docs entry is the capability's entry
+ * page; detailed references remain in the map and domain bundles.
  */
-export function DeveloperResources({ ids }: { ids?: string[] }) {
-  const matched = (ids ?? []).map((id) => byId.get(id)).filter((c): c is Capability => Boolean(c));
-  if (matched.length === 0) return null;
-  const withCounts = matched.filter((c) => c.api_operations.length > 0 || c.webhooks.length > 0);
+export function DeveloperResources({ pageUrl }: { pageUrl: string }) {
+  const currentPath = documentPath(pageUrl, `${MERCHANT_SITE}/`);
+  const seen = new Set<string>();
+  const resources = capabilities
+    .flatMap((capability) => {
+      if (!Array.isArray(capability.audiences) || !Array.isArray(capability.operator_docs) || !Array.isArray(capability.developer_docs)) {
+        throw new Error(`Capability ${capability.id} has invalid documentation links`);
+      }
+      if (!capability.operator_docs.some((url) => documentPath(url) === currentPath)) return [];
+
+      const entryUrl = capability.developer_docs[0];
+      if (!entryUrl) {
+        if (capability.audiences.includes('developer')) {
+          throw new Error(`Capability ${capability.id} has no developer entry page`);
+        }
+        return [];
+      }
+      if (seen.has(entryUrl)) return [];
+      seen.add(entryUrl);
+      return [{ id: capability.id, title: capability.title, url: entryUrl }];
+    });
+
+  if (resources.length === 0) return null;
 
   return (
-    <aside aria-label="Developer resources" className="mt-10 rounded-lg border bg-fd-card p-4 text-sm text-fd-card-foreground">
-      <p className="font-medium">
-        Developer resources for{' '}
-        {matched.map((c, i) => (
-          <span key={c.id}>
+    <aside aria-label="Developer documentation" className="mt-10 border-t pt-4 text-sm text-fd-muted-foreground">
+      <p>
+        Developer documentation:{' '}
+        {resources.map((resource, i) => (
+          <span key={resource.id}>
             {i > 0 && ', '}
-            <a href={`${DEVELOPER_SITE}/docs/capabilities#${c.id}`} className="underline underline-offset-4">
-              {c.title}
+            <a href={resource.url} className="text-fd-foreground underline underline-offset-4">
+              {resource.title}
             </a>
           </span>
         ))}
       </p>
-      <ul className="mt-2 list-disc pl-5">
-        {matched.flatMap((c) =>
-          c.developer_docs.map((url) => (
-            <li key={url}>
-              <a href={url} className="underline underline-offset-4">
-                {url.replace(DEVELOPER_SITE, 'developers.nextcommerce.com')}
-              </a>
-            </li>
-          )),
-        )}
-      </ul>
-      {withCounts.length > 0 && (
-        <p className="mt-2 text-fd-muted-foreground">
-          {withCounts
-            .map((c) => {
-              const parts: string[] = [];
-              if (c.api_operations.length > 0) parts.push(`${c.api_operations.length} Admin API operations`);
-              if (c.webhooks.length > 0) parts.push(`${c.webhooks.length} webhook events`);
-              return `${c.title}: ${parts.join(', ')}`;
-            })
-            .join('. ')}
-          . See the capability map for the full lists.
-        </p>
-      )}
     </aside>
   );
 }
