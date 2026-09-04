@@ -27,15 +27,23 @@ if (!res.ok) {
 const map = await res.json();
 // Shape the site depends on: llms.txt renders bundles, and contextual links and
 // checks read capabilities.
-const validCapabilities = Array.isArray(map.capabilities) && map.capabilities.every((capability) =>
-  typeof capability?.id === 'string' &&
-  typeof capability?.title === 'string' &&
-  Array.isArray(capability.audiences) &&
-  Array.isArray(capability.operator_docs) &&
-  Array.isArray(capability.developer_docs),
-);
-if (map.version !== 1 || !validCapabilities || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
+const shapeErrors = [];
+if (!Array.isArray(map.capabilities)) {
+  shapeErrors.push('capabilities must be an array');
+} else {
+  for (const [index, capability] of map.capabilities.entries()) {
+    const label = `capabilities[${index}]${capability?.id ? ` (${capability.id})` : ''}`;
+    if (typeof capability?.id !== 'string') shapeErrors.push(`${label}.id must be a string`);
+    if (typeof capability?.title !== 'string') shapeErrors.push(`${label}.title must be a string`);
+    for (const field of ['audiences', 'operator_docs', 'developer_docs']) {
+      if (!Array.isArray(capability?.[field])) shapeErrors.push(`${label}.${field} must be an array`);
+      else if (capability[field].some((value) => typeof value !== 'string')) shapeErrors.push(`${label}.${field} must contain only strings`);
+    }
+  }
+}
+if (map.version !== 1 || shapeErrors.length > 0 || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
   console.error('sync-capabilities: response is not a version 1 capability map');
+  for (const error of shapeErrors) console.error(`  - ${error}`);
   process.exit(1);
 }
 writeFileSync(OUT, JSON.stringify(map, null, 2) + '\n');

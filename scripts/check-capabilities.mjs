@@ -37,7 +37,16 @@ for (const c of map.capabilities) {
     errors.push(`capability ${c.id} has merchant pages but no developer entry page`);
   }
   for (const url of c.developer_docs) {
-    if (!url.startsWith(`${DEVELOPER_SITE}/docs/`)) errors.push(`capability ${c.id} has invalid developer URL ${url}`);
+    let parsed;
+    try {
+      parsed = new URL(url);
+    } catch {
+      errors.push(`capability ${c.id} has invalid developer URL ${url}`);
+      continue;
+    }
+    if (parsed.origin !== DEVELOPER_SITE || !parsed.pathname.startsWith('/docs/')) {
+      errors.push(`capability ${c.id} has developer URL outside ${DEVELOPER_SITE}/docs/: ${url}`);
+    }
   }
   for (const url of c.operator_docs) {
     let parsed;
