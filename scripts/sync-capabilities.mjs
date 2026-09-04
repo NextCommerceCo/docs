@@ -27,7 +27,14 @@ if (!res.ok) {
 const map = await res.json();
 // Shape the site depends on: llms.txt renders bundles, and contextual links and
 // checks read capabilities.
-if (map.version !== 1 || !Array.isArray(map.capabilities) || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
+const validCapabilities = Array.isArray(map.capabilities) && map.capabilities.every((capability) =>
+  typeof capability?.id === 'string' &&
+  typeof capability?.title === 'string' &&
+  Array.isArray(capability.audiences) &&
+  Array.isArray(capability.operator_docs) &&
+  Array.isArray(capability.developer_docs),
+);
+if (map.version !== 1 || !validCapabilities || !Array.isArray(map.bundles) || !map.sources?.developer_docs || !map.sources?.merchant_docs) {
   console.error('sync-capabilities: response is not a version 1 capability map');
   process.exit(1);
 }

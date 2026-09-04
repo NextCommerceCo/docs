@@ -4,9 +4,9 @@
  *
  *   1. every merchant page the map cites in operator_docs exists in content/docs
  *      (the map is published by the developer repo, which cannot check our tree)
- *   2. page relationships are derived from operator_docs rather than copied into
- *      page frontmatter
- *   3. audience / status / last_verified, when present, use the schema's values
+ *   2. every mapped merchant page with a developer audience has a developer entry page
+ *   3. removed capability_ids metadata is not reintroduced in page frontmatter
+ *   4. audience / status / last_verified, when present, use the schema's values
  */
 
 import { execFileSync } from 'node:child_process';
@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const map = JSON.parse(readFileSync(join(ROOT, 'lib', 'capabilities.snapshot.json'), 'utf8'));
 const MERCHANT_SITE = map.sources.merchant_docs;
+const DEVELOPER_SITE = map.sources.developer_docs;
 
 const errors = [];
 
@@ -28,9 +29,29 @@ function pageExists(path) {
 }
 
 for (const c of map.capabilities) {
+  if (!Array.isArray(c.audiences) || !Array.isArray(c.operator_docs) || !Array.isArray(c.developer_docs)) {
+    errors.push(`capability ${c.id ?? '(missing id)'} has invalid audiences or documentation links`);
+    continue;
+  }
+  if (c.audiences.includes('developer') && c.operator_docs.length > 0 && c.developer_docs.length === 0) {
+    errors.push(`capability ${c.id} has merchant pages but no developer entry page`);
+  }
+  for (const url of c.developer_docs) {
+    if (!url.startsWith(`${DEVELOPER_SITE}/docs/`)) errors.push(`capability ${c.id} has invalid developer URL ${url}`);
+  }
   for (const url of c.operator_docs) {
-    if (!url.startsWith(MERCHANT_SITE)) continue;
-    const path = url.slice(MERCHANT_SITE.length);
+    let parsed;
+    try {
+      parsed = new URL(url);
+    } catch {
+      errors.push(`capability ${c.id} has invalid merchant URL ${url}`);
+      continue;
+    }
+    if (parsed.origin !== MERCHANT_SITE) {
+      errors.push(`capability ${c.id} has merchant URL outside ${MERCHANT_SITE}: ${url}`);
+      continue;
+    }
+    const path = parsed.pathname.replace(/\/+$/, '') || '/';
     if (!pageExists(path)) errors.push(`capability ${c.id} cites ${path}, which does not exist on this site`);
   }
 }
@@ -62,8 +83,7 @@ const files = execFileSync('git', ['ls-files', '--', 'content/docs/**/*.mdx', 'c
   .filter(Boolean);
 
 for (const file of files) {
-  const abs = join(ROOT, file);
-  const text = readFileSync(abs, 'utf8');
+  const text = readFileSync(join(ROOT, file), 'utf8');
   const frontmatter = readFrontmatter(text);
   if (!frontmatter) {
     errors.push(`${file}: no frontmatter`);
@@ -71,9 +91,9 @@ for (const file of files) {
   }
   if (frontmatter.audience !== undefined && (!Array.isArray(frontmatter.audience) || frontmatter.audience.some((a) => !AUDIENCES.has(a))))
     errors.push(`${file}: audience must be a list drawn from merchant, developer`);
+  if (frontmatter.capability_ids !== undefined) errors.push(`${file}: remove capability_ids; relationships come from the capability map`);
   if (frontmatter.status !== undefined && !STATUSES.has(frontmatter.status)) errors.push(`${file}: status must be one of available, beta, deprecated`);
   if (frontmatter.last_verified !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(frontmatter.last_verified)) errors.push(`${file}: last_verified must be YYYY-MM-DD`);
-
 }
 
 console.log(`check-capabilities: ${files.length} pages checked against ${map.capabilities.length} capabilities (map generated ${map.generated_at})`);
