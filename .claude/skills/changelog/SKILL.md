@@ -72,8 +72,9 @@ Three H2 sections, in this exact order. Skip a section entirely if empty.
 Hard rules:
 - **One sentence per bullet.** Not two, not a short one plus an elaboration. If an item genuinely
   needs a second sentence, it is two items, or the second sentence is detail the reader doesn't need.
-- **20 to 23 words per bullet on average**, and no bullet past ~30. This is measured, not a feel:
-  see the self-check in step 11.
+- **20 to 23 words per bullet on average**, and no bullet past ~30. This is a guard rail against
+  bloat, not a target. The counter in step 11 catches long bullets; it cannot catch stiff ones. A
+  bullet that passes the counter and fails the read-aloud test (see Voice) is still wrong.
 - Detail lost to those two rules is a feature, not a cost. Merchants skim these. Configuration
   specifics, per-country coverage lists, reproduction conditions, and background mechanics belong in
   the docs page, not the changelog.
@@ -84,34 +85,93 @@ Hard rules:
 
 ### Voice
 
-**New Features / Improvements** — active, benefit-led:
-- `<Product> now <verb>...`
-- `<Product> can now <verb>...`
-- `<Product> now features/includes/supports <noun>...`
-- `We've added <feature>...`
-- `We now support <feature>...`
+**Register.** A competent colleague telling a busy merchant what changed, in the merchant's own
+words. Not a spec, not marketing, not a form filled in. Read every bullet aloud before it stays.
+If you would not say it that way to a merchant across a table, rewrite it.
 
-**"benefit-led" is a requirement, not a flourish.** Every New Feature and Improvement bullet states
-the change *and* what the merchant gets from it. A bullet that stops at the change is a bad entry:
+**Learn the voice from these, not from a template.** All hand-written, from the archive:
 
-> A new Risk Tolerance setting under Payments controls the risk score at which orders are blocked.
+> Non-admin dashboard users can now be given access to individual apps as needed.
 
-That tells a merchant a setting exists and nothing about why they'd touch it. With the value clause:
+> Webhook logs can now be filtered by event type to assist in debugging webhooks that are
+> integrated with other platforms.
 
-> A new Risk Tolerance setting under Payments sets the score at which orders are blocked, so you can
-> tighten screening or loosen it to stop rejecting good customers.
+> Orders that are "Rejected" by the fulfillment partner are now displayed with an alert counter on
+> the Orders List View, to notify merchants they need to take action to repair and resend for
+> fulfillment.
 
-**Take the value clause from the issue, don't invent it.** Nearly every issue opens with
-`As a <role>, I want <thing> so that <value>`. That `so that` is the merchant value, written by the
-person who scoped the work. Lift it and compress it. Where an issue has no user story, the exit
-criteria usually imply the value; if neither does, ask rather than inventing a benefit.
+> In the Campaigns App it's now possible to "Clone" a campaign to reduce setup time for creating
+> and testing campaign variants.
 
-This is the one thing that competes with the length rules. Resolve it by cutting mechanism, never by
-cutting value: drop the configuration detail, the country list, the field names, and keep the
-`so that`. If change plus value genuinely cannot fit one sentence under ~30 words, the bullet is
-covering two things and should be split.
+> Introducing SEPA Direct Debit as a new alternative payment method that can be enabled with
+> Stripe gateways for the EU market.
 
-**Bug Fixes** — `Fixed an issue where...` / `Fixed an edge case error that occurred when...` / `We've fixed an issue where...`. These need no value clause; the value is that it stopped happening.
+> Merchants can now create Returns for products that have been fulfilled through the Order Details
+> view.
+
+What they have in common: one thought each, an opener that fits the thought rather than a fixed
+formula, and the merchant value stated as a purpose ("to assist…", "to reduce setup time…",
+"to notify merchants…") that flows out of the sentence. Where the change *is* the value (a plain
+new capability, a fix), the sentence stops. None of them end in "at a glance".
+
+**What the template voice looks like, and the fix.** These are from a real review:
+
+> ✗ Subscriptions, payments transactions and NEXT Risk Protect lists now open with KPI metrics for
+> the period, so you can see growth, payment health and fraud protection at a glance.
+>
+> ✓ KPI metrics now sit at the top of the subscriptions, transactions and Risk Protect lists, with
+> the period's numbers and how they moved against the last one.
+
+> ✗ Direct Adyen gateway has been updated with 3DS and statement descriptor settings, giving
+> merchants on their own Adyen account reliable card processing and refunds.
+>
+> ✓ Merchants on their own Adyen account get a proper gateway setup now, with 3DS and statement
+> descriptor settings, and refunds that work.
+
+> ✗ Product image uploads now accept only JPG, PNG, GIF, ICO and WebP, and the error lists the
+> accepted types when a file is rejected.
+>
+> ✓ Product image upload validation has been improved, so unsupported files are rejected with a
+> clear error.
+
+The ✗ bullets are correct and dead. Each was produced by filling `<Product> now <verb> <list>, so
+you can <benefit>` and stopping. The ✓ bullets say the same thing the way a person would.
+
+**Openers.** Vary them. These are options, not a mold: "Introducing…", "Merchants can now…",
+"<Product> now…", "It's now possible to…", "We've…", "<Situation> now…", "<Thing> has been
+overhauled/simplified/improved…". Three bullets in a row with the same opener is a sign the
+template took over.
+
+**Never start a bullet with "The".** Not for product names, not for anything. "Subscriptions list
+now opens…", "Dashboard user creation flow has been simplified…", never "The subscriptions list…".
+
+**Value is a purpose, in the card's words.** Nearly every card opens with `As a <role>, I want
+<thing> so that <value>`. That `so that` was written by the person who scoped the work; lift it and
+let it land however reads naturally: "to help…", "for…", "so…", or simply as the second half of the
+sentence. Never write a value the card does not contain. If the card has no user story and the exit
+criteria imply nothing, ask.
+
+**Say what improved, not how.** A field list or a file-type list is mechanism. "Dashboard user
+creation flow has been simplified, so adding a user takes fewer steps" beats naming the form
+fields. Configuration specifics, country lists, and field names belong in the docs page.
+
+**One bullet per feature, not per card.** When several cards deliver one feature (KPI metrics bars
+on three list pages, three CRUD endpoints on one API), write one bullet for the feature. When a
+card completes something an earlier entry introduced as partial, the bullet says the whole thing is
+now done ("Campaigns can now be fully managed over the Admin API…") and it is a New Feature.
+
+**Use the merchant's words.** Risk Protect is "fraud protection", never "blocking"; merchants are
+frightened of that word. GBP accounts "settle", they do not "process". When Alex names the thing in
+the conversation, that is the word to use.
+
+**Banned phrases.** These are what the template reaches for to fake a value clause:
+"at a glance", "so you can see", "has been updated with", "giving merchants", "for the period",
+"visible at a glance". Also banned: three or more nouns stacked ("payments transactions lists").
+
+**No card, no bullet.** A release line whose PR has no closing issue is skipped, full stop.
+
+**Bug Fixes** — `Fixed an issue where…` / `Fixed an edge case error that occurred when…` /
+`We've fixed an issue where…`. These need no value clause; the value is that it stopped happening.
 
 Don't include severity, ticket number, repo name, version, sprint number, or engineer names.
 
@@ -126,6 +186,7 @@ Don't include severity, ticket number, repo name, version, sprint number, or eng
 |---|---|
 | Admin API | `https://developers.nextcommerce.com/docs/admin-api` |
 | Campaigns Cart SDK | `https://developers.nextcommerce.com/docs/campaigns` |
+| Campaigns Admin API | `https://developers.nextcommerce.com/docs/campaigns/admin-api` |
 | Campaigns App | `https://docs.nextcommerce.com/docs/apps/campaigns-app` |
 | Shop Sync | `https://docs.nextcommerce.com/docs/apps/shop-sync` |
 | Everflow | `https://docs.nextcommerce.com/docs/apps/everflow` |
@@ -362,6 +423,18 @@ For each kept item:
 4. Add inline `` `code` `` for any API field, parameter, or event name mentioned.
 5. Link the product name using the link map. If no link is in the map and no public docs page is obvious, leave the name as plain text.
 
+Then, once every bullet is drafted, do the **rewrite pass**. It is a separate step on purpose:
+drafting is about getting the facts in, rewriting is about the voice, and doing both at once
+produces the template voice. Read each bullet aloud and ask:
+
+- Would I say this to a merchant across a table? If not, say it the way I would.
+- Does it start with "The", or with the same opener as its neighbours?
+- Does it contain a banned phrase, or a stack of three nouns?
+- Is the value a purpose that flows from the sentence, or a "so you can…" bolted on the end?
+- Is there a list of fields, types, or countries that belongs in the docs page instead?
+
+Rewrite every bullet that fails any of those, then run the length counter in step 11.
+
 If an issue is genuinely too internal to translate (infrastructure-only, no merchant impact), drop it.
 
 > TODO — confirm with the user: is the issue body the source of truth for the translation, or is there a separate description field or comment template engineers fill in? Current default: read issue title + body and rewrite from scratch.
@@ -391,6 +464,14 @@ Save to `/home/alex/git/docs/content/changelog/<filename>.mdx`.
 - [ ] Nothing staff-gated or with its exit criteria still open (step 7)
 - [ ] Anything held back or shipped after the window was flagged to the user
 - [ ] Every New Feature / Improvement bullet has a value clause lifted from its issue's `so that`
+- [ ] Rewrite pass done (step 8): every bullet read aloud, openers vary, nothing starts with "The"
+- [ ] No banned phrases:
+
+```bash
+grep -nE "^- The |at a glance|so you can see|has been updated with|giving merchants|for the period" "$f" \
+  || echo "clean"
+```
+
 - [ ] One sentence per bullet, average 20-23 words, none past ~30:
 
 ```bash
