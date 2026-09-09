@@ -1,0 +1,33 @@
+---
+title: Payments Overview dashboard, GBP settlement, and KPI Metrics
+publishedAt: "2026-09-09"
+tags:
+  - Payments
+  - Campaigns
+  - Subscriptions
+  - Reports
+summary: "NEXT Payments now has a Payments Overview dashboard with authorization rate, payment method and dispute rate charts. New NEXT Payments accounts can settle in GBP, and the subscriptions, transactions and risk lists open with metrics bars…"
+---
+
+## New Features
+
+- NEXT Payments now has a Payments Overview dashboard with authorization rate, payment method and dispute rate charts that grade your chargeback rate Healthy, Warning or Critical.
+- New NEXT Payments accounts are now available with GBP as the settlement currency, so payments settle and pay out in pounds without an FX conversion.
+- Campaigns can now be fully managed over the [Admin API](https://developers.nextcommerce.com/docs/admin-api), including shipping methods, offers and package images, so you can manage them in bulk with AI instead of the dashboard.
+
+## Improvements
+
+- Subscriptions, payments transactions and NEXT Risk Protect lists now open with KPI metrics for the period, so you can see growth, payment health and fraud protection at a glance.
+- Direct Adyen gateway has been updated with [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) and statement descriptor settings, giving merchants on their own Adyen account reliable card processing and refunds.
+- Webhook retries now probe a failing endpoint with one delivery before sending the rest, so one bad endpoint no longer delays your other webhooks.
+- Dashboard user creation flow has been simplified, so adding a new user takes fewer steps.
+- Product image upload validation has been improved, so unsupported file types are rejected with a clear error.
+
+## Bug Fixes
+
+- Fixed an issue where a failed Adyen payment on checkout, renewal or upsell did not record a failed transaction in the store.
+- Fixed an issue where the Disputes by Card BIN report showed `nan%` for BINs whose disputes predated the report window.
+- Fixed an issue where the [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) `dl_purchase` event did not fire when a shopper cancelled PayPal and paid by card.
+- Fixed an issue where address autocomplete misplaced the space in shorter UK postcodes, which then failed validation.
+- Fixed an issue where a phone number with ten or more digits passed checkout validation even when it was invalid.
+- Fixed an issue where the debug overlay did not open with `?debugger=true` and a console error appeared on every page load.
