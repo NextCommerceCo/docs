@@ -13,11 +13,23 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
+  // Required for Open Graph: without it Next emits relative image URLs, which
+  // scrapers reject. Every route inherits the card below.
+  metadataBase: new URL(siteConfig.url),
   title: {
     template: `%s | Docs | ${siteConfig.companyName}`,
     default: `Docs | ${siteConfig.companyName}`,
   },
   description: 'User documentation for Next Commerce.',
+  openGraph: {
+    type: 'website',
+    siteName: `Docs | ${siteConfig.companyName}`,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: `${siteConfig.companyName} documentation` }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og.png'],
+  },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
