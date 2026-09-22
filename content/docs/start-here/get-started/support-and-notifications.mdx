@@ -8,7 +8,7 @@ To ensure your customers receive timely notifications from your store, it's impo
 
 **Preparing to Go Live?**
 
-Confirm your Default From Address uses a verified [**Email Sending Domain**](/docs/start-here/get-started/link-domains#email-sending-domains), and preview key customer notifications before accepting live orders. If Shopify will send most customer emails through Shop Sync, disable duplicate NEXT notifications but keep refund and subscription notices active unless your team has a different customer-communication plan.
+Confirm your Default From Address uses a verified [**Email Sending Domain**](/docs/start-here/get-started/link-domains#email-sending-domains), and enable and preview the customer notifications you need before accepting live orders. New stores start with customer notifications disabled, so customers receive almost no order email until you turn them on. If Shopify will send most customer emails through Shop Sync, keep the matching NEXT notifications off, but enable refund and subscription notices unless your team has a different customer-communication plan.
 
 </Callout>
 
@@ -18,18 +18,21 @@ From the **Settings > Notifications** menu you can view a list of all the transa
 
 Notification emails use your store's [**Branding Settings**](/docs/start-here/get-started/general-settings-and-branding#store-branding) in the header and design.
 
-By default all notifications are set to **Active.** Choose **Disable** to suppress certain notifications from being sent.
+New stores start with customer notifications set to **Disabled**, apart from Email Changed and the Admin Order Notification. Choose **Enable** on each notification you want your customers to receive. Stores created before September 17, 2026 keep their existing settings. Customer notifications were Active by default before then, so go through the whole list and **Disable** anything you don't want sent.
 
 The current notification templates use a refreshed transactional email design, so preview the live examples before changing brand styling or support copy.
 
-Merchants using [**Shop Sync**](/docs/apps/shop-sync) to send NEXT orders to Shopify for fulfillment and customer communication may elect to **Disable** most Notifications.
+Most stores should enable at least:
 
-It is recommended to keep the below notifications Active in most merchant scenarios:
-
+* Order Confirmation and the shipping notifications (Order Shipped, plus the delivery notifications if you use [**Delivery Tracking**](/docs/apps/delivery-tracking)), unless Shopify sends these emails through Shop Sync
 * Refund Notification
-* Subscription Canceled Notification
-* Subscription Renewal Notification
-* Subscription Update Payment Notification
+* Subscription Canceled Notification, Subscription Renewal Notification and Subscription Update Payment Notification, if you sell subscriptions
+
+The Upcoming Renewal reminders in [**Subscription Settings**](/docs/manage/subscriptions-guide/subscription-settings#notifications) only send while the Subscription Renewal Notification is enabled.
+
+Merchants using [**Shop Sync**](/docs/apps/shop-sync) to send NEXT orders to Shopify for fulfillment and customer communication should keep the NEXT notifications that Shopify already sends turned off, or **Disable** them on older stores where they are still Active, so customers don't get the same email twice. Refunds and subscriptions are handled in NEXT, so keep the Refund and subscription notifications enabled.
+
+A few emails send regardless of their setting: the Order Invoiced notification, plus the emails for gift card delivery and payment collected. Resending an email from an order or subscription in the dashboard also sends it, even when that notification is disabled.
 
 ### **Notifications Settings**
 
