@@ -1,0 +1,31 @@
+---
+title: Klarna in every region, splitting fulfillment orders, and Payments by Store report
+publishedAt: "2026-09-23"
+tags:
+  - Payments
+  - Admin API
+  - Reports
+  - Fulfillment
+summary: "Merchants can now take Klarna payments in all four Klarna regions from their main NEXT Payments account. Fulfillment services can now split a fulfillment order over the Admin API…"
+---
+
+## New Features
+
+- Merchants can now take Klarna payments in all four Klarna regions from their main NEXT Payments account, to sell globally with Klarna.
+- Fulfillment services can now split a fulfillment order over the [Admin API](https://developers.nextcommerce.com/docs/admin-api), shipping the items they have instead of rejecting the whole order.
+- Introducing an Assets endpoint on the Admin API, for creating, updating and deleting store asset files without going through the dashboard.
+- Payments by Store is a new NEXT Payments report that breaks down payments for each store on your account, to show which store drives sales.
+- Disputes by Type is a new NEXT Payments report that separates Ethoca, Verifi and RDR alerts from fraud notices and chargebacks, to show what your alerts are catching.
+
+## Improvements
+
+- Chargebacks are now reported to our network fraud provider, so future fraud scoring reflects the customers who actually cost you money.
+- Customers stopped by NEXT Risk Protect by mistake can now be marked Not Fraud, so they can finish their order and aren't scored the same way again.
+- Gateway groups on the Admin API now include an `is_default` field, so apps can tell which gateway group is the store's default.
+- Deleting a product now warns that campaign pages and subscriptions using it will break, and asks you to confirm before anything is removed.
+
+## Bug Fixes
+
+- Fixed an issue where Klarna subscription renewals failed with a "Missing reference transaction" error.
+- Fixed an issue where SVG files showed as broken images in the dashboard's asset list.
+- Fixed an issue where creating a campaign over the [Campaigns Admin API](https://developers.nextcommerce.com/docs/campaigns/admin-api) rejected country restrictions when the store's shipping methods allowed all countries.
