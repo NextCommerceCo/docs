@@ -20,6 +20,7 @@
     "features/payments",
     "features/fulfillment-guide",
     "---Apps---",
+    "apps/index",
     "apps/campaigns-app",
     "apps/delivery-tracking",
     "apps/shop-sync",

@@ -1,6 +1,7 @@
 {
   "title": "Apps",
   "pages": [
+    "index",
     "3pl-central",
     "avalara-avatax",
     "campaigns-app",
