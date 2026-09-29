@@ -20,10 +20,10 @@ summary: Introducing a new headless Campaigns App and API that supports JavaScri
 ## Improvements
 
 - Bancontact is now available for customers in the Netherlands.
-- Improved the logic of the Paypal redirect flow endpoint to not return 500 errors when invalid UUIDs are passed, instead returning a 404.
+- Improved the logic of the PayPal redirect flow endpoint to not return 500 errors when invalid UUIDs are passed, instead returning a 404.
 
 ## Bug Fixes
 
 - Fixed an issue where it was possible for a customer to pay for their order with an alternative payment method, then drop out of the flow before their order was created.
 - Fixed an issue where duplicate `order.updated` webhook events were sent by the authorized transaction recurring processes even though the order had not updated.
-- Fixed an issue to properly handle some edge case errors for Paypal refund transactions.
+- Fixed an issue to properly handle some edge case errors for PayPal refund transactions.
