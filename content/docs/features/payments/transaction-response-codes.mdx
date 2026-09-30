@@ -4,17 +4,17 @@ description: "Reference for all payment transaction response codes"
 ---
 Payment Transaction requests have many potential outcomes, with each gateway and processor having unique response codes.  Next Commerce codes and categorizes these into common response buckets, according to the following codes.
 
-### Successful Transactions
+## Successful Transactions
 
-Successful transactions are coded as 1000.<br />
+Successful transactions are coded as 1000.
 
 | Code | Detail   |
 | ---- | -------- |
 | 1000 | Approved |
 
-### Soft Declines
+## Soft Declines
 
-Soft declines are coded in the 2000 range and are the result of an issuer-level transaction failure. Soft declined transactions may potentially be successful if retried in the future.<br />
+Soft declines are coded in the 2000 range and are the result of an issuer-level transaction failure. Soft declined transactions may potentially be successful if retried in the future.
 
 | Code | Detail                 | Decline Type |
 | ---- | ---------------------- | ------------ |
@@ -25,7 +25,7 @@ Soft declines are coded in the 2000 range and are the result of an issuer-level 
 | 2004 | Authorization Required | Soft         |
 | 2005 | Processing Error       | Soft         |
 
-### Hard Declines
+## Hard Declines
 
 Hard declines are coded in the 3000 and 4000 ranges and are the result of an error, or an issuer rejection of a transaction that cannot be resolved without modifying the payment request. Hard declined transactions are not recommended to reattempt.
 
@@ -56,7 +56,7 @@ For codes relating to invalid inputs by the customer, such as an invalid address
 | 4002 | Bank Account Routing Number Invalid           | Hard         |
 | 4003 | Bank Account Does Not Support SEPA            | Hard         |
 
-### Errors
+## Errors
 
 Errors are coded in the 5000 range and indicate there is a problem with the payment method or with the payment provider.
 

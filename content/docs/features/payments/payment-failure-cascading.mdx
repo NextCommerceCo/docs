@@ -6,9 +6,9 @@ Merchants with more than one payment gateway may wish to support _cascading_ - i
 
 ## Automatic Re-Attempt Flow
 
-From the [**Payments Settings**](/docs/start-here/get-started/add-payment-providers) follow the following steps to set up decline re-attempts:
+From the [Payments Settings](/docs/start-here/get-started/add-payment-providers) follow the following steps to set up decline re-attempts:
 
-* Create a new[ **Gateway Group**](/docs/start-here/get-started/add-payment-providers#create-gateway-groups) to use for re-attempting declined charges
+* Create a new [Gateway Group](/docs/start-here/get-started/add-payment-providers#create-gateway-groups) to use for re-attempting declined charges
 * Add one or more gateways to the group to use for charge re-attempts
 * From the Gateway Details View, under **Payment Flow** select the box "Re-attempt declined initial charge attempts"
 * Specify the Gateway Group you created
@@ -29,7 +29,7 @@ Developers wishing to customize their decline re-attempt logic should use the fo
 
 <Callout type="info">
 
-Note: Re-attempting payment failures is not recommended for **Hard Decline** reasons are returned in an initial response.  Only **Soft Declines** are likely to approve upon re-attempt.  Your application should parse the [**Transaction Response Code**](/docs/features/payments/transaction-response-codes) to decide whether a charge should be re-attempted.
+Note: Re-attempting payment failures is not recommended for **Hard Decline** reasons are returned in an initial response.  Only **Soft Declines** are likely to approve upon re-attempt.  Your application should parse the [Transaction Response Code](/docs/features/payments/transaction-response-codes) to decide whether a charge should be re-attempted.
 
 </Callout>
 

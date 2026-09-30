@@ -4,15 +4,13 @@ description: "Set up payment gateways, gateway groups, and more"
 ---
 Before your store is ready to take live orders, you'll need to set up payment processing accounts.
 
-<Callout type="success">
-
-**Preparing to Go Live?**
+<Callout type="success" title="Preparing to Go Live?">
 
 Confirm at least one payment gateway or gateway group is configured for every currency you plan to accept. Before launch, place a test order to verify the checkout can route a payment successfully.
 
 </Callout>
 
-### Adding a Payment Gateway
+## Adding a Payment Gateway
 
 To add a Gateway, go to **Settings > Payments** and choose **Add Gateway**.
 
@@ -22,11 +20,11 @@ Once a Gateway has been added to your store, you can specify
 
 * Supported Currencies
 * Accepted Card Types
-* Payment Flow (Charge, or [**Authorize & Capture**](/docs/features/payments/authorize-and-capture-payments))
-* Enable [**3DS**](/docs/features/payments/3ds2-payments) support (optional), and assign a [**3DS Merchant Profile**](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
-* Connect an [**Apple Pay**](/docs/features/payments/apple-pay) profile (optional)
-* Connect a [**Google Pay**](/docs/features/payments/google-pay) profile (optional)
-* Enable [**Alternative Payment Methods**](/docs/features/payments/stripe-apms), including Affirm, Klarna, TWINT, Swish, Stripe Link, iDEAL, Bancontact, and other European bank payments (optional)
+* Payment Flow (Charge, or [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments))
+* Enable [3DS](/docs/features/payments/3ds2-payments) support (optional), and assign a [3DS Merchant Profile](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
+* Connect an [Apple Pay](/docs/features/payments/apple-pay) profile (optional)
+* Connect a [Google Pay](/docs/features/payments/google-pay) profile (optional)
+* Enable [Alternative Payment Methods](/docs/features/payments/stripe-apms), including Affirm, Klarna, TWINT, Swish, Stripe Link, iDEAL, Bancontact, and other European bank payments (optional)
 
 <Callout type="info">
 
@@ -43,7 +41,7 @@ To use multiple gateways on the storefront checkout, create a **Gateway Group**,
 
 </Callout>
 
-### Create Gateway Groups
+## Create Gateway Groups
 
 Stores with multiple bankcard gateways can use Gateway Groups to a single group, and define a weighting to each gateway to prioritize the distribution of transactions.
 
@@ -64,16 +62,16 @@ This rule prevents a gateway that does not support a given card type or currency
 
 </Callout>
 
-### General Payment Settings
+## General Payment Settings
 
 * Assign a Gateway Group to use as the default on your storefront with the **Default Gateway Group** setting.  Assigning a Gateway Group will override any previously configured "Default" gateway for each currency.
 * Enable **Throttle Attempts for Declining Bankcards** to allow three failed attempts per card within ten minutes. Further attempts with that card are blocked until the window passes.
-* Set **Disputes Handling** actions at this step, such as automating the adding of customers with payment disputes to [**Block Lists**](/docs/features/payments/block-lists), Cancelling Orders, and Canceling Subscriptions.
+* Set **Disputes Handling** actions at this step, such as automating the adding of customers with payment disputes to [Block Lists](/docs/features/payments/block-lists), Cancelling Orders, and Canceling Subscriptions.
 * Set the **Subscription Cancel Reason** to assign to subscriptions that fail automatically due to failed recurring payments. Configure the rest of your subscription settings before launch if you sell subscriptions.
 
 ## PayPal & Apps
 
-To accept [**PayPal**](/docs/features/payments/paypal) or add other Payment Apps to your store, check out the Payments Guide
+To accept [PayPal](/docs/features/payments/paypal) or add other Payment Apps to your store, check out the Payments Guide
 
 <Cards>
   <Card title="Payments Guide" description="Set up and manage Gateways, Payment Apps, and more" href="/docs/features/payments" />

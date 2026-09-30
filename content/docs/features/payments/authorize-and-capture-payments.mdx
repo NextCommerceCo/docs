@@ -26,7 +26,7 @@ In this way, merchants can mitigate  transaction fees related to refunds, and re
 
 Merchants who rely on post-checkout upsell flows may find it useful to _authorize_ a set amount of funds at the time of checkout, then _capture_ a sum equal to the order total including all selected upsells.\
 \
-On the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api), when creating an order or a payment, pass an **`authorize_value`** greater than the initial order value to allow for _capturing_ additional funds when upsells are added to an order.
+On the [Admin API](https://developers.nextcommerce.com/docs/admin-api), when creating an order or a payment, pass an **`authorize_value`** greater than the initial order value to allow for _capturing_ additional funds when upsells are added to an order.
 
 </Callout>
 
@@ -42,12 +42,12 @@ To set up a new gateway or payment account visit this [useful guide](/docs/featu
 
 From this view, under **Payment Flow** choose **Auth/Capture.**
 
-**Auto Capture on Fulfillment** should be selected if you wish to Capture payments only when an order has been confirmed as shipped.  See [**Fulfillment Statuses**](/docs/manage/orders/order-statuses#fulfillment-statuses) for more details on order shipping events.
+**Auto Capture on Fulfillment** should be selected if you wish to Capture payments only when an order has been confirmed as shipped.  See [Fulfillment Statuses](/docs/manage/orders/order-statuses#fulfillment-statuses) for more details on order shipping events.
 
 Specify a value for **Delayed Capture Days** up to a maximum of 7 days.  If an authorized payment is not manually captured, it will be automatically captured at the end of this window.
 
 ### Manually Capture or Void Payments
 
-If you wish to manually capture an authorized payment within the authorization period, navigate to the [**Order Details View**](/docs/manage/orders/order-management#order-details-view) and select **Actions > Capture Payments**.
+If you wish to manually capture an authorized payment within the authorization period, navigate to the [Order Details View](/docs/manage/orders/order-management#order-details-view) and select **Actions > Capture Payments**.
 
-Alternatively, capture an authorized transaction on the [**Transactions Detail View**](/docs/features/payments#transactions-detail-view) by choosing **Actions > Capture Payment**.  To Void an authorization, choose **Actions > Void.**
+Alternatively, capture an authorized transaction on the [Transactions Detail View](/docs/features/payments#transactions-detail-view) by choosing **Actions > Capture Payment**.  To Void an authorization, choose **Actions > Void.**

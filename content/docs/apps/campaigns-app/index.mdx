@@ -4,9 +4,7 @@ description: "Connect custom checkouts to NEXT Campaigns API"
 ---
 Campaigns App simplifies and accelerates the deployment of custom marketing funnels and checkouts with Next Commerce's Campaigns API.
 
-<Callout type="success">
-
-**Preparing to Go Live?**
+<Callout type="success" title="Preparing to Go Live?">
 
 Add each launch domain to the Campaigns App allowlist and mark production traffic as **Production**. Development domains can accept live orders, but analytics tracking events are not recorded for them.
 
@@ -16,17 +14,17 @@ Campaigns App appears in the dashboard sidebar on new stores. If it is missing, 
 
 ## Custom Funnels with Campaigns API
 
-Next Commerce supports fully custom marketing funnels, including checkouts and post-purchase upsells. The server-side API method for creating fully custom flows is to use the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout) with a server-to-server connection.
+Next Commerce supports fully custom marketing funnels, including checkouts and post-purchase upsells. The server-side API method for creating fully custom flows is to use the [Admin API](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout) with a server-to-server connection.
 
 With **Campaigns App**, there is no need for server-to-server backend API integration. The Campaigns App uses a frontend CORS-enabled API to allow custom funnels without a backend integration.
 
 <Callout type="info">
 
-Developers can use the pre-built [**Campaign Cart SDK**](https://developers.nextcommerce.com/docs/campaigns/cart-system) and [**Campaign Page Kit**](https://developers.nextcommerce.com/docs/campaigns/page-kit) starter templates to accelerate custom marketing funnel development in Campaigns App.
+Developers can use the pre-built [Campaign Cart SDK](https://developers.nextcommerce.com/docs/campaigns/cart-system) and [Campaign Page Kit](https://developers.nextcommerce.com/docs/campaigns/page-kit) starter templates to accelerate custom marketing funnel development in Campaigns App.
 
 </Callout>
 
-Learn more about the [**NEXT Campaigns API**](https://developers.nextcommerce.com/docs/campaigns/api) and the best practices for creating and deploying fully custom customer experiences.
+Learn more about the [NEXT Campaigns API](https://developers.nextcommerce.com/docs/campaigns/api) and the best practices for creating and deploying fully custom customer experiences.
 
 ## Configure Campaigns App
 
@@ -51,10 +49,10 @@ Next, from the **Campaigns App** main workspace, select **New Campaign** to conf
 * **Default Currency** - choose the base currency for the campaign.
 * **Additional Currencies** - optionally add additional currencies for multi-geo campaigns.
 * **Language** - select from a list of the languages supported by the store.
-* **Payment Gateway Group** - assign a [**gateway group**](/docs/features/payments#gateway-groups) to the campaign, or leave blank to use the store's default gateway group.
+* **Payment Gateway Group** - assign a [gateway group](/docs/features/payments#gateway-groups) to the campaign, or leave blank to use the store's default gateway group.
 * **Available Payment Methods** - define the payment methods to be accepted on your campaign's checkout.
 * **Available Express Payment Methods** - define the express payment methods (PayPal, Apple Pay, etc.) to use on your campaign's checkout.
-* **PayPal Account ID** - assign a PayPal account to the campaign, or leave blank to use the store's [**default PayPal account.**](/docs/features/payments/paypal#configure-paypal)
+* **PayPal Account ID** - assign a PayPal account to the campaign, or leave blank to use the store's [default PayPal account.](/docs/features/payments/paypal#configure-paypal)
 * **Statement Descriptor** - define a custom descriptor to appear on your customer's card statement for your campaign (for payment gateways supporting dynamic descriptors only).
 * **Enable Package Retail Price & Quantity** - compatibility setting for existing campaigns that still depend on package-level Retail Price or Quantity fields. Leave disabled for new campaigns and use [Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts) for quantity pricing and compare-at savings.
 

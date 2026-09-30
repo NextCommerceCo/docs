@@ -6,13 +6,13 @@ description: "Create quick links to send customers directly to a customized chec
 
 Checkout Links are a simple way to create custom checkout experiences for your customers.  Place Checkout Links on any website, email, or web marketing channel to send customers directly to your store's checkout with items pre-loaded in their cart.  Your customer can then complete their purchase.
 
-By appending [**marketing source attribution**](/docs/features/offers/marketing-attribution) parameters onto a custom Checkout Link, you can attribute the resulting sales from each link, and view them in [**Reports**](/docs/analytics/orders-reports#orders-by-utm).  For example, by appending unique **`utm_campaign`** values to several Checkout Links, you can track resulting sales across multiple marketing campaigns.
+By appending [marketing source attribution](/docs/features/offers/marketing-attribution) parameters onto a custom Checkout Link, you can attribute the resulting sales from each link, and view them in [Reports](/docs/analytics/orders-reports#orders-by-utm).  For example, by appending unique **`utm_campaign`** values to several Checkout Links, you can track resulting sales across multiple marketing campaigns.
 
 Checkout Links can define the contents of a cart, any coupon (voucher) codes to automatically apply discounts, and whether the cart items should be sold one-time, or as a subscription.
 
 ### Example Checkout Links
 
-**As a One-time Purchase**
+#### As a One-time Purchase
 
 With the link below, two products would be added to the cart, and apply a voucher.
 
@@ -20,7 +20,7 @@ With the link below, two products would be added to the cart, and apply a vouche
 https://<store domain>/checkout/add/?product=12:1&product=13:3&voucher=PROMO&currency=usd
 ```
 
-**As a Subscription**
+#### As a Subscription
 
 With the following link, one product would be added to the cart as a subscription renewing every 3 months.
 
@@ -40,7 +40,7 @@ Replace \<store domain> in the link with the actual domain name of your store.  
 
 Checkout link parameters can be broadly split into two groups: Cart Parameters, which control the products, discounts, and sales model applied in the cart; and Attribution Parameters, which append marketing source attribution values to the cart and resulting orders.
 
-#### **Cart Parameters**
+#### Cart Parameters
 
 | Parameter  | Values                          | Description                                                                                              |
 | ---------- | ------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -49,13 +49,13 @@ Checkout link parameters can be broadly split into two groups: Cart Parameters, 
 | `currency` | currency code                   | Set the currency for the cart and product prices                                                         |
 | `replace`  | true/false                      | replace existing cart, default is true                                                                   |
 
-#### **Attribution Parameters**
+#### Attribution Parameters
 
-In addition to populating items into the cart, you can pass marketing source attribution parameters to attribute the order to your marketing channel.  Marketing sources values can be viewed across all orders via [**reports**](/docs/analytics/orders-reports#orders-overview).
+In addition to populating items into the cart, you can pass marketing source attribution parameters to attribute the order to your marketing channel.  Marketing sources values can be viewed across all orders via [reports](/docs/analytics/orders-reports#orders-overview).
 
 <Callout type="info">
 
-Checkout Links support adding custom [**attribution metadata**](/docs/build-a-store/technical-settings/metadata-fields-and-tags#metadata) values.  \
+Checkout Links support adding custom [attribution metadata](/docs/build-a-store/technical-settings/metadata-fields-and-tags#metadata) values.  \
 \
 Example checkout link format carrying metadata field "FBEVENT":
 
