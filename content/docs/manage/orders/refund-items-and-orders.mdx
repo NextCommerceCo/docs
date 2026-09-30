@@ -4,7 +4,7 @@ description: "The Refund view provides multiple ways to issue refunds and cancel
 ---
 ## Refund Order Items
 
-To refund specific items from an order, from the [**Order Details View**](/docs/manage/orders/order-management#order-details-view), choose **Refund.**
+To refund specific items from an order, from the [Order Details View](/docs/manage/orders/order-management#order-details-view), choose **Refund.**
 
 The Refund view offers several options to process refunds against both order line items, and entire orders.
 
@@ -12,13 +12,13 @@ The Refund view offers several options to process refunds against both order lin
 
 To be eligible for refunds, orders should have payment status as **Paid, Partially Paid,** or **Partially Refunded.**
 
-Orders with a payment status of **Authorized** must have payments **Captured** before they can be refunded.  More on [**Authorize & Capture**](/docs/features/payments/authorize-and-capture-payments) payment flows.
+Orders with a payment status of **Authorized** must have payments **Captured** before they can be refunded.  More on [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments) payment flows.
 
 </Callout>
 
-[**Unfulfilled**](/docs/manage/orders/order-statuses#fulfillment-statuses) or [**Fulfilled**](/docs/manage/orders/order-statuses#fulfillment-statuses) status orders allow the option to select specific items in the order for cancellation and refunding.  Selecting an item, or a quantity of an item, will pre-populate a refund amount corresponding to the items selected.
+[Unfulfilled](/docs/manage/orders/order-statuses#fulfillment-statuses) or [Fulfilled](/docs/manage/orders/order-statuses#fulfillment-statuses) status orders allow the option to select specific items in the order for cancellation and refunding.  Selecting an item, or a quantity of an item, will pre-populate a refund amount corresponding to the items selected.
 
-[**Processing**](/docs/manage/orders/order-statuses#fulfillment-statuses) status order items are not available to be refunded directly.  Since they are in the process of being fulfilled, they must first be canceled at the fulfillment partner using the [**Request Cancellation**](/docs/manage/orders/order-management#fulfillment-events) option (for supported integrations).
+[Processing](/docs/manage/orders/order-statuses#fulfillment-statuses) status order items are not available to be refunded directly.  Since they are in the process of being fulfilled, they must first be canceled at the fulfillment partner using the [Request Cancellation](/docs/manage/orders/order-management#fulfillment-events) option (for supported integrations).
 
 Amounts in the **Refund Amount** field are freely editable, up to the amount that remains available for refunding on the corresponding payment transaction. Selecting specific line items to refund, where possible, is optional but recommended.
 
@@ -34,9 +34,9 @@ When shipping costs have been charged to the customer, the option to **Refund Sh
 
 ### Process a Refund
 
-* Enter a Reason for Refund (optional), to be shown on the order's [**Timeline**](/docs/manage/orders/order-management#order-timeline)
+* Enter a Reason for Refund (optional), to be shown on the order's [Timeline](/docs/manage/orders/order-management#order-timeline)
 * Verify that the amount in the **Refund Amount** field is the desired amount
-* Choose whether to send the customer a [**Refund Notification** ](/docs/start-here/get-started/support-and-notifications#notifications)email
+* Choose whether to send the customer a [Refund Notification](/docs/start-here/get-started/support-and-notifications#notifications) email
 * Click **Refund**
 
 ## Partially Refund Orders
@@ -44,5 +44,5 @@ When shipping costs have been charged to the customer, the option to **Refund Sh
 It is always possible to bypass the selection of specific items for refunding, and simply process a refund against the payment transaction(s) on an order.
 
 * Enter the desired amount to refund from a transaction in the **Refund Amount** field
-* Choose whether to send the customer a [**Refund Notification** ](/docs/start-here/get-started/support-and-notifications#notifications)email
+* Choose whether to send the customer a [Refund Notification](/docs/start-here/get-started/support-and-notifications#notifications) email
 * Click **Refund**

@@ -8,13 +8,11 @@ When a subscription fails to renew due to a failed payment, NEXT helps you recov
 
 Subscription renewal payments may fail for various reasons that are temporary, and often the best course of action is to simply retry the renewal at a later time and date.  When a renewal payment failure occurs, NEXT categorizes the reason to determine whether the issue is temporary and the renewal should be reattempted.
 
-#### Failed Payments Handling
+### Failed Payments Handling
 
 To enable subscription renewal retries and control the settings, navigate to **Settings >  Subscriptions** from the Dashboard.
 
-<Callout type="info">
-
-**Payment Decline Types**
+<Callout type="info" title="Payment Decline Types">
 
 Soft Declines - may be reattempted again in the future.  Soft declines carry payment failure reason codes in the 2000 range.
 
@@ -26,7 +24,7 @@ For more information, see[ **Transaction Response Codes**](/docs/features/paymen
 
 Subscriptions that fail renewal payment will be retried if Automatic Retry Mode is enabled.  While a subscription is retrying, the status will be “Retrying” and the “Next Retry Date” will be displayed in the subscription details.
 
-#### Subscription Renewal Smart Retry
+### Subscription Renewal Smart Retry
 
 The optimized “Smart” retry schedule is based on aggregate data from industry leaders, tuned to provide the highest chance of recovery for subscribers, while minimizing decline transaction fees and ratios on your merchant account.
 
@@ -40,4 +38,4 @@ Decline Salvage Schedule
 
 </Callout>
 
-After all retries have completed, a subscription will transition to [**Past Due**](/docs/manage/subscriptions-guide/subscription-statuses) or [**Canceled**](/docs/manage/subscriptions-guide/subscription-statuses) depending on your store’s settings.
+After all retries have completed, a subscription will transition to [Past Due](/docs/manage/subscriptions-guide/subscription-statuses) or [Canceled](/docs/manage/subscriptions-guide/subscription-statuses) depending on your store’s settings.

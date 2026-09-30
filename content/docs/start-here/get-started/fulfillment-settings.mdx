@@ -2,25 +2,23 @@
 title: "Fulfillment Settings"
 description: "Set up Shipping Methods, Prices, and Fulfillment Locations"
 ---
-## **Fulfillment Locations**
+## Fulfillment Locations
 
 Navigate to **Settings > Fulfillment** to add or edit fulfillment locations in your store.  A Location is equivalent to a fulfillment provider's physical warehouse.
 
 You will be prompted to enter a name and physical address for the Location, and a **Processing By** value to designate which automated integration will be used by the Location.  Choose **Manual** if fulfillment will be done with manual processes in your store.
 
-Set up **Allowed Destination Countries** to define which countries this Location can serve, and to give orders from those countries priority routing to this Location.  This field is the highest-priority input to [**Location-Based Routing**](/docs/features/fulfillment-guide/location-based-routing) — leaving it empty means the Location serves every country but isn't prioritized for any.  Note: the Location's name (e.g. "US Warehouse") has no effect on routing; only the Allowed Destinations list does.
+Set up **Allowed Destination Countries** to define which countries this Location can serve, and to give orders from those countries priority routing to this Location.  This field is the highest-priority input to [Location-Based Routing](/docs/features/fulfillment-guide/location-based-routing) — leaving it empty means the Location serves every country but isn't prioritized for any.  Note: the Location's name (e.g. "US Warehouse") has no effect on routing; only the Allowed Destinations list does.
 
-For automated fulfillment by [**Shipstation**](/docs/apps/shipstation) or another supported integration, set up the corresponding **App** first, then return to the Location setup to update the **Processing By** setting.
+For automated fulfillment by [Shipstation](/docs/apps/shipstation) or another supported integration, set up the corresponding **App** first, then return to the Location setup to update the **Processing By** setting.
 
-<Callout type="success">
-
-**Preparing to Go Live?**
+<Callout type="success" title="Preparing to Go Live?">
 
 Physical-product stores need at least one fulfillment location and one shipping method with pricing in each selling currency. If an app such as ShipStation or Shop Sync handles fulfillment, return to the location after app setup and confirm **Processing By** points to the correct integration.
 
 </Callout>
 
-## **Shipping Methods**
+## Shipping Methods
 
 Offer multiple shipping methods, and set fees for each method in multiple currencies for your store's customers.
 
@@ -40,7 +38,7 @@ If only a single shipping method is configured, this default shipping method and
 
 <Callout type="info">
 
-For orders created on the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api) a shipping method can be passed into the **`shipping_code`** parameter.  \
+For orders created on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) a shipping method can be passed into the **`shipping_code`** parameter.  \
 \
 Alternatively, a custom shipping price may be passed on the API to override the shipping method's default price, using the **`shipping_price`** parameter.
 
@@ -59,7 +57,7 @@ With a single shipping method configured, the storefront checkout flow will not 
 
 </Callout>
 
-### **Fulfillment Settings**
+### Fulfillment Settings
 
 Toggle whether orders should automatically be sent to your integrated Location.
 
@@ -67,4 +65,4 @@ Optionally configure an **Automatic fulfillment processing delay** to allow orde
 
 This setting is useful if your customers often wish to modify or cancel their orders, or update their address details, soon after placing them.
 
-Check out the Orders Guide for more information on order [**Fulfillment Status Changes.**](/docs/manage/orders/order-statuses#fulfillment-statuses)
+Check out the Orders Guide for more information on order [Fulfillment Status Changes.](/docs/manage/orders/order-statuses#fulfillment-statuses)

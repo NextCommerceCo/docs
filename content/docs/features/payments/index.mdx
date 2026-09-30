@@ -6,7 +6,7 @@ description: "Set up and manage Gateways, Payment Apps, and more"
 
 Next Commerce supports a variety of global gateways for bankcard transactions, encompassing credit and debit cards such as Visa, Mastercard, AMEX, Discover, Maestro, JCB and more.
 
-Beyond bankcards, Next Commerce supports [**Alternative Payment Methods**](/docs/features/payments/stripe-apms), including Buy Now, Pay Later options such as Affirm and Klarna; TWINT and Swish through NEXT Payments; iDEAL and Bancontact through NEXT Payments or Stripe; Stripe Link; [Apple Pay](/docs/features/payments/apple-pay); [Google Pay](/docs/features/payments/google-pay); and [PayPal](/docs/features/payments/paypal).
+Beyond bankcards, Next Commerce supports [Alternative Payment Methods](/docs/features/payments/stripe-apms), including Buy Now, Pay Later options such as Affirm and Klarna; TWINT and Swish through NEXT Payments; iDEAL and Bancontact through NEXT Payments or Stripe; Stripe Link; [Apple Pay](/docs/features/payments/apple-pay); [Google Pay](/docs/features/payments/google-pay); and [PayPal](/docs/features/payments/paypal).
 
 Each gateway has its own guide covering setup, credentials, supported payment methods, and statement descriptor rules.
 
@@ -35,7 +35,7 @@ If you don't see your payment gateway listed as supported, just ask us.
 
 ### Adding a NEXT Payments Account
 
-To add NEXT Payments to your store, from your [**Next Commerce Account**](https://accounts.29next.com/) choose **Payments**, then choose **Create New**.
+To add NEXT Payments to your store, from your [Next Commerce Account](https://accounts.29next.com/) choose **Payments**, then choose **Create New**.
 
 You will be redirected to the onboarding flow to provide account setup details. Once an account is approved, it will automatically be loaded into your store's Payment Gateways and available for live transactions.
 
@@ -50,14 +50,14 @@ Once a gateway has been added to your store, you can specify:
 * A name for the gateway, referenced in Reports
 * Currencies Supported - leave blank to accept all currencies
 * Accepted Card Types - leave blank to accept all card types
-* Payment flow (Charge, or [**Authorize & Capture**](/docs/features/payments/authorize-and-capture-payments))
-* Optional: enable 3DS2 support and assign a [**3DS Merchant Profile**](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
-* Optional: enable cascading [**Declined Initial Charge Attempts**](/docs/features/payments/payment-failure-cascading)
+* Payment flow (Charge, or [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments))
+* Optional: enable 3DS2 support and assign a [3DS Merchant Profile](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
+* Optional: enable cascading [Declined Initial Charge Attempts](/docs/features/payments/payment-failure-cascading)
 * Optional: for supported gateways, specify a statement descriptor to override your payment provider's default descriptor
 
 <Callout type="info">
 
-For orders created via the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), you may optionally define a **`payment_gateway`** ID to route the transaction to a specific gateway via the **`payment_details > payment_gateway`** parameter.
+For orders created via the [Admin API](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), you may optionally define a **`payment_gateway`** ID to route the transaction to a specific gateway via the **`payment_details > payment_gateway`** parameter.
 
 </Callout>
 
@@ -83,9 +83,9 @@ This rule set prevents a gateway that does not support a given card type or curr
 
 <Callout type="info">
 
-For orders created via the [**Admin API**](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), you may pass a **`payment_gateway_group`** ID in the **`payment_details > payment_gateway_group`** parameter. If a payment gateway group ID is specified, it overrides the default gateway or any value entered in the **`payment_gateway`** field.
+For orders created via the [Admin API](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout), you may pass a **`payment_gateway_group`** ID in the **`payment_details > payment_gateway_group`** parameter. If a payment gateway group ID is specified, it overrides the default gateway or any value entered in the **`payment_gateway`** field.
 
-[**Campaigns App**](/docs/apps/campaigns-app) includes a gateway group setting to automatically choose the gateway group on each campaign.
+[Campaigns App](/docs/apps/campaigns-app) includes a gateway group setting to automatically choose the gateway group on each campaign.
 
 </Callout>
 
@@ -123,15 +123,15 @@ Transactions can be searched by using the Advanced Search feature. Choose **Filt
 * 3DS Downgrade Retry
 * SCA Flow
 
-Additionally, filter the transactions list by any [**Marketing Source Attribution**](/docs/features/offers/marketing-attribution) values that are connected to the Order on which a transaction was made.
+Additionally, filter the transactions list by any [Marketing Source Attribution](/docs/features/offers/marketing-attribution) values that are connected to the Order on which a transaction was made.
 
 ### Transactions Detail View
 
 Clicking any Transaction ID, or the **View** button from the Transactions List View, will show the Transaction Detail. Transaction details provide all information available for the transaction, including the raw transaction data sent to the payment provider or gateway, and the data returned in response.
 
-Choose **Actions** from this view to apply a **Refund (or Void)** to a transaction, or to mark a transaction as [**Disputed**](/docs/features/payments/disputes-guide#disputes).
+Choose **Actions** from this view to apply a **Refund (or Void)** to a transaction, or to mark a transaction as [Disputed](/docs/features/payments/disputes-guide#disputes).
 
-To manually [**Capture an Authorized transaction**](/docs/features/payments/authorize-and-capture-payments#manually-capture-or-void-payments) within the authorization period, choose **Actions > Capture Payment.**
+To manually [Capture an Authorized transaction](/docs/features/payments/authorize-and-capture-payments#manually-capture-or-void-payments) within the authorization period, choose **Actions > Capture Payment.**
 
 For aggregated reports on payment transactions, see Transaction Reports.
 

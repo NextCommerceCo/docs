@@ -11,14 +11,12 @@ summary: Platform update on July 9, 2025.
 
 ## 
 
-## **New Features**
-
+## New Features
 - **Store Localization Overhaul:** Store localization settings have been revamped with new tools to help merchants quickly launch in new regions. Bulk display prices can now be automatically converted using current exchange rates.
 - **[Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) Domains: Production vs. Development:** Campaign domains now support both production and development environments, allowing merchants to exclude test data from campaign analytics for cleaner, more accurate reporting.
 - **Payment Methods in Store Detail API:** The Store Detail [Admin API](https://developers.nextcommerce.com/docs/admin-api) endpoint now returns enabled payment methods, allowing external apps to dynamically reference available gateway options in their integrations.
 
-## **Improvements**
-
+## Improvements
 - **Custom Cancel Reasons for Subscriptions:** The subscription cancellation flow in the dashboard now includes a free-text field for “Other Cancel Reason.” This data is available in exports for better analysis of custom cancel motivations.
 - **Faster Dashboard Cart View:** The cart list view in the dashboard has received UI refinements and backend query optimizations for faster loading and smoother UX.
 - **Enhanced Storefront Event Trackers:** Storefront event tracking now provides more context for integration with third-party analytics platforms.
@@ -34,7 +32,6 @@ summary: Platform update on July 9, 2025.
 - **Gateway Group Validation Enhancements:** Gateway groups now validate that each gateway has a weighting of at least 1. If a merchant no longer wants a gateway to receive traffic, it should be removed from the group entirely.
 - **Delivery Tracking Pagination Optimization:** The delivery tracking list view now loads faster, thanks to improved query performance.
 
-## **Bug Fixes**
-
+## Bug Fixes
 - **Google Analytics Referrer Fix:** Resolved an issue where the Google Analytics app wasn’t capturing the referring page correctly for event tracking.
 - **Google Pay Initialization Fix:** Fixed an edge case that could prevent Google Pay from initializing properly depending on specific gateway configurations.
