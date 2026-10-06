@@ -20,7 +20,7 @@ summary: "NEXT Payments now supports Swish for merchants selling in Sweden, and 
 
 - New [Admin API](https://developers.nextcommerce.com/docs/admin-api) keys now default to the latest stable API version (`2024-04-01`), and the last-used version of each key is now tracked.
 - The Admin API `/gateways/{id}/` response now exposes the `re_attemp_intitial_charge` and `re_attemp_group` fields that drive [Payment Failure Cascading](https://docs.nextcommerce.com/docs/features/payments/payment-failure-cascading), so you can audit a gateway's cascade configuration programmatically.
-- Catalogue updates are now faster and put less load on the store during large syncs, including catalogues kept in sync through [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync).
+- Catalogue updates are now faster and put less load on the store during large syncs, including catalogues kept in sync through Shop Sync.
 - The Campaigns Cart SDK cart and bundle templates now support a `{discount.percentage}` token, so you can display the percentage applied for each discount without hard-coding it.
 - The Campaigns Cart SDK now supports a `cart.hasCoupon()` conditional, so you can show or hide content based on whether any coupon, or a specific code, is applied.
 - Product locations now expose `date_created` and `date_updated` timestamps, making fulfillment-routing issues easier to investigate.

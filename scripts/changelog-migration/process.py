@@ -76,7 +76,6 @@ DEV_DOCS = "https://developers.nextcommerce.com"
 
 CROSSLINKS: list[tuple[re.Pattern, str]] = [
     # Apps — user docs
-    (re.compile(r"\bShop Sync\b"), f"{USER_DOCS}/docs/apps/shop-sync"),
     (re.compile(r"\bCampaigns App\b"), f"{USER_DOCS}/docs/apps/campaigns-app"),
     (re.compile(r"\bTaxJar\b"), f"{USER_DOCS}/docs/apps/taxjar"),
     (re.compile(r"\bAvalara(?: AvaTax)?\b"), f"{USER_DOCS}/docs/apps/avalara-avatax"),
