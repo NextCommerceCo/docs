@@ -70,3 +70,23 @@ Before making the GitHub repository public (or on a periodic cadence):
 
 GitHub settings checklist: private vulnerability reporting, Dependabot alerts,
 secret scanning, branch protection on `main`.
+
+## Fumadocs 16.15 migration requirements
+
+The 16.10.3 -> 16.15.12 upgrade needs more than a version bump:
+
+- `llms(source).index()` becomes asynchronous. Resolve it before rewriting links
+  in `/llms.txt`; the async handler also works with the current synchronous API.
+- Static search switches from Orama to ZBSearch. Migrate the quality checker with
+  the browser and exported index, preserving all three queries and size budgets.
+- ZBSearch disables stemming by default. Enabling English stemming in both the
+  exporter and browser still changes ranking: in the tested 16.15.12 build, the
+  subscriptions guide was outside the first 10 results for `subscription`.
+  Resolve that regression before changing the supported Fumadocs release line;
+  do not weaken or rename the probe to make the upgrade pass.
+- Core and UI must use the same version. MDX has its own version line. Validate
+  the production build, `/llms.txt`, all search checks, and browser search before
+  merging the migration. The 16.15 upgrade also changes Motion and UI primitives,
+  so check the docs layout and navigation in the preview.
+
+Routine maintenance stays on the 16.10 patch line until these checks pass.
