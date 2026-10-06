@@ -7,9 +7,8 @@ export const dynamic = 'force-static';
 
 const generator = llms(source);
 
-export function GET() {
-  const index = generator
-    .index()
+export async function GET() {
+  const index = (await generator.index())
     // The shared loader must keep site-relative URLs for the app's own routing,
     // so the generated index is absolutized here instead — agents fetch this
     // file standalone, with no base URL to resolve against.
