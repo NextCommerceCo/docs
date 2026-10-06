@@ -22,7 +22,6 @@
     "---Apps---",
     "apps/campaigns-app",
     "apps/delivery-tracking",
-    "apps/shop-sync",
     "apps/3pl-central",
     "apps/avalara-avatax",
     "apps/everflow",

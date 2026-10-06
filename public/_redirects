@@ -1,3 +1,5 @@
+/docs/apps/shop-sync https://guides.nextcommerce.com/guides/shop-sync-onboarding 301
+/docs/apps/shop-sync/ https://guides.nextcommerce.com/guides/shop-sync-onboarding 301
 /about-next /docs/about-next 301
 /analytics/* /docs/analytics/:splat 301
 /apps/* /docs/apps/:splat 301
