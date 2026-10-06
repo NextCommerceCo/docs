@@ -38,7 +38,6 @@ First mention of each term becomes a link. Second+ occurrences stay plain.
 
 User docs (docs.nextcommerce.com/docs):
 
-- `Shop Sync` → `/docs/apps/shop-sync`
 - `Campaigns App` → `/docs/apps/campaigns-app`
 - `TaxJar` → `/docs/apps/taxjar`
 - `Avalara` / `AvaTax` → `/docs/apps/avalara-avatax`
