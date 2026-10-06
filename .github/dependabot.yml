@@ -6,6 +6,23 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # package.json owns the supported release lines. Minor/major upgrades to
+    # the framework stack are deliberate migrations, not routine maintenance.
+    versioning-strategy: lockfile-only
+    groups:
+      react:
+        patterns:
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+      fumadocs:
+        patterns:
+          - "fumadocs-*"
+      next:
+        patterns:
+          - next
+          - "@next/third-parties"
 
   - package-ecosystem: github-actions
     directory: /

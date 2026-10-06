@@ -25,6 +25,24 @@ fan-out). The stable watch path is `content/changelog/*.mdx`.
 | `npm run validate-links` | Internal docs link integrity |
 | `npm run audit-developer-links` | Stale developer-doc URL patterns |
 | `npm audit --omit=dev` | Dependency advisories |
+| `npm run check-dependency-compatibility` | Matching React/Fumadocs packages and Node types |
+
+## Dependency updates
+
+Dependabot proposes weekly lockfile updates within the release lines declared in
+`package.json`. Next.js, React, and Fumadocs use patch-only (`~`) ranges. Their
+minor and major upgrades require a migration PR with an explicit range change,
+`npm run build`, and both search checks. Keep security alerts and security update
+PRs enabled; a security fix outside these ranges needs an explicit range change
+and the same validation rather than remaining blocked by the maintenance policy.
+
+React and React DOM must resolve to exactly the same version and update together
+with their type packages. Fumadocs core and UI must also match exactly; MDX has
+its own version line and should be reviewed with the Fumadocs group. Update
+Next.js and `@next/third-parties` together. Node types stay on the major declared
+in `.node-version` (also used by CI), and TypeScript stays on the supported major
+until a deliberate compiler migration. CI checks the installed package versions
+so a green build alone cannot approve a mismatched pair.
 
 ## Deprecated: changelog migration scripts
 

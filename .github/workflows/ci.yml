@@ -19,6 +19,8 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run check-dependency-compatibility
+
       # prebuild runs audit-developer-links, validate-links, and check-capabilities.
       - run: npm run build
 
