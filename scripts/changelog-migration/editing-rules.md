@@ -48,7 +48,7 @@ User docs (docs.nextcommerce.com/docs):
 - `ShipStation` → `/docs/apps/shipstation`
 - `Everflow` → `/docs/apps/everflow`
 - `3PL Central` → `/docs/apps/3pl-central`
-- `Chargeback360` / `Midigator` → `/docs/apps/midigator`
+- `Chargeback360` / `Midigator` → `/docs/apps/chargeback360`
 - `Apple Pay` → `/docs/features/payments/apple-pay`
 - `Google Pay` → `/docs/features/payments/google-pay`
 - `PayPal` (first only) → `/docs/features/payments/paypal`

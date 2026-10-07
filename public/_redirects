@@ -1,3 +1,8 @@
+# Renamed pages: list before the section splats so the first match wins.
+/docs/apps/midigator /docs/apps/chargeback360 301
+/docs/apps/midigator/ /docs/apps/chargeback360 301
+/apps/midigator /docs/apps/chargeback360 301
+
 /about-next /docs/about-next 301
 /analytics/* /docs/analytics/:splat 301
 /apps/* /docs/apps/:splat 301
