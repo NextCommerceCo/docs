@@ -87,8 +87,8 @@ CROSSLINKS: list[tuple[re.Pattern, str]] = [
     (re.compile(r"\bShipStation\b"), f"{USER_DOCS}/docs/apps/shipstation"),
     (re.compile(r"\bEverflow\b"), f"{USER_DOCS}/docs/apps/everflow"),
     (re.compile(r"\b3PL Central\b"), f"{USER_DOCS}/docs/apps/3pl-central"),
-    (re.compile(r"\bChargeback360\b"), f"{USER_DOCS}/docs/apps/midigator"),
-    (re.compile(r"\bMidigator\b"), f"{USER_DOCS}/docs/apps/midigator"),
+    (re.compile(r"\bChargeback360\b"), f"{USER_DOCS}/docs/apps/chargeback360"),
+    (re.compile(r"\bMidigator\b"), f"{USER_DOCS}/docs/apps/chargeback360"),
     # Payment features
     (re.compile(r"\bApple Pay\b"), f"{USER_DOCS}/docs/features/payments/apple-pay"),
     (re.compile(r"\bGoogle Pay\b"), f"{USER_DOCS}/docs/features/payments/google-pay"),
