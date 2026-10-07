@@ -1,0 +1,81 @@
+---
+title: "Google Analytics 4"
+description: "Track storefront ecommerce events in GA4, with optional Google Ads conversions"
+---
+The **Google Analytics 4** app adds the Google tag to your storefront and sends GA4 ecommerce events, from product views through purchase, to your GA4 property. It can also send a Google Ads conversion when an order is completed.
+
+<Callout type="info">
+
+Google Analytics 4 is an installable app. Enable it from the **Apps** menu on your NEXT Dashboard.
+
+</Callout>
+
+The app works with any storefront theme and needs no theme edits. It loads the Google tag through the theme's global header app hook and sends events through NEXT's [storefront event tracking](https://developers.nextcommerce.com/docs/storefront/event-tracking), so it covers your storefront and checkout. Pages hosted outside your NEXT storefront, such as external funnels, need their own tracking.
+
+## Set Up Google Analytics 4
+
+1. Install **Google Analytics 4** from the **Apps** menu and open its settings.
+2. Tick **Enable Google Analytics**.
+3. Enter your **Google Analytics Measurement ID**, in the format `G-XXXXXXXXXX`.
+4. Save.
+
+<Callout type="warn">
+
+The app does nothing until a Measurement ID is set. Ticking **Enable Google Analytics** on its own does not load the Google tag.
+
+</Callout>
+
+## Settings
+
+| Setting | What it does |
+| --- | --- |
+| **Enable Google Analytics** | Turns the app on. Nothing loads until a Measurement ID is also set. |
+| **Google Analytics Measurement ID** | Your GA4 Measurement ID, `G-XXXXXXXXXX`. |
+| **Enable Google Ads Conversion Tracking** | Sends a conversion to Google Ads when an order is completed. Needs the Conversion ID and Conversion Label below. |
+| **Google Ads Conversion ID** | Your Google Ads tag ID, for example `AW-123456789`. A number without the `AW-` prefix also works. |
+| **Google Ads Conversion Label** | The label from your Google Ads conversion action. |
+| **Enable Debug Mode** | Sends events in debug mode, so they appear in GA4 **DebugView** in real time. |
+| **Skip Test Orders** | Does not send `purchase` or the Google Ads conversion for [test orders](/docs/manage/orders/test-orders). |
+
+## Tracked Events
+
+The app sends these GA4 recommended ecommerce events:
+
+| Storefront activity | GA4 event |
+| --- | --- |
+| Customer views a category or collection page | `view_item_list` |
+| Customer views a product | `view_item` |
+| Customer adds a product to the cart | `add_to_cart` |
+| Customer removes a product from the cart | `remove_from_cart` |
+| Customer starts checkout | `begin_checkout` |
+| Customer submits a shipping method | `add_shipping_info` |
+| Customer completes an order | `purchase` |
+
+The Google tag sends `page_view` on every page load. If a customer is signed in to their storefront account, their customer ID is sent to GA4 as the `user_id`.
+
+### Values and Items
+
+* Every money value is sent as a number in the order's currency.
+* `value` on `begin_checkout`, `add_shipping_info` and `purchase` is item revenue: the sum of the line prices excluding tax. Shipping and tax are sent separately in the `shipping` and `tax` parameters.
+* `transaction_id` on `purchase` is the NEXT order number.
+* Items use the same identifiers on every event, so GA4 item reports join across the funnel: `item_id` is the product ID, and `sku` and `item_variant` identify the variant.
+* The first voucher applied to the cart or order is sent as `coupon`.
+* `view_item_list` uses the page path as the list ID and the page title as the list name. GA4 accepts up to 200 items per event, so longer lists are cut to the first 200.
+
+## Google Ads Conversions
+
+With **Enable Google Ads Conversion Tracking** on and both a Conversion ID and Conversion Label set, the app sends a Google Ads `conversion` on every completed order, alongside the GA4 `purchase` event. The conversion carries the order number as the transaction ID, and the order total, including shipping and tax, as its value.
+
+If the Conversion ID or Conversion Label is missing or not in the format Google Ads issues, no conversion is sent.
+
+<Callout type="info">
+
+To send your product catalog to Google Merchant Center for Google Ads, see [Google Merchant XML Feed](/docs/build-a-store/catalogue/google-merchant-xml-feed).
+
+</Callout>
+
+## Good to Know
+
+* Every GA4 event is addressed to the Measurement ID in the app settings. If another Google tag is on the page, it does not receive these events.
+* If your theme, or a tag in Google Tag Manager, already loads the Google tag for the same Measurement ID, remove it so page views are not counted twice.
+* Use **Enable Debug Mode** with GA4 **DebugView** to check events while testing, then turn it off.

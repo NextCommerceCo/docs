@@ -1,0 +1,40 @@
+---
+title: "Hotjar"
+description: "Add Hotjar heatmaps and session recordings to your storefront"
+---
+[Hotjar](https://www.hotjar.com/) shows how customers use your store with heatmaps and session recordings. The **Hotjar** app adds your Hotjar tracking code to every storefront page, so you can see the full customer journey through to checkout.
+
+<Callout type="info">
+
+Hotjar is an installable app. Enable it from the **Apps** menu on your NEXT Dashboard.
+
+</Callout>
+
+The app works with any storefront theme and needs no theme edits. It loads the Hotjar tracking code through the theme's global header app hook, which also renders on checkout. Pages hosted outside your NEXT storefront, such as external funnels, need their own Hotjar installation.
+
+## Set Up Hotjar
+
+1. In Hotjar, open the installation instructions for your site and copy your **Site ID**.
+2. In NEXT, install **Hotjar** from the **Apps** menu and open its settings.
+3. Enter your **Hotjar Site ID**.
+4. Tick **Enable Hotjar Tracking**.
+5. Save, then open your storefront and confirm in Hotjar that data is arriving.
+
+<Callout type="warn">
+
+Enter the Site ID before you enable tracking. If tracking is enabled with no Site ID, the Hotjar code cannot load.
+
+</Callout>
+
+## Settings
+
+| Setting | What it does |
+| --- | --- |
+| **Enable Hotjar Tracking** | Adds the Hotjar tracking code to your storefront. |
+| **Hotjar Site ID** | The Site ID from your Hotjar account's installation instructions. |
+
+## Good to Know
+
+* The app installs the Hotjar tracking code only. It does not send NEXT ecommerce events or customer details to Hotjar.
+* Because the code loads on checkout pages too, review your Hotjar data suppression settings before you enable recordings.
+* If your theme already includes the Hotjar tracking code, remove it so Hotjar is not loaded twice.

@@ -1,0 +1,108 @@
+---
+title: "Google Tag Manager"
+description: "Load your GTM container on your storefront and push GA4-style ecommerce events to the dataLayer"
+---
+The **Google Tag Manager** app loads your Google Tag Manager (GTM) container on your storefront and pushes ecommerce events to the `dataLayer`, from product views through purchase. Tags in your container can then forward those events to GA4, Google Ads, or any other destination.
+
+<Callout type="info">
+
+Google Tag Manager is an installable app. Enable it from the **Apps** menu on your NEXT Dashboard.
+
+</Callout>
+
+The app works with any storefront theme and needs no theme edits. It loads the container through the theme's global header app hook and pushes events through NEXT's [storefront event tracking](https://developers.nextcommerce.com/docs/storefront/event-tracking), so it covers your storefront and checkout. Pages hosted outside your NEXT storefront, such as external funnels, need their own tracking.
+
+<Callout type="info">
+
+If you only need GA4, the [Google Analytics 4](/docs/apps/google-analytics-4) app sends the same events straight to GA4 without a container to manage.
+
+</Callout>
+
+## Set Up Google Tag Manager
+
+1. Install **Google Tag Manager** from the **Apps** menu and open its settings.
+2. Tick **Enable Google Tag Manager**.
+3. Enter your **Google Tag Manager Container ID**, in the format `GTM-XXXXXXX`.
+4. Save.
+5. In GTM, add triggers and tags for the events listed below, then publish your container.
+
+<Callout type="warn">
+
+The app does nothing until a Container ID is set. Ticking **Enable Google Tag Manager** on its own does not load the container.
+
+</Callout>
+
+## Settings
+
+| Setting | What it does |
+| --- | --- |
+| **Enable Google Tag Manager** | Turns the app on. Nothing loads until a Container ID is also set. |
+| **Google Tag Manager Container ID** | Your GTM Container ID, `GTM-XXXXXXX`. |
+| **Skip Test Orders** | Does not push the `purchase` event for [test orders](/docs/manage/orders/test-orders). |
+
+## Events Pushed to the dataLayer
+
+Event names and payloads follow the GA4 ecommerce format, so a GA4 event tag in GTM can use them as they are.
+
+| Storefront activity | dataLayer event |
+| --- | --- |
+| Customer views any page | `page_view` |
+| Customer views a category or collection page | `view_item_list` |
+| Customer views a product | `view_item` |
+| Customer adds a product to the cart | `add_to_cart` |
+| Customer removes a product from the cart | `remove_from_cart` |
+| Customer starts checkout | `begin_checkout` |
+| Customer submits a shipping method | `add_shipping_info` |
+| Customer completes an order | `purchase` |
+
+Every push also includes `page_location`, `page_path`, `page_title` and `page_referrer`. Before each ecommerce push, the app pushes `{ ecommerce: null }` to clear the previous ecommerce object, as Google recommends.
+
+<Callout type="warn" title="Avoid double-counting page views">
+
+The `page_view` push is there for container triggers. The Google tag inside your container already sends its own page view, so don't attach a GA4 event tag to this push.
+
+</Callout>
+
+### Example purchase push
+
+```js
+{
+  event: "purchase",
+  page_location: "https://example.com/checkout/...",
+  page_path: "/checkout/...",
+  page_title: "Checkout",
+  page_referrer: "https://example.com/cart/",
+  ecommerce: {
+    transaction_id: "100123",   // NEXT order number
+    currency: "USD",
+    value: 79.98,               // item revenue, excluding tax
+    shipping: 5.00,
+    tax: 6.40,
+    coupon: "WELCOME10",        // first voucher, when one is applied
+    items: [
+      {
+        item_id: "42",          // product ID
+        item_name: "Example Product",
+        sku: "EX-42-BLK",
+        item_variant: "Black",
+        price: 39.99,           // per unit, excluding tax
+        discount: 0,
+        quantity: 2,
+        index: 0
+      }
+    ]
+  }
+}
+```
+
+### Values and Items
+
+* Every money value is a number in the order's currency.
+* `value` on `begin_checkout`, `add_shipping_info` and `purchase` is item revenue: the sum of the line prices excluding tax. Shipping and tax are sent separately.
+* `add_shipping_info` includes the chosen shipping method as `shipping_tier`.
+* Items use the same identifiers on every event: `item_id` is the product ID, and `sku` and `item_variant` identify the variant.
+* `view_item_list` uses the page path as the list ID and the page title as the list name. GA4 accepts up to 200 items per event, so longer lists are cut to the first 200.
+
+## Troubleshooting
+
+If the browser console shows `[Google Tag Manager app] dataLayer was missing on the storefront page`, the container did not load before the first event. This usually means your theme does not render the global header app hook. Events are still queued in the `dataLayer`, but the container itself will not load until the hook is present. Custom themes should include the [app hooks](https://developers.nextcommerce.com/docs/apps/snippets) in their base layout.

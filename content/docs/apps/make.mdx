@@ -1,0 +1,30 @@
+---
+title: "Make"
+description: "Automate workflows between your NEXT store and hundreds of other apps with Make"
+---
+[Make](https://www.make.com/) is a visual automation platform. NEXT's app on Make lets you build scenarios that connect your store to hundreds of other services, so you can automate workflows across your tools without writing code.
+
+<Callout type="info">
+
+The NEXT integration is installed from Make, not from the NEXT **Apps** menu. You need a [Make account](https://www.make.com/en/register?pc=next29) and access to your NEXT store's Dashboard.
+
+</Callout>
+
+## Connect Make to Your Store
+
+1. In Make, open the [NEXT integration](https://www.make.com/en/integrations/twentyninenext) and add a NEXT module to a scenario.
+2. When Make asks for a connection, create a new one. Make sends you to your NEXT store to approve the connection.
+3. Review the permissions Make requests and authorize the app in your store's Dashboard.
+4. You're returned to Make, and the connection is ready to use in your scenarios.
+
+The connection uses OAuth, the same authorization flow as other apps on the [NEXT App Framework](https://developers.nextcommerce.com/docs/apps/oauth). Make never sees your Dashboard password, and the access it holds is limited to the permissions you approved.
+
+## Build Scenarios
+
+The modules available for NEXT, and the triggers and actions each one offers, are listed on the [NEXT integration page](https://www.make.com/en/integrations/twentyninenext) on Make. Scenarios run on Make, so scenario history, errors and operation usage are all in your Make account.
+
+<Callout type="info">
+
+To send store events to Make or any other service without a dedicated module, create a [webhook](/docs/build-a-store/technical-settings/configure-webhooks) in your store and point it at a Make **Custom webhook** trigger.
+
+</Callout>

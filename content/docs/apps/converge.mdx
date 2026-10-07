@@ -1,0 +1,62 @@
+---
+title: "Converge"
+description: "Send storefront and checkout events to Converge for attribution and conversion tracking"
+---
+[Converge](https://www.runconverge.com/) is a marketing attribution and conversion tracking platform. The **Converge** app loads your Converge pixel on your storefront and sends shopping and checkout events, including placed orders, to your Converge event source.
+
+<Callout type="info">
+
+Converge is an installable app. Enable it from the **Apps** menu on your NEXT Dashboard.
+
+</Callout>
+
+The app works with any storefront theme and needs no theme edits. It loads the Converge pixel through the theme's global header app hook and sends events through NEXT's [storefront event tracking](https://developers.nextcommerce.com/docs/storefront/event-tracking), so it covers your storefront and checkout. Pages hosted outside your NEXT storefront, such as external funnels, need their own tracking.
+
+## Set Up Converge
+
+1. In Converge, open the event source for your store and copy its pixel code. See Converge's [storefront quickstart](https://docs.runconverge.com/implementation/quickstart#connect-your-storefront).
+2. In NEXT, install **Converge** from the **Apps** menu and open its settings.
+3. Enter your **Converge Pixel Code**.
+4. Tick **Enable Converge Tracking**.
+5. Save.
+
+<Callout type="warn">
+
+Enter the pixel code before you enable tracking. Events are only sent when both are set.
+
+</Callout>
+
+## Settings
+
+| Setting | What it does |
+| --- | --- |
+| **Converge Pixel Code** | The unique pixel code from your Converge event source. |
+| **Enable Converge Tracking** | Turns tracking on for your storefront. |
+| **Enable Converge Tracking for Test Orders** | Sends [test orders](/docs/manage/orders/test-orders) to Converge as conversions. Off by default, so test orders are not counted. |
+
+## Tracked Events
+
+| Storefront activity | Converge event |
+| --- | --- |
+| Customer views any page | `$page_load` |
+| Customer views a product | `Viewed Product` |
+| Customer adds a product to the cart | `Added To Cart` |
+| Customer starts checkout | `Started Checkout` |
+| Customer submits their contact information at checkout | `Added Contact Info` |
+| Customer completes an order | `Placed Order` |
+
+Events follow the [Converge spec](https://docs.runconverge.com/sources/converge-spec).
+
+### What each event includes
+
+* **Viewed Product**: product ID, name, URL, price and currency.
+* **Added To Cart**: product and variant IDs, SKU, product and variant names, URL, price, currency and quantity.
+* **Started Checkout** and **Added Contact Info**: order total, tax, shipping, currency, voucher codes, and the cart's line items (product and variant IDs, SKU, names, price, currency and quantity).
+* **Added Contact Info** also sends the customer's email, phone number, and shipping city, state, postcode and country to the Converge profile.
+* **Placed Order**: the NEXT order number, plus the same totals, voucher codes and line items. The customer's email, phone number, and billing city, state, postcode and country are sent to the Converge profile.
+
+### Identity and deduplication
+
+When a customer submits their contact information, and again when they place an order, the app sends their email address as a Converge alias. This lets Converge connect the customer's earlier anonymous activity to their profile.
+
+**Placed Order** is sent with an event ID made of your store's identifier and the order number, so each order always carries the same event ID.
