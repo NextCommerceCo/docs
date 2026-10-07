@@ -50,7 +50,7 @@ Events that arrive before a conversion is defined show in the **Active Events** 
 
 The app sends Taboola's standard event parameters:
 
-* **revenue**: on `make_purchase` and `start_checkout`, the order's item revenue excluding tax and shipping. On `add_to_cart`, the line total. On `view_content`, the product price.
+* **revenue**: on `make_purchase`, the order's item revenue excluding tax and shipping. On `start_checkout`, the cart's item revenue excluding tax and shipping. On `add_to_cart`, the line total. On `view_content`, the product price.
 * **currency**: the store currency of the cart or order.
 * **quantity**: the number of units.
 * **orderid**: the order number, on `make_purchase` only.
