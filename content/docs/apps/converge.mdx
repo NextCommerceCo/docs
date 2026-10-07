@@ -55,6 +55,12 @@ Events follow the [Converge spec](https://docs.runconverge.com/sources/converge-
 * **Added Contact Info** also sends the customer's email, phone number, and shipping city, state, postcode and country to the Converge profile.
 * **Placed Order**: the NEXT order number, plus the same totals, voucher codes and line items. The customer's email, phone number, and billing city, state, postcode and country are sent to the Converge profile.
 
+<Callout type="info" title="Tax in prices">
+
+The **Added To Cart** price excludes tax. Line item prices on **Started Checkout**, **Added Contact Info** and **Placed Order** include tax, and the order total includes tax and shipping. Keep this in mind when you compare Converge revenue with NEXT order reports.
+
+</Callout>
+
 ### Identity and deduplication
 
 When a customer submits their contact information, and again when they place an order, the app sends their email address as a Converge alias. This lets Converge connect the customer's earlier anonymous activity to their profile.
