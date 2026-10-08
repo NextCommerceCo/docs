@@ -1,0 +1,87 @@
+---
+title: "Taboola"
+description: "Send Taboola Pixel events and purchase conversions from your NEXT storefront"
+---
+Taboola is a native advertising network. The **Taboola Pixel Events** app loads the Taboola Pixel on your storefront and sends page view, product, cart, checkout and purchase events to your Taboola account, so Taboola can attribute conversions and revenue to your campaigns. The app sends these events through [Storefront Event Tracking](https://developers.nextcommerce.com/docs/storefront/event-tracking), so you don't need to edit your theme.
+
+<Callout type="info">
+
+**Taboola Pixel Events** is an installable App. Enable it from the **Apps** menu on your store.
+
+</Callout>
+
+## Set Up Taboola
+
+You need the numeric **Account ID** from your Taboola advertiser account, Realize:
+
+1. Sign in to Realize and select your advertiser account.
+2. Select **Tracking** in the left menu.
+3. Copy the numeric **Account ID** shown at the top left, for example `1234567`.
+
+In your store, navigate to **Apps**, install **Taboola Pixel Events**, and open its settings:
+
+* **Taboola Account ID** (required): the numeric Account ID from Realize. The app sends nothing until a numeric ID is saved. Your account name, or a pasted pixel snippet, will not work.
+* **Skip Test Orders**: don't send purchase events for [Test Orders](/docs/manage/orders/test-orders). Off by default.
+
+Select **Save**.
+
+<Callout type="warn">
+
+The app loads the Taboola Pixel for you. If your theme also has Taboola's base pixel code pasted in, remove it, or every page view will be counted twice.
+
+</Callout>
+
+## Define Conversions in Taboola
+
+Taboola only reports an event as a conversion once you define a conversion for it. In Realize, go to **Tracking > Conversions > New Conversion**, choose **Create conversions using code**, set the type to **Event**, and enter the event name exactly as shown below.
+
+| Event name | Taboola category | Sent when |
+|---|---|---|
+| `view_content` | View Content | A customer views a product page |
+| `add_to_cart` | Add to Cart | A product is added to the cart |
+| `start_checkout` | Start Checkout | Checkout starts |
+| `make_purchase` | Make Purchase | An order is completed |
+
+`page_view` is sent on every storefront page as Taboola's base pixel event, so it doesn't need a conversion.
+
+Events that arrive before a conversion is defined show in the **Active Events** tab as **No Conversion Defined**, where you can select **Set as conversion**. A new conversion can take up to an hour to show activity.
+
+### Event Values
+
+The app sends Taboola's standard event parameters:
+
+* **revenue**: on `make_purchase`, the order's item revenue excluding tax and shipping. On `start_checkout`, the cart's item revenue excluding tax and shipping. On `add_to_cart`, the line total. On `view_content`, the product price.
+* **currency**: the store currency of the cart or order.
+* **quantity**: the number of units.
+* **orderid**: the order number, on `make_purchase` only.
+
+Upsell items added to an order are included in that order's `make_purchase` revenue. The storefront sends one purchase event per order.
+
+## Verify Taboola Tracking
+
+1. Open your storefront in Chrome with the [Taboola Pixel Helper](https://chrome.google.com/webstore/detail/taboola-pixel-helper/aefiepimkogajhddmhcekceihikjcabd) extension installed.
+2. View a product, add it to the cart, and complete a test order.
+3. Confirm that the extension shows `page_view`, `view_content`, `add_to_cart`, `start_checkout` and `make_purchase` with your Account ID.
+
+In Realize, the **Test Events** tab under **Tracking > Conversions** opens your site with a test click. The **Conversions** table shows each conversion's status and when it was last received.
+
+<Callout type="info">
+
+Turn off **Skip Test Orders** while you test, or the test order's `make_purchase` event won't be sent.
+
+</Callout>
+
+<Callout type="info">
+
+Taboola adds a `tblci` click ID parameter to ad links. Keep it on links to your storefront, and don't strip it in redirects, so Taboola can attribute conversions.
+
+</Callout>
+
+## Use Taboola with Campaigns
+
+The Taboola Pixel Events app only tracks your storefront. Campaign funnels built from the [campaign starter templates](https://github.com/NextCommerceCo/campaign-cart-starter-templates/tree/main/_shared/analytics) load the Taboola Pixel themselves when the campaign's `taboola_account_id` is set. They send the same event names, plus:
+
+* `add_payment_info` when payment details are entered
+* `upsell_purchase` for each accepted post-purchase upsell, separate from `make_purchase`
+
+If you run both on the same Taboola account, also define conversions for `upsell_purchase` (under Make Purchase) and `add_payment_info` (under Add Payment Info) so upsell revenue is counted. See the [Campaign analytics developer guides](https://developers.nextcommerce.com/docs/campaigns/analytics) for campaign setup.
