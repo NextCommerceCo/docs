@@ -1,0 +1,35 @@
+---
+title: Payments by Method report, localized campaign address forms, and simpler campaign setup
+publishedAt: "2026-10-12"
+tags:
+  - Payments
+  - Campaigns
+  - Admin API
+  - Storefront
+summary: "Payments by Method is a new NEXT Payments report that splits payments by payment method, to show which methods approve and which ones decline. Campaigns Cart SDK now builds address forms in each country's format…"
+---
+
+## New Features
+
+- Payments by Method is a new NEXT Payments report that splits payments by payment method, to show which methods approve and which ones decline.
+- [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) now builds address forms in each country's format with translated labels and error messages, so campaigns are localized for each market.
+- Merchants now get an email when a pre-dispute alert is matched to their payment and refunded automatically, to explain why the order was refunded.
+
+## Improvements
+
+- Creating a campaign in the [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) has been simplified, with shipping methods and payment settings pulled from your store instead of set up by hand.
+- Shipping method settings have been redesigned to show destination countries and pricing for each currency, so global fulfillment setups are easier to understand.
+- Storefront pages now serve from cache when a link carries click IDs or UTM parameters, so visitors from paid traffic get the cached page.
+- Google Shopping feed now includes the sale price alongside the original price, so Merchant Center approves sale annotations on your products.
+- [Apple Pay](https://docs.nextcommerce.com/docs/features/payments/apple-pay) and Google Pay payments now skip the fraud risk check, so wallet customers are not declined by a risk score.
+- [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) now syncs Shopify refunds and removed line items, to keep fulfillment orders matched with the Shopify order.
+- Subscriptions on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) now return `bankcard_exp_month` and `bankcard_exp_year` in `payment_details`, to show when the card on file expires.
+- Transactions on the Admin API now filter `external_id` by exact match, making it easier to find a single transaction.
+
+## Bug Fixes
+
+- Fixed an issue where the Klaviyo app missed the Added to Cart event on a shopper's first add-to-cart of a session.
+- Fixed an issue where shipping vouchers were rejected as not found when creating a cart or order on the Campaigns API.
+- Fixed an issue where the wrong shipping discount was applied when more than one offer matched the cart quantity.
+- Fixed an issue where two offers created at the same time on the Campaigns Admin API could receive the same ID.
+- Fixed an issue where shoppers paying with Affirm briefly saw an "All fields are required" message before being redirected.
