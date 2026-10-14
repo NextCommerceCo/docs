@@ -95,7 +95,7 @@ Offer changes apply to the live funnel immediately. Retest the affected carts af
 ## How Offers Combine
 
 * Offers discount the first payment only. Subscription renewals are charged at the renewal price.
-* **One automatic offer per discount type.** When more than one **Offer** of the same discount type matches the order, only one applies: the one with the larger minimum quantity, then one with an exact quantity, then the larger discount. If they are still tied, the oldest offer applies.
+* **One automatic offer per discount type.** When more than one **Offer** of the same discount type matches the order, only one applies: the one with the larger minimum quantity. Among offers with the same minimum, an exact-quantity condition (**Product quantity equal to.**) beats a minimum one, then the larger discount wins, then the oldest offer.
 * **Codes stack.** A code applies on top of the price left by the offers before it. A 10% code on a product already 50% off charges 45% of the original price.
 * Product discounts apply first, then shipping, then whole-order discounts.
 * Automatic offers don't apply on post-purchase upsell pages. Use a **Code** for upsell, downsell, and exit-pop discounts.
