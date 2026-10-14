@@ -1,69 +1,111 @@
 ---
 title: "Campaigns Offers & Discounts"
-description: "Create custom discounting codes and logic for Campaigns API"
+description: "Choose what a campaign sells and set its prices, quantity tiers, and discount codes"
 ---
-Campaigns App **Packages** represent the product or product variant identities for sale on your external custom checkout flow.
+Campaigns App **Offers** are where you set up what a campaign sells and what customers pay. An offer picks the store products it applies to, the condition the order must meet, and the discount it gives.
 
-A **Package** can be understood as:
-
-_Product or Variant + base Package Price + optional subscription schedule_
-
-Campaigns App **Offers & Discounts** is the pricing layer. Use Offers to sell at multiple price points, including quantity tiers and strike-through savings, without creating individual packages for each variation.
-
-For example, a single Widget package can support Buy 1, Buy 2, and Buy 3 pricing. The funnel sends the selected package and quantity, the matching Offer applies, and the order calculation returns the original price, final price, savings amount, and savings percentage.
+Selecting products in an offer adds them to the campaign. When you save the offer, each selected product variant becomes a campaign product (a **package** in the Campaigns API) priced at its store price. The next offer that selects the same variant reuses it, so a Buy 1, Buy 2, and Buy 3 offer all sell the same product at different discounts.
 
 <Callout type="info" title="Campaigns App pricing is separate">
 
-Campaigns App Offers & Discounts are separate from the store-level Offers and Coupons tools. Configure campaign pricing inside the campaign under **Packages > Offers & Discounts**.
+Campaigns App Offers & Discounts are separate from the store-level Offers and Coupons tools. Configure campaign pricing inside the campaign, on its **Offers** tab.
 
 </Callout>
 
 | Setup need | Use |
 | --- | --- |
-| Product or variant identity | Package |
-| Base list price | Package Price |
-| Buy more, save more on checkout | Automatic Offer |
-| Upsell, downsell, exit pop, or manual promo code | Code offer |
-| Compare-at / strike-through pricing | Offer before/after calculation |
+| What the funnel sells | The products selected in its offers |
+| Full price | The product's campaign price (store price by default) |
+| Buy more, save more on checkout | An **Offer** for each quantity tier |
+| Upsell, downsell, exit pop, or promo code | A **Code** |
+| Compare-at / strike-through pricing | The price before and after the offer, returned by the Campaigns API |
 
-Campaign checkout templates should submit the selected Package and quantity, plus the configured discount code for a **Code** offer when needed. Render the original price, final price, and savings returned by Campaigns API instead of hardcoding a coupon-specific bundle price. See the developer guides for [Campaigns Offers](https://developers.nextcommerce.com/docs/campaigns#offers) and [calculating cart totals](https://developers.nextcommerce.com/docs/campaigns/api#calculate-cart).
+Campaign checkout templates should submit the selected product's package ID and quantity, plus the discount code for a **Code** when needed. Render the original price, final price, and savings returned by Campaigns API instead of hardcoding a bundle price. See the developer guides for [Campaigns Offers](https://developers.nextcommerce.com/docs/campaigns#offers) and [calculating cart totals](https://developers.nextcommerce.com/docs/campaigns/api#calculate-cart).
 
 <Callout type="warn">
 
-Do not create separate `1x`, `2x`, and `3x` packages just to express tiered pricing. Package-level Quantity and Retail Price are compatibility fields exposed by the **Enable Package Retail Price & Quantity** campaign setting for campaigns that already rely on them.
+Don't create separate `1x`, `2x`, and `3x` products to express tiered pricing. Create one offer per quantity tier over the same product.
 
 </Callout>
 
-## Set up Offers
+## Create an Offer
 
-From the Campaigns App main list view, click on your campaign name, or choose "View".
+From the Campaigns App main list view, click on your campaign name, select the **Offers** tab, and select **Add Offer**.
 
-Next, select **Packages -** then from **Offers & Discounts** select **Add Offer** and configure the following values.
+### General Detail
 
-### General Details
+* **Name** - used internally for tracking and reporting.
+* **Type** - choose between:
+  * **Offer** - always applies when the order meets the condition. Use this for checkout quantity tiers.
+  * **Code** - applies only when the discount code is used. Use this for upsells, downsells, exit pops, and coupon-style promotions.
+* **Discount code** - shown for a **Code**. Type a code or select **Generate**. Use letters, numbers, hyphens (-), and underscores (_). Each code can be used by only one offer in the campaign, and codes are not case-sensitive.
 
-* **Name** - The name of the discount
-* **Type** - Choose between
-  * **Offer** - Automatically apply the discount when the order meets the conditions. Use this for checkout quantity tiers.
-  * **Code** - Only apply the discount when the code is used - when selected you must enter the Discount Code. Use this for upsells, downsells, exit pops, and coupon-style promotions.
+### Condition
 
-### Condition Type
+Set the condition the order must meet for the discount to apply.
 
-Set the conditions required for your discount logic to apply to the order
+* **Condition Type**
+  * **Any criteria, can always apply.**
+  * **Product quantity greater than or equal to.** - enter the **Quantity**.
+  * **Product quantity equal to.** - enter the **Quantity**.
+* **Products** - search the store by product name and select the products or variants the offer applies to. They appear under **Selected Products**. The order must include any of the selected products.
+* **All Products** - shown once the campaign has products. Select to apply the offer to every current and future product in the campaign.
 
-* Any Criteria
-* Package quantity greater than or equal to - a value
-* All Packages - Select to automatically add all current and future Packages to this condition
-
-Scope checkout tier Offers to the intended package or package family. Avoid **All Packages** unless the discount should apply to every package in the campaign, including add-ons and cross-sells.
+Select only the products the discount is meant for. Avoid **All Products** unless the discount should also apply to add-ons and cross-sells.
 
 ### Incentive
 
-Define the discount to be applied when the offer conditions are met
+Set the discount applied when the condition is met.
 
 * **Discount Type**
-  * Apply a percentage off the packages that meet the criteria
-  * Apply a percentage off the shipping price
-  * Apply a percentage off the entire order
-* Discount Amount (Percentage)
-* **Discount Price Rounding** - set a custom rounding rule to force discounted prices to round to a desired value
+  * Apply a percentage off the products that meet the criteria.
+  * Apply a percentage off shipping price.
+  * Apply a percentage off the entire order.
+* **Discount Amount** - the percentage to take off.
+* **Item Price Rounding** - round each discounted item price to `.00`, `.95`, `.97`, or `.99`. Rounding never raises a price above the price before the discount. Shipping discounts have **Shipping Price Rounding** instead.
+
+### Preview and Save
+
+The **Offer Preview** panel shows the offer as it will appear on the campaign page, using the same calculation as the Campaigns API: the per-item price, the price before the discount, the savings badge, and the subtotal, discounts, and total.
+
+* **Preview with additional coupons** - add the campaign's discount codes to see how they stack on this offer. Codes whose conditions the order doesn't meet are listed as not applied.
+* **Preview with shipping method** - shown for shipping discounts; pick the shipping method to preview.
+* **How is this calculated?** - shows each discount step and rounding that produced the final price.
+
+Select **Save Offer**. Any selected product that isn't in the campaign yet is added to the campaign's **Products** tab with its store name, image, and price. Change a product's campaign name, price, or image there; see [Campaign Products](/docs/apps/campaigns-app/build-campaign-packages).
+
+<Callout type="info">
+
+A product added by an offer is priced in the campaign's default currency at its store price. Other campaign currencies are converted with the daily [foreign exchange rates](/docs/start-here/get-started/add-locations-and-languages#currencies). If a product has no store price in the default currency, the offer can't be saved until it has one.
+
+</Callout>
+
+## Manage Offers
+
+The **Offers** tab lists each offer with its products, discount, and whether it is **Available**. Select an offer to edit it.
+
+From an open offer:
+
+* **Deactivate** stops the offer from applying; **Activate** turns it back on.
+* **More Actions > Clone** copies the offer. The copy starts deactivated, so you can check it before it goes live.
+* **More Actions > Delete** removes the offer. Remove its code from your campaign pages first.
+
+Offer changes apply to the live funnel immediately. Retest the affected carts after changing an offer on a live campaign.
+
+## How Offers Combine
+
+* Offers discount the first payment only. Subscription renewals are charged at the renewal price.
+* **One automatic offer per discount type.** When more than one **Offer** of the same discount type matches the order, only one applies: the one with the larger minimum quantity, then one with an exact quantity, then the larger discount. If they are still tied, the oldest offer applies.
+* **Codes stack.** A code applies on top of the price left by the offers before it. A 10% code on a product already 50% off charges 45% of the original price.
+* Product discounts apply first, then shipping, then whole-order discounts.
+* Automatic offers don't apply on post-purchase upsell pages. Use a **Code** for upsell, downsell, and exit-pop discounts.
+
+## Common Patterns
+
+| Goal | Type | Condition | Example name |
+| --- | --- | --- | --- |
+| Checkout quantity tier | Offer | Product quantity greater than or equal to the tier; select the product | `Widget - Buy 2 - 30%` |
+| Checkout promotion | Code | Any criteria or a minimum quantity; select the products | `Launch - 10%` |
+| Upsell or downsell | Code | Any criteria; select the upsell product | `Charging Pad - 50%` |
+| Exit pop | Code | Select the products shown in the exit pop | `Exit Pop - 10%` |
+| Free shipping | Offer or Code | Shipping discount at 100% with the intended condition | `Free Shipping` |
