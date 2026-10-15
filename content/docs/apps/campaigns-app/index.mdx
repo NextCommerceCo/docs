@@ -26,6 +26,15 @@ Developers can use the pre-built [Campaign Cart SDK](https://developers.nextcomm
 
 Learn more about the [NEXT Campaigns API](https://developers.nextcommerce.com/docs/campaigns/api) and the best practices for creating and deploying fully custom customer experiences.
 
+## Set Up a Campaign
+
+A campaign can take orders after two steps:
+
+1. **Create the campaign** - name, currency, language, shipping, and payments. See [Create a Campaign](#create-a-campaign) below.
+2. **Create its offers** - choose the store products the funnel sells and the discount for each quantity tier. Selecting products in an offer adds them to the campaign, so there is no separate product setup step. See [Campaigns Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts).
+
+Then allow the funnel's domains under Campaigns App **Settings**, and give your developer the campaign's API key from **Developer**.
+
 ## Configure Campaigns App
 
 Open **Campaigns App** from the dashboard sidebar.
@@ -43,22 +52,61 @@ Campaigns API requires that all API calls are made from a whitelisted domain for
 
 </Callout>
 
-Next, from the **Campaigns App** main workspace, select **New Campaign** to configure your campaign. Enter the following:
+## Create a Campaign
+
+From the **Campaigns App** main workspace, select **New Campaign** and fill in the form.
+
+**Campaign**
 
 * **Name** - the internal reference name for your campaign.
-* **Default Currency** - choose the base currency for the campaign.
-* **Additional Currencies** - optionally add additional currencies for multi-geo campaigns.
-* **Language** - select from a list of the languages supported by the store.
-* **Payment Gateway Group** - assign a [gateway group](/docs/features/payments#gateway-groups) to the campaign, or leave blank to use the store's default gateway group.
-* **Available Payment Methods** - define the payment methods to be accepted on your campaign's checkout.
-* **Available Express Payment Methods** - define the express payment methods (PayPal, Apple Pay, etc.) to use on your campaign's checkout.
-* **PayPal Account ID** - assign a PayPal account to the campaign, or leave blank to use the store's [default PayPal account.](/docs/features/payments/paypal#configure-paypal)
+* **Default Currency** - the base currency for the campaign. It can't be changed after the campaign is created.
+* **Additional Currencies** - optionally add more currencies for multi-geo campaigns. Prices in these currencies are converted from the default currency.
+* **Language** - select from the languages enabled on the store.
+
+**Shipping**
+
+The table lists the [shipping methods](/docs/start-here/get-started/fulfillment-settings#shipping-methods) set up on your store.
+
+* Tick **Enabled** for each method the campaign checkout should offer. At least one method must be enabled.
+* **Campaign Price** starts at the method's **Store Price**. Change it to charge a different rate on this campaign, for example a flat rate or free shipping.
+* Choose the **Default** method.
+
+To discount shipping only when an order qualifies, keep the campaign price and create a shipping [offer](/docs/apps/campaigns-app/campaigns-offers-and-discounts).
+
+<Callout type="info">
+
+If the table is empty, create a shipping method and price in your store's [Fulfillment Settings](/docs/start-here/get-started/fulfillment-settings#set-up-shipping-methods) first. Multi-currency campaigns need a store shipping price in every currency they sell in.
+
+</Callout>
+
+**Payments**
+
+* **Payment Gateway Group** - the store's default [gateway group](/docs/features/payments#gateway-groups) is preselected. Choose another group to route this campaign's payments differently.
+* **Payment Methods** - the payment methods accepted on the campaign checkout.
+* **Express Payment Methods** - the express buttons (PayPal, Apple Pay, Google Pay) shown above the checkout form.
+
+Select **Create Campaign**, then open the campaign's **Offers** tab and select **Add Offer**.
+
+### Campaign Settings
+
+Open a campaign and select **Settings** to change the values above, plus:
+
+* **Available Shipping Countries** - the countries customers can ship to.
+* **Recalculate Prices for All Currencies** - shown on multi-currency campaigns when you change a shipping price; converts the new price into the other currencies.
+* **PayPal Account** - assign a PayPal account to the campaign, or leave blank to use the store's [default PayPal account.](/docs/features/payments/paypal#configure-paypal)
 * **Statement Descriptor** - define a custom descriptor to appear on your customer's card statement for your campaign (for payment gateways supporting dynamic descriptors only).
-* **Enable Package Retail Price & Quantity** - compatibility setting for existing campaigns that still depend on package-level Retail Price or Quantity fields. Leave disabled for new campaigns and use [Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts) for quantity pricing and compare-at savings.
+* **Enable Package Retail Price & Quantity** - shown under **Advanced** only on older campaigns that use package-level Retail Price or Quantity. Set every product's quantity to 1 before turning it off. New campaigns use [Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts) for quantity pricing and savings.
 
 ### Campaign Workspace
 
-Open a campaign to work from its first-class **Analytics**, **Packages**, and **Settings** tabs.
+Open a campaign to work from its tabs:
+
+* **Analytics** - sessions, carts, orders, and conversion for the campaign. See [Campaign Analytics](/docs/apps/campaigns-app/campaign-analytics).
+* **Offers** - the campaign's offers and discount codes, with a price preview. See [Campaigns Offers & Discounts](/docs/apps/campaigns-app/campaigns-offers-and-discounts).
+* **Products** - the products the campaign sells and their campaign names, prices, and images. See [Campaign Products](/docs/apps/campaigns-app/build-campaign-packages).
+* **Settings** - the campaign's currencies, shipping, and payments.
+
+Use **More Actions** to **Clone** or **Delete** the campaign.
 
 Use the campaign's **Developer** workspace for:
 
