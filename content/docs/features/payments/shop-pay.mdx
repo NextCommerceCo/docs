@@ -76,7 +76,9 @@ Shop Pay can't be charged again after checkout. Each Shop Pay payment is good fo
 
 <Callout type="info">
 
-NEXT Campaigns are external headless funnels: sales pages hosted outside the NEXT storefront that place orders through the Admin API. They can take Shop Pay by creating the order with the `shop_pay` payment method and sending the customer to the returned `payment_complete_url`. See our [Developer Documentation](https://developers.nextcommerce.com/docs/admin-api) for order creation on the Admin API.
+NEXT Campaigns are external headless funnels: sales pages and checkouts hosted outside the NEXT storefront. Funnels built with the [Campaigns App](/docs/apps/campaigns-app) take Shop Pay through the [Campaigns API](https://developers.nextcommerce.com/docs/campaigns/api), with no backend integration needed. To offer it, add **Shop Pay** to the campaign's payment methods in the Campaigns App; turning on a Shop Pay account in NEXT doesn't add it to existing campaigns.
+
+Funnels with their own server-side integration use the [Admin API](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout): create the order with the `shop_pay` payment method and send the customer to the returned `payment_complete_url`.
 
 </Callout>
 
