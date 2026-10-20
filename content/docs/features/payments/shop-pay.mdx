@@ -1,0 +1,107 @@
+---
+title: "Shop Pay"
+description: "Offer Shop Pay on your storefront checkout, in NEXT Campaigns, and over the API"
+---
+Shop Pay is supported as a payment method on the Next Commerce Storefront Checkout, in NEXT Campaigns, and over the **Admin API**. Customers sign in to Shop Pay in a Shopify window and pay with their saved shipping and payment details, without typing a card number. In the United States, Canada, and the United Kingdom, eligible customers can also split the purchase with [Shop Pay Installments](https://help.shopify.com/en/manual/payments/shop-pay-installments).
+
+Shop Pay runs through Shopify's [Shop Pay on any platform](https://help.shopify.com/en/manual/payments/shop-pay/shop-pay-on-any-platform) program. NEXT keeps the cart, prices, shipping, tax, and the order. Shopify Payments only takes the payment and pays it out, so Shop Pay doesn't use your NEXT gateways and needs no gateway association like Apple Pay or Google Pay.
+
+## Shop Pay Requirements
+
+<Callout type="info">
+
+Shop Pay needs its own Shopify store, created for Shop Pay. You [can't use an existing Shopify store](https://shopify.dev/docs/api/commerce-components/pay), and Shop Pay orders stay separate from any store you already run on Shopify. That store also needs Shopify Payments activated. Shopify sets the eligibility rules: your business must qualify for Shopify Payments, and it must be located in a [supported country](https://help.shopify.com/en/manual/payments/shopify-payments/supported-countries).
+
+</Callout>
+
+### Sign up for Shop Pay
+
+Sign up at [shopify.com/solutions/shop-pay/enterprise](https://www.shopify.com/solutions/shop-pay/enterprise). Signing up creates a new Shopify store and admin used only for Shop Pay. Do this even if you already sell on Shopify.
+
+### Activate Shopify Payments
+
+In your Shopify admin, go to **Settings > Payments** and choose **Activate Shopify Payments**. Complete the business and identity steps, then **Submit for verification**. Once you're verified, choose **Connect a bank account** and add your payout details.
+
+<Callout type="warn">
+
+Shopify refunds every Shop Pay payment automatically if your payout details are not complete within 21 days of your first Shop Pay payment.
+
+</Callout>
+
+### Add your NEXT domain to Shop
+
+Shop Pay only recognizes customers on domains you've registered with Shopify.
+
+* In your Shopify admin, go to **Sales channels > Shop**.
+* In the **Domains** section, choose **Add domain URL**.
+* Enter your store's [Primary Domain](/docs/start-here/get-started/link-domains#domains) and choose **Save**.
+
+### Copy your Shop Pay credentials
+
+In your Shopify admin, go to **Sales channels > Shop**. The **Integrate Shop Pay** section lists the four credentials NEXT needs: **Shop ID**, **Client ID**, **Admin API** access token, and **Storefront API** access token. You'll also need your store slug: the part of your Shopify admin address before `.myshopify.com`.
+
+## Create Shop Pay Account
+
+Go to **Settings > Payments**, find **Shop Pay**, and choose **Activate Shop Pay**. On the **Shop Pay Accounts** page, choose **Add Account** and enter:
+
+* Shop ID
+* Shop Slug
+* Client ID
+* Admin API Key
+* Storefront API Key
+
+Select **Create**. NEXT checks the Admin API key against Shopify before saving, and rejects a key that belongs to a different shop than the Shop ID. When the account is saved, NEXT subscribes to Shopify's order, transaction, and dispute notifications for it automatically.
+
+### Default account
+
+The first active Shop Pay account becomes your **default**. The Storefront Checkout always uses the default account, and the Admin API uses it unless a request names a different account. To change it, choose **Make Default** on another active account on the **Shop Pay Accounts** page. Deactivating the default account removes Shop Pay from checkout until another account is made default.
+
+## Shop Pay on the Storefront Checkout
+
+When a default account is active, the Storefront Checkout shows a **Shop Pay** button in the express checkout section. Customers who choose it complete payment in the Shop Pay window and return to your order confirmation page.
+
+<Callout type="info">
+
+Shop Pay isn't offered when the cart contains a subscription product. Customers see your other payment methods instead.
+
+</Callout>
+
+<Callout type="info">
+
+Shop Pay can't be charged again after checkout. Each Shop Pay payment is good for one charge, and Shopify doesn't share the card, so subscriptions and one-click post-purchase upsells aren't available for Shop Pay orders.
+
+</Callout>
+
+### Use Shop Pay on NEXT Campaigns
+
+<Callout type="info">
+
+NEXT Campaigns are external headless funnels: sales pages and checkouts hosted outside the NEXT storefront. Funnels built with the [Campaigns App](/docs/apps/campaigns-app) take Shop Pay through the [Campaigns API](https://developers.nextcommerce.com/docs/campaigns/api), with no backend integration needed. To offer it, add **Shop Pay** to the campaign's payment methods in the Campaigns App; turning on a Shop Pay account in NEXT doesn't add it to existing campaigns.
+
+Funnels with their own server-side integration use the [Admin API](https://developers.nextcommerce.com/docs/admin-api/guides/external-checkout): create the order with the `shop_pay` payment method and send the customer to the returned `payment_complete_url`.
+
+</Callout>
+
+## Managing Shop Pay Orders
+
+Shop Pay orders appear in NEXT like any other order, with **Shop Pay** as the payment method. Shopify also creates a matching order in your Shopify admin to record the payment, and the Shop Pay transaction links to it.
+
+Fulfill Shop Pay orders from NEXT as usual. Don't fulfill the matching order in Shopify.
+
+Shop Pay payments are always authorized at checkout and captured later. Shopify holds an authorization for **7 days**; capture before then or the funds go back to the customer.
+
+From the transaction detail page in NEXT you can:
+
+* **Capture** an authorized payment. Only full captures are supported.
+* **Void** (cancel) an authorization that hasn't been captured.
+* **Refund** a captured payment, in full or in part.
+
+Refunds can show as pending until Shopify confirms them.
+
+### Disputes
+
+Shop Pay disputes are raised and answered in your Shopify admin under **Finance**, not in NEXT.
+
+### Fees and payouts
+
+Shopify Payments sets Shop Pay processing fees and pays out to the bank account you connected in Shopify. Shop Pay Installments carry additional transaction fees. These appear in your Shopify admin, not in NEXT payout reports.
