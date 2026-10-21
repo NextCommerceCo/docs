@@ -61,7 +61,7 @@ Connect with your Stripe account instead if you need any of these methods.
 
 Stripe Payment Intents uses Stripe's own 3DS authentication, so there is no **3DS Merchant Profile** to set up. **Optimized 3DS2** is not available on this gateway.
 
-See [3DS2 Payments](/docs/features/payments/3ds2-payments) for how Smart mode decides which orders use 3DS.
+Smart mode works the same way on this gateway: it decides from the billing address country and risk score whether to request Stripe's 3DS for each order. See [3DS2 Payments](/docs/features/payments/3ds2-payments#smart-mode) for the rules.
 
 ## Additional Settings
 

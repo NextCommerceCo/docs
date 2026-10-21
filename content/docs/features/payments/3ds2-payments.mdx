@@ -47,6 +47,8 @@ Smart mode lets one gateway take orders from both low-friction and SCA markets. 
 | United States, Canada, Australia, New Zealand | Above your risk tolerance | Charged with 3DS, and the challenge is always shown |
 | Any other country | Any | Charged with 3DS |
 
+See [How 3DS Modes Use Risk Screening](#how-3ds-modes-use-risk-screening) for how risk scores change these results.
+
 Smart mode applies to the initial checkout charge. Upsells, subscription renewals, wallet payments such as Apple Pay and Google Pay, and orders created in the dashboard follow their usual flow.
 
 <Callout type="warn">
@@ -67,13 +69,15 @@ Smart mode changes where the 3DS decision is made. It does not change where your
 | Above your risk tolerance, up to 90 | Declined | Charged with 3DS, challenge shown | Charged with 3DS, challenge shown |
 | At or below your risk tolerance | Charged without 3DS | Without 3DS in the US, Canada, Australia and New Zealand, with 3DS elsewhere | Charged with 3DS |
 
+If your risk tolerance is set to 90, the middle row never applies: every order above your tolerance is declined.
+
 Higher risk orders that go through 3DS are never retried without 3DS, even when Optimized 3DS2 is turned on. If the customer fails the challenge, the payment fails.
 
 ### 3DS2 Merchant Profiles
 
 Gateways that use a **3DS Merchant Profile** need one before Smart or Always On can authenticate. NEXT Payments is configured for you, and Stripe Payment Intents uses Stripe's own 3DS, so neither needs one.
 
-You will be prompted to enter the following values, most of which come from your processing provider or acquiring bank. You will be prompted to enter the following values, most of which come from your processing provider or acquiring bank.
+You will be prompted to enter the following values, most of which come from your processing provider or acquiring bank.
 
 | Field | Description |
 | --- | --- |
