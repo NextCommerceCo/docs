@@ -4,7 +4,7 @@ description: "Set your risk tolerance and review blocked checkout attempts"
 ---
 Next Commerce scores checkouts from 0 to 100 before payment is taken. If a checkout's score is above your store's risk tolerance, the payment is declined and no order is created.
 
-On a gateway with its [3DS Mode](/docs/features/payments/3ds2-payments#3ds-mode) set to **Smart** or **Always On**, a checkout scored above your risk tolerance is sent through 3DS instead, and the customer must complete the challenge. Checkouts that are scored above 90 are declined. When **Optimized 3DS2** is off or not available on that gateway, checkouts that will go through 3DS anyway are not scored at all: every **Always On** checkout, and **Smart** checkouts from outside the United States, Canada, Australia and New Zealand. These checkouts are never declined by risk screening.
+On a gateway with its [3DS Mode](/docs/features/payments/3ds2-payments#3ds-mode) set to **Smart** or **Always On**, a checkout scored above your risk tolerance is sent through 3DS instead, and the customer must complete the challenge, even when **Optimized 3DS2** is on. Checkouts that are scored above 90 are declined. When **Optimized 3DS2** is off or not available on that gateway, checkouts that will go through 3DS anyway are not scored at all: every **Always On** checkout, and **Smart** checkouts from outside the United States, Canada, Australia and New Zealand. These checkouts are never declined by risk screening.
 
 Checkouts sent through 3DS by risk screening are not listed under **Payments > Risk**. See [How 3DS Modes Use Risk Screening](/docs/features/payments/3ds2-payments#how-3ds-modes-use-risk-screening) for each case.
 

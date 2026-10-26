@@ -62,7 +62,7 @@ Smart mode changes where the 3DS decision is made. It does not change where your
 
 ### How 3DS Modes Use Risk Screening
 
-[Risk Screening](/docs/features/payments/risk-screening) scores a checkout before payment. On a gateway with 3DS Mode set to Smart or Always On, an order scored above your risk tolerance is sent through 3DS instead of being declined, and an order scored above 90 is declined.
+[Risk Screening](/docs/features/payments/risk-screening) scores a checkout before payment. On a gateway with 3DS Mode set to Smart or Always On, an order scored above your risk tolerance is sent through 3DS instead of being declined, and an order that is scored above 90 is declined.
 
 When Optimized 3DS2 is off or not available on the gateway, orders that will be charged with 3DS anyway are not scored: every Always On order, and Smart orders from outside the United States, Canada, Australia and New Zealand. These orders always go through 3DS, so risk screening never declines them, even when the score would be above 90.
 
@@ -71,11 +71,13 @@ When Optimized 3DS2 is off or not available on the gateway, orders that will be 
 | Off | Any | Any | Charged without 3DS | Declined | Declined |
 | Smart | Any | United States, Canada, Australia, New Zealand | Charged without 3DS | Charged with 3DS, challenge shown | Declined |
 | Smart | Off | Any other country | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
-| Smart | On | Any other country | 3DS attempted; if the issuer asks for a challenge, it is skipped and the order is charged without 3DS | Charged with 3DS, challenge shown | Declined |
+| Smart | On | Any other country | Charged with 3DS; if the issuer asks for a challenge, the order is resubmitted without 3DS (see below) | Charged with 3DS, challenge shown | Declined |
 | Always On | Off | Any | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
-| Always On | On | Any | 3DS attempted; if the issuer asks for a challenge, it is skipped and the order is charged without 3DS | Charged with 3DS, challenge shown | Declined |
+| Always On | On | Any | Charged with 3DS; if the issuer asks for a challenge, the order is resubmitted without 3DS (see below) | Charged with 3DS, challenge shown | Declined |
 
 If your risk tolerance is set to 90, the middle column never applies: every scored order above your tolerance is declined.
+
+When Optimized 3DS2 resubmits an order without 3DS, the charge carries no liability shift, and card issuers in the EU and UK may decline it. This applies in every billing country, including on Always On gateways.
 
 Higher risk orders that go through 3DS are never retried without 3DS, even when Optimized 3DS2 is turned on. If the customer fails the challenge, the payment fails.
 
