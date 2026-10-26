@@ -44,8 +44,9 @@ Smart mode lets one gateway take orders from both low-friction and SCA markets. 
 | Billing country | Order risk | Result |
 | --- | --- | --- |
 | United States, Canada, Australia, New Zealand | At or below your risk tolerance | Charged without 3DS |
-| United States, Canada, Australia, New Zealand | Above your risk tolerance | Charged with 3DS, and the challenge is always shown |
-| Any other country | Any | Charged with 3DS |
+| United States, Canada, Australia, New Zealand | Above your risk tolerance, up to 90 | Charged with 3DS, and the challenge is always shown |
+| United States, Canada, Australia, New Zealand | Above 90 | Declined |
+| Any other country | Any | Charged with 3DS. With Optimized 3DS2 turned on, orders above 90 are declined |
 
 See [How 3DS Modes Use Risk Screening](#how-3ds-modes-use-risk-screening) for how risk scores change these results.
 
@@ -61,15 +62,20 @@ Smart mode changes where the 3DS decision is made. It does not change where your
 
 ### How 3DS Modes Use Risk Screening
 
-[Risk Screening](/docs/features/payments/risk-screening) scores every checkout before payment. On a gateway with 3DS, an order scored above your risk tolerance is sent through 3DS instead of being declined.
+[Risk Screening](/docs/features/payments/risk-screening) scores a checkout before payment. On a gateway with 3DS, an order scored above your risk tolerance is sent through 3DS instead of being declined, and an order scored above 90 is declined.
 
-| Risk score | Off | Smart | Always On |
-| --- | --- | --- | --- |
-| Above 90 | Declined | Declined | Declined |
-| Above your risk tolerance, up to 90 | Declined | Charged with 3DS, challenge shown | Charged with 3DS, challenge shown |
-| At or below your risk tolerance | Charged without 3DS | Without 3DS in the US, Canada, Australia and New Zealand, with 3DS elsewhere | Charged with 3DS |
+When Optimized 3DS2 is turned off, orders that will be charged with 3DS anyway are not scored: every Always On order, and Smart orders from outside the United States, Canada, Australia and New Zealand. These orders always go through 3DS, so risk screening never declines them, even when the score would be above 90.
 
-If your risk tolerance is set to 90, the middle row never applies: every order above your tolerance is declined.
+| 3DS Mode | Optimized 3DS2 | Billing country | At or below your risk tolerance | Above your risk tolerance, up to 90 | Above 90 |
+| --- | --- | --- | --- | --- | --- |
+| Off | Any | Any | Charged without 3DS | Declined | Declined |
+| Smart | Any | United States, Canada, Australia, New Zealand | Charged without 3DS | Charged with 3DS, challenge shown | Declined |
+| Smart | Off | Any other country | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
+| Smart | On | Any other country | Charged with Optimized 3DS2 | Charged with 3DS, challenge shown | Declined |
+| Always On | Off | Any | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
+| Always On | On | Any | Charged with Optimized 3DS2 | Charged with 3DS, challenge shown | Declined |
+
+If your risk tolerance is set to 90, the middle column never applies: every scored order above your tolerance is declined.
 
 Higher risk orders that go through 3DS are never retried without 3DS, even when Optimized 3DS2 is turned on. If the customer fails the challenge, the payment fails.
 
