@@ -20,7 +20,7 @@ Each gateway has its own guide covering setup, credentials, supported payment me
 | [Braintree](/docs/features/payments/gateways/braintree) | Yes | Yes | Yes | No |
 | [Checkout.com](/docs/features/payments/gateways/checkout-com) | Yes | Yes | Yes | No |
 | [NMI](/docs/features/payments/gateways/nmi) | Yes | Yes | Yes | No |
-| [PayPal Commerce Platform](/docs/features/payments/gateways/paypal-commerce-platform) | Yes | No | Yes | No |
+| [PayPal Commerce Platform](/docs/features/payments/gateways/paypal-commerce-platform) | No | No | Yes | No |
 | [Paysafe](/docs/features/payments/gateways/paysafe) | No | Yes | Yes | No |
 | [Stripe Payment Intents](/docs/features/payments/gateways/stripe-payment-intents) | Yes | Yes | Yes | Yes |
 | [Test Gateway](/docs/features/payments/gateways/test-gateway) | Yes | Yes | Yes | No |
@@ -51,7 +51,7 @@ Once a gateway has been added to your store, you can specify:
 * Currencies Supported - leave blank to accept all currencies
 * Accepted Card Types - leave blank to accept all card types
 * Payment flow (Charge, or [Authorize & Capture](/docs/features/payments/authorize-and-capture-payments))
-* Optional: enable 3DS2 support and assign a [3DS Merchant Profile](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
+* Optional: set a [3DS Mode](/docs/features/payments/3ds2-payments#3ds-mode) and assign a [3DS Merchant Profile](/docs/features/payments/3ds2-payments#3ds2-merchant-profiles) to the gateway
 * Optional: enable cascading [Declined Initial Charge Attempts](/docs/features/payments/payment-failure-cascading)
 * Optional: for supported gateways, specify a statement descriptor to override your payment provider's default descriptor
 

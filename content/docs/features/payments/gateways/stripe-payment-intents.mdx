@@ -57,11 +57,11 @@ Connect with your Stripe account instead if you need any of these methods.
 
 ## 3DS2
 
-[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, choose **Enable 3D Secure Transactions**.
+[3DS2](/docs/features/payments/3ds2-payments) is supported. On the gateway's **3DS** card, set **3DS Mode** to **Smart** or **Always On**.
 
-You then set up a **3DS Merchant Profile**. It needs your merchant name and the country your business is registered in, plus an **Acquirer BIN**, **Merchant ID (MID)**, and **MCC code** for each card network you want authenticated. Your acquiring bank or processing provider issues these values.
+Stripe Payment Intents uses Stripe's own 3DS authentication, so there is no **3DS Merchant Profile** to set up. **Optimized 3DS2** is not available on this gateway.
 
-See [3DS2 Payments](/docs/features/payments/3ds2-payments) for Optimized 3DS2 and retrying cards that are not enrolled.
+See [3DS2 Payments](/docs/features/payments/3ds2-payments#smart-mode) for how Smart mode works.
 
 ## Additional Settings
 
