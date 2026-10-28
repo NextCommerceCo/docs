@@ -28,16 +28,6 @@ Shopify refunds every Shop Pay payment automatically if your payout details are 
 
 </Callout>
 
-### Capture payments at checkout
-
-In your Shopify admin, go to **Settings > Payments**. Under **Payment capture method**, choose **Automatically at checkout** and save.
-
-<Callout type="warn">
-
-NEXT doesn't yet capture Shop Pay payments on fulfillment or after a delay, as it does for gateway payments. If your Shop Pay store is set to capture **Manually**, each payment is only authorized. Capture it within 7 days, or the funds go back to the customer.
-
-</Callout>
-
 ### Add your NEXT domain to Shop
 
 Shop Pay only recognizes customers on domains you've registered with Shopify.
@@ -98,13 +88,7 @@ Shop Pay orders appear in NEXT like any other order, with **Shop Pay** as the pa
 
 Fulfill Shop Pay orders from NEXT as usual. Don't fulfill the matching order in Shopify.
 
-With **Automatically at checkout** set in Shopify, Shop Pay payments are captured when the customer pays. If your Shop Pay store is set to capture **Manually**, payments are only authorized: capture each one from NEXT within **7 days** or the funds go back to the customer.
-
-From the transaction detail page in NEXT you can:
-
-* **Capture** an authorized payment. Only full captures are supported.
-* **Void** (cancel) an authorization that hasn't been captured.
-* **Refund** a captured payment, in full or in part.
+Shop Pay payments are captured as soon as the order is placed. You can refund a Shop Pay payment, in full or in part, from the transaction detail page in NEXT.
 
 Refunds can show as pending until Shopify confirms them.
 
