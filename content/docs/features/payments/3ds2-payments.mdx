@@ -26,65 +26,42 @@ To support 3DS2 payments over the Admin API, see the [Developers Guide](https://
 
 ### 3DS Mode
 
-Go to **Settings > Payments** and choose your gateway. On the **3DS** card, choose a **3DS Mode**:
+Go to **Settings > Payments**, choose your gateway, and pick a **3DS Mode** on the **3DS** card.
 
 | Mode | What it does |
 | --- | --- |
-| **Off** | Transactions are processed without 3DS authentication. |
-| **Smart** | Skips 3DS in markets where shoppers rarely use it and adds 3DS on higher risk orders. Every other order is attempted with 3DS. |
-| **Always On** | Every transaction is attempted with 3DS authentication. |
-
-Gateways that had **Enable 3D Secure Transactions** turned on are now set to **Always On**, and gateways that had it turned off are set to **Off**. Nothing switches to Smart until you choose it.
+| **Off** | Transactions are processed without 3DS. |
+| **Smart** | Skips 3DS in the United States, Canada, Australia and New Zealand, unless the order is higher risk. All other orders use 3DS. |
+| **Always On** | Every transaction uses 3DS. |
 
 ### Smart Mode
 
-Smart mode lets one gateway take orders from both low-friction and SCA markets. It decides per order from the customer's billing address country, using the shipping address when there is no billing address.
+Smart mode lets one gateway serve markets where 3DS is required and markets where it mostly adds friction. It decides per order from the billing address country.
 
-| Billing country | Order risk | Result |
-| --- | --- | --- |
-| United States, Canada, Australia, New Zealand | At or below your risk tolerance | Charged without 3DS |
-| United States, Canada, Australia, New Zealand | Above your risk tolerance, up to 90 | Charged with 3DS, and the challenge is always shown |
-| United States, Canada, Australia, New Zealand | Above 90 | Declined |
-| Any other country | Any | Charged with 3DS. Optimized 3DS2 changes this, see [How 3DS Modes Use Risk Screening](#how-3ds-modes-use-risk-screening) |
-
-See [How 3DS Modes Use Risk Screening](#how-3ds-modes-use-risk-screening) for how risk scores change these results.
-
-Smart mode applies to the initial checkout charge. Upsells, subscription renewals, wallet payments such as Apple Pay and Google Pay, and orders created in the dashboard follow their usual flow.
+| Billing country | Result |
+| --- | --- |
+| United States, Canada, Australia, New Zealand | Charged without 3DS. Orders above your [risk tolerance](/docs/features/payments/risk-screening) are charged with 3DS and must complete the challenge. |
+| Any other country | Charged with 3DS |
 
 <Callout type="warn">
 
-Smart mode reads the billing address country, not the country of the bank that issued the card. A card issued in the EU with a US billing address is charged without 3DS, and the issuer may decline it if it requires authentication. Orders charged without 3DS carry no liability shift.
+Smart mode uses the billing address country, not the card's issuing country. Orders charged without 3DS carry no liability shift.
 
 </Callout>
 
-Smart mode changes where the 3DS decision is made. It does not change where your merchant account is located, so cross-border approval rates on your gateway still apply.
+### 3DS and Risk Screening
 
-### How 3DS Modes Use Risk Screening
+[Risk Screening](/docs/features/payments/risk-screening) works with your 3DS Mode:
 
-[Risk Screening](/docs/features/payments/risk-screening) scores a checkout before payment. On a gateway with 3DS Mode set to Smart or Always On, an order scored above your risk tolerance is sent through 3DS instead of being declined, and an order that is scored above 90 is declined.
-
-When Optimized 3DS2 is off or not available on the gateway, orders that will be charged with 3DS anyway are not scored: every Always On order, and Smart orders from outside the United States, Canada, Australia and New Zealand. These orders always go through 3DS, so risk screening never declines them, even when the score would be above 90.
-
-| 3DS Mode | Optimized 3DS2 | Billing country | At or below your risk tolerance | Above your risk tolerance, up to 90 | Above 90 |
-| --- | --- | --- | --- | --- | --- |
-| Off | Any | Any | Charged without 3DS | Declined | Declined |
-| Smart | Any | United States, Canada, Australia, New Zealand | Charged without 3DS | Charged with 3DS, challenge shown | Declined |
-| Smart | Off | Any other country | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
-| Smart | On | Any other country | 3DS attempted; if the issuer asks for a challenge, the challenge is skipped and the order is charged without 3DS (see below) | Charged with 3DS, challenge shown | Declined |
-| Always On | Off | Any | Not scored, charged with 3DS | Not scored, charged with 3DS | Not scored, charged with 3DS |
-| Always On | On | Any | 3DS attempted; if the issuer asks for a challenge, the challenge is skipped and the order is charged without 3DS (see below) | Charged with 3DS, challenge shown | Declined |
-
-If your risk tolerance is set to 90, the middle column never applies: every scored order above your tolerance is declined.
-
-When Optimized 3DS2 skips a challenge, the order is charged without 3DS: the charge carries no liability shift, and card issuers in the EU and UK may decline it. On Always On gateways this can happen in any billing country. On Smart gateways it only happens outside the United States, Canada, Australia and New Zealand.
-
-Higher risk orders that go through 3DS are never retried without 3DS, even when Optimized 3DS2 is turned on. If the customer fails the challenge, the payment fails.
+* **Off:** orders above your risk tolerance are declined.
+* **Smart or Always On:** orders above your risk tolerance are charged with 3DS and must complete the challenge. Orders scored above 90 are declined.
+* Orders that always use 3DS (every Always On order, and Smart orders outside the four countries above) are not risk screened unless **Optimized 3DS2** is on. The 3DS challenge protects them instead.
 
 ### 3DS2 Merchant Profiles
 
 Gateways that use a **3DS Merchant Profile** need one before Smart or Always On can authenticate. NEXT Payments is configured for you, and Stripe Payment Intents uses Stripe's own 3DS, so neither needs one.
 
-You will be prompted to enter the following values, most of which come from your processing provider or acquiring bank.
+Enter the following values, most of which come from your processing provider or acquiring bank.
 
 | Field | Description |
 | --- | --- |
@@ -94,34 +71,23 @@ You will be prompted to enter the following values, most of which come from your
 | Merchant ID (MID) | The merchant ID issued for that card network |
 | MCC Code | Your merchant category code |
 
-Acquirer BIN, Merchant ID, and MCC Code are entered per card network — Visa, Mastercard, AMEX, and Discover.
-
-Choose to **Save** your Merchant Profile.
+Acquirer BIN, Merchant ID, and MCC Code are entered per card network: Visa, Mastercard, AMEX, and Discover. Choose **Save**.
 
 <Callout type="info">
 
-Configuring each card type for 3DS is optional.  For example applying 3DS Merchant Profile values to Visa but not to Mastercard will apply 3DS to Visa transactions, but pass Mastercard transactions as non-3DS.
+Each card network is optional. For example, entering Visa values but not Mastercard values applies 3DS to Visa transactions and processes Mastercard transactions without 3DS.
 
 </Callout>
 
-Once the Merchant Profile is correctly set, your gateway will automatically apply 3DS on payment attempts.
-
 ### Optimized 3DS2
 
-Optimized 3DS2 is a checkbox under **Smart** and **Always On**. It is available on gateways that use a 3DS Merchant Profile, including NEXT Payments, and needs a merchant account that accepts both 3DS and non-3DS transactions.
+Choose **Enable Optimized 3D Secure Transactions** under Smart or Always On to skip 3DS challenges. When the card's issuing bank asks for a challenge, the transaction is charged without 3DS instead. Frictionless authentications still pass as 3DS.
 
-When a customer submits their payment details, 3DS2 authentication starts and the 3D Secure server returns one of two flows:
+Optimized 3DS2 needs a 3DS Merchant Profile and a merchant account that accepts both 3DS and non-3DS transactions. Higher risk orders always show the challenge.
 
-* _**Frictionless**_ - the transaction is authenticated without any input from the cardholder.
-* _**Challenge**_ - the cardholder must enter a one-time password from their card issuing bank to continue.
+<Callout type="warn">
 
-Choose **Enable Optimized 3D Secure Transactions** to skip the **`challenge flow`** and submit those transactions as non-3DS. **`Frictionless`** authentications still pass through as 3DS.
-
-With Smart mode, Optimized 3DS2 only affects orders that Smart sends through 3DS at normal risk, which are the orders outside the United States, Canada, Australia and New Zealand. Higher risk orders always show the challenge.
-
-<Callout type="info">
-
-If you turned on Optimized 3DS2 to keep 3DS away from US and other low-friction traffic, Smart mode now does that directly: those orders are charged without a 3DS request at all. Consider whether you still need Optimized 3DS2 for your remaining markets, where card issuers in the EU and UK may decline a challenged transaction that is charged without 3DS.
+Transactions charged without 3DS carry no liability shift, and card issuers in the EU and UK may decline them. With Smart mode you don't need Optimized 3DS2 to avoid 3DS in the United States, Canada, Australia and New Zealand.
 
 </Callout>
 
