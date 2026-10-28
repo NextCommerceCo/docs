@@ -41,7 +41,7 @@ Smart mode lets one gateway serve markets where 3DS is required and markets wher
 | Billing country | Result |
 | --- | --- |
 | United States, Canada, Australia, New Zealand | Charged without 3DS. Orders above your [risk tolerance](/docs/features/payments/risk-screening) are charged with 3DS and must complete the challenge. |
-| Any other country | Charged with 3DS |
+| Any other country | Charged with 3DS, unless [Optimized 3DS2](#optimized-3ds2) skips the challenge |
 
 <Callout type="warn">
 
@@ -54,7 +54,7 @@ Smart mode uses the billing address country, not the card's issuing country. Ord
 [Risk Screening](/docs/features/payments/risk-screening) works with your 3DS Mode:
 
 * **Off:** orders above your risk tolerance are declined.
-* **Smart or Always On:** orders above your risk tolerance are charged with 3DS and must complete the challenge. Orders scored above 90 are declined.
+* **Smart or Always On:** orders above your risk tolerance are charged with 3DS and must complete the challenge, unless they score above 90, which are declined.
 * Orders that always use 3DS (every Always On order, and Smart orders outside the four countries above) are not risk screened unless **Optimized 3DS2** is on. The 3DS challenge protects them instead.
 
 ### 3DS2 Merchant Profiles
