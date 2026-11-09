@@ -1,0 +1,32 @@
+---
+title: Smart 3DS, gift cards on the Admin API, and Shop Pay on campaigns
+publishedAt: "2026-11-04"
+tags:
+  - Payments
+  - Admin API
+  - Dashboard
+  - Fulfillment
+summary: "Introducing Smart 3DS, a new 3DS mode that skips 3DS in markets where shoppers rarely use it and adds it on higher risk orders. Merchants moving to NEXT can now import their existing gift card codes…"
+---
+
+## New Features
+
+- Introducing Smart 3DS, a new [3DS](https://docs.nextcommerce.com/docs/features/payments/3ds2-payments) mode that skips 3DS in markets where shoppers rarely use it and adds it on higher risk orders.
+- Merchants moving to NEXT can now import their existing gift card codes, and gift cards can be redeemed on [Admin API](https://developers.nextcommerce.com/docs/admin-api) and Campaigns API orders.
+- Shop Pay is now available on campaigns through the [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns), both at checkout and as an express checkout button.
+
+## Improvements
+
+- Shop Pay payments can now be captured automatically when an order is fulfilled or after your delayed capture days, so there's no need to capture each order by hand.
+- Tracking numbers for Shop Pay orders are now sent to Shopify when you ship.
+- When a PayPal refund fails, the Order timeline now shows it with the error message, so you know what happened and what to fix.
+- Campaigns now sit next to Storefront under a new Sales Channels group in the dashboard navigation.
+- Fulfillment location settings have been redesigned for an improved user experience.
+- Product and transaction requests on the Admin API have improved queries for faster response times.
+- Product filter counts on category pages now include only the products in that category.
+
+## Bug Fixes
+
+- Fixed an issue where Campaigns App orders kept a product's old SKU on the order line after the SKU was changed.
+- Fixed an issue where uploading a very high resolution product image failed with an error instead of saying the image was too large.
+- Fixed an edge case where a Klarna payment through Adyen could be charged without an order being created.

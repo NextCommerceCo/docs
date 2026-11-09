@@ -1,0 +1,31 @@
+---
+title: Shop Pay, campaign cloning on the Admin API, and Balance Summary CSV export
+publishedAt: "2026-10-21"
+tags:
+  - Payments
+  - Campaigns
+  - Admin API
+  - Dashboard
+summary: "Shoppers can now use Shop Pay to pay for their order on storefront checkout. It's now possible to clone a campaign in one call on the Campaigns Admin API…"
+---
+
+## New Features
+
+- Shoppers can now use Shop Pay to pay for their order on storefront checkout.
+- It's now possible to clone a campaign in one call on the [Campaigns Admin API](https://developers.nextcommerce.com/docs/campaigns/admin-api), and your existing pages keep working on the copy.
+- You can now export the Balance Summary report to CSV, with every charge, fee, refund, chargeback and payout on its own line to help reconcile your account.
+
+## Improvements
+
+- Creating an offer in the [Campaigns App](https://docs.nextcommerce.com/docs/apps/campaigns-app) now starts from your store products, with a live preview of the checkout bundle and no packages to set up first.
+- Campaign Offers can now be created switched off on the Campaigns Admin API, so a new discount stays hidden from shoppers until you turn it on.
+- Fulfillment orders on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) now include their fulfillment and cancellation requests, to help find out why an order was rejected.
+- A new `shipping_methods:read` scope lets apps read shipping methods without asking for full `admin:read` access.
+
+## Bug Fixes
+
+- Fixed an issue where Stripe rejected card payments because of how the statement descriptor was sent.
+- Fixed an issue where the Track Your Shipment button in the Order Shipped email had no link and product links in order emails repeated the domain.
+- Fixed an issue where Campaigns API orders failed when `success_url` or `payment_failed_url` was longer than 2048 characters.
+- Fixed an issue where viewing a private product while logged out showed an error page instead of a 404.
+- Fixed an issue where orders blocked by fraud screening showed an incomplete "contact support" message when the store had no contact email.
