@@ -6,7 +6,7 @@ description: "Set up Shipping Methods, Prices, and Fulfillment Locations"
 
 Navigate to **Settings > Fulfillment** to add or edit fulfillment locations in your store.  A Location is equivalent to a fulfillment provider's physical warehouse.
 
-You will be prompted to enter a name and physical address for the Location, and a **Processing By** value to designate which automated integration will be used by the Location.  Choose **Manual** if fulfillment will be done with manual processes in your store.
+Enter a name for the location and choose its **Processing By** integration. Choose **Manual** if your team handles fulfillment directly. Open the location to manage its **Location Address** and **Destination Countries**.
 
 Set up **Allowed Destination Countries** to define which countries this Location can serve, and to give orders from those countries priority routing to this Location.  This field is the highest-priority input to [Location-Based Routing](/docs/features/fulfillment-guide/location-based-routing) — leaving it empty means the Location serves every country but isn't prioritized for any.  Note: the Location's name (e.g. "US Warehouse") has no effect on routing; only the Allowed Destinations list does.
 
@@ -31,10 +31,10 @@ Configure the shipping method details:
 * **Name** - used for reference on the Dashboard and throughout the store, this value is also visible to customers in the storefront checkout flow.  Note, if your store supports multiple locales and languages, you can edit each name individually.
 * **Code** - used to reference this shipping method on the API.
 * **Description** - shows in the storefront checkout flow as a brief description of the shipping method.
-* **Countries** - used to specify which countries this shipping method can be used to ship to.
+* **Destination Countries** - the countries this shipping method can ship to.
 * **Delivery Time** - a delivery time estimate to be shown to customers in the store checkout flow.
 
-If only a single shipping method is configured, this default shipping method and its associated fees would apply for all orders.
+Shipping methods must cover the customer's destination country and have pricing in the order currency.
 
 <Callout type="info">
 
@@ -49,13 +49,13 @@ Next, set up Pricing for your Shipping Method, by configuring the following:
 * **Currency** - the currency that applies to the shipping method pricing
 * **Price Per Order** - used to set a shipping price for the entire order
 
-<Callout type="info">
+All stores use [single-page checkout](/docs/start-here/get-started/checkout-settings-and-policies#checkout-layout).
 
-With a single shipping method configured, the storefront checkout flow will not prompt the customer to choose their shipping method.  Instead, it will present only two steps to the customer to complete their checkout:\
-\
-**1) Customer Information -> 2) Payment**
+### Check Shipping by Market
 
-</Callout>
+Go to **Settings > Markets**, open a market, and choose **Manage** beside **Shipping & Fulfillment**. Review the shipping methods and fulfillment locations serving that country, and confirm shipping prices in the market's currency.
+
+Place a test order to check shipping availability, price, and fulfillment routing before launch.
 
 ### Fulfillment Settings
 

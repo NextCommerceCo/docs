@@ -1,36 +1,27 @@
 ---
 title: "Configure Webhooks"
-description: "Integrate and extend to third party platforms with webhooks"
+description: "Send store events to integrations and troubleshoot delivery"
 ---
 ## Webhooks
 
-Next Commerce stores feature a full suite of Webhook Events to subscribe to and receive updates as JSON data. Combining Webhook Events and the **Admin API** allows you to build two-way integrations, automations, and custom business logic for your store.
-
-Webhooks can be created via the Dashboard or via the [Admin API](https://developers.nextcommerce.com/docs/admin-api).  Webhook event logs can also be viewed in the Dashboard to analyze, diagnose or troubleshoot receiving endpoints.
-
-Webhook deliveries should complete within about 20 seconds; unresponsive endpoints can cause retries and delayed processing.
+Webhooks send store events to your integration as JSON. Create them in **Settings > Webhooks** or through the [Admin API](https://developers.nextcommerce.com/docs/admin-api).
 
 ### Creating a new Webhook
 
-Choose **Create Webhook** to set up a new webhook.  Input the full target URL to receive the data. The URL endpoint must accept JSON data and respond with a 200 status code.
+1. Go to **Settings > Webhooks** and choose **Create Webhook**.
+2. Enter the receiving endpoint's full URL.
+3. Select the event triggers your integration needs, then save.
 
-Choose from the following **Event Triggers:**
+Events cover customers, orders, transactions, subscriptions, fulfillments, and more. Use `customer.redacted` for customer data erasure and fulfillment events for shipping updates. See the [Webhook Events reference](https://developers.nextcommerce.com/docs/webhooks#webhook-events) for the full list and payloads.
 
-* cart.abandoned
-* customer.created
-* customer.updated
-* customer.deleted
-* order.created
-* order.updated
-* transaction.created
-* transaction.updated
-* ticket.created
-* ticket.updated
-* subscription.created
-* subscription.updated
-* dispute.created
-* dispute.updated
+The endpoint must accept JSON and return HTTP `200` within about 20 seconds. Failed deliveries are retried. See the [developer guide](https://developers.nextcommerce.com/docs/webhooks) for signature verification, retries, and duplicate-event handling.
 
 ### How to View Webhook Logs in the Dashboard
 
-Navigate to **Settings > Webhooks** to view the list of all configured Webhooks.  View the detail and logs of each Webhook by choosing **Actions > Detail.**  Update the configuration of a webhook by choosing **Actions > Update.**
+In **Settings > Webhooks**, choose **Actions > Detail** for a webhook. The detail view shows event counts, average response time, errors, and delivery logs.
+
+* Filter logs by date, event type, or status code.
+* Use **Instance ID** to find events for a specific object, such as an order.
+* Open an event to inspect its payload and delivery response.
+
+Use **Actions > Update** to change the webhook configuration. Check the logs after correcting an endpoint error to confirm deliveries succeed.
