@@ -1,30 +1,28 @@
 ---
-title: "Add Locations & Languages"
-description: "Set up locales, languages, and currencies"
+title: "Markets, Languages & Currencies"
+description: "Set up countries, languages, currencies, and market services"
 ---
-Next Commerce offers support for international sales in multiple locales, languages, and currencies.  Before you start selling, you should configure the languages, currencies, and countries you plan to sell in.
+Set up the countries you sell to in **Settings > Markets**. Each market has a currency and default language, with settings for pricing, payments, taxes, shipping, and fulfillment.
 
-It's useful to set up locales and currencies before you add Fulfillment Locations.
+## Set Up Markets
 
-English is the default language.
+1. Go to **Settings > Markets** and choose **Add Market**.
+2. Select the country, currency, and default language. Review automatic pricing and rounding, then save.
+3. Open the market to configure **Languages**, **Products & pricing**, **Payments**, and **Shipping & Fulfillment**.
+4. Choose **Configure** beside **Taxes** to set up [tax collection](/docs/build-a-store/catalogue/tax-settings).
+5. Check pricing and checkout for the market. Use **Deactivate** to keep it unavailable on the storefront until ready, then **Activate** to enable it.
 
-<Callout type="success" title="Preparing to Go Live?">
+Reorder markets to set their order in the storefront's market selector.
 
-Confirm each selling region has the correct currency and language before adding products, shipping methods, and tax settings. Currency choices flow into product prices, shipping prices, payment gateways, and reporting.
+<Callout type="info">
+
+Activating a market does not configure taxes. Tax services are assigned by country in **Settings > Taxes**. Built-in NEXT Tax's inclusive pricing setting applies by currency across all markets using that currency.
 
 </Callout>
 
-## Set Up Store Locales
-
-From the **Settings > Localization** view, select locales for your Storefront.  Set a custom priority to determine which geo locale will be displayed by default, and the order in which they should be displayed in your storefront’s geo selector -- with the highest value being first.
-
-Assign a currency (required) and a language to each Geo created.
-
 ### Additional Languages
 
-Add languages to allow for localized content on your Storefront, your Dashboard content editors, and the Dashboard interface itself.
-
-The **Priority** sets the order in which languages will be displayed in your storefront’s language selector -- with the highest value being first.  Languages can also be set to non-public, meaning they won’t be available on the storefront to shoppers, but will still be supported in your Dashboard sales data and on the APIs.
+Open a market and choose **Manage** beside **Languages** to add languages and set their storefront order. Add translated content through the language tabs in your content editors.
 
 The NEXT [Checkout](/docs/start-here/get-started/checkout-settings-and-policies) and customer [Notifications](/docs/start-here/get-started/support-and-notifications#notifications) are currently localized in a number of languages - contact your account representative if you have a custom language requirement.
 
@@ -42,18 +40,15 @@ The NEXT [Checkout](/docs/start-here/get-started/checkout-settings-and-policies)
 
 ## Currencies
 
-Assign currencies to one or more geo locales, and set priorities for default display and display order.
+Choose a currency when creating a market. Multiple markets can use the same currency.
 
-When adding additional currencies, automatically assign a price record to your products or shipping methods in the new currency by clicking on the red **Unavailable** links.  You will then be prompted to
-
-* **Add Local Pricing** - select the checkbox to apply the current exchange rate to add prices to products or shipping methods.
-* **Use Price Rounding Rule** - to preserve pricing presentation, optionally use a rounding rule for the calculated sub currency pricing.
+Open the market and choose **Manage** beside **Products & pricing** to review its pricing settings. Confirm that products and shipping methods have prices in the market's currency before selling.
 
 ### Automatic Currency Pricing
 
-Storefront localization settings can automatically create product prices in each configured currency using current foreign exchange rates. Automatic pricing rules also apply when new products are imported through the API, so new catalogue items receive prices in the store's configured currencies without a separate manual pass.
+Enable automatic forex pricing to create local prices using current exchange rates. Set a price-rounding rule to control the resulting prices. These rules also apply to new products imported through the API.
 
-Configure the forex pricing rule and any price-rounding behavior from **Settings > Localization**. Review locally set prices before enabling an automatic rule so that each market keeps the intended price presentation.
+Review existing local prices before enabling automatic pricing.
 
 <Callout type="info">
 
