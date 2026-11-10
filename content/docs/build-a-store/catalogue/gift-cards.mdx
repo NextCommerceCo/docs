@@ -44,7 +44,19 @@ If the customer loses their Gift Card at a later date, resend it to them by emai
 
 </Callout>
 
-### Sell Gift Cards as Products
+## Import Existing Gift Cards
+
+Gift cards from another platform can be imported through the Admin API using their existing codes. Import each card's remaining balance in its original currency, and disable the gift-card email if customers should keep using their existing cards without another notification.
+
+Have your developer follow [Gift Card Management](https://developers.nextcommerce.com/docs/admin-api/guides/gift-card-management#import-gift-cards) for code requirements and import instructions.
+
+## Redeem Gift Cards
+
+Gift cards can be redeemed at storefront checkout and on orders created through the Admin API or Campaigns API. Custom checkouts must pass the gift card code with the order.
+
+See [Admin API redemption](https://developers.nextcommerce.com/docs/admin-api/guides/gift-card-management#redeem-a-gift-card-on-an-order) and the [Campaigns API](https://developers.nextcommerce.com/docs/campaigns/api) for implementation details.
+
+## Sell Gift Cards as Products
 
 It's possible to set up Gift Cards as products available for purchase in your store.  From the Gift Card dashboard view, choose **Create Gift Card Product.**
 
@@ -54,6 +66,6 @@ You may optionally configure the product using all the options the standard [Cre
 
 When finished, choose **Save**
 
-#### View and Modify Gift Card Products
+### View and Modify Gift Card Products
 
 From the Gift Card dashboard view choose **View Gift Card Product** to view and edit all your store's Gift Card Products.
