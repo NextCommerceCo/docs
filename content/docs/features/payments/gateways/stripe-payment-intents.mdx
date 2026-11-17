@@ -27,6 +27,26 @@ Credentials are validated when you save. If the key cannot access the account yo
 
 A Stripe account already connected through **Connect with Stripe Account** cannot be added a second time manually.
 
+<Callout type="warn">
+
+**Upsells and subscriptions need Managing Transaction ID on manually added accounts.** Stripe must enable this feature on the account. Request it from Stripe support before you take payments on the account.
+
+</Callout>
+
+#### Enable Managing Transaction ID
+
+1. Contact [Stripe support](https://support.stripe.com/contact) from the Stripe account you are connecting.
+2. Send the message below, with your own Stripe Account ID.
+3. Wait for Stripe to confirm the feature is enabled on the account.
+
+```text
+Subject: Enable Managing Transaction ID
+Hello Stripe Support,
+Please enable the "Managing Transaction ID" feature on our Stripe account.
+Stripe Account ID: acct_XXXXXXXXXXXXXXXX
+Thank you.
+```
+
 ## Payment Methods
 
 Cards accepted: Visa, Mastercard, AMEX, Discover, and JCB.
