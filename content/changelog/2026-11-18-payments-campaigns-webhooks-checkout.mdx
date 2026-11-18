@@ -1,0 +1,30 @@
+---
+title: AUD settlement, a faster Campaigns Cart SDK, and upcoming renewal webhooks
+publishedAt: "2026-11-18"
+tags:
+  - Payments
+  - Campaigns
+  - Webhooks
+  - Checkout
+summary: "Merchants with an Australian company can now settle and get paid out in AUD on NEXT Payments, to avoid FX conversion. A rebuilt Campaigns Cart SDK is now available in beta…"
+---
+
+## New Features
+
+- Merchants with an Australian company can now settle and get paid out in AUD on NEXT Payments, to avoid FX conversion.
+- A rebuilt [Campaigns Cart SDK](https://developers.nextcommerce.com/docs/campaigns) is now available in beta, loading a fraction of the JavaScript and skipping the debugger outside debug mode, so prices show faster.
+- Introducing the `subscription.upcoming_renewal` webhook event, sent 72 hours before a subscription renews to help act on renewals ahead of time.
+
+## Improvements
+
+- Login, NEXT Payments and Partners pages in your NEXT account have been redesigned for an improved user experience.
+- Campaigns API orders now pass marketing URL parameters to `success_url` and `payment_failed_url`, so tracking pixels fire after every payment.
+- Storefront checkout now uses the local address format for customers in Arab countries, to help increase sales in the Middle East.
+- Checkout hero images can now be up to twice as large, to better reflect your brand at checkout.
+- Transactions on the [Admin API](https://developers.nextcommerce.com/docs/admin-api) and transaction webhooks now include AVS and CVV results for your fraud and chargeback services.
+- Klarna notification disputes now come in as RFIs, with guidance on resolving them with the customer before they become a dispute.
+
+## Bug Fixes
+
+- Fixed an issue where [Shop Sync](https://docs.nextcommerce.com/docs/apps/shop-sync) marked authorized payments as paid in Shopify, letting them be refunded there before capture.
+- Fixed an issue where Shop Sync setup asked for a Shopify webhook version that Shopify has retired, which stalled new installs.
