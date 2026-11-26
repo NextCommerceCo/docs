@@ -3,7 +3,7 @@ title: "Klaviyo"
 description: "Integrate Marketing Automation for Email & SMS"
 ---
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-import { ShoppingCart, ShoppingBag, Package, Truck, Navigation, PackageCheck, XCircle, RotateCcw, Repeat, CalendarX } from 'lucide-react';
+import { ShoppingCart, ShoppingBag, Package, Truck, Navigation, PackageCheck, XCircle, RotateCcw, Repeat, CalendarX, CalendarClock } from 'lucide-react';
 
 Klaviyo is a leading ecommerce marketing automation and CRM platform that integrates with Next Commerce as an app. With Klaviyo, you can engage your prospects and customers at every step of the customer lifecycle through email and SMS.
 
@@ -892,6 +892,7 @@ To prevent duplicate events from firing, you may wish to disable the **Send Star
         ],
         "OrderIntervalUnit": "month",
         "OrderIntervalFrequency": 1,
+        "NextReplenishmentDate": "2024-06-21T18:42:26.895264+08:00",
         "BillingAddress": {
           "FirstName": "Jane",
           "LastName": "Doe",
@@ -998,6 +999,7 @@ To prevent duplicate events from firing, you may wish to disable the **Send Star
         ],
         "OrderIntervalUnit": "month",
         "OrderIntervalFrequency": 1,
+        "NextReplenishmentDate": "2024-06-21T18:42:26.895264+08:00",
         "BillingAddress": {
           "FirstName": "Jane",
           "LastName": "Doe",
@@ -1025,6 +1027,113 @@ To prevent duplicate events from firing, you may wish to disable the **Send Star
           "Phone": "+15555550100"
         },
         "CancellationReason": "test cancel reason",
+        "$extra": {
+          "attribution": {
+            "agent": null,
+            "funnel": "Postman",
+            "utm_source": null,
+            "utm_medium": null,
+            "utm_campaign": null,
+            "utm_term": null,
+            "utm_content": null,
+            "gclid": null,
+            "metadata": { "attribution_meta_text": "KLAVIYO#21" },
+            "affiliate": null,
+            "subaffiliate1": null,
+            "subaffiliate2": null,
+            "subaffiliate3": null,
+            "subaffiliate4": null,
+            "subaffiliate5": null
+          }
+        }
+      },
+      "time": "2024-05-21T00:00:00+00:00",
+      "unique_id": "2503_1716249600",
+      "value": 13.0,
+      "value_currency": "USD"
+    }
+  }
+}
+```
+
+</Accordion>
+
+</Accordions>
+
+<Accordions type="single" className="shadow-sm">
+
+<Accordion title={<span className="inline-flex items-center gap-2"><CalendarClock className="size-4 text-fd-muted-foreground" /> Upcoming Subscription Renewal</span>}>
+
+**Klaviyo event:** `Upcoming Subscription Renewal`
+
+**Trigger:** `subscription.upcoming_renewal`, sent up to 72 hours before the next renewal date, once per renewal.
+
+```json
+{
+  "data": {
+    "type": "event",
+    "attributes": {
+      "profile": {
+        "data": {
+          "type": "profile",
+          "attributes": {
+            "email": "jane.doe@example.com",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "location": { "ip": "203.0.113.10" },
+            "phone_number": "+15555550100"
+          }
+        }
+      },
+      "metric": {
+        "data": { "type": "metric", "attributes": { "name": "Upcoming Subscription Renewal" } }
+      },
+      "properties": {
+        "Currency": "USD",
+        "OrderId": 2503,
+        "ItemNames": ["Example Product"],
+        "Items": [
+          {
+            "ProductID": "436",
+            "SKU": "TESTSKU26TH",
+            "ProductName": "Example Product",
+            "Quantity": 2,
+            "ItemPrice": 6.5,
+            "RowTotal": 13.0,
+            "Currency": "USD",
+            "ProductURL": "https://store.example.com/catalogue/example-product/",
+            "ImageURL": "https://store.example.com/media/products/example-product.jpg"
+          }
+        ],
+        "OrderIntervalUnit": "month",
+        "OrderIntervalFrequency": 1,
+        "NextReplenishmentDate": "2024-06-21T18:42:26.895264+08:00",
+        "BillingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
+        "ShippingAddress": {
+          "FirstName": "Jane",
+          "LastName": "Doe",
+          "Address1": "123 Example Street",
+          "Address2": "",
+          "City": "Jamestown",
+          "Region": "NY",
+          "RegionCode": "NY",
+          "Country": "US",
+          "CountryCode": "US",
+          "Zip": "14701",
+          "Phone": "+15555550100"
+        },
         "$extra": {
           "attribution": {
             "agent": null,
